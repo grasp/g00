@@ -1,0 +1,37 @@
+<%= form_for(@lstatistic) do |f| %>
+  <% if @lstatistic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lstatistic.errors.count, "error") %> prohibited this lstatistic from being saved:</h2>
+
+      <ul>
+      <% @lstatistic.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :line %><br />
+    <%= f.text_field :line %>
+  </div>
+  <div class="field">
+    <%= f.label :valid_cargo %><br />
+    <%= f.text_field :valid_cargo %>
+  </div>
+  <div class="field">
+    <%= f.label :valid_truck %><br />
+    <%= f.text_field :valid_truck %>
+  </div>
+  <div class="field">
+    <%= f.label :total_cargo %><br />
+    <%= f.text_field :total_cargo %>
+  </div>
+  <div class="field">
+    <%= f.label :total_truck %><br />
+    <%= f.text_field :total_truck %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

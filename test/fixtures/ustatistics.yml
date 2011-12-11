@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  total_stock_cargo: 1
+  total_stock_truck: 1
+  total_cargo: 1
+  total_truck: 1
+  total_line: 1
+  total_driver: 1
+  total_custermer: 1
+
+two:
+  total_stock_cargo: 1
+  total_stock_truck: 1
+  total_cargo: 1
+  total_truck: 1
+  total_line: 1
+  total_driver: 1
+  total_custermer: 1

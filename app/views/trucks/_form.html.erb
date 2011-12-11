@@ -1,0 +1,72 @@
+<%unless @stock_truck.blank? %>
+ <h3>发布车源：<%=@stock_truck.paizhao%>,<%=$truck_pinpai[@stock_truck.truck_pinpai]%>,<%=@stock_truck.truck_xinghao%>,<%=@stock_truck.dun_wei%>吨,<%=@stock_truck.che_length%>米</h3>
+<%= form_for(@truck,@stock_truck,:as=>:truck,:html => {:class => "show_form"}) do |f| %>
+  <fieldset>
+    <% if @truck.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@truck.errors.count, "错误") %> </h2>
+
+      <ul>
+      <% @truck.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="clearfix">
+ <span class="lineselector" >
+    <!-- do not change below  format -->
+     
+      <a id="from_data_load"  href="/cities/from"><%=(@truck.fcity_name.nil?||@truck.fcity_name.empty?) ?"请选择出发地":@truck.fcity_name%></a>
+      <%= f.hidden_field(:fcity_code) %>
+      <%= f.hidden_field(:fcity_name) %>
+ 
+      <a  id="to_data_load"   href="/cities/to" ><%=(@truck.tcity_name.nil?||@truck.tcity_name.empty?) ?"请选择到达地":@truck.tcity_name%></a>
+      <%= f.hidden_field(:tcity_code) %>
+      <%= f.hidden_field(:tcity_name) %>
+   <!-- do not change this format -->
+</span>
+</div>
+
+ <%=f.hidden_field(:stock_truck_id) %>
+
+ <%= f.hidden_field :paizhao%>
+ <%= f.hidden_field :dunwei%>
+ <%= f.hidden_field :length%>
+ <%= f.hidden_field :usage%>
+ <%= f.hidden_field :shape%>
+ <%= f.hidden_field :usage%>
+ <%= f.hidden_field :driver_name%>
+ <%= f.hidden_field :driver_phone%>
+ <%= f.hidden_field :car_phone%>
+ <%= f.hidden_field :status%>
+
+ <div class="clearfix">
+    <label>有效天数*</label>
+   <div class="input"> <%= f.select(:send_date,options_for_select([["一天","1"],["二天","2"],["三天","3"],["15天","15"],["30天","30"],["90天","90"]],@truck.send_date) )%> </div>
+ </div>
+ <div class="clearfix">
+    <label>回程或本地车*</label>
+   <div class="input"> <%= f.select(:huicheng,options_for_select($truck_huicheng_reverse.to_a,@truck.huicheng) ) %>  </div>
+    </div>
+    
+     <div class="clearfix">
+    <label>备注:</label>
+   <div class="input"> <%= f.text_area :comments,:rows=>5 %>  </div>
+    </div>
+  <div class="clearfix">
+    <label >联系人：</label>
+   <div class="input">  <%=(@user_contact||@user).name%>  </div>
+   </div>
+
+  <div class="clearfix">
+    <label >联系电话：</label>
+  <div class="input">   <%=(@user_contact||@user).mobilephone||"无"%>  </div>
+   </div>
+
+  <div class="actions">
+    <%= f.submit("确定",:class=>"btn primary")%>
+ </div>
+  </fieldset>
+<% end %>
+<% end %>

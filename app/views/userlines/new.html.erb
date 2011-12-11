@@ -1,0 +1,7 @@
+<h3>新建物流专线</h3>
+
+<%= render 'form' %>
+
+<p>注意:目前每个用户最多只能建10条专线,已创建(<%=Userline.where(:user_id=>session[:user_id]).count%>)</p>
+<%#= link_to 'Back', userlines_path %>
+

@@ -1,0 +1,29 @@
+<%#coding: utf-8%>
+<p>注意:该信息也是您发布的联系信息.</p>
+<p id="notice"><%= notice %></p>
+  <%unless @user_contact.nil?%>
+<table>
+<tr>
+  <td class="label_td"> <b>信息发布</b></td>
+        <td> <%= @user_contact.name || "无"%></td> 
+</tr>
+<tr>
+    <td class="label_td"> <b>移动电话</b></td>
+        <td> <%= @user_contact.mobilephone || "无"%></td> 
+  </tr>
+<tr>
+   <td class="label_td"> <b>固定电话</b></td>
+       <td>  <%= @user_contact.quhao+"-"+@user_contact.fixphone || "无"%></td> 
+  </tr>
+<tr>
+     <td class="label_td"> <b>Email</b></td>
+      <td>   <%= @user_contact.email || "无"%></td> 
+  </tr>
+<tr>
+       <td class="label_td"> <b>Qq</b></td>
+       <td> <%= @user_contact.QQ || "无"%></td> 
+  </tr>
+</table>
+<%end%>
+   
+<%=render "usercontactsnavi"%>

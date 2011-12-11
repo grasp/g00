@@ -1,0 +1,50 @@
+<table>
+  <tr>
+   <th>创建时间</th>
+   
+    <th>新增报价</th>
+    <th>新增询价</th>
+    <th>用户总数</th>
+    <th>新增联系</th>
+    <th>联系总数</th>
+
+    <th>公司总数</th>
+
+    <th>货源总数</th>
+
+    <th>车源总数</th>
+
+    <th>报价总数</th>
+
+    <th>询价总数</th>
+    <th>新增用户</th>
+    <th>新增公司</th>
+    <th>新增货源</th>
+    <th>新增车源</th>
+  </tr>
+
+  <%@all_hourdata.each do |hourdata|%>
+    <tr>
+  <td><%=hourdata.created_at%></td>
+      <td><%=hourdata.cargo_new%></td>
+      <td><%=hourdata.truck_new%></td>
+      <td><%=hourdata.user_new%></td>
+      <td><%=hourdata.company_new%></td>
+      <td><%=hourdata.quote_new%></td>
+      <td><%=hourdata.inquery_new%></td>
+      <td><%=hourdata.total_user%></td>
+      <td><%=hourdata.contact_new%></td>
+      <td><%=hourdata.total_contact%></td>
+      <td><%=hourdata.total_company%></td>
+      <td><%=hourdata.user_new%></td>
+      <td><%=hourdata.company_new%></td>
+      <td><%=hourdata.total_quote%></td>
+      <td><%=hourdata.total_cargo%></td>
+      <td><%=hourdata.total_truck%></td>
+      <td><%=hourdata.total_inquery%></td>
+    
+    </tr>
+  <%end%>
+</table>
+
+<%= will_paginate @all_hourdata,:class=>"page_navi_link"%>

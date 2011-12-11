@@ -1,0 +1,14 @@
+
+<%#coding:utf-8%>
+
+<div class="bottom_link">
+
+<a class="page_navi_link" href="/cargos/index/peiche">正在配车(<%=(@user.ustatistic.valid_cargo if @user)||0%>)</a>
+<a class="page_navi_link" href="/cargos/index/ischenjiao">正在成交</a>
+<a style="margin-right: 50px" class="page_navi_link" href="/cargos/index/chenjiao">已成交</a>
+
+  <%= link_to '继续发布货源', stock_cargos_path,:class=>"btn default" %>
+<a  class="btn default" href="/stock_cargos/new">添加新的货物</a>
+
+</div>
+

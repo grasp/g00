@@ -1,0 +1,12 @@
+<%#coding:utf-8%>
+<%= form_for(@jubao) do |f| %>
+   <%= f.hidden_field :jubaotype, :value=>@jubaotype%>
+   <%= f.hidden_field :fromip ,:value=>@fromip%>
+   <%= f.hidden_field :belongid ,:value=>@belongid%>
+  <div class="field">
+    <%#= f.label :fakereason %><br />
+    <%= f.select(:fakereason,options_for_select([["假信息","假信息"],["电话不通","电话不通"],["已经成交","已经成交"]],@jubao.fakereason) )%>
+
+    <%= f.submit("举报",:class => "btn info") %>
+  </div>
+<% end %>

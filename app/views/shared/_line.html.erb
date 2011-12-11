@@ -1,0 +1,14 @@
+<div class="field line"  style="display:inline">
+      <label class="line_from_label" >出发地:</label>
+      <a id="from_data_load"  href="/cities/from"><%=@search.fcity_name ||"请选择出发地"%></a>
+
+      <label class="line_to_label " >到达地:</label>
+      <a id="to_data_load"  href="/cities/to" ><%=@search.tcity_name ||"请选择到达地"%></a>
+
+      <%= f.hidden_field(:fcity_code) %>
+      <%= f.hidden_field(:fcity_name) %>
+      <%= f.hidden_field(:tcity_code) %>
+      <%= f.hidden_field(:tcity_name) %>
+      <%= f.hidden_field(:stype) %>
+      <%= f.hidden_field(:user_id) %>
+      </div>

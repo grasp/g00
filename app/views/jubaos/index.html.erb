@@ -1,0 +1,31 @@
+<h1>Listing jubaos</h1>
+
+<table>
+  <tr>
+    <th>Jubaotype</th>
+    <th>Belongid</th>
+    <th>Username</th>
+    <th>Fromip</th>
+    <th>Fakereason</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @jubaos.each do |jubao| %>
+  <tr>
+    <td><%= jubao.jubaotype %></td>
+    <td><%= jubao.belongid %></td>
+    <td><%= jubao.username %></td>
+    <td><%= jubao.fromip %></td>
+    <td><%= jubao.fakereason %></td>
+    <td><%= link_to 'Show', jubao %></td>
+    <td><%= link_to 'Edit', edit_jubao_path(jubao) %></td>
+    <td><%= link_to 'Destroy', jubao, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= will_paginate @jubaos ,:previous_label=>"上一页",:next_label=>"下一页"%>
+<%= link_to 'New Jubao', new_jubao_path %>

@@ -1,0 +1,13 @@
+<%#=render :template=>'line_ads/show',:layout=>nil %>
+
+<%= render '/searches/form' %>
+
+<%unless @cargos.nil?%>
+<%=render :template=>'cargos/public',:layout=>nil %>
+<%end%>
+
+<%unless @trucks.nil?%>
+<%=render :template=>'trucks/public',:layout=>nil%>
+<%end%>
+
+<%#= link_to 'Back', searches_path %>

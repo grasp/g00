@@ -1,0 +1,69 @@
+
+<%#coding:utf-8%>
+ 
+<%get_city_array(@code)%>
+
+<div class="city_selector">
+ <div class="citytitle">
+<%if params[:dir]=="from"%>
+<p style="display: inline"> 出发城市:<b id="selected_city" > <%=@selected_city_name%></b></p>
+<%end%>
+
+<%if params[:dir]=="to"%>
+<p style="display: inline;">到达城市:<b id="selected_city" ><%=@selected_city_name%></b></p>
+<%end%>
+
+<input id="selected_city_name" name="selected_city_name" value="<%=@selected_city_name%>" type="hidden"> </input>
+<input id="selected_city_code" name="selected_city_code" value="<%=@selected_city_code%>" type="hidden"> </input>
+</div>
+
+<div class="province" style="margin-left: 0px;" >
+ <div>
+  <%$raw_province_array.each do |one_row|%>
+   <div>
+    <%one_row.each do |city_key|%> 
+    <%if city_key.to_s==@province_code%>
+     <a class="selected_province city_province"  href=<%="/cities/#{params[:dir]}/#{city_key}"%>><%=$province_region[city_key.to_s]%></a>
+    <%else%>
+     <a  class="city_province" href=<%="/cities/#{params[:dir]}/#{city_key}"%>><%=$province_region[city_key.to_s]%></a>
+     <%end%> 
+    
+    <%end%>
+      </div>
+
+   
+  <%end%>
+     </div>
+  </div>
+
+<hr style="width: auto"></hr>
+
+
+<div class="region ">
+  <div style="margin-top: 10px">
+    <%@region.each do |region_code,region|%>
+
+      <div class="city_line">
+         <%if region_code==@region_code%>
+         <a class ="selected_region city_region" href=<%="/cities/#{params[:dir]}/#{region_code}"%>><%=$province_region[region_code]%></a> 
+        <%else%>
+        <a class ="city_region" href=<%="/cities/#{params[:dir]}/#{region_code}"%>><%=$province_region[region_code]%></a>   
+        <%end%>
+       <%region.each do |city_code,city_name|%>
+        <%if city_code==@city_code%>
+         <a class="selected_city city" href=<%="/cities/#{params[:dir]}/#{city_code}"%>><%=city_name%></a>
+        <%else%>
+          <a class="city" href=<%="/cities/#{params[:dir]}/#{city_code}"%>><%=city_name%></a>
+          <%end%>
+       <%end%>
+      </div>
+
+    <%end%>
+</div>
+  </div>
+
+
+
+</div>
+
+

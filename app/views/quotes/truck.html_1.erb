@@ -1,0 +1,44 @@
+<div class="form_header">
+<%=render "trucks/title"%>
+</div>
+ <%unless @quotes.blank? %>
+<table>
+  <tr>
+    <th>报价货物</th>
+    <th>出发</th>
+    <th>到达</th>
+    <th>我的报价</th>
+    <th>货物状态</th>
+    <th>车辆联系</th>
+    <th>报价时间</th>
+
+  </tr>
+
+ 
+    <% @quotes.each do |quote| %>
+      <tr>
+        <%cargo=Cargo.find(quote.cargo_id)%>
+        <td><a class="show_float" href="/cargos/show/<%=cargo.id%>">
+           <%=cargo.cate_name%>,
+           <%=cargo.cargo_weight%>吨<%=cargo.cargo_bulk||0%>方
+         </a></td>
+
+        <td><%= cargo.fcity_name %></td>
+        <td><%= cargo.tcity_name %></td>
+        <td>  <%= quote.price ||"面议"%></td>
+                <td><%=cargo.status%> </td>
+
+         <td> <a  class="show_float2"  href="/user_contacts/show/<%=cargo.user_contact_id%>"><%="#{UserContact.find(cargo.user_contact_id).name}"%></a>
+- <a  class="show_float2"  href="/companies/show/<%=cargo.company_id%>"><%="#{Company.find(cargo.company_id).name}"%></a>
+        </td>
+          
+
+        <td><%= quote.created_at.to_s.slice(5,11) %></td>
+
+         </tr>
+    <% end %>
+         </table>
+<%else%>
+<p>还没有报价</p>
+  <% end %>
+

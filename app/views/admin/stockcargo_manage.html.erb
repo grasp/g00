@@ -1,0 +1,42 @@
+
+
+
+  <%unless @stock_cargos.blank?%>
+<table>
+  <tr>
+
+    <th>货物</th>
+      <th>包装</th>
+    <th>货物大类</th>
+     <th>总计发布</th>
+     <th>状态</th>
+     <th>发布货源</th>
+  </tr>
+
+  <% @stock_cargos.each do |stock_cargo| %>
+    <tr>
+      <td>
+        <a class ="show_float" href="/stock_cargos/show/<%=stock_cargo.id.to_s%>"><%=h stock_cargo.cate_name %></a></td>
+      <td><%=h stock_cargo.package_name %></td>
+
+      <td><%=h $cargo_big_category[stock_cargo.big_category] %></td>
+      <td><%=h stock_cargo.sent_weight %>吨/<%=h stock_cargo.sent_bulk %>方</td>
+      <%if stock_cargo.status!="正在配车" %>
+       <td style="color:red;"><%=h stock_cargo.status%></td>
+      <%else%>
+       <td><%=h stock_cargo.status%></td>
+      <%end%>
+      <td><a class="link_show" href="/cargos/new/<%=stock_cargo.id.to_s%>">发布货源</a></td>
+    </tr>
+  <% end %>
+    </table>
+    <%else%>
+    <p>请先添加货物， 然后发布货源</p>
+    <% end %>
+<%= will_paginate @stock_cargos ,:class=>"page_navi_link"%>
+
+
+
+
+
+

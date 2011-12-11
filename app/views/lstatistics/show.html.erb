@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Line:</b>
+  <%= @lstatistic.line %>
+</p>
+
+<p>
+  <b>Valid cargo:</b>
+  <%= @lstatistic.valid_cargo %>
+</p>
+
+<p>
+  <b>Valid truck:</b>
+  <%= @lstatistic.valid_truck %>
+</p>
+
+<p>
+  <b>Total cargo:</b>
+  <%= @lstatistic.total_cargo %>
+</p>
+
+<p>
+  <b>Total truck:</b>
+  <%= @lstatistic.total_truck %>
+</p>
+
+
+<%= link_to 'Edit', edit_lstatistic_path(@lstatistic) %> |
+<%= link_to 'Back', lstatistics_path %>

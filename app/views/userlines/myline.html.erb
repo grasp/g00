@@ -1,0 +1,31 @@
+
+<%if  @userlines%>   
+
+<table>
+  <tr>
+
+    <th>专线城市</th>
+    <th>专线城市</th>
+    <th>发布日期</th>
+     <th>管理</th>
+  </tr>
+
+<% @userlines.each do |userline| %>
+  <tr>
+
+    <td><%= userline.fcityname %></td>
+    <td><%= userline.tcityname %></td>
+    <td><%= userline.created_at %></td>
+
+    <td><a class="btn default" href="/userlines/destroy/<%=userline.id%>">删除</a></td>
+  </tr>
+<% end %>
+</table>
+<%else%>
+<p> 没有找对对应专线.</p>
+<%end%>
+<br />
+
+
+
+<%= link_to '添加新的专线', new_userline_path %>

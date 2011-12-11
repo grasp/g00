@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Total stock cargo:</b>
+  <%= @ustatistic.total_stock_cargo %>
+</p>
+
+<p>
+  <b>Total stock truck:</b>
+  <%= @ustatistic.total_stock_truck %>
+</p>
+
+<p>
+  <b>Total cargo:</b>
+  <%= @ustatistic.total_cargo %>
+</p>
+
+<p>
+  <b>Total truck:</b>
+  <%= @ustatistic.total_truck %>
+</p>
+
+<p>
+  <b>Total line:</b>
+  <%= @ustatistic.total_line %>
+</p>
+
+<p>
+  <b>Total driver:</b>
+  <%= @ustatistic.total_driver %>
+</p>
+
+<p>
+  <b>Total custermer:</b>
+  <%= @ustatistic.total_custermer %>
+</p>
+
+
+<%= link_to 'Edit', edit_ustatistic_path(@ustatistic) %> |
+<%= link_to 'Back', ustatistics_path %>

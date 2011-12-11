@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  created_by: 1
+  name: MyString
+  about: MyText
+  contact_name: MyString
+  city_id: MyString
+  address: MyString
+  fix_phone: MyString
+  mobile_phone: MyString
+  email: MyString
+  self_che: 1
+  signed_che: 1
+  num_employ: 1
+  contact_id: 1
+  register_id: MyString
+
+two:
+  created_by: 1
+  name: MyString
+  about: MyText
+  contact_name: MyString
+  city_id: MyString
+  address: MyString
+  fix_phone: MyString
+  mobile_phone: MyString
+  email: MyString
+  self_che: 1
+  signed_che: 1
+  num_employ: 1
+  contact_id: 1
+  register_id: MyString

@@ -1,0 +1,9 @@
+<div>
+  <p>
+    <%unless @company.blank?%>
+    <%=@company.about%>
+    <%else%>
+      你还没有填写企业简介.<a href="/companies/new">马上填写 </a>
+    <%end%>
+  </p>
+</div>

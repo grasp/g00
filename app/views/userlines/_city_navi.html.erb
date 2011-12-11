@@ -1,0 +1,27 @@
+ <%#coding:utf-8%>
+<%cache("userlines_city_navi") do %>
+
+      <h3>全部专线 共<%=h Userline.count%>条</h3>
+
+    <%$sequnced_province.each do |province|%>
+        <ul class="pmenu">
+
+      <a class="citynavi" href="/userlines/city/<%=province%>"> <%=$city_code_name[province.to_s]%>(<%=get_province_userlines_from_count(province)%>-<%=get_province_userlines_to_count(province)%>)</a>
+    <%$province_tree[province.to_s].each do |regioncity|%>
+      <li class="<%="p#{province}"%>"style="display:none">
+ 
+      <a class="citynavi" href="/userlines/city/<%=regioncity%>">
+     <%=$city_code_name[regioncity]%>(<%=get_region_userlines_from_count(regioncity)%>-<%=get_region_userlines_to_count(regioncity)%>) </a>
+ 
+    </li>
+    <%end%>
+
+      </ul>
+  <%end%>
+
+
+  
+
+
+ <%end%>
+  

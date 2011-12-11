@@ -1,0 +1,12 @@
+
+<%#= render '/searches/cform' %>
+ <%#= cache(:action=>"search", :layout=>nil,:action_suffix =>"cargo#{@action_suffix}") do %>
+<%if params[:page]==1 || params[:page]==nil%>
+  <%cache "trucks_allcity_1" do%>
+<%truck_allcity_helper%>
+<%=render '/trucks/trucklist'%>
+  <%end%>
+<%else%>
+<%truck_allcity_helper%>
+<%=render '/trucks/trucklist'%>
+<%end%>

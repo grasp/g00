@@ -1,0 +1,53 @@
+<h1>Listing mail_accounts</h1>
+<a href="/mail_accounts/index/test">Test Mail Account</a>
+<table>
+  <tr>
+    <th>Address</th>
+    <th>Port</th>
+    <th>Username</th>
+       <th>fullname</th>
+    <th>Password</th>
+    <th>Authentication</th>
+    <th>Enable startttls</th>
+    <th>Today sent</th>
+    <th>Total sent</th>
+    <th>Last use</th>
+    <th>Rejected</th>
+    <th>Status</th>
+    <th>day_max</th>
+    <th>receiver_max</th>
+    <th>send_interval</th>
+    <th>fail_counter</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mail_accounts.each do |mail_account| %>
+  <tr>
+    <td><%= mail_account.address %></td>
+    <td><%= mail_account.port %></td>
+    <td><%= mail_account.username %></td>
+    <td><%= mail_account.fullname %></td>
+    <td><%= mail_account.password %></td>
+    <td><%= mail_account.authentication %></td>
+    <td><%= mail_account.enable_startttls %></td>
+    <td><%= mail_account.today_sent %></td>
+    <td><%= mail_account.total_sent %></td>
+    <td><%= mail_account.last_use %></td>
+    <td><%= mail_account.rejected %></td>
+    <td><%= mail_account.status %></td>
+    <td><%= mail_account.day_max %></td>
+    <td><%= mail_account.receiver_max %></td>
+    <td><%= mail_account.send_interval%></td>
+     <td><%= mail_account.fail_counter%></td>
+    <td><%= link_to 'Show', mail_account %></td>
+    <td><%= link_to 'Edit', edit_mail_account_path(mail_account) %></td>
+    <td><%= link_to 'Destroy', mail_account, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mail account', new_mail_account_path %>

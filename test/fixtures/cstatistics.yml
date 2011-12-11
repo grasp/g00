@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  total_baojia: 1
+  total_xunjia: 1
+  total_match: 1
+  total_click: 1
+
+two:
+  total_baojia: 1
+  total_xunjia: 1
+  total_match: 1
+  total_click: 1

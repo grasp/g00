@@ -1,0 +1,48 @@
+<%#coding=utf-8%>
+
+  <%unless @stock_trucks.blank?%>
+<table>
+
+  <tr>
+    <th>车子</th>
+    <th>状态</th>
+    <th>叫车联系人</th>
+    <th>叫车联系电话</th>
+    <th>司机</th>
+    <th>司机电话</th>
+    <th>车主</th>
+    <th>车主电话</th>
+    <th>发布车源</th>
+    <th>更新联系方式</th>
+  </tr>
+  <% @stock_trucks.each do |stock_truck| %>
+    <tr>
+      <td> <a class="show_float" href="/stock_trucks/show/<%=stock_truck.id%>"> <%= stock_truck.paizhao %>,<%= $truck_pinpai[stock_truck.truck_pinpai] %>/<%= stock_truck.truck_xinghao %>,<%=stock_truck.dun_wei%>吨,
+        <%= stock_truck.che_length %>米,
+        <%= $truck_shape[stock_truck.truck_shape] %></a>
+      </td>
+      <%if stock_truck.status!="正在配货"%>
+      <td style="color:red;"><%= stock_truck.status %></td>
+      <%else%>
+      <td><%= stock_truck.status %></td>
+      <%end%>
+
+      <td><%= stock_truck.bis_name %></td>
+      <td><%= stock_truck.bis_phone %></td>
+      <td><%= stock_truck.driver_name %></td>
+      <td><%= stock_truck.driver_phone %></td>
+      <td><%= stock_truck.owner_name %></td>
+      <td><%= stock_truck.owner_phone %></td>
+      <td><a class="link_show" href="/trucks/new/<%=stock_truck.id%>">发布车源</a></td>
+      <td><a class="show_float" href="/stock_trucks/<%=stock_truck.id%>/edit">更新</a></td>
+    </tr>
+  <% end %>
+    </table>
+    <%else%>
+    <p>请先添加车子，然后发布车源信息.</p>
+    <%end%>
+
+<%= will_paginate @stock_trucks ,:class=>"page_navi_link"%>
+<br />
+
+

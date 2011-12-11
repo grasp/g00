@@ -1,0 +1,59 @@
+<div id="cargo_show" >
+  <%if session[:user_id]%>
+    <%cache "cargoshow"+params[:id] do%>
+      <%cargo_show_helper%>
+      <%unless @contact%>
+        <table >
+          <tr>
+            <th>组货方式</th>
+            <th>货物大类</th>
+            <th>货物包装</th>
+            <th>联系人</th>
+            <th>联系方式</th>
+          </tr>
+          <tr>
+            <td> <%= $cargo_option[@cargo.cargo_zuhuo]%> </td>
+            <td> <%=$cargo_big_category[@stock_cargo.big_category]%></td>
+            <td> <%=@stock_cargo.package_name%></td>
+            <%@user=User.find(@cargo.user_id)%>
+            <td>  <%= @user.name %> </td>
+            <td>   <%if @user.user_contact_id%>
+                <%usercontact=UserContact.find(@user.user_contact_id)%>
+                <%= usercontact.mobilephone %>
+                <%= usercontact.quhao+"-"+usercontact.fixphone %>
+              <%else%>
+                <%=@user.mobilephone%>
+              <%end%>
+            </td>
+          </tr>
+        </table>
+        <p> 
+          备注:<%=@cargo.comments  %>
+        </p>
+      <%else%>
+        <div class="span10">
+          <%=@contact%>
+        </div>
+        <p>信息来自<%=@cargo[:from_site]%>物流网,网络信息有风险，请注意交易安全.</p>     
+      <%end%>
+
+      <%=render "jubaos/jubaoform"%>
+    <%end #end of cache%> 
+    <%if session[:user_id]%>
+      <div>
+        <a class="btn default cargo_myself" href="/cargos/send_cargo_myself/<%=@cargo.id%>"> 把该货源信息发送到自己邮箱</a>
+        <span class="help_inline" style="display:none">请稍等5秒</span>
+      </div>
+    <%=render "cargos/new_send_cargo_friend"%>
+     <span class="help_inline mail_result" style="display:none">请稍等5秒</span>
+    <%end%>
+
+  <%else%>
+    <div class="span4">
+      <p>登录后可见联系方式.</p>
+      <span><a class="btn primary large" href="/users/login">登录</a>
+        <a  style="margin: 10px 10px 10px 35px;" class="btn primary large" href="users/new">注册</a>
+      </span>
+    </div>
+  </div>
+<%end%>

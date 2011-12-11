@@ -1,0 +1,57 @@
+
+<p>
+  not_sented=<%=@not_sent%>
+  sent_one=<%=@sent_one%>
+  sent_two=<%=@sent_two%>
+  sent_three_and_above=<%= @sent_three_and_above%>
+</p>
+<h1>Listing lib_companies<%=LibCompany.count%></h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>Phone</th>
+    <th>Contact</th>
+    <th>Fax</th>
+    <th>Msn</th>
+    <th>Qq</th>
+    <th>Intro</th>
+    <th>City</th>
+    <th>Addr</th>
+    <th>from_site</th>
+    <th>Last Sent Time</th>
+    <th>sent_counter</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @lib_companies.each do |lib_company| %>
+    <tr>
+      <td><%= lib_company.name %></td>
+      <td><%= lib_company.email %></td>
+      <td><%= lib_company.mobile %></td>
+      <td><%= lib_company.phone %></td>
+      <td><%= lib_company.contact %></td>
+      <td><%= lib_company.fax %></td>
+      <td><%= lib_company.msn %></td>
+      <td><%= lib_company.qq %></td>
+      <td><%= lib_company.intro %></td>
+      <td><%= lib_company.city %></td>
+      <td><%= lib_company.addr %></td>
+      <td><%= lib_company.from_site %></td>
+      <td><%= lib_company.last_sent_time %></td>
+      <td><%= lib_company.sent_counter %></td>
+      <td><%#= link_to 'Show', lib_company %></td>
+      <td><%#= link_to 'Edit', edit_lib_company_path(lib_company) %></td>
+      <td><%#= link_to 'Destroy', lib_company, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%#= link_to 'New Lib company', new_lib_company_path %>
+<%= will_paginate @lib_companies ,:class=>"page_navi_link"%>

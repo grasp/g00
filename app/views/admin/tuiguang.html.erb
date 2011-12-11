@@ -1,0 +1,121 @@
+<h2><%=@company_name%>,你好！</h3>
+
+
+<div class="user_announce"> 
+  <p> <h3> <a href="http://w090.com"> 物流零距离-欢迎你的访问！</a></h3> </p> 
+</div>
+
+<h2>货源信息</h2>
+<div>
+  <table>    
+    <th>货物</th>      
+    <th>出发地</th>
+    <th>到达地</th>
+    <th>重量</th>
+    <th>有效期</th>      
+    <th>发布日期</th>
+    <th>货源状态</th>    
+    <th>车主操作</th>
+
+    <% unless @cargos.blank? %>
+      <% @cargos.each do |cargo| %>
+        <%unless cargo.nil? %>
+          <tr>
+            <td ><a class ="show_float" href="http://www.w090.com">
+                <%= cargo.cate_name ||"未知货物"%></a> </td>
+            <td ><%= cargo.fcity_name %></td>
+            <td ><%= cargo.tcity_name %></td>
+            <td><%= cargo.cargo_weight || "0" %>吨/<%= cargo.cargo_bulk ||0 %>方</td>
+            <td><%= cargo.send_date %>天</td>
+            <!--
+            <td><%= cargo.package_name %></td>        
+            <td><%=h $cargo_big_category[cargo.big_category]%></td>
+            <td><%= h $cargo_option[cargo.cargo_zuhuo] %></td>
+    
+            <td><%=cargo.updated_at.localtime.to_s.slice(0,19) unless cargo.updated_at.nil? %></td>       -->
+            <td><%=cargo.created_at.localtime.to_s.slice(0,19) unless cargo.updated_at.nil? %></td>
+            <td><%=cargo.status %></td>
+            <td>
+              <%if cargo[:from_site]=="local"%>
+                登录后报价
+              <%else%>
+                其他
+              <%end%>
+            </td>               
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  <%else%>
+    <p>
+      不好意思，没有对应的货源.
+    </p>
+
+  <%end %>
+</table>
+</div>
+
+<div>
+  <h2>车源信息</h2>
+  <table>
+
+    <tr>
+      <th>车辆</th>   
+    <div class="line"  style="display:inline">
+      <!-- do not change below  format -->
+      <!-- <label style="margin-left:10px;" class="line_from_label" >出发地:</label>-->
+      <th>
+        出发地
+      </th>
+      <!--  <label style="margin-left:50px;" class="line_to_label " >到达地:</label>-->
+      <th>
+        到达地
+      </th>
+      <!-- do not change this format -->
+    </div>
+    <th>回程</th>
+    <!--  <th>公司</th>-->
+    <th>有效期</th>
+    <th>发布时间</th>
+    <th>状态</th>
+    <th>货主操作</th>
+
+    </tr>
+
+    <% unless @trucks.blank? %>
+      <% @trucks.each do |truck|%>
+        <%unless truck.blank? %>
+          <tr>
+            <td><a class="show_float" href="http://www.w090.com">
+                <%=truck.paizhao%>,<%=truck.dunwei%>吨
+                <%=truck.length%>米,<%=$truck_shape[truck.shape]%>
+              </a>
+            </td>
+            <td><%= truck.fcity_name %></td>
+            <td><%= truck.tcity_name %></td>
+
+            <td><%=$truck_huicheng[truck.huicheng]%></td>
+
+            <td><%= truck.send_date %>天</td>
+          <!--  <td><%= truck.updated_at.localtime.to_s.slice(0,19) %></td>-->
+            <td><%= truck.created_at.localtime.to_s.slice(0,19) %></td>
+            <td><%= truck.status %></td>
+            <td>
+              <%if truck[:from_site]=="local"%>
+                登录后报价
+              <%else%>
+                其他
+              <%end%>
+            </td>
+
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  <%else%>
+    <p>没有找到对应车源</p>
+  <% end %>
+</div>
+
+
+<p style="margin-left:300px;">-物流零距离开发团队倾情奉献</p>

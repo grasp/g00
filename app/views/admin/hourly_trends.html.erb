@@ -1,0 +1,57 @@
+<%#coding:utf-8%>
+<div>
+  <table>
+    <tbody>
+      <tr>
+        <td><a href="/admin/hourly_trends/day/<%=params[:day]%>/table/cargo">货源趋势</a>  </td>
+        <td><a href="/admin/hourly_trends/day/<%=params[:day]%>/table/cargo/field/from_site/condition/equal/value/tf56">tf56趋势</a>  </td>
+        <td><a href="/admin/hourly_trends/day/<%=params[:day]%>/table/cargo/field/from_site/condition/equal/value/quzhou">quzhou趋势</a>  </td>
+        <td><a href="/admin/hourly_trends/day/<%=params[:day]%>/table/cargo/field/from_site/condition/equal/value/local">本地趋势</a>  </td>
+      </tr>
+      <tr>
+        <td><a href="/admin/hourly_trends/day/<%=params[:day]%>/table/truck">车源趋势</a> </td>
+        <td><a href="/admin/hourly_trends/day/<%=params[:day]%>/table/truck/field/from_site/condition/equal/value/tf56">tf56趋势</a>  </td>
+        <td><a href="/admin/hourly_trends/day/<%=params[:day]%>/table/truck/field/from_site/condition/equal/value/quzhou">quzhou趋势</a>  </td>
+        <td><a href="/admin/hourly_trends/day/<%=params[:day]%>/table/truck/field/from_site/condition/equal/value/local">本地趋势</a>  </td>
+      </tr>
+      <tr>
+        <td><a href="/admin/hourly_trends/day/<%=params[:day]%>/table/user">用户趋势</a> </td>
+        <td><a href="/admin/hourly_trends/day/<%=params[:day]%>/table/company">公司趋势</a> </td>
+        <td><a href="/admin/hourly_trends/day/<%=params[:day]%>/table/stockcargo">货物趋势</a> </td>
+        <td><a href="/admin/hourly_trends/day/<%=params[:day]%>/table/stocktruck">车辆趋势</a> </td>
+        <td><a href="/admin/hourly_trends/day/<%=params[:day]%>/table/quote">报价趋势</a> </td>
+        <td><a href="/admin/hourly_trends/day/<%=params[:day]%>/table/inquery">询价趋势</a> </td>
+      </tr>
+      <tr>
+        <%10.downto(1).each do |i|%>
+     <td><a class="navi_scan_link" href="/admin/hourly_trends/day/<%=(Time.now-i*86400).to_s.slice(0,10)%>/table/cargo"><%=i%>天前趋势</a></td>
+   <%end%>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div style ="text-align: left;"class="trends">
+  <h2><%=@title%> Hourly Trends on Day <%=params[:day]%></h2>
+
+  <table>
+
+    <tr>
+
+      <th>Day</th>
+      <th>count</th>
+
+    </tr>
+
+    <% @trends.each do |trend|  %>
+      <tr>
+        <td><%=trend[0]%></td>
+        <%lenth=800*((trend[1].to_f)/(@max.to_f)) if @max>0%>
+        <td style ="text-align: left;" ><span style="display:inline-block;text-align: left; width:<%=(lenth||200).to_i%>px;background-color:#ac60e3;"><%=trend[1]%></span></td>
+      </tr>
+    <% end %>
+  </table>
+
+
+<%#= will_paginate @trends ,:class=>"page_navi_link"%>
+
+</div>

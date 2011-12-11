@@ -1,0 +1,88 @@
+ <h3><%=@stock_cargo.cate_name%>,<%=@stock_cargo.package_name%>包装, 货源发布</h3>
+<%= form_for(@cargo,@stock_cargo,:as=>:cargo,:html => {:class => "show_form"}) do |f| %>
+ <fieldset>
+  <% if @cargo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cargo.errors.count, "错误") %></h2>
+      <ul>
+        <% @cargo.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    
+  <span class="lineselector">
+     
+  <!-- do not change below  format -->
+
+      <a id="from_data_load" style="display:inline;" href="/cities/from"><%=(@cargo.fcity_name.nil?||@cargo.fcity_name.empty?) ?"请选择出发地":@cargo.fcity_name%></a>
+      <%= f.hidden_field(:fcity_code) %>
+      <%= f.hidden_field(:fcity_name) %>
+
+       <a id="to_data_load" style="display:inline;" href="/cities/to" ><%=(@cargo.tcity_name.nil?||@cargo.tcity_name.empty?) ?"请选择到达地":@cargo.tcity_name%></a>
+      <%= f.hidden_field(:tcity_code) %>
+      <%= f.hidden_field(:tcity_name) %>
+   
+  <!-- do not change this format -->
+</span>
+    
+
+  <%= f.hidden_field(:cate_name, :value=>@stock_cargo.cate_name) %>
+  <%= f.hidden_field(:package_name, :value=>@stock_cargo.package_name) %>
+  <%= f.hidden_field(:big_category, :value=>@stock_cargo.big_category) %>
+
+   <%= f.hidden_field :status%>
+    <div class="clearfix">
+      <label >重量(吨)*</label>
+      <div class="input">  <%= f.text_field :cargo_weight %> </div>
+     </div>
+    
+    <div class="clearfix">
+      <label>体积(方)</label>
+     <div class="input">   <%= f.text_field :cargo_bulk %> </div>
+     </div>
+    
+    <div class="clearfix">
+     <label>有效天数*</label>
+  <div class="input">     <%= f.select(:send_date,options_for_select([["一天","1"],["当天","0"],["二天","2"],["15天","15"],["一个月","30"],["三个月","90"]],@cargo.send_date) )%> </div>
+     </div>
+    <div class="clearfix">
+     <label for="cargo_option">组货方式*：</label>
+  <div class="input">     <%= f.select(:cargo_zuhuo,options_for_select($cargo_option_reverse.to_a,@cargo.cargo_zuhuo) )%></div>
+     </div>
+
+    <div class="clearfix">
+     <label>自有货源</label>
+  <div class="input">    <%= f.select(:is_self,options_for_select([["自有货源","自有货源"],["委托货源","委托货源"],["其他货源","其他货源"]],@cargo.is_self) )%></div>
+     </div>
+   
+     <div class="clearfix">
+    <label >备注：</label>
+   <div class="input"> <%=f.text_area :comments,:rows=>5 %> </div>
+
+   </div>
+
+  <div class="clearfix">
+    <label >联系人：</label>
+     <%=(@user_contact||@user).name%>    
+   </div>
+
+  <div class="clearfix">
+    <label >联系电话：</label>
+  <%=(@user_contact||@user).mobilephone||"无"%>     
+   </div>
+    <%= f.hidden_field :stock_cargo_id%>
+    <div class="actions">
+       <%= f.submit("确 定",:class=>"btn primary large") %>
+    </div>   
+
+
+<p>*号为必填项</p>
+</fieldset>
+  <% end %>
+
+<div>
+<p id="notice"><%= notice %></p>
+</div>

@@ -1,0 +1,9 @@
+<%if params[:page]==1 ||params[:page]==nil%>
+<%cache "cargo_city_#{params[:city_id]}_#{params[:citytype]}" do %>
+<%cargo_city_helper%>
+<%=render '/cargos/cargolist'%>
+<%end%>
+<%else%>
+<%cargo_city_helper%>
+<%=render '/cargos/cargolist'%>
+<%end%>

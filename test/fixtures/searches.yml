@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fcity_code: MyString
+  fcity_name: MyString
+  tcity_code: MyString
+  tcity_name: MyString
+  stype: MyString
+  user_id: 1
+
+two:
+  fcity_code: MyString
+  fcity_name: MyString
+  tcity_code: MyString
+  tcity_name: MyString
+  stype: MyString
+  user_id: 1

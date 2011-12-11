@@ -1,0 +1,36 @@
+<%=form_for(@search,:as=>:search,:url=>"/trucks/search",:html=>{:class=>"show_form"},:method=>"get") do |f| %>
+  <% if @search.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@search.errors.count, "error") %> prohibited this search from being saved:</h2>
+
+      <ul>
+      <% @search.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="line"  style="display:inline">
+
+  <!-- do not change below  format -->
+      <label class="line_from_label" >出发地:</label>
+      <a id="from_data_load"  href="/cities/from"><%=@search.fcity_name ||"全国"%></a>
+      <%= f.hidden_field(:fcity_code) %>
+      <%= f.hidden_field(:fcity_name) %>
+      <label style="margin-left:30px;" class="line_to_label " >到达地:</label>
+      <a  id="to_data_load"  href="/cities/to" ><%=@search.tcity_name ||"全国"%></a>
+      <%= f.hidden_field(:tcity_code) %>
+      <%= f.hidden_field(:tcity_name) %>
+  <!-- do not change this format -->
+
+      <%= f.hidden_field(:stype) %>
+
+</div>
+
+  <div class="actions" style="display:inline">
+    <%= f.submit("搜索")%>
+
+  </div>
+
+<% end %>

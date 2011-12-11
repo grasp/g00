@@ -1,0 +1,39 @@
+<h1>Listing citystatistics</h1>
+
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Cargo</th>
+    <th>Truck</th>
+    <th>Stock cargo</th>
+    <th>Stock truck</th>
+    <th>User</th>
+    <th>Company</th>
+    <th>Line</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @citystatistics.each do |citystatistic| %>
+  <tr>
+    <td><%= citystatistic.code %></td>
+    <td><%= citystatistic.name %></td>
+    <td><%= citystatistic.cargo %></td>
+    <td><%= citystatistic.truck %></td>
+    <td><%= citystatistic.stock_cargo %></td>
+    <td><%= citystatistic.stock_truck %></td>
+    <td><%= citystatistic.user %></td>
+    <td><%= citystatistic.company %></td>
+    <td><%= citystatistic.line %></td>
+    <td><%= link_to 'Show', citystatistic %></td>
+    <td><%= link_to 'Edit', edit_citystatistic_path(citystatistic) %></td>
+    <td><%= link_to 'Destroy', citystatistic, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Citystatistic', new_citystatistic_path %>

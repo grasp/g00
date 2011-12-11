@@ -1,0 +1,12 @@
+<%if params[:concern_type]=="city"%>
+<%= render 'cityform' %>
+<%elsif params[:concern_type]=="line"%>
+<%= render 'lineform' %>
+<%elsif params[:concern_type]=="phone"%>
+<%= render 'phoneform' %>
+<%elsif params[:concern_type]=="user"%>
+<%= render 'userform' %>
+<%else%>
+<p>  无效操作，对不起.</p>
+<%end%>
+

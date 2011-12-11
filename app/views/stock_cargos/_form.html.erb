@@ -1,0 +1,50 @@
+<%= form_for(@stock_cargo,:as=>:stockcargo,:html => {:class => "show_form"}) do |f| %>
+<fieldset>
+  <% if  @stock_cargo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stock_cargo.errors.count, "error") %> prohibited this stock_cargo from being saved:</h2>
+
+      <ul>
+      <% @stock_cargo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="clearfix">
+      <label>货物大类*:</label>
+     <%= f.select(:big_category,options_for_select($cargo_big_category_reverse.to_a,@stock_cargo.big_category) ) %>
+    </div>
+
+ <div class="clearfix">
+      <label>货物类别*:</label>
+      <a class="data_load"  style="width:150px;display:inline-block" href="/cargo_categories/show/<%=get_cate_code%>" ><%=get_cate_name%> </a>
+      <span class="data_list" style="display:none"></span>
+      <%= f.hidden_field(:cate_code, :value=>@stock_cargo.cate_code) %>
+      <%= f.hidden_field(:cate_name, :value=>@stock_cargo.cate_name) %>
+    </div>
+
+ <div class="clearfix">
+      <label>货物包装*:</label>
+      <a class="data_load" style="width:150px;display:inline-block" href="/package_categories/show/<%=get_package_code%>"><%=get_package_name%></a>
+      <span class="data_list" style="display:none">  </span>
+        <%= f.hidden_field(:package_code, :value=>@stock_cargo.package_code) %>
+        <%= f.hidden_field(:package_name, :value=>@stock_cargo.package_name) %>
+   </div>
+
+
+
+
+<div>
+ <%= f.hidden_field(:user_id) %>
+
+ <%= f.hidden_field(:company_id) %>
+ <%= f.hidden_field(:status) %>
+</div>
+  <div class="actions">
+    <%= f.submit(:value=>"确定",:class=>"btn primary") %>
+  </div>
+<p>*号为必填项</p>
+</fieldset>
+<% end %>

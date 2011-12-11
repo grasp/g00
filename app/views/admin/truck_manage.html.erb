@@ -1,0 +1,59 @@
+<%#coding:utf-8%>
+ <% unless @trucks.blank? %>
+<table>
+  <tr>
+    <th>车辆</th>
+    <th>出发</th>
+    <th>到达</th>
+    <th>有效天数</th>
+    <th>发布日期</th>
+    <!--  <th>公司</th>-->
+    <th>车源状态</th>
+    <th>货主询价/我已报价</th>
+    <th>匹配货源</th>
+</tr>
+
+    <% @trucks.each do |truck|%>
+      <%unless truck.nil?%>
+        <tr>
+        <td>  <a class="show_float" href="/trucks/show/<%=truck.id%>">
+              <%=truck.paizhao%>,<%=truck.dunwei%>吨,
+              <%=truck.length%>米,<%=$truck_shape[truck.shape]%>
+            </a></td>
+
+          <td><%= truck.fcity_name  %></td>
+          <td><%= truck.tcity_name  %></td>
+          <td><%= truck.send_date %>天</td>
+          <td><%#= Time.parse(truck.created_at.to_s).to_s.slice(5,11) %></td>
+
+               <%if truck.status!="正在配货"%>
+                   <%if truck.status=="正在成交"%>
+                 <td style="color:red;"><%=truck.status%>,请确认</td>
+                  <%else%>
+                 <td style="color:red;"><%=truck.status%></td>
+                 <%end%>
+               <%else%>
+                 <td><%=truck.status%></td>
+                <%end%>
+
+          <td><a class="link_show" href="/trucks/quoteinquery/<%=truck.id%>"><%= truck.total_xunjia||0 %>条询价/<%= truck.total_baojia||0 %>条报价</a></td>
+
+          <%if truck.status=="正在配货"%>
+            <td><a class="quick_match" href="/cargos/search/<%=truck.fcity_code%>/<%=truck.tcity_code%>/1">货源速配</a></td>
+          <%else%>
+           <td><%=truck.status%></td>
+
+          <%end%>
+
+    <!--   <td><a class="show_float" href="/trucks/<%=truck.id%>/edit">编辑</a>|<a href="/trucks/destroy/<%=truck.id%>">删除</a></td> -->
+
+        </tr>
+      <% end %>
+    <% end %>
+        </table>
+    <%else%>
+        <p>没有对应车源,或者你还没有发布任何车源.</p>
+  <%end %>
+
+
+<%= will_paginate @trucks ,:class=>"page_navi_link"%>

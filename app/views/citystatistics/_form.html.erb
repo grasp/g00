@@ -1,0 +1,53 @@
+<%= form_for(@citystatistic) do |f| %>
+  <% if @citystatistic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@citystatistic.errors.count, "error") %> prohibited this citystatistic from being saved:</h2>
+
+      <ul>
+      <% @citystatistic.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :cargo %><br />
+    <%= f.text_field :cargo %>
+  </div>
+  <div class="field">
+    <%= f.label :truck %><br />
+    <%= f.text_field :truck %>
+  </div>
+  <div class="field">
+    <%= f.label :stock_cargo %><br />
+    <%= f.text_field :stock_cargo %>
+  </div>
+  <div class="field">
+    <%= f.label :stock_truck %><br />
+    <%= f.text_field :stock_truck %>
+  </div>
+  <div class="field">
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :company %><br />
+    <%= f.text_field :company %>
+  </div>
+  <div class="field">
+    <%= f.label :line %><br />
+    <%= f.text_field :line %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

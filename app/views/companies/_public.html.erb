@@ -1,0 +1,71 @@
+<div class="companyshow">
+<div id="notice"><%= notice %></div>
+
+<div>
+  <b>公司名称:</b>
+  <%= @company.name %>
+</div>
+
+<div class="companyabout">
+  <b>公司介绍:</b>
+  <p> <%= @company.about %></p>
+</div>
+
+<div>
+  <b>公司联系人:</b>
+  <%= @company.contact_name %>
+</div>
+
+<div>
+  <b>所在城市:</b>
+  <%= @company.city_name %>
+</div>
+
+
+<div>
+  <b>公司地址:</b>
+  <%= @company.address %>
+</div>
+
+<div>
+  <b>固定电话:</b>
+  <%= @company.fix_phone %>
+</div>
+
+<div>
+  <b>移动电话:</b>
+  <%= @company.mobile_phone %>
+</div>
+
+<div>
+  <b>公司邮件:</b>
+  <%= @company.email %>
+</div>
+
+<div>
+  <b>自有车辆:</b>
+  <%= @company.self_che %>
+</div>
+
+<div>
+  <b>挂靠车辆:</b>
+  <%= @company.signed_che %>
+</div>
+
+<div>
+  <b>员工数量:</b>
+  <%= @company.num_employ %>
+</div>
+
+</div>
+
+
+<div >
+  <b>该信息由
+<%= User.find(@company.user_id).name %>
+
+ 创建</b>
+</div>
+
+<%#= link_to 'Edit', edit_company_path(@company) %> |
+<%#= link_to 'Back', companies_path %>

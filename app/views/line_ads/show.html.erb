@@ -1,0 +1,24 @@
+<div class="ads">
+  <%unless @line_ad.nil?%>
+<a href=<%=@line_ad.url%>>
+
+  <%= @line_ad.fcity_name %>
+     <==>
+  <%= @line_ad.tcity_name %>
+ 
+  <%= @line_ad.company_name %>
+
+  <%= @line_ad.one_word %>
+
+  <%= @line_ad.contact_phone %>
+</a>
+  <%end%>
+</div>
+
+
+
+
+
+
+<%#= link_to 'Edit', edit_line_ad_path(@line_ad) %> 
+<%#= link_to 'Back', line_ads_path %>

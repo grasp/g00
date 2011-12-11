@@ -1,0 +1,66 @@
+
+
+<div class="show_stock_cargo">
+  <table>
+    <tr>
+      <th>货物名称:</th>
+      <th>包装:</th>
+      <th>货物大类:</th>
+      <th>已发货(吨):</th>
+      <th>已发货(方):</th>
+    </tr>
+<td>
+  <%= @stock_cargo.cate_name %>
+</td>
+<td>
+  <%= @stock_cargo.package_name %>
+</td>
+<td> 
+  <%= $cargo_big_category[@stock_cargo.big_category]%>
+</td>
+<td>
+
+  <%= @stock_cargo.sent_weight %>
+</td>
+
+<td>
+
+  <%= @stock_cargo.sent_bulk %>
+</td>
+<!--
+
+<td>
+  <b>货物属性:</b>
+  <%= @stock_cargo.cargo_property %>
+</td>
+
+<td>
+  <b>货物状态:</b>
+  <%= @stock_cargo.stock_status %>
+</td>
+
+<td>
+  <b>库存重量:</b>
+  <%= @stock_cargo.ku_weight %>
+</td>
+
+<td>
+  <b>库存体积:</b>
+  <%= @stock_cargo.ku_bulk %>
+</td>
+-->
+
+
+
+<!--
+
+<%#= link_to '编辑', edit_stock_cargo_path(@stock_cargo),:class=>"page_navi_link"%> |
+<%#= link_to '全部货物', stock_cargos_path ,:class=>"page_navi_link"%>|
+
+<%#= link_to '发布货源',:controller => "cargos",:action=>"new",:id=>@stock_cargo.id,:class=>"page_navi_link"%> |
+<%#= link_to '全部历史货源',:controller => "cargos",:action=>"list",:id=>@stock_cargo.id,:class=>"page_navi_link"%> |
+-->
+</table>
+</div>
+
+<p id="notice"><%= notice %></td>

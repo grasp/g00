@@ -1,0 +1,12 @@
+<div class="pw_forget">
+  <p>尊敬的用户 <%=@user.name%>,您好！</p>
+  <p style="margin-left:20px;">您在<a href="w090.com">物流零距离</a>上注册了一个用户, 此封邮件为忘记密码重置邮件.</p>
+  
+  <p>点击下面的链接重置您的密码：
+    
+    <a href="http://w090.com/users/change_password_confirm/<%=@user.activate%>"> http://w090.com/users/change_password_confirm/<%=@user.activate%></a>
+    
+    </p>
+  
+  <p style="margin-left:30px;"> - 物流零距离管理员</p>
+</div>

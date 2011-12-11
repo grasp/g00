@@ -1,0 +1,12 @@
+<h1><%=@stock_cargo.cate_name%>的全部货源</h1>
+
+<%= render 'list' %>
+
+
+<p>
+  <%= link_to '请到这里发布货源', stock_cargos_path,:class=>"page_navi_link" %>
+|
+  <%= link_to '全部货物', stock_cargos_path,:class=>"page_navi_link" %>
+|
+  <%= link_to '全部货源', cargos_path,:class=>"page_navi_link" %>
+</p>

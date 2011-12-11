@@ -1,0 +1,73 @@
+<%= form_for(@mail_account) do |f| %>
+  <% if @mail_account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mail_account.errors.count, "error") %> prohibited this mail_account from being saved:</h2>
+
+      <ul>
+      <% @mail_account.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :port %><br />
+    <%= f.text_field :port %>
+  </div>
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.text_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :authentication %><br />
+    <%= f.text_field :authentication %>
+  </div>
+  <div class="field">
+    <%= f.label :enable_startttls %><br />
+    <%= f.text_field :enable_startttls %>
+  </div>
+  <div class="field">
+    <%= f.label :today_sent %><br />
+    <%= f.text_field :today_sent %>
+  </div>
+  <div class="field">
+    <%= f.label :total_sent %><br />
+    <%= f.text_field :total_sent %>
+  </div>
+  <div class="field">
+    <%= f.label :last_use %><br />
+    <%= f.text_field :last_use %>
+  </div>
+  <div class="field">
+    <%= f.label :rejected %><br />
+    <%= f.text_field :rejected %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :day_max %><br />
+    <%= f.text_field :day_max %>
+  </div>
+  <div class="field">
+    <%= f.label :receiver_max %><br />
+    <%= f.text_field :receiver_max %>
+  </div>
+  <div class="field">
+    <%= f.label :send_interval %><br />
+    <%= f.text_field :send_interval %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,46 @@
+<%#coding: utf-8%>
+<%cache("yellowpage") do %>
+  <%yellowpage_helper%>
+  <%=render "companies/city_search"%>
+  <div class="yellowpage">
+    <table class="yellowtable zebra-striped">
+      <h3>最新加入</h3>
+      <tbody>
+        <%@latest_array.each do |cblock|%>
+          <tr class="tr-yellow">
+            <%cblock.each do |company|%>
+              <td class="td-yellow span5">
+                <a  target="_blank" href="/companies/show/<%=company.id%>"> <%=company.name %></a>
+              </td>
+            <%end%>
+          </tr>
+
+        <%end%>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="yellowpage">
+
+    <table class="yellowtable zebra-striped">
+
+      <h3 class="yheader">站内企业</h3>
+
+      <tbody>
+        <%@companies_array.each do |cblock|%>
+          <tr class="tr-yellow">
+            <%cblock.each do |company|%>
+              <td class="td-yellow span5">        
+                <a target="_blank" href="/companies/show/<%=company.id%>"> <%=company.name %></a>   
+              </td>
+            <%end%>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+
+
+  </div>
+
+<%end%>

@@ -1,0 +1,31 @@
+<div  style="width:500px;">
+
+
+<div  class=" pull-right list_close"><a class="btn success" id="list_closep" href="">确定</a></div>
+
+<div style="margin: 2px; width:40%; float:left;">
+      <ul>包装大类
+    <%$package_category_one.each do |code,name|  %>
+        <li>
+        <%= link_to name,"/package_categories/show/#{code}"%>
+       </li>
+    <%end%>
+ </ul>
+</div>
+
+<div style="margin: 2px; width:50%; float:left;">
+  <ul>包装小类
+    <%  unless @package_category_two.nil?%>
+      <% @package_category_two.each do |code,name|  %>
+        <li>
+          <%= link_to name,"/package_categories/show/#{code}"%>
+        </li>
+      <%end%>
+    <%end%>
+</ul>
+</div>
+
+<p id="notice"><%= notice %></p>
+</div>
+
+

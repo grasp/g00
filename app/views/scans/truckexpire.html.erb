@@ -1,0 +1,26 @@
+<h1>Listing scans</h1>
+
+<h3>更新如下线路</h3>
+<%unless  @cargolines.blank?%>
+<table>
+  <tr>
+    <th>出发</th>
+    <th>到达</th>    
+  </tr>
+
+<% @cargolines.each do |line| %>
+  <tr>
+    <td><%= line[0] %></td>
+    <td><%= line[1] %></td>
+  </tr>
+ <% end %>
+
+</table>
+<%#= will_paginate @cargolines ,:class=>"page_navi_link"%>
+<%else%>
+<p>没有线路货源可以更新</p>
+<%end%>
+
+<br />
+
+<%= link_to 'New Scan', new_scan_path %>

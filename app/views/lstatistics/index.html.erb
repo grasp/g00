@@ -1,0 +1,31 @@
+<h1>Listing lstatistics</h1>
+
+<table>
+  <tr>
+    <th>Line</th>
+    <th>Valid cargo</th>
+    <th>Valid truck</th>
+    <th>Total cargo</th>
+    <th>Total truck</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lstatistics.each do |lstatistic| %>
+  <tr>
+    <td><%= lstatistic.line %></td>
+    <td><%= lstatistic.valid_cargo %></td>
+    <td><%= lstatistic.valid_truck %></td>
+    <td><%= lstatistic.total_cargo %></td>
+    <td><%= lstatistic.total_truck %></td>
+    <td><%= link_to 'Show', lstatistic %></td>
+    <td><%= link_to 'Edit', edit_lstatistic_path(lstatistic) %></td>
+    <td><%= link_to 'Destroy', lstatistic, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lstatistic', new_lstatistic_path %>

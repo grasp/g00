@@ -1,0 +1,43 @@
+<%#coding:utf-8%>
+<%if @mycargo.size>0%>
+  <%= form_for(@inquery,:as=>:inquery,:html => {:class => "show_form"}) do |f| %>
+    <fieldset>
+      <% if @inquery.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@inquery.errors.count, "error") %> prohibited this inquery from being saved:</h2>
+
+          <ul>
+            <% @inquery.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="clearfix">
+        <%= f.label :出价 %>
+        <div class="input">     <%= f.text_field :price %>元</div> 
+      </div>
+
+      <div class="clearfix">
+        <label>面议</label>
+        <div class="input">   <input  id="mianyi" name="mianyi" type="checkbox"></input></div> 
+      </div>
+
+      <div class="clearfix">
+        <%= f.label :我的货物及其线路 %>
+        <div class="input"> <%= f.select(:cargo_id,options_for_select(@mycargo.to_a,@inquery.cargo_id)) %></div> 
+
+
+      </div>
+      <div class="actions">
+        <%= f.submit("询价",:class=>"btn primary") %>  
+      </div>
+        <%= f.hidden_field :truck_id %>
+        <%= f.hidden_field :user_id %>
+
+    </fieldset>
+  <% end %>
+<%else%>
+  <p>你不能询价， 你没有正在配车的货源</p>
+<%end%>

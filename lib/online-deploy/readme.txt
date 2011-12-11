@@ -1,0 +1,1 @@
+copy it to /opt/vob before rails deploy

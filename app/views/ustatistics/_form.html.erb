@@ -1,0 +1,45 @@
+<%= form_for(@ustatistic) do |f| %>
+  <% if @ustatistic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ustatistic.errors.count, "error") %> prohibited this ustatistic from being saved:</h2>
+
+      <ul>
+      <% @ustatistic.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :total_stock_cargo %><br />
+    <%= f.text_field :total_stock_cargo %>
+  </div>
+  <div class="field">
+    <%= f.label :total_stock_truck %><br />
+    <%= f.text_field :total_stock_truck %>
+  </div>
+  <div class="field">
+    <%= f.label :total_cargo %><br />
+    <%= f.text_field :total_cargo %>
+  </div>
+  <div class="field">
+    <%= f.label :total_truck %><br />
+    <%= f.text_field :total_truck %>
+  </div>
+  <div class="field">
+    <%= f.label :total_line %><br />
+    <%= f.text_field :total_line %>
+  </div>
+  <div class="field">
+    <%= f.label :total_driver %><br />
+    <%= f.text_field :total_driver %>
+  </div>
+  <div class="field">
+    <%= f.label :total_custermer %><br />
+    <%= f.text_field :total_custermer %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

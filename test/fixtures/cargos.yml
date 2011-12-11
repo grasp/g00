@@ -1,0 +1,35 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  cargo_name: MyString
+  cargo_weight: MyString
+  cargo_bulk: MyString
+  send_date: MyString
+  cargo_option: MyString
+  comments: MyString
+  created_by: 1
+  fcity: MyString
+  tcity: MyString
+  contact_person_id: 1
+  company_id: 1
+  stock_cargo_id: 1
+  pingjia_id: 1
+  status_id: 1
+  cstatistic_id: 1
+
+two:
+  cargo_name: MyString
+  cargo_weight: MyString
+  cargo_bulk: MyString
+  send_date: MyString
+  cargo_option: MyString
+  comments: MyString
+  created_by: 1
+  fcity: MyString
+  tcity: MyString
+  contact_person_id: 1
+  company_id: 1
+  stock_cargo_id: 1
+  pingjia_id: 1
+  status_id: 1
+  cstatistic_id: 1

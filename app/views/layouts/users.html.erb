@@ -1,0 +1,51 @@
+<!DOCTYPE  html  PUBLIC  "-//W3C//DTD  XHTML  1.0  Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head> 
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>物流零距离-用户-<%=@province_name%><%=@region_name%><%=@city_name%></title>   
+<meta name="description" content="物流货源,车源,有货, 装车,吨位,运价,回程, 零担,整车,司机,驾驶员,竭诚为你服务,准时, 半挂车,前四后八,平板,低栏,中栏,高栏,蓬车,厢式,罐式,集装箱,
+  大件,危险品,冷藏保温,专线,车队,运输,配货,配车, 货运,托运,拉货,天天装,货运公司,运输公司,发货,装车"/>
+<meta name="keywords" content="物流零距离 物流货源,车源,有货, 装车,吨位,运价,回程, 零担,整车,司机,驾驶员,竭诚为你服务,准时, 半挂车,前四后八,平板,低栏,中栏,高栏,蓬车,厢式,罐式,集装箱,
+  大件,危险品,冷藏保温,专线,车队,运输,配货,配车, 货运,托运,拉货,天天装,货运公司,运输公司,发货,装车"/>
+
+ <%= favicon_link_tag("truckicon.jpg") %>
+<%= stylesheet_link_tag 'bootstrap' %>
+    
+  </head> 
+
+  <body> 
+<%=render "shared/topbar"%>  
+
+<div class="container-fluid ">  
+
+  <div class="sidebar">
+    <div style="margin-top:20px;" class="user_announce">
+      <h4>欢迎来到物流零距离-W090!</h4>
+      <p style="margin-top:20px;">轻松注册后你能够：</p>
+      <ul class="announce"> 
+        <li >免费搜索/发布大量的货源信息.</li>
+        <li>免费搜索/发布大量的车源信息.</li>
+        <li>更有更多精彩功能等着你.</li>
+        <li>网络让货主和车主零距离！</li>
+      </ul> 
+      <p style="font-size:smaller;margin-left: 20px;">-物流零距离技术开发团队倾情奉献</p>
+
+    </div>
+  </div>
+
+  <div class="content">
+    <%if flash[:notice]%>
+      <div>
+        <p class="alert-message info"><%=flash[:notice]%></p>
+      </div>
+    <%end%>
+    <%= yield %>
+    <%=render "shared/float_show"%>
+  </div>
+
+
+</div>
+<%=render "shared/footer"%>
+</body>
+</html>

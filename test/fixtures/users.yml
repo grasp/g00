@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  email: MyString
+  name: MyString
+  nick_name: MyString
+  hashed_password: MyString
+  salt: MyString
+  status: MyString
+  activate: MyString
+
+two:
+  email: MyString
+  name: MyString
+  nick_name: MyString
+  hashed_password: MyString
+  salt: MyString
+  status: MyString
+  activate: MyString

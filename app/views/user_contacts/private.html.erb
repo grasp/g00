@@ -1,0 +1,37 @@
+<%#coding: utf-8%>
+
+
+
+<p id="notice"><%= notice %></p>
+  <%unless @user_contact.nil?%>
+  <table>
+    <tr>
+      <th> <b>信息发布</b></th>
+      <th> <b>移动电话</b></th>
+      <th> <b>固定电话</b></th>
+      <th> <b>Email</b></th>
+      <th> <b>Qq</b></th>
+    </tr>
+    <tr>
+      <td>
+        <%= @user_contact.name || "无"%>
+      </td>
+      <td>
+        <%= @user_contact.mobilephone || "无"%>
+      </td>
+      <td>
+        <%= @user_contact.quhao+"-"+@user_contact.fixphone || "无"%>
+      </td>
+      <td>
+        <%= @user_contact.email || "无"%>
+      </td>
+      <td>
+        <b>Qq:</b>
+        <%= @user_contact.QQ || "无"%>
+      </td>
+    </tr>
+  </table>
+<%else%>
+<p>你还没有完善你的个人联系方式.<a  class="btn primary large" href="/user_contacts/new"> <b>马上完善</b>
+  </a></p>
+<%end%>

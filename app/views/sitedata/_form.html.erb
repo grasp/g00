@@ -1,0 +1,53 @@
+<%= form_for(@sitedatum) do |f| %>
+  <% if @sitedatum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sitedatum.errors.count, "error") %> prohibited this sitedatum from being saved:</h2>
+
+      <ul>
+      <% @sitedatum.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ie6 %><br />
+    <%= f.text_field :ie6 %>
+  </div>
+  <div class="field">
+    <%= f.label :ie7 %><br />
+    <%= f.text_field :ie7 %>
+  </div>
+  <div class="field">
+    <%= f.label :ie8 %><br />
+    <%= f.text_field :ie8 %>
+  </div>
+  <div class="field">
+    <%= f.label :noneie %><br />
+    <%= f.text_field :noneie %>
+  </div>
+  <div class="field">
+    <%= f.label :loginuser %><br />
+    <%= f.text_field :loginuser %>
+  </div>
+
+  <div class="field">
+    <%= f.label :spider %><br />
+    <%= f.text_field :spider %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cargoshow %><br />
+    <%= f.text_field :cargoshow %>
+  </div>
+
+  <div class="field">
+    <%= f.label :truckshow %><br />
+    <%= f.text_field :truckshow %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit("ok",:class=>"btn primary") %>
+  </div>
+<% end %>

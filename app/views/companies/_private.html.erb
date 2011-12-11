@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+<div  class="span15">
+  <h3><%= @company.name %></h3>
+  </div>
+
+<hr></hr>
+  <div class="row">
+    <div  class="span2">公司介绍:</div>  
+    <div class="span12 about">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%=@company.about %></div>
+</div>
+
+  <div class="row">
+  <div class="span2">公司联系人:</div>
+  <div class="span5"> <%= @company.contact_name %></div>
+</div>
+
+  <div class="row">
+  <div class="span2">所在城市:</div>
+<div class="span5"><%= @company.city_name %></div>
+ </div>
+
+
+  <div class="row">
+  <div class="span2">公司地址:</div>
+<div class="span5"> <%= @company.address %></div>
+</div>
+
+  <div class="row">
+  <div class="span2">固定电话:</div>
+<div class="span5"> <%= @company.quhao+"-"+@company.fix_phone %></div>
+</div>
+
+  <div class="row">
+  <div class="span2">移动电话:</div>
+<div class="span5"> <%= @company.mobile_phone %></div>
+</div>
+
+  <div class="row">
+  <div class="span2">公司邮件:</div>
+  <div class="span5"> <%= @company.email %></div>
+</div>
+
+  <div class="row">
+  <div class="span2">自有车辆:</div>
+<div class="span5"> <%= @company.self_che %></div>
+</div>
+
+  <div class="row">
+  <div class="span2">挂靠车辆:</div>
+<div class="span5"> <%= @company.signed_che %></div>
+</div>
+
+  <div class="row">
+  <div class="span2">员工数量:</div>
+<div class="span5"> <%= @company.num_employ %></div>
+</div>
+
+
+<% if @company.user_id==session[:user_id] %>
+  <p>该信息由
+   <%if @company.created_at.to_s==@company.updated_at.to_s%>
+   <%= User.find(@company.user_id).name %> 创建于<%=@company.created_at.to_s%>
+   <%else%>
+   <%= User.find(@company.user_id).name %> 更新于<%=@company.updated_at.to_s%>
+   <%end%>
+  </p>
+ <%end%>

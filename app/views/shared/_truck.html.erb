@@ -1,0 +1,68 @@
+<div class="form_header">
+  <%=render "trucks/title"%>
+</div>
+<%unless @bao_or_xun_record.blank? %>
+  <table>
+  <tr>
+     <th>货物名称</th>
+     <th>货源发布人</th>
+     <th>所在公司</th>   
+     <th>货物重量</th>
+     <th>货物出发</th>
+     <th>货物到达</th>    
+     <th>报价</th>
+     <th>报价时间</th>
+     <th>货物成交</th>
+  </tr>
+
+    <% @bao_or_xun_record.each do |record| %>
+      <%cargo=Cargo.find(record.cargo_id)%>
+      <%unless cargo.blank?%>
+        <tr>
+          <td>
+            <a class="show_float2" href="/cargos/show/<%=cargo.id%>">
+              <%=cargo.cate_name%>
+            </a>
+          </td>
+          <td>
+            <a class="show_float2" href="/user_contacts/showf/<%=cargo.user_contact_id%>"> <%="#{UserContact.find(cargo.user_contact_id).name}"%>
+            </a>
+          </td> 
+          <td>
+            <a class="show_float2" href="/companies/showf/<%= cargo.company_id%>"><%="#{Company.find(cargo.company_id).name}"%></a>
+          </td>
+
+         <td><%= cargo.cargo_weight %>吨</td>
+          <td><%= cargo.fcity_name %></td>
+          <td><%= cargo.tcity_name %></td>
+          <td> <%= record.price.nil? ? "面议":"#{record.price}元"%></td>
+          <td><%= record.created_at.to_s.slice(5,11) %></td>         
+          
+          <td> 
+            <%if record.cargo_user_id==session[:user_id] && record.truck_user_id!=session[:user_id]%>
+                <%if cargo.status=="正在配车"%>
+                   <a class="request_chenjiao" href="inqueries/request_chenjiao/<%=record.id%>">请求成交</a> 
+                <%else%>
+                   <%=cargo.status%>
+                <%end%>
+       
+            <%elsif record.truck_user_id==session[:user_id] && record.cargo_user_id!=session[:user_id]%>
+                <%if cargo.status=="请求成交" %>
+                     <a class="confirm_chenjiao" href="quotes/confirm_chenjiao/<%=record.id%>">确认成交</a>  
+                 <%else%>
+                <%=cargo.status%>
+                <%end%>
+             <%else%>
+                 <%=cargo.status%>
+           <%end%>     
+          </td>
+          
+        </tr>
+      <%end%>
+    <% end %>
+  </table>
+<%else%>
+  <p>你还没有报价或者询价.</p>
+<% end %>
+
+

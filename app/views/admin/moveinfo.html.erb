@@ -1,0 +1,24 @@
+<table>
+  <tr>
+   <th>超期货物</th>
+   <th>超期车子</th>
+   <th>超期报价</th>
+   <th>超期询价</th>
+   <th>耗时(秒)</th>
+   <th>迁移时间</th>
+  </tr>
+    
+<%@moves.each do |move|%>
+<tr>
+  <td><%=move.expired_cargo%></td>
+  <td><%=move.expired_truck%></td>
+  <td><%=move.expired_quote%></td>
+  <td><%=move.expired_inquery%></td>
+  <td><%=move.cost_time%></td>
+  <td><%=move.created_at%></td>
+
+</tr>
+<%end%>
+ </table>
+
+<%= will_paginate @moves,:class=>"page_navi_link"%>

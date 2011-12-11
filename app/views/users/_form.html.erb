@@ -1,0 +1,46 @@
+
+
+<%= form_for(@user,:as=>:user,:html => {:class => "show_form center-block"}) do |f| %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(@user.errors.count, "错误") %></h4>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="clearfix">
+    <label>用户名*:</label>
+    <div class="input">   <%= f.text_field :name %></div>
+  </div>
+ <div class="clearfix">
+    <label id="register_email">Email*:</label>
+   <div class="input"> <%= f.text_field :email %></div>
+  </div>
+
+ <div class="clearfix">
+    <label>设置密码*:</label>
+    <div class="input"> <%= f.password_field :password %></div>
+  </div>
+
+ <div class="clearfix">
+    <label>确认密码*:</label>
+    <div class="input">  <%= f.password_field :password_confirmation %></div>
+  </div>
+
+ <div class="clearfix">
+    <label>联系手机*:</label>
+   <div class="input">  <%= f.text_field :mobilephone %></div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit("确  定",:class=>"btn primary" ,:style=> "width:80px") %>
+  </div>
+
+<% end %>
+<p>* 为必填项</p>
+

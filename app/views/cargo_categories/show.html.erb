@@ -1,0 +1,48 @@
+<div  style="width:600px;">
+  
+<div class="pull-right list_close"><a class="btn success" id="list_closec" href=""> 确定</a></div>
+
+<div style="margin: 0px; padding: 0px;width:40%;float:left;">
+  
+ <ul style="margin: 2px;">货物大类
+    <%$cargo_category_one.each do |code,name|  %>
+       <li>
+        <%= link_to name,"/cargo_categories/show/#{code}"%>
+       </li>
+    <%end%>
+     </ul>
+</div>
+<div style="margin: 2px; width:30%;float:left;">
+<ul style="margin: 2px;">货物子类
+    <%  unless @cargo_category_two.nil?%>
+      <% @cargo_category_two.each do |code,name|  %>
+        <li>
+          <%= link_to $catename[code],"/cargo_categories/show/#{code}"%>
+        </li>
+      <%end%>
+    <%end%>
+ </ul>
+</div>
+<!--
+<div style="margin: 2px; width:20%;float:left;">
+ <ul style="margin: 2px;">小类
+  <%  unless @cargo_category_three.nil?%>
+    <% @cargo_category_three.each do |code,name|  %>
+    <li>
+      <%= link_to name,"/cargo_categories/show/#{code}"%>
+    </li>
+    <%end%>
+  <%else%>
+   
+  <%end%>
+ </ul>
+</div>
+-->
+
+
+<!--
+<%#= link_to 'Edit', edit_cargo_category_path(@cargo_category) %> |
+<%#= link_to 'Back', cargo_categories_path %>
+-->
+<p id="notice"><%= notice %></p>
+</div>

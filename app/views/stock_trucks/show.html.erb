@@ -1,0 +1,47 @@
+
+<div class="stock_truck_show">
+  <table>
+    <tr>
+      <th>用途</th>
+      <th>有无gps</th>
+      <th>随车电话</th>
+      <th>车辆品牌</th>
+      <th>卡车型号:</th>
+      <th>购买年份:</th>      
+    </tr>
+
+<td>
+  <%= $truck_usage[@stock_truck.truck_usage] %>
+</td>
+
+
+<td>
+  <%= @stock_truck.truck_gps %>
+</td>
+
+<td>
+  <%= @stock_truck.car_phone %>
+</td>
+
+
+<td>
+  <%= $truck_pinpai[@stock_truck.truck_pinpai]%>
+</td>
+
+<td>
+
+  <%= @stock_truck.truck_xinghao %>
+</td>
+
+<td>
+  <%= @stock_truck.truck_year %>
+</td>
+</table>
+</div>
+
+<!--
+<%#= link_to 'Edit', edit_stock_truck_path(@stock_truck) %> |
+<%#= link_to 'Back', stock_trucks_path %>
+-->
+
+<p id="notice"><%= notice %></td>

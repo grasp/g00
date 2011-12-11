@@ -1,0 +1,36 @@
+
+<table>
+  <tr>
+
+    <th>报价</th>
+    <th>报价时间</th>
+    <th>车源</th>
+    <th>管理</th>
+  </tr>
+
+  <%unless @quotes.nil? %>
+    <% @quotes.each do |quote| %>
+      <tr>
+
+          <td>       <%= quote.price ||"面议"%></td>
+
+
+        <td><%= quote.created_at %></td>
+       <td>
+       
+       </td>
+
+        <td><%= link_to '编辑', edit_quote_path(quote) %>|
+          <a href="/quotes/destroy/<%=quote.id%>">删除</a>
+        </td>
+         </tr>
+    <% end %>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Quote', new_quote_path %>
+
+
+<%= will_paginate @quotes,:class=>"page_navi_link"%>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @userline.user_id %>
+</p>
+
+<p>
+  <b>Fcityid:</b>
+  <%= @userline.fcityid %>
+</p>
+
+<p>
+  <b>Tcityid:</b>
+  <%= @userline.tcityid %>
+</p>
+
+<p>
+  <b>Line:</b>
+  <%= @userline.line %>
+</p>
+
+
+<%= link_to 'Edit', edit_userline_path(@userline) %> |
+<%= link_to 'Back', userlines_path %>

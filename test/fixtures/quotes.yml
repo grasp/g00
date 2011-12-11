@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  price: 1
+  comments: MyString
+  habit_word: MyString
+  cargo_id: 1
+  truck_id: 1
+  user_id: 1
+
+two:
+  price: 1
+  comments: MyString
+  habit_word: MyString
+  cargo_id: 1
+  truck_id: 1
+  user_id: 1

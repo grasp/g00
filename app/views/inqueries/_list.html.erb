@@ -1,0 +1,40 @@
+
+<table>
+  <tr>
+    <th>车源拍照</th>
+    <th>车源联系</th>
+    <th>出价</th>
+    <th>出发</th>
+    <th>到达</th> 
+    <th>出价时间</th>
+    <th>询价货源</th>
+    <th>管理</th>
+  </tr>
+  <% unless @inqueries.nil?%>
+
+    <% @inqueries.each do |inquery| %>
+      <tr>
+        <td><%=link_to "#{inquery.paizhao}", truck_path(inquery.truck_id),:class=>"show_float"%></td>
+        <td><%=link_to "#{inquery.user_name}", user_path(inquery.user_id),:class=>"show_float" unless inquery.user_id.nil?%>|
+        <%=link_to "#{inquery.company_name}", company_path(inquery.company_id),:class=>"show_float"unless inquery.company_id.nil?%>
+        </td>
+        <td><%= inquery.price %></td>
+        <td><%= inquery.fcity_name %></td>
+        <td><%= inquery.tcity_name %></td>
+        <td><%= inquery.created_at %></td>
+        <td><%= link_to "#{inquery.cate_name}", cargo_path(inquery.cargo_id) %></td>
+
+        <td>
+          <a  class ="navi_link" href="/users/<%=session[:user_id]%>/cargos/<%=inquery.cargo_id%>/match">继续询价</a>|
+          <%= link_to '编辑', edit_inquery_path(inquery) %>|
+          <a href="/inqueries/destroy/<%inquery.id%>">删除</a>
+          </td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+
+<br />
+
+
+

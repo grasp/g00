@@ -1,0 +1,42 @@
+<%#coding: utf-8%>
+<% #@expired_cargos.each do |cargo|%>
+<p><%#=cargo.comments %></p>
+<%#end%>
+<p>总共有<%= RoomContact.count %>房间联系方式</p>
+
+<h3><a class="navi_scan_link"  href="/admin/show_room_contact"> 显示房间</a></h3>
+ <%  unless @rooms.blank? %>
+<table  >
+    <tr>
+      <th>房间</th>
+      <th>联系</th>
+      <th>来自</th>
+    </tr>
+
+  <tbody>
+
+    <%  @rooms.each do |room|%>
+      <tr>
+      
+        <td><%=h room.room %></td>
+        <td><%=h room.contact %></td>
+        <td><%=h room.from %></td>
+
+      </tr>
+    <% end %>
+      <%else%>
+  <p>没有任何房间联系方式.</p>
+  <% end %>
+
+  </tbody>
+</table>
+<p id="notice"><%= notice %></p>
+
+
+
+
+<br />
+
+<%#= link_to 'New Company', new_company_path %>
+
+<%= will_paginate @rooms,:class=>"page_navi_link"%>

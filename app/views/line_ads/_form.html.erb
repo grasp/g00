@@ -1,0 +1,57 @@
+<%= form_for(@line_ad) do |f| %>
+  <% if @line_ad.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@line_ad.errors.count, "error") %> prohibited this line_ad from being saved:</h2>
+
+      <ul>
+      <% @line_ad.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :line %><br />
+    <%= f.text_field :line %>
+  </div>
+  <div class="field">
+    <%= f.label :fcity_name %><br />
+    <%= f.text_field :fcity_name %>
+  </div>
+  <div class="field">
+    <%= f.label :tcity_name %><br />
+    <%= f.text_field :tcity_name %>
+  </div>
+  <div class="field">
+    <%= f.label :company_name %><br />
+    <%= f.text_field :company_name %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :one_word %><br />
+    <%= f.text_field :one_word %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_phone %><br />
+    <%= f.text_field :contact_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :company_id %><br />
+    <%= f.text_field :company_id %>
+  </div>
+  <div class="field">
+    <%= f.label :lstatistic_id %><br />
+    <%= f.text_field :lstatistic_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

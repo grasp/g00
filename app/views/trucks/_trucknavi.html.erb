@@ -1,0 +1,16 @@
+<%#coding:utf-8%>
+<div class="bottom_link">
+
+
+<%ustatistic=Ustatistic.first(:conditions=>{:user_id=>session[:user_id]})%>
+  <%valid_truck=ustatistic.valid_truck if ustatistic%>
+<a class="page_navi_link" href="/trucks/index/peihuo">正在配货(<%=valid_truck||0%>)</a>
+<a class="page_navi_link" href="/trucks/index/ischenjiao">正在成交</a>
+<a style="margin-right: 150px" class="page_navi_link" href="/trucks/index/chenjiao">已成交</a>
+<!--<a class="page_navi_link" href="/trucks/index/过期">过期车源</a>
+<a class="page_navi_link" href="/trucks/">全部车源</a>-->
+<%= link_to '继续发布车源', stock_trucks_path,:class=>"btn default page_navi_link" %>
+ <a class="btn default page_navi_link" href="/stock_trucks/new">新增车子</a>
+
+</div>
+<p> <%=flash[:notice]%></p>

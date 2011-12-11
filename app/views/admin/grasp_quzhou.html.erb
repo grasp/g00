@@ -1,0 +1,110 @@
+<h2>货物信息cost<%= @huo_time%>sec,succ=<%= @huo_succ_counter%>,fail=<%=@huo_fail_counter%></h2>
+<table>
+  <tr>
+    <th>cate_name</th>
+    <th>cargo_weight</th>
+    <th>fcity_name</th>
+    <th>tcity_name</th>
+    <th>fcity_code</th>
+    <th>tcity_code</th>
+    <th>send_date</th>
+    <th>url</th>
+    <th>status</th>
+    <th>from_site</th>
+    <th>comments</th>
+      <th>contact_phone</th>
+
+    <th>created_at</th>
+  </tr>
+  <tbody>
+    <%@page_huos.each do |huo|%>
+    <tr>
+      <td><%=huo[:cate_name]%></td>
+      <td><%=huo[:cargo_weight]%></td>
+      <td><%=huo[:fcity_name]%></td>
+      <td><%=huo[:tcity_name]%></td>
+      <td><%=huo[:fcity_code]%></td>
+      <td><%=huo[:tcity_code]%></td>
+       <td><%=huo[:send_date]%></td>
+      <td><%=huo[:url]%></td>
+      <td><%=huo[:status]%></td>
+      <td><%=huo[:from_site]%></td>
+       <td><%=huo[:comments]%></td>
+        <td><%=huo[:contact_phone]%></td>
+      <td><%=huo[:created_at]%></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+<h2>车辆信息cost<%= @che_time%>sec,succ=<%= @che_succ_counter%>,fail=<%=@che_fail_counter%></h2>
+<table>
+  <tr> 
+     <th>paizhao</th>
+    <th>dunwei</th>
+    <th>length</th>
+    <th>fcity_name</th>
+    <th>tcity_name</th>
+    <th>fcity_code</th>
+    <th>tcity_code</th>
+    <th>send_date</th>
+    <th>url</th>
+    <th>status</th>
+    <th>from_site</th>
+    <th>driver_phone</th>
+     <th>car_phone</th>
+    <th>created_at</th>
+  </tr>
+  <tbody>
+    <%@page_ches.each do |che|%>
+    <tr>
+     <td><%= che[:paizhao]%></td>
+    <td><%= che[:dunwei]%></td>
+    <td><%= che[:length]%></td>
+    <td><%= che[:fcity_name]%></td>
+    <td><%= che[:tcity_name]%></td>
+    <td><%= che[:fcity_code]%></td>
+    <td><%= che[:tcity_code]%></td>
+    <td><%= che[:send_date]%></td>
+    <td><%= che[:url]%></td>
+    <td><%= che[:status]%></td>
+    <td><%= che[:from_site]%></td>
+    <td><%= che[:driver_phone]%></td>
+     <td><%= che[:car_phone]%></td>
+    <td><%= che[:created_at]%></td>
+    </tr>
+   <%end%>
+  </tbody>
+</table>
+<h2>采集记录</h2>
+<table>
+  <tr>
+    <th>差别货物</th>
+    <th>差别车子</th>
+    <th>本次货物</th>
+    <th>本次车子</th>
+    <th>重复车子</th>
+    <th>重复货物</th>
+    <th>缺失车子</th>
+    <th>缺失货物</th>
+    <th>耗时(秒)</th>
+    <th>采集时间</th>
+    <th>货物状态</th>
+    <th>车子状态</th>
+  </tr>
+  <tbody>
+    <tr>
+      <td><%=@grasp.diff_huo%></td>
+      <td><%=@grasp.diff_che%></td>
+      <td><%=@grasp.cycle_huo%></td>
+      <td><%=@grasp.cycle_che%></td>
+      <td><%=@grasp.repeat_che%></td>
+      <td><%=@grasp.repeat_huo%></td>
+      <td><%=@grasp.miss_field_che%></td>
+      <td><%=@grasp.miss_field_huo%></td>
+      <td><%=@grasp.cost_time%></td>
+      <td><%=@grasp.created_at.localtime.to_s.slice(0,16)%></td>
+      <td><%=@grasp.cargostatus%></td>
+      <td><%=@grasp.truckstatus%></td>
+    </tr>
+</tbody>
+</table>

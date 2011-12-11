@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  jubaotype: 
+  belongid: 
+  username: 
+  fromip: 
+  fakereason: 
+
+two:
+  jubaotype: 
+  belongid: 
+  username: 
+  fromip: 
+  fakereason: 

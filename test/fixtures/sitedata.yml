@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ie6: 1
+  ie7: 1
+  ie8: 1
+  noneie: 1
+
+two:
+  ie6: 1
+  ie7: 1
+  ie8: 1
+  noneie: 1

@@ -1,0 +1,35 @@
+<h1>Listing ustatistics</h1>
+
+<table>
+  <tr>
+    <th>Total stock cargo</th>
+    <th>Total stock truck</th>
+    <th>Total cargo</th>
+    <th>Total truck</th>
+    <th>Total line</th>
+    <th>Total driver</th>
+    <th>Total custermer</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ustatistics.each do |ustatistic| %>
+  <tr>
+    <td><%= ustatistic.total_stock_cargo %></td>
+    <td><%= ustatistic.total_stock_truck %></td>
+    <td><%= ustatistic.total_cargo %></td>
+    <td><%= ustatistic.total_truck %></td>
+    <td><%= ustatistic.total_line %></td>
+    <td><%= ustatistic.total_driver %></td>
+    <td><%= ustatistic.total_custermer %></td>
+    <td><%= link_to 'Show', ustatistic %></td>
+    <td><%= link_to 'Edit', edit_ustatistic_path(ustatistic) %></td>
+    <td><%= link_to 'Destroy', ustatistic, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ustatistic', new_ustatistic_path %>

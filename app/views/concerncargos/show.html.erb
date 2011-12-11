@@ -1,0 +1,59 @@
+<%unless @concerncargo.blank?%>
+  <%if params[:concern_type]=="city"%>
+    <%unless @concerncargo.city.blank?%>
+      <%@concerncargo.city .each do |citycode| %>
+        <li><%=$city_code_name[citycode[0]]%></li>
+      <%end%>
+    <%else%>
+      <p>你还没有添加关注的城市.</p>
+    <%end%>
+  <%end%>
+
+  <%if params[:concern_type]=="line"%>
+    <%unless @concerncargo.line.blank?%>
+      <h3>我关注的线路</h3>
+      <%@concerncargo.line .each do |line| %>
+        <li><%=$city_code_name[line[0].split("#")[0]]%><=><%=$city_code_name[line[0].split("#")[1]]%></li>
+      <%end%>
+    <%else%>
+      <p>你还没有添加关注的线路.</p>
+    <%end%>
+  <%end%>
+
+
+  <%if params[:concern_type]=="user"%>
+    <%unless @concerncargo.userid.blank?%>
+      <h3>我关注的线路</h3>
+      <%@concerncargo.userid .each do |username| %>
+        <li><%=username[0]%></li>
+      <%end%>
+    <%else%>
+      <p>你还没有添加关注的用户.</p>
+    <%end%>
+  <%end%>
+
+  <%if params[:concern_type]=="phone"%>
+    <%unless @concerncargo.phone.blank?%>
+      <h3>我关注的电话</h3>
+      <%@concerncargo.phone .each do |phonelist| %>
+        <li><tr>
+          <td><%=phonelist[0][0]%> </td>
+          <td><%=phonelist[0][1]%> </td>
+          <td><%=phonelist[0][2]%> </td>
+          <td><%=phonelist[0][3]%> </td>
+            <td><%=phonelist[0][4]%> </td>
+        </tr>
+        </li>
+
+      <%end%>
+    <%else%>
+      <p>你还没有添加关注的电话.</p>
+    <%end%>
+  <%end%>
+
+<%else%>
+  <p>你还没有添加任何关注.</p>
+<%end%>
+
+
+

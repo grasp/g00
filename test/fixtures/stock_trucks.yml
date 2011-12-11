@@ -1,0 +1,45 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  created_by: 1
+  paizhao: MyString
+  dun_wei: MyString
+  che_length: MyString
+  truck_usage: MyString
+  truck_shape: MyString
+  truck_gps: MyString
+  car_phone: MyString
+  contact_person_id: MyString
+  company_id: MyString
+  truck_pinpai: MyString
+  truck_xinghao: MyString
+  truck_year: MyString
+  license_num: MyString
+  license_city: MyString
+  license_pic: MyString
+  owner_name: MyString
+  owner_phone: MyString
+  owner_id: MyString
+  owner_city: MyString
+
+two:
+  created_by: 1
+  paizhao: MyString
+  dun_wei: MyString
+  che_length: MyString
+  truck_usage: MyString
+  truck_shape: MyString
+  truck_gps: MyString
+  car_phone: MyString
+  contact_person_id: MyString
+  company_id: MyString
+  truck_pinpai: MyString
+  truck_xinghao: MyString
+  truck_year: MyString
+  license_num: MyString
+  license_city: MyString
+  license_pic: MyString
+  owner_name: MyString
+  owner_phone: MyString
+  owner_id: MyString
+  owner_city: MyString

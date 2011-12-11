@@ -1,0 +1,32 @@
+
+
+
+<footer class="footer">
+  <div style="clear:both;" class="row">
+  <div class="offset6">
+      <span>
+        <span> 网站持续演进中，敬请保持关注</span>        
+        <a href="/users/about">关于物流零距离</a>|
+        <a href="/users/mianze">免责声明</a>|
+        <a href="/users/contact">联系我们</a>|
+         <a class="btn success small" href="/feedbacks/new"><b>宝贵建议</b></a>|
+         <b style="font-size: smaller;margin-left: 10px;"> 浙ICP11011330 备</b>   
+         <a  class="btn default" href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-cn">推荐安装谷歌浏览器极速上网</a>
+      </span>
+ </div>
+  </div>
+  
+</footer>
+
+
+ <%if Rails.env.production?%>
+  <%#= javascript_include_tag 'jquery-1.4.2.min.js' %>
+<%=javascript_include_tag "jquery-1.4.2.min.js","jquery.form","jquery.validate","myvalidate","g1",:cache => "all" %>
+<%else%>
+  <%= javascript_include_tag 'jquery-1.4.2.min.js' %>
+  <%= javascript_include_tag "jquery.form.js" %>
+  <%= javascript_include_tag "jquery.validate.js " %>
+  <%= javascript_include_tag "myvalidate.js " %>
+  <%= javascript_include_tag "g1.js" %>    
+ <%#=javascript_include_tag "jquery-1.4.2.min.js","jquery.form","jquery.validate","myvalidate","g1",:cache => "all" %>
+<%end%>

@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Total user:</b>
+  <%= @scan.total_user %>
+</p>
+
+<p>
+  <b>Total stock truck:</b>
+  <%= @scan.total_stock_truck %>
+</p>
+
+<p>
+  <b>Total stock cargo:</b>
+  <%= @scan.total_stock_cargo %>
+</p>
+
+<p>
+  <b>Idle stock truck:</b>
+  <%= @scan.idle_stock_truck %>
+</p>
+
+<p>
+  <b>Idle stock cargo:</b>
+  <%= @scan.idle_stock_cargo %>
+</p>
+
+<p>
+  <b>Total cargo:</b>
+  <%= @scan.total_cargo %>
+</p>
+
+<p>
+  <b>Total truck:</b>
+  <%= @scan.total_truck %>
+</p>
+
+<p>
+  <b>expired cargo:</b>
+  <%= @scan.expired_cargo %>
+</p>
+
+<p>
+  <b>Expired truck:</b>
+  <%= @scan.expired_truck %>
+</p>
+
+<p>
+  <b>Total line:</b>
+  <%= @scan.total_line %>
+</p>
+
+<p>
+  <b>Total company:</b>
+  <%= @scan.total_company %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @scan.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_scan_path(@scan) %> |
+<%= link_to 'Back', scans_path %>

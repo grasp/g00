@@ -1,0 +1,37 @@
+<h1>Listing wmails</h1>
+
+<table>
+  <tr>
+     <th>mailtype</th>
+    <th>To</th>
+    
+    <th>From</th>
+    <th>Body</th>
+    <th>Subject</th>
+    <th>Fromu</th>
+    <th>创建于</th>
+
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @wmails.each do |wmail| %>
+  <tr>
+        <td><%= wmail.mailtype %></td>
+    <td><%= wmail.to %></td>
+    <td><%= wmail.from %></td>
+    <td><%= wmail.body %></td>
+    <td><%= wmail.subject %></td>
+    <td><%= wmail.fromu %></td>
+        <td><%= wmail.created_at %></td>
+    <td><%= link_to 'Show', wmail %></td>
+    <td><%= link_to 'Edit', edit_wmail_path(wmail) %></td>
+    <td><%= link_to 'Destroy', wmail, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Wmail', new_wmail_path %>

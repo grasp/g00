@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fcity: MyString
+  tcity: MyString
+  send_date: MyString
+  comments: MyString
+  stock_truck_id: MyString
+  created_by: 1
+  contact_person_id: 1
+  company_id: MyString
+  truck_pingjia_id: 1
+  truck_status_id: MyString
+  truck_statistic: MyString
+  huicheng: MyString
+
+two:
+  fcity: MyString
+  tcity: MyString
+  send_date: MyString
+  comments: MyString
+  stock_truck_id: MyString
+  created_by: 1
+  contact_person_id: 1
+  company_id: MyString
+  truck_pingjia_id: 1
+  truck_status_id: MyString
+  truck_statistic: MyString
+  huicheng: MyString

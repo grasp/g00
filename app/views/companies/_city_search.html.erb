@@ -1,0 +1,20 @@
+<div >
+<%=form_for(@company,:as=>:companysearch,:url=>"/companies/search",:html=>{:class=>"show_form"},:method=>'get') do |f| %>
+  <fieldset>
+<span class=""  style="text-align: left;">
+
+  <!-- do not change below  format -->
+
+      <span class="line_from_label" >查找城市物流公司:</span>
+      <a id="from_data_load"  style="margin:5px 20px 5px 20px;" href="/cities/from">请选择城市</a> 
+      <%= f.hidden_field(:city_code) %>
+      <%= f.hidden_field(:city_name) %>
+
+  <!-- do not change this format -->
+    <%= f.submit("搜索",:class=>"btn default")%>
+  
+  <a  style="margin-left:50px;" class="btn primary"  href="/companies/new"><b>发布黄页</b></a>
+  </span>
+</fieldset>
+<% end %>
+</div>

@@ -1,0 +1,10 @@
+.bundle
+db/*.sqlite3
+log/*.log.*
+log/*.log
+tmp/**/*
+thin
+public/*.html
+*.html
+vendor/*.zip
+/nbproject/private/

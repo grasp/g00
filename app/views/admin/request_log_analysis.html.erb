@@ -1,0 +1,22 @@
+
+
+<h1>Production log 0 Analysis</h1>
+<p><%=@production_analysis%></p>
+<%=raw(@production_analysis)%>
+
+<h1>Access Log 0 Analysis</h1>
+<p><%@access_analysis%></p>
+<%=raw(@access_analysis)%>
+
+<%if @production_analysis1 %>
+<h1>Production log 1 Analysis</h1>
+<p><%=@production_analysis1%></p>
+<%=raw(@production_analysis1)%>
+<%end%>
+
+<%if @access_analysis1 %>
+<h1>Access Log 1 Analysis</h1>
+<p><%@access_analysis1%></p>
+<%=raw(@access_analysis1)%>
+
+<%end%>

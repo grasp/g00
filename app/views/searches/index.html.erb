@@ -1,0 +1,33 @@
+<h1>Listing searches</h1>
+
+<table>
+  <tr>
+    <th>Fcity code</th>
+    <th>Fcity name</th>
+    <th>Tcity code</th>
+    <th>Tcity name</th>
+    <th>Stype</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @searches.each do |search| %>
+  <tr>
+    <td><%= search.fcity_code %></td>
+    <td><%= search.fcity_name %></td>
+    <td><%= search.tcity_code %></td>
+    <td><%= search.tcity_name %></td>
+    <td><%= search.stype %></td>
+    <td><%= search.user_id %></td>
+    <td><%= link_to 'Show', search %></td>
+    <td><%= link_to 'Edit', edit_search_path(search) %></td>
+    <td><%= link_to 'Destroy', search, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Search', new_search_path %>

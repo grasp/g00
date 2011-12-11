@@ -1,0 +1,63 @@
+<%#coding:utf-8%>
+<div>
+  <h3>邮件主题<h3>
+   <p><%=@subject%></p>
+     <h3>邮件内容：<h3>
+   <p> 来到<a href="www090.com">物流零距离</a>你能够：
+   免费搜索/发布大量的货源信息.
+   免费搜索/发布大量的车源信息.
+   更有更多精彩功能等着你.
+   网络让货主和车主零距离！</p>
+        <h3>发送帮助：<h3>
+       <p class="invite_help">
+      用；分割邮件收件人  ,QQ号码后面加上@qq.com，就可以告诉有QQ的朋友.</br>
+      单个好友例子：17871563@qq.com</br>
+      多个好友例子：17871563@qq.com<b>;</b>example1@example.com<b>;</b>example2@example2.com<b>;</b>example3@example3.com<b>;</b>17871567@qq.com</br>
+      注意：请务必填写正确邮件收件人，如果你的账户有10封以上退信，在本站点发送邮件功能可能会被关闭。
+      
+      </p>
+</div>
+<%= form_for(@wmail,:html => {:class => "multiemail"},:url=>{:action=>"create_multiemail"}) do |f| %>
+  <% if @wmail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@wmail.errors.count, "error") %> prohibited this wmail from being saved:</h2>
+
+      <ul>
+      <% @wmail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ <%= f.hidden_field :mailtype,:value=>@wmail.mailtype%>  
+ <%= f.hidden_field :fromname,:value=>session[:user_name]%>  
+ <%= f.hidden_field :subject,:value=>@subject%>  
+<h3> 邮件收件人</h3>
+  <%= f.text_field :to ,:class=>"input-xxlarge"%>  
+
+<!--
+  <div class="clearfix">
+    <%= f.label :from %><br />
+    <div class="input">  <%= f.text_field :from %>  </div>
+  </div>
+
+  <div class="clearfix">
+    <%= f.label :body %><br />
+     <div class="input"> <%= f.text_area :body %>  </div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :subject %><br />
+     <div class="input"> <%= f.text_field :subject %>  </div>
+  </div>
+
+  <div class="clearfix">
+    <%= f.label :fromu %><br />
+  <div class="input">  <%= f.text_field :fromu %>  </div>
+  </div>
+-->
+  <div class="actions">
+    <%= f.submit("邀    请",:class=>"btn primary large") %>
+  </div>
+<% end %>
+
+ <span class="help_inline mail_result" style="display:none">请稍等5秒</span>

@@ -1,0 +1,39 @@
+<%#coding:utf-8%>
+<p id="notice"><%= notice %></p>
+
+<div  class="list_close" style="margin-top: 5px;margin-left: 2px;"><a href="">关闭</a></div>
+<table style="margin-top: 10px">
+  <tr >
+    <td style="margin-right: 10px">省份</td>
+    <%$province.each do |key,value|%>
+      <td>
+        <%= link_to value, "/cities/#{key}" %>
+      </td>
+    <%end%>
+  </tr>
+</table>
+<table style="margin-top: 10px">
+  <tr>
+    <td style="margin-right: 10px">地区</td>
+    <%@region_list.each do |key,value|%>
+      <td>
+        <%= link_to value, "/cities/#{key}" %>
+      </td>
+    <%end%>
+  </tr>
+</table>
+<table style="margin-top: 10px">
+  <tr>
+    <td style="margin-right: 10px">县市</td>
+    <%@city_list.each do |key,value|%>
+      <td>
+        <%= link_to value, "/cities/#{key}" %>
+      </td>
+    <%end%>
+  </tr>
+</table>
+
+
+
+<%= link_to 'Edit', edit_city_path(@city) %> |
+<%= link_to 'Back', cities_path %>

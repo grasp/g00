@@ -1,0 +1,42 @@
+
+
+<table>
+  <tr>
+    <th>报价货物</th>
+    <th>货物联系</th>
+    <th>报价</th>
+    <th>出发</th>
+    <th>到达</th> 
+    <th>报价时间</th>
+    <th>备注</th>
+    <th>车源</th>
+    <th>管理</th>
+
+  </tr>
+
+  <%unless @quotes.nil? %>
+    <% @quotes.each do |quote| %>
+      <tr>
+        <td><%= link_to "#{quote.cargo.cate_name}", cargos_path(quote.cargo_id) %></td>
+          <td><%= quote.price %></td>
+         <td>
+        <%= link_to "#{quote.cargo.user.name}", users_path(quote.cargo.user.id) %>|
+        <%= link_to "#{quote.cargo.company.name}", companies_path(quote.cargo.company.id) %>
+         </td>
+        <td><%= quote.cargo.fcity_name %></td>
+        <td><%= quote.cargo.tcity_name %></td>
+      
+        <td><%= quote.created_at %></td>
+
+       <td>
+        <%= link_to "#{quote.truck.paizhao}", trucks_path(quote.truck_id) %>
+       </td>
+       
+        <td><%= link_to '编辑', edit_quote_path(quote) %>|
+          <a href="/inqueries/destroy/<%=quote.id%>">删除</a>
+        </td>
+         </tr>
+    <% end %>
+  <% end %>
+</table>
+

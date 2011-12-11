@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  address: MyString
+  port: MyString
+  username: MyString
+  password: MyString
+  authentication: MyString
+  enable_startttls: MyString
+  today_sent: 1
+  total_sent: 1
+  last_use: 2011-04-22
+  rejected: 
+  status: MyString
+
+two:
+  address: MyString
+  port: MyString
+  username: MyString
+  password: MyString
+  authentication: MyString
+  enable_startttls: MyString
+  today_sent: 1
+  total_sent: 1
+  last_use: 2011-04-22
+  rejected: 
+  status: MyString

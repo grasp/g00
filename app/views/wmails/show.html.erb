@@ -1,0 +1,20 @@
+
+<p>
+  <b>收件人:</b>
+  <%= @wmail.to %>
+</p>
+
+<p>
+  <b>From:</b>
+  <%= session[:user_name] %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @wmail.subject %>
+</p>
+
+
+
+<%#= link_to 'Edit', edit_wmail_path(@wmail) %> |
+<%#= link_to 'Back', wmails_path %>

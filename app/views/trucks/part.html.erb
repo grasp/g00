@@ -1,0 +1,6 @@
+<h1><%=@stock_truck.paizhao%>发布的所有车源</h1>
+
+<%=render "list"%>
+
+<a class="show_float" href="/trucks/new/<%=@stock_truck.id%>">发布更多该车子的车源</a>|
+  <a class="page_navi_link" href="/users/<%=session[:user_id]%>/stock_trucks">全部车子</a>

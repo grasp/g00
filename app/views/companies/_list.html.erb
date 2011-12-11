@@ -1,0 +1,47 @@
+<%#coding: utf-8%>
+<%=render "companies/city_search"%>
+
+<%unless @companies.blank? %>
+  <table  >
+    <thead>
+      <tr>
+        <th>名称</th>
+        <th>联系人</th>        
+        <th>所在城市</th>
+        <th>地址</th>
+        <th>固话</th>
+        <th>手机</th>
+        <th>邮件</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <%@companies.each do |company|%>   
+        <tr>
+          <td><a target="_blank" href="/companies/show/<%=company.id%>"><%=h company.name %></a>
+          </td>
+          <td><%=h company.contact_name %></td>
+         
+          <td><%=h company.city_name %></td>
+          <td><%=h company.address %></td>
+          <td><%=h company.quhao %>-<%=h company.fix_phone %></td>
+          <td><%=h company.mobile_phone %></td>
+           <td><%=h company.email %></td>
+        </tr>
+      <% end %>
+  </tbody>
+  </table>
+<%= will_paginate @companies ,:previous_label=>"上一页",:next_label=>"下一页"%>
+    <%else%>
+    <p>没有找到该城市的物流公司.</p>
+
+  
+<% end %>
+
+
+<p id="notice"><%= notice %></p>
+
+
+<br />
+

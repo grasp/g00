@@ -1,0 +1,15 @@
+<%#coding:utf-8%>
+<%#cache "#{@province}_region" do%>
+ <%if @province%>
+
+<div class="region_navi">
+  <%if  @region_list %>
+    <%@region_list.each do |regioncity|%>
+      <a class="<%="p#{regioncity[0]}"%>" href="/cargos/city/<%=regioncity[0]%>"><%=regioncity[1]%>(<%=regioncity[2]%>-<%=regioncity[3]%>)</a>
+    <%end%>
+  <%end%>
+</div>
+ <%end%>
+<%#end%>
+
+

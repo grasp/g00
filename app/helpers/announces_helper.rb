@@ -1,0 +1,2 @@
+module AnnouncesHelper
+end

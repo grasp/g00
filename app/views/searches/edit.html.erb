@@ -1,0 +1,14 @@
+<h1>Editing search</h1>
+
+<%= render 'form' %>
+
+<%unless @cargos.nil?%>
+<%=render :template=>'cargos/public',:layout=>nil %>
+<%end%>
+
+<%unless @trucks.nil?%>
+<%=render :template=>'trucks/public',:layout=>nil%>
+<%end%>
+
+<%= link_to 'Show', @search %> |
+<%= link_to 'Back', searches_path %>

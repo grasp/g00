@@ -1,0 +1,47 @@
+
+<%if @mytruck.size>0 %>
+<%= form_for(@quote,:as=>:quote,:html => {:class => "show_form"}) do |f| %>
+<fieldset>
+  <% if @quote.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@quote.errors.count, "error") %> prohibited this quote from being saved:</h2>
+
+      <ul>
+      <% @quote.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="clearfix">
+    <%= f.label :报价 %>
+    <div class="input">  <%= f.text_field :price %>元</div> 
+    </div>
+  <div class="clearfix">
+     <label  >或面谈</label>
+       <div class="input">   <input   id="mianyi" name="mianyi" type="checkbox"></input></div> 
+     
+     </div>
+  <div class="clearfix">
+    <%= f.label :报价车源 %>
+   <div class="input">   <%= f.select(:truck_id,options_for_select(@mytruck.to_a,@quote.truck_id) ) %></div> 
+     </div>
+  <div class="actions">
+    
+
+     <%= f.submit("马上报价",:class=>"btn primary") %>
+   </div>
+
+    <%= f.hidden_field :cargo_id %>
+
+
+
+
+
+
+</fieldset>
+<% end %>
+<%else%>
+<p>你不能报价,因为你没有正在配货的车源可以报价</p>
+<%end%>

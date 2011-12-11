@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Code:</b>
+  <%= @citystatistic.code %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @citystatistic.name %>
+</p>
+
+<p>
+  <b>Cargo:</b>
+  <%= @citystatistic.cargo %>
+</p>
+
+<p>
+  <b>Truck:</b>
+  <%= @citystatistic.truck %>
+</p>
+
+<p>
+  <b>Stock cargo:</b>
+  <%= @citystatistic.stock_cargo %>
+</p>
+
+<p>
+  <b>Stock truck:</b>
+  <%= @citystatistic.stock_truck %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @citystatistic.user %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= @citystatistic.company %>
+</p>
+
+<p>
+  <b>Line:</b>
+  <%= @citystatistic.line %>
+</p>
+
+
+<%= link_to 'Edit', edit_citystatistic_path(@citystatistic) %> |
+<%= link_to 'Back', citystatistics_path %>

@@ -1,0 +1,26 @@
+
+<div id="truck_show">
+<table>
+   <tr>
+
+    <th>车辆联系</th>
+    
+  </tr>
+  <tr>
+
+
+<td>
+  司机 <%=@truck.driver_name || "无"%>, 电话<%=@truck.driver_phone || "无"%>，随车电话<%=@truck.car_phone || "无"%>
+</td>
+
+</tr>
+</table>
+</div>
+<!--
+<% if session[:user_id]==@truck.user_id %>
+<a href="http://localhost:3000/stock_trucks">我的车子</a> |
+<a href="http://localhost:3000/trucks">我的车源</a> |
+  <%= link_to '编辑', edit_truck_path(@truck) %> |
+<%end%>
+
+-->

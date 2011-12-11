@@ -1,0 +1,13 @@
+<%#coding:utf-8%>
+
+<%= form_for(@wmail,:url=>{:action=>"cargo_to_friend"},:html => {:class => "multiemail"}) do |f| %>
+
+  <%= f.hidden_field :cargo_id,:value=>@cargo.id%>  
+  <%= f.hidden_field :mailtype,:value=>@wmail.mailtype%>  
+  <p>或者发送给同事和朋友，在下面输入收件人地址，以;相隔.</p>
+  <div>
+    <%= f.text_field :to ,:class=>"input-large"%>  </br>
+    <%= f.submit("发送给朋友和同事",:class=>"btn default ") %>
+  </div>
+
+<% end %>

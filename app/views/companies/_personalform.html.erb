@@ -1,0 +1,93 @@
+<p id="notice"><%= notice %></p>
+
+
+<%= form_for(@company,:as=>:company,:html => {:class => "show_form"}) do |f| %>
+
+  <% if @company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+      <% @company.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :尊姓大名 %>
+    <%= f.text_field :name,:value=>@contact.name%>
+  </div>
+
+  <div class="field">
+    <%= f.label :本人以及服务介绍 %>
+    <%= f.text_area :about %>
+  </div>
+<!--
+    <div class="field">
+    <%= f.label :员工数量 %>
+    <%= f.text_field :num_employ %>
+    </div>
+
+  <div class="field">
+    <%= f.label :自有车辆 %>
+    <%= f.text_field :self_che %>
+  </div>
+
+  <div class="field">
+    <%= f.label :协议车辆 %>
+    <%= f.text_field :signed_che %>
+  </div>
+-->
+
+<h2>紧急联系人信息 </h2>
+<div class="field">
+    <%= f.label :联系人 %>
+    <%= f.text_field :contact_name %>
+</div>
+
+
+<div class="field"  style="display:inline">
+
+  <!-- do not change below  format -->
+      <label style="width:130px;" >我所在城市:</label>
+      <a id="from_data_load"  class="company_city" href="/cities/from"><%=@company.city_name ||"选择"%></a>
+      <%= f.hidden_field(:city_code) %>
+      <%= f.hidden_field(:city_name) %>
+
+
+</div>
+
+
+  <div class="field">
+    <%= f.label :我的住址 %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :紧急联系人固定电话 %>
+     <input  style="width:30px;" id="quhao" name="quhao" type="text" value=<%=@company.quhao%> > </input>
+     --
+     <input  style="width:150px;" id="companyfix_phone" name="company[fix_phone]" type="text" value=<%=@company.fix_phone%> > </input>
+     <%#= f.text_field :fix_phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :紧急联系人移动电话 %>
+    <%= f.text_field :mobile_phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+<%= f.hidden_field :user_id %>
+<%= f.hidden_field :user_name %>
+<%= f.hidden_field(:ispersonal) %>
+  <div class="actions">
+    <%= f.submit("确定")%>
+  </div>
+<% end %>
+
+

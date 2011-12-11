@@ -1,0 +1,47 @@
+<div>
+  <p>尊敬的用户<%=@user.name%>,您好！</p>
+  
+  <p>
+    你在物流零距离上发送了一条货源信息到该邮箱，以下为该货源的信息。
+  </p>
+  
+  <p>
+   发货路线:<%="从#{@cargo.fcity_name}到#{@cargo.tcity_name}"%> ,该货源创建于<%="#{@cargo.created_at.to_s.slice(0,19)}"%>
+  </p>
+  
+  <p>
+        <%unless @contact%>
+        <table >
+          <tr>
+            <th>组货方式</th>
+            <th>货物大类</th>
+            <th>货物包装</th>
+            <th>联系人</th>
+            <th>联系方式</th>
+          </tr>
+          <tr>
+            <td> <%= $cargo_option[@cargo.cargo_zuhuo]%> </td>
+            <td> <%=$cargo_big_category[@stock_cargo.big_category]%></td>
+            <td> <%=@stock_cargo.package_name%></td>
+            <%@user=User.find(@cargo.user_id)%>
+            <td>  <%= @user.name %> </td>
+            <td>   <%if @user.user_contact_id%>
+                <%usercontact=UserContact.find(@user.user_contact_id)%>
+                <%= usercontact.mobilephone %>
+                <%= usercontact.quhao+"-"+usercontact.fixphone %>
+              <%else%>
+                <%=@user.mobilephone%>
+              <%end%>
+            </td>
+          </tr>
+        </table>
+        <p> 
+          备注:<%=@cargo.comments  %>
+        </p>
+      <%else%>
+          <%=@contact%>
+        <p>信息来自<%=@cargo[:from_site]%>物流网,网络信息有风险，请注意交易安全.</p>     
+    <%end%>
+  </p>
+  
+</div>

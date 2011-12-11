@@ -1,0 +1,15 @@
+
+
+<div class="bottom_link">
+
+  <%unless @user_contact%>
+  <a  href="/user_contacts/new">添加我的联系方式</a>
+  <%else%>
+
+  <a class="page_navi_link" href="/user_contacts/show/<%=@user_contact.id%>">我的联系方式</a>
+  <a class="page_navi_link" href="/user_contacts/index/<%=@user_contact.id%>/vendor">历史成交车源联系人</a>
+  <a class="page_navi_link" href="/user_contacts/index/<%=@user_contact.id%>/custermer">历史成交货源联系人</a>
+  <a  href="/user_contacts/edit/<%=@user_contact.id%>">更新我的联系方式</a>
+  <%end%>
+
+</div>

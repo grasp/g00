@@ -1,0 +1,133 @@
+<div class="form_header">
+  <%=render "trucks/title"%>
+</div>
+
+
+<%unless @xunjia.blank? %>
+  <h3>货主给询价我的车子</h3>
+  <table>
+    <tr>
+      <th>货物名称</th>
+      <th>货源发布人</th>
+      <th>所在公司</th>
+      <th>货物重量</th>
+      <th>货物出发</th>
+      <th>货物到达</th>
+      <th>报价</th>
+      <th>询价时间</th>
+      <th>货源状态</th>
+      <th>确认成交</th>
+    </tr>
+
+    <% @xunjia.each do |record| %>
+      <%cargo=Cargo.find(record.cargo_id)%>
+      <%unless cargo.blank?%>
+        <tr>
+          <td>
+            <a class="show_float" href="/cargos/show/<%=cargo.id%>">
+              <%=cargo.cate_name%>
+            </a>
+          </td>
+          <td>
+            <%user=User.find(cargo.user_id)%>
+            <a class="show_float" href="/user_contacts/showf/<%=cargo.user_id%>"> <%="#{user.name}"%>
+            </a>
+          </td>
+          <td>
+            <a class="show_float" href="/companies/showf/<%= user.company_id%>"><%="#{Company.find(user.company_id).name}"%></a>
+          </td>
+
+          <td><%= cargo.cargo_weight %>吨</td>
+          <td><%= cargo.fcity_name %></td>
+          <td><%= cargo.tcity_name %></td>
+          <td> <%= record.price.nil? ? "面议":"#{record.price}元"%></td>
+          <td><%= record.created_at.to_s.slice(5,11) %></td>
+          <td> <%=cargo.status%></td>
+          <td>
+
+
+            <%if record.truck_user_id.to_s==session[:user_id].to_s && record.cargo_user_id.to_s!=session[:user_id].to_s%>
+              <%if cargo.status=="正在成交" && @truck.status=="正在成交" && @truck.cj_cargo_id.to_s==cargo.id.to_s%>
+                <a class="confirm_chenjiao" href="/trucks/confirm_chenjiao/<%=record.truck_id%>">确认成交</a>
+              <%else%>
+                <%=cargo.status%>
+              <%end%>
+
+            <%end%>
+          </td>
+
+        </tr>
+      <%end%>
+    <% end %>
+  </table>
+<%else%>
+  <p>没有货主询价我的车子</p>
+<% end %>
+
+<%unless @baojia.blank? %>
+  <h3>该车子和线路报价的货物</h3>
+  <table>
+    <tr>
+      <th>货物名称</th>
+      <th>货源发布人</th>
+      <th>所在公司</th>
+      <th>货物重量</th>
+      <th>货物出发</th>
+      <th>货物到达</th>
+      <th>报价</th>
+      <th>报价时间</th>
+      <th>货源状态</th>
+      <th>确认成交</th>
+    </tr>
+
+    <% @baojia.each do |record| %>
+      <%cargo=Cargo.find(record.cargo_id)%>
+      <%unless cargo.blank?%>
+        <tr>
+          <td>
+            <a class="show_float" href="/cargos/show/<%=cargo.id%>">
+              <%=cargo.cate_name%>
+            </a>
+          </td>
+          <td>
+            <%begin %>
+              <%user=User.find(cargo.user_id)%>
+              <%if user%>
+                <a class="show_float" href="/user_contacts/showf/<%=user.id%>"> <%="#{user.name}"%>
+                <%end%>
+              </a>
+
+
+            </td>
+            <td>
+              <%if user && user.company_id%>
+                <a class="show_float" href="/companies/showf/<%= user.company_id%>"><%="#{Company.find(user.company_id).name}"%></a>
+              <%end%>
+            </td>
+          <%rescue%>
+          <%end%>
+          <td><%= cargo.cargo_weight %>吨</td>
+          <td><%= cargo.fcity_name %></td>
+          <td><%= cargo.tcity_name %></td>
+          <td> <%= record.price.nil? ? "面议":"#{record.price}元"%></td>
+          <td><%= record.created_at.to_s.slice(5,11) %></td>
+          <td> <%=cargo.status%></td>
+          <td>
+            <%if record.truck_user_id.to_s==session[:user_id].to_s && record.cargo_user_id.to_s!=session[:user_id].to_s%>
+              <%if cargo.status=="正在成交" && @truck.status=="正在成交" && @truck.cj_cargo_id.to_s==cargo.id.to_s%>
+                <a class="confirm_chenjiao" href="/trucks/confirm_chenjiao/<%=record.truck_id%>">确认成交</a>
+              <%else%>
+                <%=cargo.status%>
+              <%end%>
+            <%end%>
+          </td>
+
+        </tr>
+      <%end%>
+    <% end %>
+  </table>
+<%else%>
+  <p>还没有对任何货物报价</p>
+<% end %>
+
+<%=render "trucknavi"%>

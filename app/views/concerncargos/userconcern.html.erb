@@ -1,0 +1,63 @@
+
+
+<%unless @concerncargo.blank?%>
+
+  <%unless @concerncargo.city.blank?%>
+    <h3>我关注的城市</h3>
+    <div class="row">
+      <%@concerncargo.city .each do |citycode| %>
+        <span class="span2"><%=$city_code_name[citycode[0]]%></span>
+      <%end%>
+    </div>
+  <%else%>
+    <p>你还没有添加关注的城市.</p>
+  <%end%>
+
+  <%unless @concerncargo.line.blank?%>
+    <h3>我关注的线路</h3>
+    <div class="row">
+      <%@concerncargo.line .each do |line| %>
+
+        <span class="span3"><%=$city_code_name[line[0].split("#")[0]]%><=><%=$city_code_name[line[0].split("#")[1]]%></span>
+      <%end%>
+    </div>
+  <%else%>
+    <p>你还没有添加关注的线路.</p>
+  <%end%>
+
+  <%unless @concerncargo.userid.blank?%>
+    <h3>我关注的用户</h3>
+    <div class="row">
+      <%@concerncargo.userid .each do |username| %>
+        <span class="span2"><%=username[0]%></span>
+      <%end%>
+    </div>
+  <%else%>
+    <p>你还没有添加关注的线路.</p>
+  <%end%>
+  <%unless @concerncargo.phone.blank?%>
+    <h3>我关注的电话</h3>
+
+    <%@concerncargo.phone .each do |phonelist| %>
+      <div class="row">
+        <%=phonelist[0][0]%> 
+        <%=phonelist[0][1]%> 
+        <%=phonelist[0][2]%> 
+        <%=phonelist[0][3]%>
+        <div>
+        <%end%>
+
+      <%else%>
+        <p>你还没有添加关注的电话.</p>
+      <%end%>
+      <hr>
+
+      </hr>
+      <p ><a class="btn default alert-message warning" href="/concerncargos/destroy/<%=@concerncargo.id%>" onclick="return confirm('全部删除？')">删除全部关注</a></p>
+    <%else%>
+      <p>点击左边导航栏添加您的关注.</p>
+    <%end%>
+
+
+
+

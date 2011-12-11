@@ -1,0 +1,136 @@
+<div class="form_header">
+  <%=render "cargos/title"%>
+</div>
+<p>注意:<b style="color:red">点击成交</b>后，报价或询价生效,该货源和车源将从配货状态进入成交状态,再不能接收任何报价和询价，其他人将看不到该货源和车源信息.</p>
+<p>务必先和车主协商并取得车主同意,车主将会在线确认成交,然后你将可以评价车主服务(待开发）</p>
+<%unless @baojia.blank? %>
+  <h3>车主给我的报价</h3>
+  <table>
+  <tr>
+     <th>车源发布人</th>
+     <th>所在公司</th>
+     <th>报价车辆</th>
+     <th>车辆出发</th>
+     <th>车辆到达</th>    
+     <th>报价</th>
+     <th>报价时间</th>
+     <th>车辆状态</th>
+     <th>成交操作</th>
+  </tr>
+
+    <% @baojia.each do |record| %>
+      <%truck=Truck.find(record.truck_id)%>
+      <%unless truck.blank?%>
+        <tr>
+          <td>
+
+            <a class="show_float" href="/user_contacts/showf/<%=truck.user_contact_id%>"> <%=  "#{UserContact.find(truck.user_contact_id).name unless truck.user_contact_id.blank?}"%>
+            </a>
+
+          </td> 
+          <td>
+            <a class="show_float" href="/companies/showf/<%= truck.company_id%>"><%="#{Company.find(truck.company_id).name unless truck.company_id.blank?}"%></a>
+          </td>
+          <td>
+            <a class="show_float" href="/trucks/show/<%=truck.id%>">
+              <%=truck.paizhao%>,
+              <%=truck.dunwei%>吨,
+              <%=truck.length%>米,
+              <%= $truck_shape[truck.shape]%>
+            </a>
+          </td>
+
+          <td><%= truck.fcity_name %></td>
+          <td><%= truck.tcity_name %></td>
+          <td> <%= record.price.nil? ? "面议":"#{record.price}元"%></td>
+          <td><%= record.created_at.to_s.slice(5,11) %></td>
+          <td>
+            <%=truck.status%>
+           </td>
+            <td>
+                <%if record.cargo_user_id==session[:user_id]%>  <!-- I am HuoZhu-->          
+                <%if @cargo.status=="正在配车" && record.truck_user_id!=session[:user_id] && truck.status=="正在配货"%>
+                   <a class=" btn default request_chenjiao" href="/cargos/request_chenjiao/<%=record.cargo_id%>">点击成交</a>
+                 <%end%>
+              <%end%> 
+             <%if record.truck_user_id==session[:user_id] && record.cargo_user_id!=session[:user_id].to_s%>
+                <%if truck.status=="正在成交" %>
+                  <a class=" btn default confirm_chenjiao" href="/quotes/confirm_chenjiao/<%=record.cargo_id%>">确认成交</a>
+               <%end%>
+            <%end%>
+           </td>
+        </tr>
+      <%end%>
+    <% end %>
+  </table>
+<%else%>
+  <p style="margin:20px 0px 20px 0px;">我还没有收到车主报价.</p>
+<% end %>
+  
+  
+<%unless @xunjia.blank? %>
+  <h3>我询价的全部车子</h3>
+  <table>
+  <tr>
+     <th>车源发布人</th>
+     <th>所在公司</th>
+     <th>报价车辆</th>
+     <th>车辆出发</th>
+     <th>车辆到达</th>    
+     <th>报价</th>
+     <th>报价时间</th>
+     <th>车辆状态</th>
+     <th>成交操作</th>
+  </tr>
+
+    <% @xunjia.each do |record| %>
+      <%truck=Truck.find(record.truck_id)%>
+      <%unless truck.blank?%>
+        <tr>
+          <td>
+            <a class="show_float" href="/user_contacts/showf/<%=truck.user_contact_id%>"> <%="#{UserContact.find(truck.user_contact_id).name unless truck.user_contact_id.blank?}"%>
+            </a>
+          </td> 
+          <td>
+            <a class="show_float" href="/companies/showf/<%= truck.company_id%>"><%="#{Company.find(truck.company_id).name unless truck.company_id.blank?}"%></a>
+          </td>
+          <td>
+            <a class="show_float" href="/trucks/show/<%=truck.id%>">
+              <%=truck.paizhao%>,
+              <%=truck.dunwei%>吨,
+              <%=truck.length%>米,
+              <%= $truck_shape[truck.shape]%>
+            </a>
+          </td>
+
+          <td><%= truck.fcity_name %></td>
+          <td><%= truck.tcity_name %></td>
+          <td> <%= record.price.nil? ? "面议":"#{record.price}元"%></td>
+          <td><%= record.created_at.to_s.slice(5,11) %></td>
+          <td>
+            <%=truck.status%>
+            </td>
+             <td>
+            <%if record.cargo_user_id.to_s==session[:user_id].to_s%>            
+                 <%if @cargo.status=="正在配车" && record.truck_user_id.to_s!=session[:user_id].to_s && truck.status=="正在配货"%>
+                    <a class="btn default request_chenjiao" href="/cargos/request_chenjiao/<%=record.cargo_id%>">点击成交</a>
+                 <%end%>  
+             <%end%>
+          <%if record.truck_user_id.to_s==session[:user_id].to_s && record.cargo_user_id.to_s!=session[:user_id].to_s%>
+                 <%if truck.status=="正在成交"%>
+                     <a class="btn default confirm_chenjiao" href="/quotes/confirm_chenjiao/<%=record.cargo_id%>">确认成交</a>
+                  <%end%>
+           <%end%>             
+           </td>
+        </tr>
+      <%end%>
+    <% end %>
+  </table>
+<%else%>
+  <p style="margin:20px 0px 20px 0px;">我还没有询价任何车子.</p>
+<% end %>
+ 
+   <%=render "cargonavi"%>
+
+
+

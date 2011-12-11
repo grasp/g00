@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Address:</b>
+  <%= @mail_account.address %>
+</p>
+
+<p>
+  <b>Port:</b>
+  <%= @mail_account.port %>
+</p>
+
+<p>
+  <b>Username:</b>
+  <%= @mail_account.username %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @mail_account.password %>
+</p>
+
+<p>
+  <b>Authentication:</b>
+  <%= @mail_account.authentication %>
+</p>
+
+<p>
+  <b>Enable startttls:</b>
+  <%= @mail_account.enable_startttls %>
+</p>
+
+<p>
+  <b>Today sent:</b>
+  <%= @mail_account.today_sent %>
+</p>
+
+<p>
+  <b>Total sent:</b>
+  <%= @mail_account.total_sent %>
+</p>
+
+<p>
+  <b>Last use:</b>
+  <%= @mail_account.last_use %>
+</p>
+
+<p>
+  <b>Rejected:</b>
+  <%= @mail_account.rejected %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @mail_account.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_mail_account_path(@mail_account) %> |
+<%= link_to 'Back', mail_accounts_path %>

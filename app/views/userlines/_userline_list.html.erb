@@ -1,0 +1,60 @@
+
+<%if  @userlines%>   
+  <!--
+  <span class="lineselector">
+        <a id="from_data_load"  href="/cities/from/<%=@search.fcity_code ||"100000000000"%>"><%=$city_code_name[@search.fcity_code] ||"出发地选择"%></a>
+        <input type="hidden" name="userlines[fcitycode]"></input>
+        <input type="hidden" ></input>
+
+        <a  id="to_data_load"  href="/cities/to/<%=@search.tcity_code||"100000000000"%>" ><%=$city_code_name[@search.tcity_code] ||"到达地选择"%></a>
+        <input type="hidden" name="userlines[tcitycode]"></input>
+        <input type="hidden" ></input>
+     <input value="专线查询" class="userlines_search" type="submit" name="zhuanianchaxun" style="background-color:#F2F2F2;"></input>
+
+    </span>
+  -->
+  <table class="zebra-striped">
+    <tr>
+      <th>专线城市</th>
+      <th>专线城市</th>
+      <th>发布人</th>
+      <th>联系电话</th>
+      <th>发布公司</th>
+      <th>发布日期</th>
+    </tr>
+
+    <% @userlines.each do |userline| %>
+       <%user=User.where(:_id=>userline.user_id).first%>
+        <%unless user.blank?%>
+      <tr>
+        
+        <%if userline.fcityname.blank?%>
+          <%userline.update_attribute(:fcityname,get_city_full_name(userline.fcityid))%>
+        <%end%>
+        <%if userline.tcityname.blank?%>
+          <%userline.update_attribute(:tcityname,get_city_full_name(userline.tcityid))%>
+        <%end%>
+
+        <td><%= userline.fcityname %></td>
+        <td><%= userline.tcityname %></td>
+         
+        <td><%= user.name %></td>
+        <td><%= user.mobilephone %></td>        
+        <%if user.company_id%>
+          <%company=Company.where(:user_name=>user.name).first%>
+          <td><a  target="_blank"  href="/companies/show/<%=company.id%>"><%= company.name %></a></td>        
+        <%else%>
+          <td><%="个人" %></td>
+        <%end%>
+        <td><%= userline.created_at.to_s.slice(0,19) %></td>
+      </tr>
+      <%end%>
+    <% end %>
+  </table>
+  <%= will_paginate @userlines ,:previous_label=>"上一页",:next_label=>"下一页"%>
+<%else%>
+  <p> 没有找对对应专线.</p>
+<%end%>
+<br />
+
+

@@ -1,0 +1,54 @@
+<h1>Listing scans</h1>
+
+<table>
+  <tr>
+    <th>过期货源</th>
+    <th>过期车源</th>
+
+    <th>有效货源</th>
+    <th>有效车源</th>
+    <th>总货源</th>
+    <th>总车源</th>
+
+    <th>总车子</th>
+    <th>总货物</th>
+    <th>闲置车子</th>
+    <th>闲置货物</th>
+
+
+    <th>总线路</th>
+        <th>总用户</th>
+    <th>公司总数</th>
+    <th>操作人</th>
+     <th>用时(秒)</th>
+    <th>扫描时间</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <tr>
+    <td><%= @scan.expired_cargo %></td>
+    <td><%= @scan.expired_truck %></td>
+        <td><%= @scan.total_cargo %></td>
+
+    <td><%= @scan.valid_truck %></td>
+
+        <td><%= @scan.total_truck %></td>
+    <td><%= @scan.valid_cargo %></td>
+    <td><%= @scan.total_stock_truck %></td>
+    <td><%= @scan.total_stock_cargo %></td>
+    <td><%= @scan.idle_stock_truck %></td>
+    <td><%= @scan.idle_stock_cargo %></td>
+
+
+    <td><%= @scan.total_line %></td>
+        <td><%= @scan.total_user %></td>
+    <td><%= @scan.total_company %></td>
+    <td><%= User.find(@scan.user_id).name  unless @scan.user_id.nil?%></td>
+    <td><%=@scan.cost_time unless @scan.cost_time.nil? %></td>
+     <td><%=@scan.created_at unless @scan.created_at.nil? %></td>
+  </tr>
+
+</table>
+

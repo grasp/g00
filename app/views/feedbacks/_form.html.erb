@@ -1,0 +1,26 @@
+<%= form_for(@feedback) do |f| %>
+<fieldset>
+  <% if @feedback.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@feedback.errors.count, "error") %> prohibited this feedback from being saved:</h2>
+
+      <ul>
+      <% @feedback.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="clearfix">
+    <%= f.label :宝贵建议 %>
+     <div class="input ">  <%= f.text_area :improve,:rows=>10,:class=>"xxlarge" %></div>
+  </div>
+
+  
+  <div class="actions">
+    <%= f.submit("确  定",:class=>"btn primary large") %>
+  </div>
+  </fieldset>
+<% end %>

@@ -1,0 +1,21 @@
+<%#coding:utf-8%>
+<%cache("provinceuserlines") do %>
+  <h4>专线 共<%=h Userline.count%></h4>
+
+  <%(0.upto($sequnced_province.size)).select{|x| x % 2==0}.each do |i|%>
+    <%province1=$sequnced_province[i]%>
+  <%if  province1%>
+    <ul class="menu-tree1">
+      <a  class="span4" href="/userlines/city/<%=province1%>"> <%=$city_code_name[province1.to_s]%>(<%=get_province_userlines_from_count(province1)%>-<%=get_province_userlines_to_count(province1)%>)</a>
+      <%if i!=$sequnced_province.size && !$sequnced_province[i+1].blank?%>
+        <%province2=$sequnced_province[i+1]%>
+        <a  class="span4" href="/userlines/city/<%=province2%>"> <%=$city_code_name[province2.to_s]%>(<%=get_province_userlines_from_count(province2)%>-<%=get_province_userlines_to_count(province2)%>)</a>
+      <%end%>
+    </ul>
+<%end%>
+  <%end%>
+
+
+
+<%end%>
+

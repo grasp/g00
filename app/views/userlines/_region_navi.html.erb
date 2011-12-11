@@ -1,0 +1,14 @@
+<%#coding:utf-8%>
+<%#cache("regioncargo") do %>
+ <%if @province%>
+<div class="region_navi">
+           <%$province_tree[@province.to_s].each do |regioncity|%>      
+              <a   href="/cargos/city/<%=regioncity%>">
+                <%=$city_code_name[regioncity]%>(<%=get_region_cargo_from_count(regioncity)%>-<%=get_region_cargo_to_count(regioncity)%>) </a>
+      
+      <%end%>
+  
+</div>
+ <%end%>
+<%#end%>
+

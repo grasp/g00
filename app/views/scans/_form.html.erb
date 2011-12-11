@@ -1,0 +1,66 @@
+<%= form_for(@scan) do |f| %>
+  <% if @scan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@scan.errors.count, "error") %> prohibited this scan from being saved:</h2>
+
+      <ul>
+      <% @scan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :total_user %><br />
+    <%= f.text_field :total_user %>
+  </div>
+
+  <div class="field">
+    <%= f.label :total_stock_truck %><br />
+    <%= f.text_field :total_stock_truck %>
+  </div>
+  <div class="field">
+    <%= f.label :total_stock_cargo %><br />
+    <%= f.text_field :total_stock_cargo %>
+  </div>
+  <div class="field">
+    <%= f.label :idle_stock_truck %><br />
+    <%= f.text_field :idle_stock_truck %>
+  </div>
+  <div class="field">
+    <%= f.label :idle_stock_cargo %><br />
+    <%= f.text_field :idle_stock_cargo %>
+  </div>
+  <div class="field">
+    <%= f.label :total_cargo %><br />
+    <%= f.text_field :total_cargo %>
+  </div>
+  <div class="field">
+    <%= f.label :total_truck %><br />
+    <%= f.text_field :total_truck %>
+  </div>
+  <div class="field">
+    <%= f.label :expired_cargo %><br />
+    <%= f.text_field :expired_cargo %>
+  </div>
+  <div class="field">
+    <%= f.label :expired_truck %><br />
+    <%= f.text_field :expired_truck %>
+  </div>
+  <div class="field">
+    <%= f.label :total_line %><br />
+    <%= f.text_field :total_line %>
+  </div>
+  <div class="field">
+    <%= f.label :total_company %><br />
+    <%= f.text_field :total_company %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

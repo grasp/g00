@@ -1,0 +1,101 @@
+<%unless @stock_truck.blank?%>
+<%= form_for(@stock_truck,:as=>:stocktruck,:html=>{:class=>"show_form"}) do |f|%>
+
+<% if @stock_truck.errors.any? %>
+    <div id="error_explanation">
+    <h2><%= pluralize(@stock_truck.errors.count, "错误")%> </h2>
+      <ul>
+      <% @stock_truck.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="clearfix">
+    <%= f.label :车辆牌照 %>
+    <div class="input"><%= f.text_field :paizhao %>  </div>
+  </div>
+    <div class="clearfix">
+     <label>自有车辆</label>
+  <div class="input">   <%= f.select(:is_self,options_for_select([["自有车辆","自有车辆"],["协议车辆","协议车辆"],["其他车辆","其他车辆"]],@stock_truck.is_self) )%></div>
+     </div>
+ <div class="clearfix">
+    <%= f.label "核定载重(吨)" %>
+   <div class="input"> <%= f.text_field :dun_wei %>  </div>
+  </div>
+ <div class="clearfix">
+    <%= f.label "车厢长度(米)" %>
+   <div class="input">  <%= f.text_field :che_length %>  </div>
+  </div>
+ <div class="clearfix">
+    <%= f.label :车厢结构 %>
+   <div class="input">  <%= f.select(:truck_shape, options_for_select($truck_shape_reverse.to_a,@stock_truck.truck_shape)) %></div>
+  </div>
+ <div class="clearfix">
+    <%= f.label :用途 %>
+   <div class="input">  <%= f.select(:truck_usage,options_for_select($truck_usage_reverse.to_a,@stock_truck.truck_usage) ) %> </div>
+  </div>
+
+ <div class="clearfix">
+    <%= f.label :有无GPS %>
+   <div class="input"> <%= f.select(:truck_gps, options_for_select([["有","有"],["无","无"]],@stock_truck.truck_gps)) %></div>
+  </div>
+
+ <div class="clearfix">
+    <%= f.label :叫车联系人 %>
+   <div class="input"> <%= f.text_field :bis_name %> </div>
+  </div>
+ <div class="clearfix">
+    <%= f.label :叫车联系电话 %>
+   <div class="input"> <%= f.text_field :bis_phone %></div>
+  </div>
+ <div class="clearfix">
+    <%= f.label :司机姓名 %>
+  <div class="input">   <%= f.text_field :driver_name %></div>
+  </div>
+ <div class="clearfix">
+    <%= f.label :司机电话 %>
+   <div class="input"> <%= f.text_field :driver_phone %></div>
+  </div>
+ <div class="clearfix">
+    <%= f.label :车主姓名 %>
+   <div class="input"> <%= f.text_field :owner_name %></div>
+  </div>
+ <div class="clearfix">
+    <%= f.label :车主电话 %>
+  <div class="input"> <%= f.text_field :owner_phone %> </div> 
+  </div>
+
+ <div class="clearfix">
+    <%= f.label :车子品牌 %>
+   <div class="input"> <%= f.select(:truck_pinpai, options_for_select( $truck_pinpai_reverse.to_a,@stock_truck.truck_pinpai)) %></div> 
+  </div>
+
+ <div class="clearfix">
+    <%= f.label :车子型号 %>
+  <div class="input">   <%= f.text_field :truck_xinghao %></div>
+  </div>
+
+ <div class="clearfix">
+    <%= f.label :购买年份 %>    
+  <div class="input"><%= f.select(:truck_year, options_for_select($year_hash_reverse.to_a,@stock_truck.truck_year)) %>   </div>
+  </div>
+
+<div class="field"  style="display:inline">
+     <!-- <label class="line_from_label">常在城市*:</label>-->
+        <%= f.label :常在城市 %>    
+     <div class="input"> <a id="from_data_load"  class="company_city" href="/cities/from"><%=@stock_truck.favo_city ||"选择"%></a></div>  
+      <%= f.hidden_field(:favo_city) %>
+      <%#= f.hidden_field(:city_name) %>
+</div>
+  <%#= f.hidden_field :user_id %>
+  <%#= f.hidden_field :company_id %>
+  <%= f.hidden_field :status%>
+
+  <div class="actions">
+    <%= f.submit("确定",:class=>"btn primary") %>
+  </div>
+
+<%end %>
+<%end %>

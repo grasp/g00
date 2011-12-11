@@ -1,0 +1,46 @@
+<%#coding:utf-8%>
+ <%unless @cargos.blank?%>
+<table class="zebra-striped">
+  
+  <tr>
+   
+    <th>货物</th>    
+    <th>出发</th>
+    <th>到达</th>
+    <th>重量体积</th>
+    <th>有效</th>
+    <th>发布</th>
+    <th>货源状态</th>
+    <th>车主报价/货主询价</th>  
+    <th>车源速配</th>
+   
+  </tr>
+ 
+    <% @cargos.each do |cargo|  %>
+      <tr>
+       <td class="span4"> <a class ="show_float" href="/cargos/show/<%=cargo.id%>">
+        <%= cargo.cate_name %></a> </td>  
+        <td class="span4"><%= cargo.fcity_name %></td>
+        <td class="span4"><%= cargo.tcity_name %></td>
+        <td class="span3"><%= cargo.cargo_weight ||"0" %>吨/<%= cargo.cargo_bulk ||"0" %>方</td>
+        <td class="span3"><%= cargo.send_date %>天</td>
+        <td class="span2"><%= cargo.created_at.to_s.slice(5,11) %></td>
+        <%if cargo.status!="正在配车"%>
+          <td  class="span2" style="color:red;" ><%= cargo.status %></td>
+        <%else%>
+           <td class="span2"> <%= cargo.status %></td>
+         <%end%>
+         <td class="span3"><a class="link_show" href="/cargos/quoteinquery/<%=cargo.id%>"><%= cargo.total_baojia||0 %>个报价/<%= cargo.total_xunjia||0 %>个询价 </a></td>
+     <!--   <td><a class="show_float " href="/cargos/<%=cargo.id%>/inqueries/cargo/"><%= cargo.total_xunjia||0 %>个</a></td>-->
+        <%if cargo.status!="正在配车"%>
+         <td> <%=cargo.status%></td>
+        <%else%>
+         <%l=Lstatistic.first(:conditions=>{:line=>cargo.line})%>
+        <td class="span3"><a  class="btn default" href="/trucks/search/<%=cargo.fcity_code%>/<%=cargo.tcity_code%>/1">车源速配</a></td>
+        <%end%>
+      </tr>
+    <% end %>
+      </table>
+      <%else%>
+<p>没有正在配车的货源,<a class="btn primary" href="/users/stock_cargos"><b>马上创建货源</b></a></p>
+  <% end %>

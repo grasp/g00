@@ -1,0 +1,68 @@
+<div class="form_header">
+  <%=render "cargos/title"%>
+</div>
+<%unless @bao_or_xun_record.blank? %>
+  <table>
+  <tr>
+     <th>车源发布人</th>
+     <th>所在公司</th>
+     <th>报价车辆</th>
+     <th>车辆出发</th>
+     <th>车辆到达</th>    
+     <th>报价</th>
+     <th>报价时间</th>
+     <th>成交状态</th>
+  </tr>
+
+
+
+    <% @bao_or_xun_record.each do |record| %>
+      <%truck=Truck.find(record.truck_id)%>
+      <%unless truck.blank?%>
+        <tr>
+          <td>
+            <a class="show_float2" href="/user_contacts/showf/<%=truck.user_contact_id%>"> <%="#{UserContact.find(truck.user_contact_id).name}"%>
+            </a>
+          </td> 
+          <td>
+            <a class="show_float2" href="/companies/showf/<%= truck.company_id%>"><%="#{Company.find(truck.company_id).name}"%></a>
+          </td>
+          <td>
+            <a class="show_float" href="/trucks/show/<%=truck.id%>">
+              <%=truck.paizhao%>,
+              <%=truck.dunwei%>吨,
+              <%=truck.length%>米,
+              <%= $truck_shape[truck.shape]%>
+            </a>
+          </td>
+
+          <td><%= truck.fcity_name %></td>
+          <td><%= truck.tcity_name %></td>
+          <td> <%= record.price.nil? ? "面议":"#{record.price}元"%></td>
+          <td><%= record.created_at.to_s.slice(5,11) %></td>
+          <td>
+            <%if record.cargo_user_id==session[:user_id]%>            
+                <%if @cargo.status=="正在配车" && record.truck_user_id!=session[:user_id]%>
+                   <a class="request_chenjiao" href="quotes/request_chenjiao/<%=record.id%>">请求成交</a> 
+                <%else%>
+                   <%=truck.status%>
+                <%end%>
+             <%elsif record.truck_user_id==session[:user_id] && record.cargo_user_id!=session[:user_id]%>
+                <%if truck.status=="请求成交" %>
+                     <a class="confirm_chenjiao" href="quotes/confirm_chenjiao/<%=record.id%>">确认成交</a>
+                 <%else%>
+                <%=truck.status%>
+                <%end%>
+              <%else%>
+                 <%=truck.status%>
+              <%end%>
+           </td>
+        </tr>
+      <%end%>
+    <% end %>
+  </table>
+<%else%>
+  <p>你还没有报价或者询价.</p>
+<% end %>
+
+

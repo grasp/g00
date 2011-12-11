@@ -1,0 +1,42 @@
+
+
+<div class="container">
+  <form class="show_form" action="/users/authenticate">
+
+    <h3>W090 用户登录</h3>
+
+    <fieldset> 
+      <div class="clearfix">
+        <label for="email">用户名或Email:</label>
+        <div class="input"> <input id="email" name="email" type="text" /></div>
+      </div>
+
+      <div class="clearfix">
+        <label for="password">密码:</label>
+        <div class="input">  <input id="password" name="password" type="password" /></div>
+      </div>
+
+      <div class="clearfix">    
+        <label  for="remember_me">下次记住用户:</label>
+        <div class="input">
+          <input   type="checkbox" name="remember_me" id="remember_me" ></input>
+        </div>
+      </div>
+
+      <div class="clearfix">
+        <label></label>
+        <div class="input">
+        <a href="/users/pw_reset_request" style="margin-left:  30px;">忘记密码</a>
+        <a href="/users/new" style="margin-left:  70px;">新用户注册</a>
+        </div>
+      </div>
+      <div class="actions">
+        <input type="submit" class=" btn primary submit_button login_button" style= "width:80px" value="登  录"  />
+      </div>
+
+
+    </fieldset>
+
+  </form>
+
+</div>

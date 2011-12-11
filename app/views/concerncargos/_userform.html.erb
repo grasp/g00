@@ -1,0 +1,29 @@
+<%= form_for(@concerncargo) do |f| %>
+  <fieldset>
+    <% if @concerncargo.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@concerncargo.errors.count, "error") %> prohibited this userline from being saved:</h2>
+
+        <ul>
+          <% @concerncargo.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+    <span class="lineselector">
+
+      <label>请输入关注的用户名:</label>
+      <input type="text" name="username" value=""></input>
+      <input type="hidden" name="concern_type" value="user"></input>
+
+      <%= f.submit("确定",:class=>"btn default") %>
+
+    </span>
+
+
+
+  </fieldset>
+<% end %>

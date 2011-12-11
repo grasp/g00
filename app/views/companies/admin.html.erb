@@ -1,0 +1,43 @@
+<%#coding: utf-8%>
+
+
+
+ <%  unless @companies.blank? %>
+<table  >
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>联系人</th>
+      <th>邮件</th>
+      <th>所在城市</th>
+      <th>地址</th>
+      <th>固话</th>
+      <th>手机</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+    <%@companies.each do |company|%>   
+      <tr>
+        <td><a class="show_float" href="/companies/show/<%=company.id%>/public"><%=h company.name %></a>
+</td>
+        <td><%=h company.contact_name %></td>
+        <td><%=h company.email %></td>
+        <td><%=h company.city_name %></td>
+        <td><%=h company.address %></td>
+        <td><%=h company.fix_phone %></td>
+        <td><%=h company.mobile_phone %></td>
+      </tr>
+    <% end %>
+      <%else%>
+  <p>没有找到该城市的公司，请您原谅我们.</p>
+  <% end %>
+
+  </tbody>
+</table>
+<%= will_paginate @companies ,:class=>"page_navi_link"%>
+<p id="notice"><%= notice %></p>
+<br />
+
+<%#= link_to 'New Company', new_company_path %>

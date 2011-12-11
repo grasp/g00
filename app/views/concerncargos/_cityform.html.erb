@@ -1,0 +1,18 @@
+<div >
+<%=form_for(@concerncargo) do |f| %>
+  <fieldset>
+<span class=""  style="text-align: left;">
+
+  <!-- do not change below  format -->
+
+      <span class="line_from_label" >选择关注城市:</span>
+      <a id="from_data_load"  style="margin:5px 20px 5px 20px;" href="/cities/from"><%=@city ||"请选择城市"%></a> 
+       <input type="hidden" name="citycode" value=""></input>
+       <input type="hidden" name="cityname" value=""></input>
+       <input type="hidden" name="concern_type" value="city"></input>
+  <!-- do not change this format -->
+    <%= f.submit("确定",:class=>"btn default")%>
+  </span>
+</fieldset>
+<% end %>
+</div>

@@ -1,0 +1,13 @@
+ <%#coding:utf-8%>
+
+<div class="city_navi">
+  <%if  @city_list %>
+    <%@city_list.each do |smallcity|%>
+      <a class="city <%="p#{smallcity[0]}"%>" href="/trucks/city/<%=smallcity[0]%>/city"><%=smallcity[1]%>(<%=smallcity[2]%>)</a>
+    <%end%>
+  <%end%>
+</div>
+
+
+
+  

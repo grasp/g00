@@ -1,0 +1,46 @@
+
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+     <th>Name</th>
+    <th>Email</th>
+   
+    <th>Status</th>
+    <th>Activate</th>
+    <th>created_at</th>
+      <th>货-货源-有效</th>
+      <th>车-车源-有效</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+
+  <%ustatistic=Ustatistic.find(user.ustatistic_id) unless user.ustatistic_id.blank?%>
+  <tr>
+      <td><%= user.name %>-<%=ustatistic.id unless user.ustatistic_id.blank? %></td>
+    <td><%= user.email %></td>
+  
+    <td><%= user.status %></td>
+    <td><%= user.activate %></td>
+    <td><%= user.created_at.localtime.to_s %></td>
+    <%unless ustatistic.blank?%>
+    <td><%= ustatistic.total_stock_cargo %>-<%= ustatistic.total_cargo %>-<%= ustatistic.valid_cargo %></td>
+    <td><%= ustatistic.total_stock_truck %>-<%= ustatistic.total_truck %>-<%= ustatistic.valid_truck %></td>
+    <%else%>
+    <td>no statistic</td>
+      <td>no statistic</td>
+    <%end%>
+    <td><%= user.activate %></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td> <a  href="/users/destroy/<%=user.id%>" onclick="return confirm('do you want to delete the data?')">删除</a></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= will_paginate @users%>
+<%#= link_to 'New User', new_user_path %>

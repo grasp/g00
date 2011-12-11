@@ -1,0 +1,37 @@
+<%= form_for(@wmail) do |f| %>
+  <% if @wmail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@wmail.errors.count, "error") %> prohibited this wmail from being saved:</h2>
+
+      <ul>
+      <% @wmail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="clearfix">
+    <%= f.label :to %><br />
+    <div class="input">  <%= f.text_field :to %>  </div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :from %><br />
+    <div class="input">  <%= f.text_field :from %>  </div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :body %><br />
+     <div class="input"> <%= f.text_area :body %>  </div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :subject %><br />
+     <div class="input"> <%= f.text_field :subject %>  </div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :fromu %><br />
+  <div class="input">  <%= f.text_field :fromu %>  </div>
+  </div>
+  <div class="actions">
+    <%= f.submit("OK",:class=>"btn primary") %>
+  </div>
+<% end %>

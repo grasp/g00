@@ -1,0 +1,111 @@
+<div class="admin_index">
+  <h3>站点内容统计</h3>
+  <table class="admin_index zebra-striped">
+    <tr>
+      <th>用户数量</th>
+      <th>公司数量</th>
+      <th>货源数量</th>
+      <th>过期货源</th>
+      <th>正在配车</th>
+      <th> 车源数量</th>
+      <th>正在配货</th>
+      <th>过期车源</th>
+      <th>过期车源</th>
+    </tr>
+    <tr>
+      <td ><%=User.count%></td>
+      <td ><%=Company.count%></td>
+      <td ><%=Cargo.count%></td> 
+      <td ><%=ExpiredCargo.count%></td> 
+      <td ><%=Cargo.where(:status=>"正在配车").count%></td> 
+      <td ><%=Truck.count%></td>  
+      <td ><%=Truck.where(:status=>"正在配货").count%></td>  
+      <td ><%=ExpiredTruck.count%></td>  
+      <td ><%=ExpiredTruck.count%></td>  
+    </tr>
+  </table>
+
+  <h3>登录统计</h3>
+  <table class="admin_index zebra-striped">
+    <tr>
+      <th>今日登录</th>
+      <th>2日内登录</th>  
+      <th>3日内登录</th>
+      <th>4日内登录</th>
+      <th>5日内登录</th>
+      <th>在线人数</th>
+    </tr>
+    <tr>        
+      <%time=Time.now%>
+      <td ><%=User.where(:last_login.gte=>time.at_beginning_of_day).count%></td>
+      <td ><%=User.where(:last_login.gte=>time.ago(86400*2)).count%></td>
+      <td ><%=User.where(:last_login.gte=>time.ago(86400*3)).count%></td>
+      <td > <%=User.where(:last_login.gte=>time.ago(86400*4)).count%></td>
+      <td ><%=User.where(:last_login.gte=>time.ago(86400*5)).count%></td>
+      <td ><%=%></td>
+    </tr>
+  </table>
+
+  <h3>访问统计</h3>
+  <table>
+    <tr>
+      <th>Ie6</th>
+      <th>Ie7</th>
+      <th>Ie8</th>
+      <th>Noneie</th>
+      <th>loginuser</th>
+          <th>spider</th>
+      <th>cargoshow</th>
+      <th>truckshow</th>
+   
+    </tr>
+
+    <% @sitedata.each do |sitedatum| %>
+      <tr>
+        <td><%= sitedatum.ie6 %></td>
+        <td><%= sitedatum.ie7 %></td>
+        <td><%= sitedatum.ie8 %></td>
+        <td><%= sitedatum.noneie %></td>
+        <td><%= sitedatum.loginuser %></td>
+            <td><%= sitedatum.spider %></td>
+        <td><%= sitedatum.cargoshow %></td>
+        <td><%= sitedatum.truckshow %></td>
+      </tr>
+    <% end %>
+  </table>
+  <h3>货源采集统计</h3>
+  <table>
+    <tr>
+      <th>tf56货源</th>
+      <th>56qq货源</th>
+        <th>56135货源</th>
+      <th>quzhou货源</th>
+       <th>好运56货源</th>
+    </tr>
+    <tr>
+      <td><%=Cargo.where(:from_site=>"tf56",:created_at.gte=>Time.now.at_beginning_of_day).count%>/<%=Cargo.where(:from_site=>"tf56").count%></td>
+       <td><%=Cargo.where(:from_site=>"56qq",:created_at.gte=>Time.now.at_beginning_of_day).count%>/<%=Cargo.where(:from_site=>"56qq").count%></td>
+        <td><%=Cargo.where(:from_site=>"56135",:created_at.gte=>Time.now.at_beginning_of_day).count%>/<%=Cargo.where(:from_site=>"56135").count%></td>
+        <td><%=Cargo.where(:from_site=>"quzhou",:created_at.gte=>Time.now.at_beginning_of_day).count%>/<%=Cargo.where(:from_site=>"quzhou").count%></td>
+        <td><%=Cargo.where(:from_site=>"haoyun56",:created_at.gte=>Time.now.at_beginning_of_day).count%>/<%=Cargo.where(:from_site=>"haoyun56").count%></td>
+    </tr>
+  </table>
+    <h3>车源采集统计</h3>
+  <table>
+    <tr>
+      <th>tf56车源</th>
+      <th>56qq车源</th>
+      <th>56135车源</th>
+      <th>quzhou车源</th>
+       <th>好运56车源</th>
+    </tr>
+    <tr>
+      <td><%=Truck.where(:from_site=>"tf56",:created_at.gte=>Time.now.at_beginning_of_day).count%>/<%=Truck.where(:from_site=>"tf56").count%></td>
+       <td><%=Truck.where(:from_site=>"56qq",:created_at.gte=>Time.now.at_beginning_of_day).count%>/<%=Truck.where(:from_site=>"56qq").count%></td>
+        <td><%=Truck.where(:from_site=>"56135",:created_at.gte=>Time.now.at_beginning_of_day).count%>/<%=Truck.where(:from_site=>"56135").count%></td>
+        <td><%=Truck.where(:from_site=>"quzhou",:created_at.gte=>Time.now.at_beginning_of_day).count%>/<%=Truck.where(:from_site=>"quzhou").count%></td>
+        <td><%=Truck.where(:from_site=>"haoyun56",:created_at.gte=>Time.now.at_beginning_of_day).count%>/<%=Truck.where(:from_site=>"haoyun56").count%></td>
+    </tr>
+  </table>
+  
+</div>

@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<%unless @can_create%>
+<p>目前不能创建超过10条专线.</p>
+<%end%>
+<%if @wrong_city==true%>
+<p>城市选择错误.</p>
+<%else%>
+<p>创建失败.</p>
+<%end%>
+

@@ -1,0 +1,27 @@
+
+<%unless @concerncargo.blank?%>
+
+<% if params[:concern_type]=="city" %>
+<h3>管理我的关注城市</h3>
+  <%=render "editcityform" %>
+<%end%>
+
+<% if params[:concern_type]=="line" %>
+<h3>管理我的关注线路</h3>
+  <%=render "editlineform" %>
+<%end%>
+
+<% if params[:concern_type]=="user" %>
+<h3>管理我的关注用户</h3>
+  <%=render "edituserform" %>
+<%end%>
+
+<% if params[:concern_type]=="phone" %>
+<h3>管理我的关注电话</h3>
+  <%=render "editphoneform" %>
+<%end%>
+
+<%else%>
+<p>你还没有创建任何关注</p>
+<%end%>
+     
