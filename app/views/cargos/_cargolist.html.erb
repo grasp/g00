@@ -1,91 +1,79 @@
 <%#coding:utf-8%>
 
-     <span class="lineselector">
-      <a id="from_data_load"  href="/cities/from/<%=@search.fcity_code ||"100000000000"%>"><%=$city_code_name[@search.fcity_code] ||"出发地选择"%></a>
-      <input type="hidden" name="cargo[fcitycode]"></input>
-      <input type="hidden" name="cargo[fcityname]"></input>
+<span class="lineselector">
+  <a id="from_data_load"  href="/cities/from/<%=@search.fcity_code ||"100000000000"%>"><%=$city_code_name[@search.fcity_code] ||"出发地选择"%></a>
+  <input type="hidden" name="cargo[fcitycode]"></input>
+  <input type="hidden" name="cargo[fcityname]"></input>
 
-      <a  id="to_data_load"  href="/cities/to/<%=@search.tcity_code||"100000000000"%>" ><%=$city_code_name[@search.tcity_code] ||"到达地选择"%></a>
-      <input type="hidden" name="cargo[tcitycode]"></input>
-      <input type="hidden" name="cargo[tcityname]"></input>
-      <input value="货源查询" class=" btn default cargo_search" type="submit" name="asss" ></input>
+  <a  id="to_data_load"  href="/cities/to/<%=@search.tcity_code||"100000000000"%>" ><%=$city_code_name[@search.tcity_code] ||"到达地选择"%></a>
+  <input type="hidden" name="cargo[tcitycode]"></input>
+  <input type="hidden" name="cargo[tcityname]"></input>
+  <input value="货源查询" class=" btn default cargo_search" type="submit" name="asss" ></input>
 
   <a  class="sec_navi"  href="/cargos/baojiacargo/all">待报价货源(<%=Cargo.where(:from_site=>"local").count%>)</a>
 
- 
-  <%if params[:city_id]%>
-  <a class="sec_navi" href="/cargos/cityfrom/<%=params[:city_id]%>"><%=$city_code_name[params[:city_id]] ||"全国"%>出发</a>
 
-  <a class="sec_navi" href="/cargos/cityto/<%=params[:city_id]%>"> 到达<%=$city_code_name[params[:city_id]] ||"全国"%></a>  
+  <%if params[:city_id]%>
+    <a class="sec_navi" href="/cargos/cityfrom/<%=params[:city_id]%>"><%=$city_code_name[params[:city_id]] ||"全国"%>出发</a>
+
+    <a class="sec_navi" href="/cargos/cityto/<%=params[:city_id]%>"> 到达<%=$city_code_name[params[:city_id]] ||"全国"%></a>  
   <%end%>
   <a  style="margin-left:50px;" class="btn primary"  href="/users/stock_cargos"><b>发布货源</b></a>
-  </span>
-    
-   <%=render "cargos/region_navi"%>
-   <%=render "cargos/city_navi"%>
- <% unless @cargos.blank? %>
- <table class="cargo zebra-striped" >
+</span>
 
-
+<%=render "cargos/region_navi"%>
+<%=render "cargos/city_navi"%>
+<table class="cargo zebra-striped" >
   <th> 出发</th>
- <th> 到达</th>
-
-     <th>货物</th>
-      <th>重量</th>
-      <th>有效</th>      
-      <th>发布日期</th>
-      <th>货源状态</th>    
-      <th>车主操作</th>
-  <!--
-  <th style="background-color:#F2F2F2;" class="search">    
-   <input value="查询" class="cargo_search" type="submit" name="asss"></input>   
- 
-  </th>
--->
-
-    <% @cargos.each do |cargo| %>
+  <th> 到达</th>
+  <th>货物</th>
+  <th>重量</th>
+  <th>有效</th>      
+  <th>发布日期</th>
+  <th>货源状态</th>    
+  <th>车主操作</th>
+  <% unless @cargos.blank? %>
+    <% @cargos.each do |cargo| %>     
       <%unless cargo.nil? %>
         <tr>
           <td class="span4"><%= cargo.fcity_name %></td>
           <td class="span4"><%= cargo.tcity_name %></td>
-   
-           <td class="span6"><a class ="show_float" href="/cargos/show/<%=cargo.id%>">
-           <%= cargo.cate_name ||"未知货物"%>
 
-             </a> 
-           
-           </td>
+          <td class="span6"><a class ="show_float" href="/cargos/show/<%=cargo.id%>">
+              <%= cargo.cate_name ||"未知货物"%>
+            </a> 
+
+          </td>
           <td class="span3"><%= cargo.cargo_weight || "0" %>吨/<%= cargo.cargo_bulk ||0 %>方</td>
           <td class="span2"><%= cargo.send_date %>天</td>
-     <td class="span4"><%=cargo.created_at.localtime.to_s.slice(0,19) unless cargo.updated_at.nil? %></td>
-   
+          <td class="span4"><%=cargo.created_at.localtime.to_s.slice(0,19) unless cargo.updated_at.nil? %></td>
+
           <td class="span2"><%=cargo.status %></td>
           <td class="span2">
             <%if cargo[:from_site]=="local"%>
-            <%unless session[:user_id].nil?%>
-            <%if cargo.user_id==session[:user_id]%>
-             货主
+              <%unless session[:user_id].nil?%>
+                <%if cargo.user_id==session[:user_id]%>
+                  货主
+                <%else%>
+                  <a class=" btn default baojia" href="/cargos/<%=cargo.id%>/quotes/new">报价</a>
+                <%end%>
+              <%else%>
+                登录后报价
+              <%end%>
             <%else%>
-                <a class=" btn default baojia" href="/cargos/<%=cargo.id%>/quotes/new">报价</a>
-             <%end%>
-            <%else%>
-            登录后报价
+              其他
             <%end%>
-            <%else%>
-            其他
-            <%end%>
-           </td>   
-    
+          </td>   
         </tr>
       <% end %>
-        
     <% end %>
-      
-   </table>
- <%= will_paginate @cargos ,:previous_label=>"上一页",:next_label=>"下一页"%>
+  </table>
+
+
+  <%= will_paginate @cargos ,:previous_label=>"上一页",:next_label=>"下一页"%>
 <%else%>     
 
-    <p>没有对应的货源.</p>   
+  <p>没有对应的货源.</p>   
 
 <%end %>
 

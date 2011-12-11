@@ -7,6 +7,8 @@
     <th>货物</th>
     <th>出发</th>
     <th>到达</th>
+        <th>line</th>
+
     <th>重量体积</th>
     <th>有效天数</th>
     <th>发布时间</th>
@@ -25,6 +27,7 @@
         <%= cargo.cate_name %></a> </td>
         <td><%= cargo.fcity_name %></td>
         <td><%= cargo.tcity_name %></td>
+           <td><%= cargo.line %></td>
         <td><%= cargo.cargo_weight ||"0" %>吨/<%= cargo.cargo_bulk ||"0" %>方</td>
         <td><%= cargo.send_date %>天</td>
         <td><%#= cargo.created_at%></td>

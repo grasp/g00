@@ -1,20 +1,22 @@
 
 
 <%unless @concerncargo.blank?%>
-
+  <h3>我关注的城市</h3>
   <%unless @concerncargo.city.blank?%>
-    <h3>我关注的城市</h3>
+
     <div class="row">
       <%@concerncargo.city .each do |citycode| %>
         <span class="span2"><%=$city_code_name[citycode[0]]%></span>
       <%end%>
     </div>
+
   <%else%>
     <p>你还没有添加关注的城市.</p>
   <%end%>
 
+  <h3>我关注的线路</h3>
   <%unless @concerncargo.line.blank?%>
-    <h3>我关注的线路</h3>
+
     <div class="row">
       <%@concerncargo.line .each do |line| %>
 
@@ -25,18 +27,23 @@
     <p>你还没有添加关注的线路.</p>
   <%end%>
 
+  <h3>我关注的用户</h3>
   <%unless @concerncargo.userid.blank?%>
-    <h3>我关注的用户</h3>
+
     <div class="row">
       <%@concerncargo.userid .each do |username| %>
         <span class="span2"><%=username[0]%></span>
       <%end%>
     </div>
+
   <%else%>
     <p>你还没有添加关注的线路.</p>
   <%end%>
+
+
+  <h3>我关注的电话</h3>
   <%unless @concerncargo.phone.blank?%>
-    <h3>我关注的电话</h3>
+
 
     <%@concerncargo.phone .each do |phonelist| %>
       <div class="row">
@@ -57,6 +64,57 @@
     <%else%>
       <p>点击左边导航栏添加您的关注.</p>
     <%end%>
+
+    <%@total_cargos.each do |key,cargos|%>
+      <h3><%=key%></h3>
+      <table class="cargo zebra-striped" >
+        <th> 出发</th>
+        <th> 到达</th>
+        <th>货物</th>
+        <th>重量</th>
+        <th>有效</th>      
+        <th>发布日期</th>
+        <th>货源状态</th>    
+        <th>车主操作</th>
+        <% unless cargos.blank? %>
+          <% cargos.each do |cargo| %>     
+            <%unless cargo.nil? %>
+              <tr>
+                <td class="span4"><%= cargo.fcity_name %></td>
+                <td class="span4"><%= cargo.tcity_name %></td>
+
+                <td class="span6"><a class ="show_float" href="/cargos/show/<%=cargo.id%>">
+                    <%= cargo.cate_name ||"未知货物"%>
+                  </a> 
+
+                </td>
+                <td class="span3"><%= cargo.cargo_weight || "0" %>吨/<%= cargo.cargo_bulk ||0 %>方</td>
+                <td class="span2"><%= cargo.send_date %>天</td>
+                <td class="span4"><%=cargo.created_at.localtime.to_s.slice(0,19) unless cargo.updated_at.nil? %></td>
+
+                <td class="span2"><%=cargo.status %></td>
+                <td class="span2">
+                  <%if cargo[:from_site]=="local"%>
+                    <%unless session[:user_id].nil?%>
+                      <%if cargo.user_id==session[:user_id]%>
+                        货主
+                      <%else%>
+                        <a class=" btn default baojia" href="/cargos/<%=cargo.id%>/quotes/new">报价</a>
+                      <%end%>
+                    <%else%>
+                      登录后报价
+                    <%end%>
+                  <%else%>
+                    其他
+                  <%end%>
+                </td>   
+              </tr>
+            <% end %>
+          <% end %>
+                 <% end %>
+        </table>
+      
+   <% end %>
 
 
 

@@ -59,7 +59,7 @@ G0::Application.routes.draw do
   match '/admin/deploy_test' =>'admin#deploy_test' ,:as=>:admin_deploy_test
   match '/admin/deploy' =>'admin#deploy' ,:as=>:admin_deploy
    match '/admin/send_site_update_to_register(/:test)' =>'admin#send_site_update_to_register' ,:as=>:admin_send_site_update_to_register
-  
+   match '/admin/temp_task' =>'admin#temp_task' ,:as=>:admin_temp_task
   get "admin/index"
 
   resources :citystatistics

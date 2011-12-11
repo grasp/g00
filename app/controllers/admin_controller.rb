@@ -63,7 +63,10 @@ class AdminController < ApplicationController
   end
 
   def cargo_manage
-    @cargos = Cargo.all.order(:created_at.desc).paginate(:page=>params[:page]||1,:per_page=>20)
+    puts "run cargo manager"
+ # @cargos = Cargo.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>20)
+     #@cargos = Cargo.all.limit(100).paginate(:page=>params[:page]||1,:per_page=>20)
+     @cargos = Cargo.where(:user_id =>session[:user_id]).desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
   end
 
   def stockcargo_manage
@@ -268,6 +271,12 @@ class AdminController < ApplicationController
     @inviten1=User.where(:inviten=>1).count
     @inviten2=User.where(:inviten=>2).count
     @send_time=Time.now-start_time
+  end
+  
+  def temp_task
+    Cargo.where(:status=>"正在配车").each do |cargo|
+      cargo.update_attribute(:line,cargo.fcity_code+"#"+cargo.tcity_code)
+    end
   end
 
 end

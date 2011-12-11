@@ -89,7 +89,8 @@ def parse_56135
    cargo[:fcity_code]=CityTree.get_code_from_name(raw_array[1])
    cargo[:tcity_code]=CityTree.get_code_from_name(raw_array[2])
    if !cargo[:fcity_code].nil? && !cargo[:tcity_code].nil?
-   cargo[:fcity_name]=CityTree.get_city_full_path(cargo[:fcity_code])
+           cargo[:line]=cargo[:fcity_code]+"#"+cargo[:tcity_code]
+     cargo[:fcity_name]=CityTree.get_city_full_path(cargo[:fcity_code])
    cargo[:tcity_name]=CityTree.get_city_full_path(cargo[:tcity_code])  
       cargo[:comments]=raw_array[5].to_s+raw_array[6].to_s+raw_array[7].to_s
    #   log.info   cargo[:comments]

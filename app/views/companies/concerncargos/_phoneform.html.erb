@@ -1,0 +1,47 @@
+<%= form_for(@concerncargo) do |f| %>
+  <fieldset>
+    <% if @concerncargo.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@concerncargo.errors.count, "error") %> prohibited this userline from being saved:</h2>
+
+        <ul>
+          <% @concerncargo.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+    <div class="clearfix">
+      <label>关注的手机号码:</label>
+      <input type="text" name="mobilephone" value=""></input>
+    </div>
+    <div class="clearfix">
+      <label>该手机的固定电话:</label>
+      <input type="text" name="fixphone" value=""></input>
+    </div>
+    <div class="clearfix">
+      <label>该手机的email:</label>       
+      <input type="text" name="email" value=""></input>
+      <div class="clearfix">
+        <label>该手机的QQ:</label>
+        <input type="text" name="QQ" value=""></input>
+      </div>
+
+      <div class="clearfix">
+        <label>姓名备注:</label>
+        <input type="text" name="comments" value=""></input>
+      </div>
+      
+      <input type="hidden" name="concern_type" value="phone"></input>
+      <div class="actions">
+        <%= f.submit("确定",:class=>"btn default") %>
+      </div>
+
+
+
+
+
+  </fieldset>
+<% end %>

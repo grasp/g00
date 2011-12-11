@@ -16,7 +16,7 @@ module QuzhougraspHelper
           tr.css("td").each do |p|
             item_info<<p.content
           end
-            if item_info.size >5
+          if item_info.size >5
             one_item=Hash.new
             item_info[0].strip!
             #  puts "#{item_info[0]},size=#{item_info[0].size}"
@@ -47,13 +47,13 @@ module QuzhougraspHelper
                 item_info[11]="0570-"+item_info[11]
                 #   puts "item_info[11]=#{item_info[11]}"
               end
-             #  one_item[:created_at]=item_info[12]
-             one_item[:created_at]=Time.now
-               one_item[:send_date]=1
+              #  one_item[:created_at]=item_info[12]
+              one_item[:created_at]=Time.now
+              one_item[:send_date]=1
               # one_item[:updated_at]=Time.now
-                one_item[:status]="正在配车"  # for match local
-                one_item[:from_site]="quzhou"  #used for show which template
-                page_huo<<one_item
+              one_item[:status]="正在配车"  # for match local
+              one_item[:from_site]="quzhou"  #used for show which template
+              page_huo<<one_item
             end
             if item_info[0].to_s=="空车"
               one_item[:fcity_name]=item_info[2]
@@ -65,19 +65,21 @@ module QuzhougraspHelper
               city_code=CityTree.get_code_from_name(one_item[:tcity_name]) unless  one_item[:tcity_name].nil?
               cal_city=CityTree.get_city_full_path(city_code) unless  city_code.nil?
               one_item[:tcity_code]=city_code
+              
+              one_item[:line]= one_item[:fcity_code]=city_code+"#"+  one_item[:tcity_code]
               one_item[:tcity_name]=cal_city
               one_item[:dunwei]=item_info[4]||"0"+item_info[5]||"0"
               one_item[:length]=item_info[8]||"0"+"米"
               one_item[:truck_shape]=item_info[9]
               one_item[:price]=item_info[6]||"0"
               one_item[:price_unit]=item_info[7]
-               #默认衢州区号
+              #默认衢州区号
               if item_info[11].size==7
                 item_info[11]="0570-"+item_info[11].to_s
               end
               one_item[:contact_phone]=item_info[11]
-          #    one_item[:created_at]=item_info[12]
-           one_item[:created_at]=Time.now
+              #    one_item[:created_at]=item_info[12]
+              one_item[:created_at]=Time.now
               one_item[:paizhao]= "未知牌照"
               one_item[:status]="正在配货"  # for match local
               one_item[:from_site]="quzhou"
@@ -92,45 +94,45 @@ module QuzhougraspHelper
     end_time=Time.now
     [page_huo,page_che]
   end
-def  get_quzhou_grasps
-  start_time=Time.now
-  @admin=User.where("name"=>"admin").first
+  def  get_quzhou_grasps
+    start_time=Time.now
+    @admin=User.where("name"=>"admin").first
 
- grasp= get_first_page_quzhou
-  start_time=Time.now;@huo_succ_counter=0;@huo_fail_counter=0;@che_succ_counter=0;@che_fail_counter=0
- @page_huos=grasp[0]
- @page_ches=grasp[1]
+    grasp= get_first_page_quzhou
+    start_time=Time.now;@huo_succ_counter=0;@huo_fail_counter=0;@che_succ_counter=0;@che_fail_counter=0
+    @page_huos=grasp[0]
+    @page_ches=grasp[1]
     #insert each huo
     @page_huos.each do |huo|
-    huo[:user_id]=@admin.id
-   # puts huo
-    begin
-    a=Cargo.new(huo)
-    @huo_succ_counter+=1 if a.save
-    rescue
-      @huo_fail_counter+=1
+      huo[:user_id]=@admin.id
+      # puts huo
+      begin
+        a=Cargo.new(huo)
+        @huo_succ_counter+=1 if a.save
+      rescue
+        @huo_fail_counter+=1
+      end
     end
-    end
-     @huo_time=Time.now-start_time
-     @page_ches.each do |che|
-       che[:user_id]=@admin.id
+    @huo_time=Time.now-start_time
+    @page_ches.each do |che|
+      che[:user_id]=@admin.id
       # puts che
-    begin
-    a=Truck.new(che)
-    @che_succ_counter+=1 if a.save
-    rescue
-      @che_fail_counter+=1
+      begin
+        a=Truck.new(che)
+        @che_succ_counter+=1 if a.save
+      rescue
+        @che_fail_counter+=1
+      end
     end
-   end
-     @che_time=Time.now-start_time
-     a=GraspRecord.new({:diff_che=> @che_succ_counter,:diff_huo=> @huo_succ_counter,
+    @che_time=Time.now-start_time
+    a=GraspRecord.new({:diff_che=> @che_succ_counter,:diff_huo=> @huo_succ_counter,
         :cycle_che=>0,:cycle_huo=>0,
-       :cost_time=>@huo_time+@che_time,
+        :cost_time=>@huo_time+@che_time,
         :fail_counter=>@huo_fail_counter+@che_fail_counter,
         :miss_field_huo=>0,:miss_field_che=>0,
         :repeat_huo=>@huo_fail_counter,:repeat_che=>@che_fail_counter,
-       :cargostatus=>"notexpired",  :truckstatus=>"notexpired",:from_site=>"tf56"})
+        :cargostatus=>"notexpired",  :truckstatus=>"notexpired",:from_site=>"tf56"})
 
-     @grasp=GraspRecord.all.order(:created_at.desc).first
+    @grasp=GraspRecord.all.order(:created_at.desc).first
   end
 end

@@ -5,6 +5,7 @@
       <th>用户数量</th>
       <th>公司数量</th>
       <th>货源数量</th>
+       <th>等待迁移</th>
       <th>过期货源</th>
       <th>正在配车</th>
       <th> 车源数量</th>
@@ -16,6 +17,7 @@
       <td ><%=User.count%></td>
       <td ><%=Company.count%></td>
       <td ><%=Cargo.count%></td> 
+      <td ><%=Cargo.where(:status=>"超时过期").count%></td> 
       <td ><%=ExpiredCargo.count%></td> 
       <td ><%=Cargo.where(:status=>"正在配车").count%></td> 
       <td ><%=Truck.count%></td>  

@@ -1,0 +1,12 @@
+
+
+<%unless @concerncargo.city.blank?%>
+<%@concerncargo.city .each do |citycode| %>
+<li><%=$city_code_name[citycode]%></li>
+<%end%>
+<%else%>
+<p>你还没有添加关注的城市.</p>
+<%end%>
+
+
+

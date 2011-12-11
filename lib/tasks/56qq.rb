@@ -86,6 +86,7 @@ def parse_56qq
       cargo=Cargo.new  
       cargo[:fcity_code]=onecargo[0][0]
       cargo[:tcity_code]=onecargo[0][1]
+      cargo[:line]=cargo[:fcity_code]+"#"+cargo[:tcity_code]
       cargo[:fcity_name]=CityTree.get_city_full_path(cargo[:fcity_code])
       cargo[:tcity_name]=CityTree.get_city_full_path(cargo[:tcity_code])  
     

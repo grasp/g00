@@ -18,7 +18,19 @@ class ConcerncargosController < ApplicationController
   
   def userconcern
     if session[:user_id]
+     
       @concerncargo=Concerncargo.where(:user_id=>session[:user_id]).first
+      unless @concerncargo.blank?
+        #to get all city cargo
+        unless @concerncargo.city.blank?
+          city_array=Array.new
+          @concerncargo.city.each {|x| city_array<<x[0]}
+          @cityconcerncargo=Cargo.where(:status=>"正在配车").any_in(:fcity_code=>city_array).desc(:created_at).limit(20)
+        end       
+        @total_cargos=Hash.new
+        @total_cargos["关注城市"]= @cityconcerncargo
+      end
+   
     else
       session[:original_url]=request.url
       redirect_to userslogin_path,:flash=>{:notice=>" 注册用户才能添加关注，花费数秒钟免费注册下，从此尽可享受免费的精彩服务"}
@@ -137,6 +149,7 @@ class ConcerncargosController < ApplicationController
           @concerncargo.city.delete_at(index)
         end
       end
+      @concerncargo.update_attribute(:city,@concerncargo.city) 
     end
     
     if params[:concern_type]=="line" && !@concerncargo.line.blank?
@@ -176,11 +189,11 @@ class ConcerncargosController < ApplicationController
       new_concerncargophone=@concerncargo.phone
       (@concerncargo.phone.size-1).downto(0).each do |index|
         if  params["mail#{index}"]    
-         new_concerncargophone[index][1]=true
+          new_concerncargophone[index][1]=true
         else
-        new_concerncargophone[index][1]=false
+          new_concerncargophone[index][1]=false
         end        
-       new_concerncargophone.delete_at(index)  if  params["delete#{index}"]    
+        new_concerncargophone.delete_at(index)  if  params["delete#{index}"]    
       end
       #this may be database bug,it could not update directly for element in array
       @concerncargo.update_attribute(:phone,nil)
