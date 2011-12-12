@@ -3,7 +3,6 @@
   <tr>
     <th>关注城市</th>
 
-
     <!--   <th>邮件订阅</th>-->
     <th>删除</th>
   </tr>
@@ -24,6 +23,6 @@
   </table>
   <input type="hidden" name="concern_type" value="city"></input>
   <input type="hidden" name="concerncargoid" value=<%=@concerncargo.id.to_s%>></input>
-  <%= f.submit("确定",:class=>"btn default")%>
+  <%= f.submit("确定",:class=>"btn primary")%>
 <% end %>
 

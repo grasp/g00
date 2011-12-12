@@ -25,7 +25,7 @@ class AdminController < ApplicationController
     @yesterday["company"]=Company.where(:created_at.lte=>Time.now-86400,:created_at.gte=>Time.now-172800).count
     
     #some site data
-       @sitedata = Sitedatum.all
+    @sitedata = Sitedatum.all
   end
   
   def tf56grasp
@@ -64,9 +64,9 @@ class AdminController < ApplicationController
 
   def cargo_manage
     puts "run cargo manager"
- # @cargos = Cargo.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>20)
-     #@cargos = Cargo.all.limit(100).paginate(:page=>params[:page]||1,:per_page=>20)
-     @cargos = Cargo.where(:user_id =>session[:user_id]).desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
+    # @cargos = Cargo.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>20)
+    #@cargos = Cargo.all.limit(100).paginate(:page=>params[:page]||1,:per_page=>20)
+    @cargos = Cargo.where(:user_id =>session[:user_id]).desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
   end
 
   def stockcargo_manage
@@ -189,6 +189,7 @@ class AdminController < ApplicationController
     expire_fragment  "provincecargo"
     expire_fragment  "provincetruck"
     
+    expire_fragment "userlines_all"
     expire_fragment "yellowpage"
     expire_fragment  "users_center_#{session[:user_id]}"
   
@@ -250,7 +251,7 @@ class AdminController < ApplicationController
 
     #each time we send to 1 at first
     User.where(:inviten=>nil,:status.ne=>"disabled").limit(10).each do |user|
-          puts  user.name
+      puts  user.name
       begin  
         if params[:test]=="test"
           @user=User.where(:email=>"hunter.wxhu@gmail.com").first

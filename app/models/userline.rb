@@ -1,6 +1,6 @@
 class Userline
   include Mongoid::Document
-      include Mongoid::Timestamps
+  include Mongoid::Timestamps
   field :user_id, :type => String
   field :fcityid, :type => String
   field :tcityid, :type => String

@@ -12,6 +12,7 @@
       <th>正在配货</th>
       <th>过期车源</th>
       <th>过期车源</th>
+       <th>专线数量</th>
     </tr>
     <tr>
       <td ><%=User.count%></td>
@@ -24,6 +25,7 @@
       <td ><%=Truck.where(:status=>"正在配货").count%></td>  
       <td ><%=ExpiredTruck.count%></td>  
       <td ><%=ExpiredTruck.count%></td>  
+       <td ><%=Userline.count%></td>  
     </tr>
   </table>
 

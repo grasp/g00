@@ -445,9 +445,8 @@ $(document).ready(function() {
         target:  '#show'
     };
     
-
                 
-    
+    custermized_validation();
     line_search();
     float_load_layer1();
 
@@ -473,9 +472,10 @@ $(document).ready(function() {
     general_data_load();
     city_load();
     
-    cargo_myself_click();
+     cargo_myself_click();
      submit_multiple_emails();
-
+     new_concerncargocity();
+       
 
      
     $('.quick_match ').live("click",function(){

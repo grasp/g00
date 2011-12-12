@@ -3,7 +3,36 @@
  * and open the template in the editor.
  */
 
+function custermized_validation(){
+    
+    jQuery.validator.addMethod("notprovince", function(value, element) {
+        var re = new RegExp(/0000000000$/); //include hanzi/a-z0-9
+     
+        if (value.match(re)) {
+            return false;    
+        }
+        else
+        {
+            return true;
+        }
+                  
+    }, "不能是省份");
+    
+    jQuery.validator.addMethod("multiemail", function(value, element) {
+        if (this.optional(element)) {
+            return true;
+        }
+        var emails = value.split( new RegExp( "\\s*;\\s*", "gi" ) );
+        valid = true;
+        for(var i in emails) {
+            value = emails[i];
+            valid=valid && jQuery.validator.methods.email.call(this, value,element);
+        }
+        return valid;
+    }, "Invalid email format");
 
+
+}
 
 function form_validate(){
     //form common valiation part
@@ -40,7 +69,7 @@ function form_validate(){
             },
             email: {
                 required: true
-                //  email: true
+            //  email: true
             },
             QQ:{
                 digits: true,
@@ -123,7 +152,7 @@ function form_validate(){
             },
             email: {
                 required: "email不能为空"
-                //  email: "电子邮件格式不对"
+            //  email: "电子邮件格式不对"
             },
             QQ:{
                 digits:"QQ号码不对",
@@ -278,11 +307,11 @@ function user_new_validation(){
                 minlength:"密码长度不能小于6位",
                 maxlength:"密码长度不能大于20位"
             },
-                        "user[password_confirmation]": {
+            "user[password_confirmation]": {
                 required: "确认密码不能为空",
                 minlength:"密码长度不能小于6位",
                 maxlength:"密码长度不能大于20位"
-            }       ,
+            } ,
             "user[mobilephone]": {
                 required: "联系手机不能为空",
                 minlength:"手机长度不能小于11位",
@@ -385,7 +414,6 @@ function company_new_validation()
 {
     $("#company_new,#company_edit").validate(
     {         
-
         rules: {
             "company[name]": {
                 required: true,
@@ -412,6 +440,10 @@ function company_new_validation()
             "company[city_name]":{
                 required: true
             },
+            "company[city_code]":{
+                notprovince: true
+            },
+            
             "company[address]":{
                 required: true
 
@@ -468,6 +500,10 @@ function company_new_validation()
             "company[city_name]":{
                 required: "没有选择所在城市"
             },
+            "company[city_code]":{
+                notprovince: "不能是省份"
+            },
+            
             "company[address]":{
                 required: "需要提供公司地址"
 
@@ -528,14 +564,14 @@ function usercontacts_new_validation()
                 minlength:7,
                 maxlength:13
             },
-                "usercontact[email]":{ 
-               required: true
+            "usercontact[email]":{ 
+                required: true
             }
 
         },
 
         messages:
-            {
+        {
             "usercontact[name]":{
                 required:"真实姓名没有填写",
                 minlength:"长度不对",
@@ -562,8 +598,8 @@ function usercontacts_new_validation()
                 minlength:"电话号码太短",
                 maxlength:"电话号码太长"
             },
-             "usercontact[email]":{ 
-               required: "email不能为空"
+            "usercontact[email]":{ 
+                required: "email不能为空"
             }
 
         }
@@ -587,7 +623,7 @@ function stock_cargo_new_validation(){
             }
         },           
         messages: 
-            {
+        {
             "stockcargo[cate_code]":{
                 required: "你还没有选择货物类别"
             },
@@ -596,7 +632,7 @@ function stock_cargo_new_validation(){
             }
         }
     }
-);     
+    );     
 }
 
 function stock_truck_new_validation(){
@@ -637,7 +673,7 @@ function stock_truck_new_validation(){
                 maxlength:11,
                 number:true
             },
-             "stocktruck[bis_name]":{
+            "stocktruck[bis_name]":{
                 required: true,
                 maxlength:10
             },
@@ -646,7 +682,7 @@ function stock_truck_new_validation(){
                 maxlength:11,
                 number:true
             },
-             "stocktruck[owner_name]":{
+            "stocktruck[owner_name]":{
                 required: true,
                 maxlength:10
             },
@@ -655,7 +691,7 @@ function stock_truck_new_validation(){
                 maxlength:11,
                 number:true
             },
-                        "stocktruck[favo_city]":{
+            "stocktruck[favo_city]":{
                 required: true
 
             }
@@ -663,7 +699,7 @@ function stock_truck_new_validation(){
         },
 
         messages:
-            {
+        {
             "stocktruck[paizhao]":{
                 required: "没有填写牌照",
                 minlength:"长度太短不对",
@@ -696,7 +732,7 @@ function stock_truck_new_validation(){
                 maxlength:"长度太长不对",
                 number:"电话号码必须是数字"
             },
-              "stocktruck[bis_name]":{
+            "stocktruck[bis_name]":{
                 required: " 没有填写 联系人名称",
                 maxlength:"长度太长不对"
             },
@@ -705,7 +741,7 @@ function stock_truck_new_validation(){
                 maxlength:"长度太长不对",
                 number:"电话号码必须是数字"
             },
-               "stocktruck[owner_name]":{
+            "stocktruck[owner_name]":{
                 required: " 没有填写车主名称",
                 maxlength:"长度太长不对"
             },
@@ -714,14 +750,14 @@ function stock_truck_new_validation(){
                 maxlength:"长度太长不对",
                 number:"电话号码必须是数字"
             },
-              "stocktruck[favo_city]":{
+            "stocktruck[favo_city]":{
                 required: "没有选择常在城市"
 
             }
         }
     }
     );
-    }
+}
 function cargo_new_validation(){
 
     $("#cargo_new").validate(
@@ -731,21 +767,35 @@ function cargo_new_validation(){
             "cargo[fcity_name]":{
                 required: true
             },
-             "cargo[tcity_name]":{
+            
+            "cargo[fcity_code]":{
+                notprovince: true
+            },
+            "cargo[tcity_code]":{
+                notprovince: true
+            },
+            
+            "cargo[tcity_name]":{
                 required: true
             },
-             "cargo[cargo_weight]":{
+            "cargo[cargo_weight]":{
                 required: true
             }
 
         },
 
         messages:
-            {
+        {
             "cargo[fcity_name]":{
                 required: "你还没有选择出发地"
             },
-             "cargo[tcity_name]":{
+            "cargo[fcity_code]":{
+                notprovince: "不能是省份"
+            },
+            "cargo[tcity_code]":{
+                notprovince: "不能是省份"
+            },
+            "cargo[tcity_name]":{
                 required: "你还没有选择到达地"
             },
             "cargo[cargo_weight]":{
@@ -754,7 +804,7 @@ function cargo_new_validation(){
 
         }
     }
-);
+    );
 }
 
 function truck_new_validation(){
@@ -765,19 +815,25 @@ function truck_new_validation(){
         rules: {
             "truck[fcity_name]":{
                 required: true
+            },
+            "truck[fcity_code]":{
+                notprovince: true
             }
 
         },
 
         messages:
-            {
+        {
             "truck[fcity_name]":{
                 required: "你还没有选择出发地"
+            },
+            "truck[fcity_code]":{
+                notprovince: "不能是省份"
             }
 
         }
     }
-);
+    );
 }
 
 function inquery_new_validation(){
@@ -785,12 +841,12 @@ function inquery_new_validation(){
     $("#inquery_new").validate(
     {
         submitHandler: function(form) {
-                  $('#inquery_new').ajaxSubmit({
-       target: '#float_load',
-       success: function() {
+            $('#inquery_new').ajaxSubmit({
+                target: '#float_load',
+                success: function() {
       
-        }
-       });
+                }
+            });
             return false;
         },
 
@@ -802,14 +858,14 @@ function inquery_new_validation(){
         },
 
         messages:
-            {
+        {
             "inquery[cargo_id]":{
                 required: "你还没有货物"
             }
 
         }
     }
-);
+    );
 }
 
 
@@ -818,12 +874,12 @@ function quote_new_validation(){
     $("#quote_new").validate(
     {
         submitHandler: function(form) {
-        $('#quote_new').ajaxSubmit({
-       target: '#float_load',
-       success: function() {
+            $('#quote_new').ajaxSubmit({
+                target: '#float_load',
+                success: function() {
 
-        }
-       });
+                }
+            });
             return false;
         },
 
@@ -835,19 +891,19 @@ function quote_new_validation(){
         },
 
         messages:
-            {
+        {
             "quote[truck_id]":{
                 required: "你还没有发布车源"
             }
         }
     }
-);
+    );
  
 }
 
 function stock_truck_update_validation(){
 
-  $("#stocktruck_edit").validate(
+    $("#stocktruck_edit").validate(
     {
     
 
@@ -855,85 +911,91 @@ function stock_truck_update_validation(){
             "stocktruck[owner_name]":{
                 required: true
             },
-                "stocktruck[owner_phone]":{
+            "stocktruck[owner_phone]":{
                 required: true
             },
-             "stocktruck[driver_name]":{
+            "stocktruck[driver_name]":{
                 required: true
-        },
-        "stocktruck[driver_phone]":{
+            },
+            "stocktruck[driver_phone]":{
                 required: true
-        },
-                "stocktruck[bis_name]":{
+            },
+            "stocktruck[bis_name]":{
                 required: true
-        },
-                "stocktruck[bis_phone]":{
+            },
+            "stocktruck[bis_phone]":{
                 required: true
-        }
+            }
         },
         messages:
         {
             "stocktruck[owner_name]":{
                 required: "不能为空"
             },
-                "stocktruck[owner_phone]":{
+            "stocktruck[owner_phone]":{
                 required: "不能为空"
             },
-             "stocktruck[driver_name]":{
+            "stocktruck[driver_name]":{
                 required: "不能为空"
-           },
-        "stocktruck[driver_phone]":{
+            },
+            "stocktruck[driver_phone]":{
                 required: "不能为空"
-        },
-                "stocktruck[bis_name]":{
+            },
+            "stocktruck[bis_name]":{
                 required: "不能为空"
-        },
-                "stocktruck[bis_phone]":{
+            },
+            "stocktruck[bis_phone]":{
                 required: "不能为空"
-        }
+            }
         }
     }
-)};
+    )
+};
 
 function submit_jubao(){
     $("#new_jubao").validate(
     {
         submitHandler: function(form) {
-        $('#new_jubao').ajaxSubmit({
+            $('#new_jubao').ajaxSubmit({
   
-       success: function() {
- //alert("found click");
-        }
-       });
+                success: function() {
+                //alert("found click");
+                }
+            });
             return false;
         }
 
 
     }
-);
+    );
 
 }
 
 function submit_userlines(){
     $("#new_userline").validate(
-{
+    {
     
         rules: {
             "userline[fcityid]":{
-                required: true
+                required: true,
+                notprovince: true
             },
-                "userline[tcityid]":{
-                required: true
+
+            "userline[tcityid]":{
+                required: true,
+                notprovince: true
             }
    
         },
         messages:
         {
             "userline[fcityid]":{
-                required: "出发地不能为空"
+                required: "出发地不能为空",
+                notprovince: "不能是省份"
             },
-              "userline[tcityid]":{
-                required: "到达地不能为空"
+            "userline[tcityid]":{
+                required: "到达地不能为空",
+                notprovince: "不能是省份"
             }
         }
     });
@@ -942,27 +1004,27 @@ function submit_userlines(){
 
 function submit_multiple_emails(){
     $(".multiemail").validate(
-{
+    {
     
-            submitHandler: function(form) {
-                $('.mail_result').css("display","inline");
-                  $('.multiemail').ajaxSubmit({
-       target: '.mail_result',
-       success: function() {
-        return false;
-        }
-       });
+        submitHandler: function(form) {
+            $('.mail_result').css("display","inline");
+            $('.multiemail').ajaxSubmit({
+                target: '.mail_result',
+                success: function() {
+                    return false;
+                }
+            });
             return false;
         },
     
-     rules: {
+        rules: {
             "wmail[to]":{
                 required: true,
                 multiemail:true
             }
            
-     },
-             messages:
+        },
+        messages:
         {
             "wmail[to]":{
                 required: "收件人不能为空",
@@ -972,22 +1034,50 @@ function submit_multiple_emails(){
         }
      
     
-});
+    });
+}
+function new_concerncargocity(){
 
-  jQuery.validator.addMethod("multiemail", function(value, element) {
-                    if (this.optional(element)) {
-                        return true;
-                    }
-                    var emails = value.split( new RegExp( "\\s*;\\s*", "gi" ) );
-                    valid = true;
-                    for(var i in emails) {
-                        value = emails[i];
-                        valid=valid && jQuery.validator.methods.email.call(this, value,element);
-                    }
-                    return valid;}, "Invalid email format");
-
+    $(".new_concerncargo").validate(
+         
+    {
+            rules: {
+                "citycode":{
+                    required: true,
+                    notprovince:true
+                },
+                "fcitycode":{
+                    required: true,
+                    notprovince:true
+                },
+                "tcitycode":{
+                    required: true,
+                    notprovince:true
+                }
+           
+            },
+            messages:
+            {
+                "citycode":{
+                    required: "你还没有选择关注城市",
+                    notprovince:"不能关注省份"
+                },
+                "fcitycode":{
+                    required: "你还没有选择城市",
+                    notprovince:"不能关注省份"
+                },
+                "tcitycode":{
+                    required: "你还没有选择城市",
+                    notprovince:"不能关注省份"
+                }
+    
+            }
+     
+    
+        });
     
 }
+
 
 
 

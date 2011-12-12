@@ -331,7 +331,7 @@ end
          @user=User.find(session[:user_id]) unless session[:user_id].nil?
     unless session[:user_id]
       session[:original_url]=request.url
-       redirect_to userslogin_path,:flash=>{:notice=>"用户中心需要先登录才能使用，新用户请先注册，谢谢！"}
+       redirect_to userslogin_path,:flash=>{:notice=>"用户中心可以发布各类信息，需要先登录才能使用，新用户请先注册，谢谢！"}
     end
   end
 end
