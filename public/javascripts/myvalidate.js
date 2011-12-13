@@ -1053,7 +1053,32 @@ function new_concerncargocity(){
                 "tcitycode":{
                     required: true,
                     notprovince:true
-                }
+                },
+                "comments":{
+                    required: true,
+                    minlength:2,
+                    maxlength:20
+                },
+                "mobilephone":{
+                    required: true,
+                    minlength:11,
+                    maxlength:11
+                },
+                            QQ:{
+                digits: true,
+                minlength:5,
+                maxlength:10,
+                min:10000
+            },
+                        "quhao":{
+                minlength:3,
+                maxlength:4
+            },
+            "fixphone":{ 
+                minlength:7,
+                maxlength:13
+            }
+                
            
             },
             messages:
@@ -1069,7 +1094,31 @@ function new_concerncargocity(){
                 "tcitycode":{
                     required: "你还没有选择城市",
                     notprovince:"不能关注省份"
-                }
+                }, 
+                "comments":{
+                    required: "不能为空",
+                    minlength:"太短了",
+                    maxlength:"太长了"
+                },
+                "mobilephone":{
+                    required: "不能为空",
+                    minlength:"手机格式不对",
+                    maxlength:"手机格式不对"
+                },
+                            QQ:{
+                digits:"QQ号码不对",
+                minlength:"长度小于5不对",
+                maxlength:"长度不能大于10",
+                min:"小于10000不对"
+            },
+                        "quhao":{
+                minlength:"区号最小3位",
+                maxlength:"区号最大4位"
+            },
+            "fixphone":{
+                minlength:"电话号码太短",
+                maxlength:"电话号码太长"
+            }
     
             }
      

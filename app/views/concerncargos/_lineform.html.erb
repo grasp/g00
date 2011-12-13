@@ -1,5 +1,5 @@
 <%= form_for(@concerncargo) do |f| %>
-  <fieldset>
+
     <% if @concerncargo.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@concerncargo.errors.count, "error") %> prohibited this userline from being saved:</h2>
@@ -22,7 +22,8 @@
       <a  id="to_data_load"  href="/cities/to/<%="100000000000"%>" ><%="到达地选择"%></a>
       <input type="hidden" name="tcitycode" value=""></input>
       <input type="hidden" ></input>
-
+ 
+        
      <input type="hidden" name="concern_type" value="line"></input>
       <%= f.submit("确定",:class=>"btn primary") %>
 
@@ -30,5 +31,10 @@
 
 
 
-  </fieldset>
 <% end %>
+     <div>
+        <p>
+          添加你关注的线路并设置了通知功能后，一旦我们发现有该线路发布的最新货源信息，将立刻会用电子邮件通知你，
+          短信通知正在开发中，这个功能有助于及时把握商机.
+        </p>
+        </div>

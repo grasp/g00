@@ -1,0 +1,8 @@
+city 3301=>cargo1,cargo2
+email=> 
+
+city.subscribe_user.each do 
+insert cargo_id
+end
+
+cron send out email

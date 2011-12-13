@@ -1,22 +1,21 @@
 
-
 <%unless @concerncargo.blank?%>
 
   <%#unless @total_cargos.blank?%>
 
   <%@total_cargos.each do |key,cargos|%>
 
-
     <%if key=="关注城市"%>
 
       <%unless @concerncargo.city.blank?%>     
-        <h3>我关注的城市</h3>
+        <h3>我关注的城市(今日货源)</h3>
 
         <div class="row">
-          <%@concerncargo.city .each do |citycode| %>
+          <%@concerncargo.city.each do |citycode| %>
             <span class="span2"><%=$city_code_name[citycode[0]]%></span>
           <%end%>
         </div>
+
         <table class="cargo zebra-striped" >
           <th> 出发</th>
           <th> 到达</th>
@@ -36,7 +35,7 @@
       <%if key=="关注线路"%>
 
         <%unless @concerncargo.line.blank?%>
-          <h3>我关注的线路</h3>
+          <h3>我关注的线路(今日货源)</h3>
           <div class="row">
             <%@concerncargo.line .each do |line| %>
 
@@ -57,10 +56,11 @@
           <%end%>
 
         <%end%>
+            
         <%if key=="关注用户"%>
 
           <%unless @concerncargo.userid.blank?%>
-            <h3>我关注的用户</h3>
+            <h3>我关注的用户(今日货源)</h3>
             <div class="row">
               <%@concerncargo.userid .each do |username| %>
                 <span class="span2"><%=username[0]%></span>
@@ -84,13 +84,15 @@
           <%if key=="关注电话"%>
 
             <%unless @concerncargo.phone.blank?%>
-              <h3>我关注的电话</h3>
+              <h3>我关注的电话(今日货源)</h3>
               <%@concerncargo.phone .each do |phonelist| %>
                 <div class="row">
+                  <div class="span5">
+                  <%=phonelist[0][4]%> 
                   <%=phonelist[0][0]%> 
                   <%=phonelist[0][1]%> 
-                  <%=phonelist[0][2]%> 
-                  <%=phonelist[0][3]%>
+
+                    </div>
                   <div>
                   <%end%>
                   <table class="cargo zebra-striped" >

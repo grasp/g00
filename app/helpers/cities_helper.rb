@@ -57,6 +57,16 @@ module CitiesHelper
     [min_code,max_code,iscity]   
   end
   
+  def is_province?(city)
+    return true if city.match(/\d\d0000000000$/)
+    return false
+  end
+  
+  def is_region?(city)
+    return true if city.match(/\d\d\d\d00000000$/)  and (not city.match(/\d\d0000000000$/))
+    return false
+  end
+
      
    
   def city_level(city)
@@ -70,21 +80,56 @@ module CitiesHelper
       @province_name=$city_code_name[@province]#convert to name
     elsif city.match(/\d\d\d\d00000000$/) and (not city.match(/\d\d0000000000$/))
       is_city=[false,true,false]
-       @province=city.slice(0,2)+"0000000000"
-       @region=city.slice(0,4)+"00000000"    
+      @province=city.slice(0,2)+"0000000000"
+      @region=city.slice(0,4)+"00000000"    
       city_array=[@province,city]      
-        @province_name=$city_code_name[@province]#convert to name
-         @region_name=$city_code_name[@region]#convert to name
+      @province_name=$city_code_name[@province]#convert to name
+      @region_name=$city_code_name[@region]#convert to name
     else
       is_city=[false,false,true]
-       @province=city.slice(0,2)+"0000000000"
-       @region=city.slice(0,4)+"00000000"    
-       @city=city
+      @province=city.slice(0,2)+"0000000000"
+      @region=city.slice(0,4)+"00000000"    
+      @city=city
       city_array=[@province,@region,@city]
-            @province_name=$city_code_name[@province]#convert to name
-         @region_name=$city_code_name[@region]#convert to name
-         @city_name=$city_code_name[@city]#convert to name
+      @province_name=$city_code_name[@province]#convert to name
+      @region_name=$city_code_name[@region]#convert to name
+      @city_name=$city_code_name[@city]#convert to name
     end
     return [is_city,city_array]
+  end
+  
+  def get_all_line_array(line)
+    line_array=Array.new
+    a=line.split("#")
+    from_city=a[0]
+    to_city=a[1]
+    if  is_region?(from_city) and  is_region?(to_city)
+     $region_code[from_city].each do |fcity|
+        $region_code[to_city].each do |tcity|
+            line_array<<fcity+"#"+tcity
+             line_array<<tcity+"#"+fcity
+        end
+     end
+      line_array<<line
+       line_array<<to_city+"#"+from_city
+    elsif not is_region?(from_city) and  is_region?(to_city)
+      $region_code[to_city].each do |tcity|
+        line_array<<from_city+"#"+tcity
+          line_array<<tcity+"#"+from_city
+      end
+       line_array<<line
+        line_array<<to_city+"#"+from_city
+    elsif is_region?(from_city) and  not is_region?(to_city)
+      $region_code[from_city].each do |fcity|
+        line_array<<fcity+"#"+to_city
+        line_array<<to_city+"#"+fcity
+      end
+       line_array<<line
+        line_array<<to_city+"#"+from_city
+    else
+      line_array<<line
+       line_array<<to_city+"#"+from_city
+    end
+    return line_array
   end
 end

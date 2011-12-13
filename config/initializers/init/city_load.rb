@@ -25,6 +25,7 @@ $province_region=Hash.new  # to store code with name pair for province and regio
 $city_name_code=Hash.new
 $city_code_name=Hash.new
 $province_tree=Hash.new #{province1=>[region1,region2,region3]}
+$region_code=Hash.new #{"region_code"=>{city_code1,city_code2....}}
 
 $all_region_hash=Hash.new #{region_name1=>code1,region_name2=>code2}
 $all_province_hash=Hash.new #{province_name1=>code1,province_name2=>code2}
@@ -98,7 +99,8 @@ class CityTree
         $citytree[province_code][name[0]]={}
         $province_tree[province_code]=$province_tree[province_code]<<name[0]
         $all_region_hash[name[1]]=name[0]
-        
+
+        $region_code[name[0]]=[]
         # puts "is region =#{name[1]}"
 
       
@@ -106,7 +108,7 @@ class CityTree
         province_code=name[0].slice(0,2)+"0000000000"
         region_code=name[0].slice(0,4)+"00000000"
         $citytree[province_code][region_code][name[0]]=name[1]
-
+        $region_code[region_code]<<name[0]
         # puts "is city =#{name[1]}"
       
       else
