@@ -98,6 +98,8 @@ module CitiesHelper
     return [is_city,city_array]
   end
   
+  
+  #line only can contain region
   def get_all_line_array(line)
     line_array=Array.new
     a=line.split("#")
@@ -131,5 +133,17 @@ module CitiesHelper
        line_array<<to_city+"#"+from_city
     end
     return line_array
+  end
+  
+  #only apply for city and region
+  def get_sub_city(city)
+    citylist=Array.new
+   if is_region?(city)
+     citylist=citylist.concat($region_code[city])
+     citylist<<city
+   else
+     citylist<<city
+   end
+   return citylist    
   end
 end

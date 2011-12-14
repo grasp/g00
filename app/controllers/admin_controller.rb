@@ -274,6 +274,29 @@ class AdminController < ApplicationController
     @send_time=Time.now-start_time
   end
   
+  def total_truck
+    total_truck=Array.new
+   ExpiredTruck.where(:paizhao.ne=>nil).each do |truck|
+      total_truck<<truck.paizhao
+    end
+    Truck.where(:paizhao.ne=>nil).each do |truck|
+      total_truck<<truck.paizhao
+    end
+    
+    total_truck.uniq!
+    @expired_truck= total_truck.size
+  end
+  
+  def concerncargo
+    if params[:concern_type]=="city"
+     @subscribe_lists=Concerncityc.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
+    end
+    
+    if params[:concern_type]=="concerncargo"
+       @concerncargo_lists=Concerncargo.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
+    end
+  end
+  
   def temp_task
     Cargo.where(:status=>"正在配车").each do |cargo|
       cargo.update_attribute(:line,cargo.fcity_code+"#"+cargo.tcity_code)

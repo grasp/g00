@@ -29,13 +29,13 @@ class ConcerncargosController < ApplicationController
             citycode=city[0]
             if is_region?(citycode)
               city_array=city_array.concat($region_code[citycode])
-                city_array<<citycode
+              city_array<<citycode
             else
-             city_array<<citycode
+              city_array<<citycode
             end
           end
-       @cityconcerncargo=Cargo.where(:status=>"正在配车",:created_at.gte=>Time.now.at_beginning_of_day).any_in(:fcity_code=>city_array).desc(:created_at).limit(100)
-         #    @cityconcerncargo=Cargo.where(:status=>"正在配车").any_in(:fcity_code=>city_array).desc(:created_at).limit(100)
+          @cityconcerncargo=Cargo.where(:status=>"正在配车",:created_at.gte=>Time.now.at_beginning_of_day).any_in(:fcity_code=>city_array).desc(:created_at).limit(100)
+          #    @cityconcerncargo=Cargo.where(:status=>"正在配车").any_in(:fcity_code=>city_array).desc(:created_at).limit(100)
         end      
 
         @total_cargos["关注城市"]= @cityconcerncargo
@@ -45,10 +45,10 @@ class ConcerncargosController < ApplicationController
           @concerncargo.line.each  do |linecode|
             linearray=linearray.concat(get_all_line_array(linecode[0]))
           end
-        # log=Logger.new("line.log")
-        # log.info   linearray
-    @lineconcerncargo=Cargo.where(:status=>"正在配车",:created_at.gte=>Time.now.at_beginning_of_day).any_in(:line=>linearray).desc(:created_at).limit(10)
-      # @lineconcerncargo=Cargo.where(:status=>"正在配车").any_in(:line=>linearray).desc(:created_at).limit(10)
+          # log=Logger.new("line.log")
+          # log.info   linearray
+          @lineconcerncargo=Cargo.where(:status=>"正在配车",:created_at.gte=>Time.now.at_beginning_of_day).any_in(:line=>linearray).desc(:created_at).limit(10)
+          # @lineconcerncargo=Cargo.where(:status=>"正在配车").any_in(:line=>linearray).desc(:created_at).limit(10)
           @count=@lineconcerncargo.count
         end       
         @total_cargos["关注线路"]= @lineconcerncargo
@@ -133,11 +133,11 @@ class ConcerncargosController < ApplicationController
         if params[:concern_type]=="city" 
           #check unique for user?
           @concerncargo.city= Array.new   if  @concerncargo.city.blank?  
-          if    @concerncargo.city.size<6
+          if  @concerncargo.city.size<2
             @concerncargo.city<<[params[:citycode],false,false]    
             @concerncargo.city.uniq!   
           else
-            flash[:notice]="添加关注失败，目前只能关注5个城市!"
+            flash[:notice]="添加关注失败，目前只能关注2个城市!"
             @error=true
           end
         end
@@ -145,7 +145,7 @@ class ConcerncargosController < ApplicationController
         if params[:concern_type]=="line" 
           #check unique for user?
           @concerncargo.line= Array.new   if  @concerncargo.line.blank?  
-          if @concerncargo.line.size<6
+          if @concerncargo.line.size<5
             @concerncargo.line<<[params[:fcitycode]+"#"+params[:tcitycode],false,false]    
             @concerncargo.line.uniq!    
           else
@@ -161,11 +161,11 @@ class ConcerncargosController < ApplicationController
             user=User.where(:name=>params[:username]).first
             unless user.blank?
               unless params[:username]=="admin"
-              @concerncargo.userid<<[params[:username],false,false,user.id.to_s]   #false, false, means mail and sms subscribe is not
-              @concerncargo.userid.uniq! 
+                @concerncargo.userid<<[params[:username],false,false,user.id.to_s]   #false, false, means mail and sms subscribe is not
+                @concerncargo.userid.uniq! 
               else
-               flash[:notice]="添加关注失败，你关注的用户名不存在!"
-               @error=true
+                flash[:notice]="添加关注失败，你关注的用户名不存在!"
+                @error=true
               end
             else
               flash[:notice]="添加关注失败，你关注的用户名不存在!"
@@ -209,33 +209,190 @@ class ConcerncargosController < ApplicationController
   def update
 
     @concerncargo=Concerncargo.where(:user_id=>session[:user_id]).first
+    @user=User.find(session[:user_id])
     
     #for city form update
     if params[:concern_type]=="city" && !@concerncargo.city.blank?
+      new_concerncargocity=Array.new
+      new_concerncargocity=@concerncargo.city
+      
       (@concerncargo.city.size-1).downto(0).each do |index|
-        if  params["delete#{index}"]    
-        #  puts "delete#{index}="+params["delete#{index}"] 
-          @concerncargo.city.delete_at(index)
+        #how to hanlde subcity
+        
+        subcity=get_sub_city(@concerncargo.city[index][0])
+        all_cityconcern=Array.new
+        
+        subcity.each do |eachcity|
+          cityconcern= Concerncityc.where(:city=>eachcity).first
+          if cityconcern.blank? #initialize the cityconcern
+            cityconcern=Concerncityc.new
+            cityconcern.city=eachcity
+            cityconcern.emaillist=Array.new      
+            cityconcern.smslist=Array.new  
+            cityconcern.save
+          end
+          all_cityconcern<<cityconcern
         end
+        
+        if  params["delete#{index}"]    #if delete we dont care about other checkbox  just remove 
+          new_concerncargocity.delete_at(index)
+          #remove email from city subscribe list
+          all_cityconcern.each do |cityconcern|
+            cityconcern.emaillist.delete(session[:user_email]) #remove email from list if have
+            cityconcern.smslist.delete(session[:user_email]) #remove email from list if have
+          end
+        else #if not check delete
+          if params["mail#{index}"]  #checked mail subscribe
+         
+            #delete if unsubscribe from list
+            puts "email= #{@concerncargo.city[index][1]}"
+            if @concerncargo.city[index][1]==false #not added into yet
+             # puts "insert email!"
+              all_cityconcern.each do |cityconcern|
+                cityconcern.emaillist<<session[:user_email]    
+              end
+            else
+              #  puts "already inserted email!"
+            end
+            new_concerncargocity[index][1]=true #must insert here, seemed will change the @concerncargo also,should refrence
+          else
+            if @concerncargo.city[index][1]==true
+            #  puts "remove for uncheck"
+              all_cityconcern.each do |cityconcern|
+                cityconcern.emaillist.delete(session[:user_email])    
+              end
+            else
+             #   puts "already deleted "
+            end
+            new_concerncargocity[index][1]=false
+          end
+          if params["sms#{index}"] #if checked sms subscribe
+         
+            if @concerncargo.city[index][2]==false #not added into yet
+              all_cityconcern.each do |cityconcern|
+                cityconcern.smslist<< @user.mobilephone      
+              end
+            end 
+               new_concerncargocity[index][2]=true
+          else
+            if @concerncargo.city[index][2]==true
+            #  puts "remove for uncheck"
+              all_cityconcern.each do |cityconcern|
+                cityconcern.smslist.delete(@user.mobilephone )    
+              end
+            else
+             #   puts "already deleted "
+            end
+            new_concerncargocity[index][2]=false #we must  set this value at last 
+          end
+        
+        end
+        
+        #now update subscribe list of city
+        all_cityconcern.each do |cityconcern|
+          #   cityconcern.save! 
+          new_email_list=cityconcern.emaillist
+          new_sms_list=cityconcern.smslist
+           cityconcern.save
+        #  cityconcern.update_attribute(:emaillist,nil)
+            cityconcern.update_attribute(:emaillist,new_email_list) #we have to do this due to save not fetch array data,only save a empty array
+            cityconcern.update_attribute(:smslist,new_sms_list)
+        end
+
       end
-      @concerncargo.update_attribute(:city,@concerncargo.city) 
+      @concerncargo.update_attribute(:city,nil)
+      @concerncargo.update_attribute(:city,new_concerncargocity) #also update the user concern config,one user one concerncargo
     end
     
     if params[:concern_type]=="line" && !@concerncargo.line.blank?
       new_concerncargoline=Array.new 
       new_concerncargoline=@concerncargo.line
-      (@concerncargo.line.size-1).downto(0).each do |index|
-        if  params["mail#{index}"]    
-          new_concerncargoline[index][1]=true
-        else
-          new_concerncargoline[index][1]=false
-        end        
-        new_concerncargoline.delete_at(index)  if  params["delete#{index}"]    
+   
+      (@concerncargo.line.size-1).downto(0).each do |index|      
+        all_line_array=get_all_line_array(@concerncargo.line[index][0])
+        log=Logger.new("line.log")
+        log.info "all line_array_size=#{all_line_array.size}"
+        all_line_concern=Array.new
+        all_line_array.each do |eachline|
+          lineconcern= Concernlinec.where(:line=>eachline).first         
+          if lineconcern.blank? #initialize the lineconcern
+            lineconcern=Concernlinec.new
+            lineconcern.line=@concerncargo.line[index][0]
+            lineconcern.emaillist=Array.new      
+            lineconcern.smslist=Array.new   
+          end
+          all_line_concern<<lineconcern
+        end
+           if  params["delete#{index}"]    #if delete we dont care about other checkbox  just remove 
+          new_concerncargoline.delete_at(index)
+          #remove email from city subscribe list
+          all_line_concern.each do |lineconcern|
+            lineconcern.emaillist.delete(session[:user_email]) #remove email from list if have
+            lineconcern.smslist.delete(session[:user_email]) #remove email from list if have
+          end
+        else #if not check delete
+          if params["mail#{index}"]  #checked mail subscribe         
+            #delete if unsubscribe from list
+            puts "email= #{@concerncargo.line[index][1]}"
+            if @concerncargo.line[index][1]==false #not added into yet
+             # puts "insert email!"
+              all_line_concern.each do |lineconcern|
+                lineconcern.emaillist<<session[:user_email]    
+              end
+            else
+              #  puts "already inserted email!"
+            end
+            new_concerncargoline[index][1]=true #must insert here, seemed will change the @concerncargo also,should refrence
+          else
+            if @concerncargo.line[index][1]==true
+            #  puts "remove for uncheck"
+             all_line_concern.each do |lineconcern|
+                lineconcern.emaillist.delete(session[:user_email])    
+              end
+            else
+             #   puts "already deleted "
+            end
+            new_concerncargoline[index][1]=false
+          end
+          if params["sms#{index}"] #if checked sms subscribe
+         
+            if @concerncargo.line[index][2]==false #not added into yet
+              all_line_concern.each do |lineconcern|
+                lineconcern.smslist<< @user.mobilephone      
+              end
+            end 
+               new_concerncargoline[index][2]=true
+          else
+            if @concerncargo.line[index][2]==true
+            #  puts "remove for uncheck"
+              all_line_concern.each do |lineconcern|
+                lineconcern.smslist.delete(@user.mobilephone )    
+              end
+            else
+             #   puts "already deleted "
+            end
+            new_concerncargoline[index][2]=false #we must  set this value at last 
+          end
+        
+        end
+        
+        #now update subscribe list of city
+         all_line_concern.each do |lineconcern|
+          #   cityconcern.save! 
+          new_email_list=lineconcern.emaillist
+          new_sms_list=lineconcern.smslist
+           lineconcern.save
+        #  cityconcern.update_attribute(:emaillist,nil)
+            lineconcern.update_attribute(:emaillist,new_email_list) #we have to do this due to save not fetch array data,only save a empty array
+            lineconcern.update_attribute(:smslist,new_sms_list)
+        end
+
       end
-      #this may be database bug,it could not update directly for element in array
       @concerncargo.update_attribute(:line,nil)
-      @concerncargo.update_attribute(:line,new_concerncargoline)
+      @concerncargo.update_attribute(:line,new_concerncargoline) #also update the user concern config,one user one concerncargo
     end
+      
+
     
     if params[:concern_type]=="user" && !@concerncargo.userid.blank?
       new_concerncargouser=Array.new 

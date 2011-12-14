@@ -3,7 +3,8 @@
   <tr>
     <th>关注城市</th>
 
-    <!--   <th>邮件订阅</th>-->
+     <th>邮件订阅</th>
+     <th>短信订阅</th>
     <th>删除</th>
   </tr>
   <%=form_for(@concerncargo,:url=>{:action=>"update"}) do |f| %>
@@ -11,9 +12,10 @@
     <%@concerncargo.city.each_index do |index|%>
 
       <tr>
-        <td><%=$city_code_name[@concerncargo.city[index][0]]%></td>     
+        <td><%=$city_code_name[@concerncargo.city[index][0]]%></td>    
 
-          <!--  <td> <input type="checkbox" name="mail<%=index%>"  value="true" <%="checked" if @concerncargo.city[index][1]==true%>></input></td>-->
+          <td> <input type="checkbox" name="mail<%=index%>"  value="true" <%="checked" if @concerncargo.city[index][1]==true%>></input></td>
+           <td> <input type="checkbox" name="sms<%=index%>"  value="true" <%="checked" if @concerncargo.city[index][2]==true%>></input></td>
         <td> <input type="checkbox" name="delete<%=index%>" value="true"></input></td>
 
 

@@ -1,0 +1,63 @@
+<%#coding:utf-8%>
+<%=session[:user_email]%>
+<p>
+  <a href="/admin/concerncargo/concerncargo">全部关注(<%=Concerncargo.count%>)</a>
+</p>
+<p>
+  <a href="/admin/concerncargo/city">全部关注的城市(<%=Concerncityc.count%>)</a>
+  <a href="/admin/concerncargo/line">全部关注的线路(<%=Concernlinec.count%>)</a>
+  <a href="/admin/concerncargo/user">全部关注的用户(<%=Concernuserc.count%>)</a>
+  <a href="/admin/concerncargo/phone">全部关注的电话(<%=Concernphonec.count%>)</a>
+</p>
+
+<%if @concerncargo_lists%>
+  <table>
+    <tr><th>userid</th>
+      <th>city</th>
+      <th>line</th>
+      <th>userid</th>
+      <th>phone</th>
+    </tr>
+    <%@concerncargo_lists.each do |concerncargo|%>
+      <tr>
+        <td><%=concerncargo.user_id%> </td>     
+        <td><%=concerncargo.city%> </td>     
+        <td><%=concerncargo.line%> </td>     
+        <td><%=concerncargo.userid%> </td>     
+        <td><%=concerncargo.phone%> </td>     
+      </tr>
+    <%end%>
+    <%= will_paginate @concerncargo_lists ,:previous_label=>"上一页",:next_label=>"下一页"%>
+  </table>
+
+<%end%>
+
+
+<%unless @subscribe_lists.blank? %>
+  <table>
+    <tr>
+      <th>关注类型</th>
+      <th>关注邮件列表</th>
+      <th>关注短信列表</th>
+    </tr>
+
+    <% @subscribe_lists.each do |concern| %>
+      <tr>
+        <%if params[:concern_type]=="city"%>
+          <td><%=concern.city%></td>
+          <td><%=concern.emaillist%></td>
+          <td><%=concern.smslist%></td>
+        <%elsif params[:concern_type]=="line"%>
+
+        <%elsif params[:concern_type]=="user"%>
+
+        <%elsif params[:concern_type]=="phone"%>
+        <%else%>
+        <%end%>
+      </tr>
+    <%end%>
+
+
+  </table>
+  <%= will_paginate @subscribe_lists ,:previous_label=>"上一页",:next_label=>"下一页"%>
+<%end%>
