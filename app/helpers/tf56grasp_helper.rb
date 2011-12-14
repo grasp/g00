@@ -37,6 +37,7 @@ module Tf56graspHelper
             cal_city=CityTree.get_city_full_path(city_code) unless  city_code.nil?
 
             one_item_huo[:tcity_code]=city_code
+        if (not one_item_huo[:fcity_code].blank?  and not  one_item_huo[:tcity_code].blank?)  
             one_item_huo[:line]=one_item_huo[:fcity_code]+"#"+one_item_huo[:tcity_code]
             one_item_huo[:tcity_name]=cal_city
 
@@ -50,6 +51,7 @@ module Tf56graspHelper
             one_item_huo[:priority]=200
             one_item_huo[:user_id]=@admin.id
             one_page_huo<<one_item_huo
+        end
           end
         end
       end
