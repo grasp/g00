@@ -7,7 +7,7 @@
     <th>货物</th>
     <th>出发</th>
     <th>到达</th>
-        <th>line</th>
+     <th>line</th>
 
     <th>重量体积</th>
     <th>有效天数</th>
@@ -15,6 +15,8 @@
     <th>货源状态</th>
     <th>车主报价/货主询价</th>
     <th>车源速配</th>
+       <th>mobilephone</th>
+          <th>fixphone</th>
     <th>comments</th>
     <th>contact_phone</th>
     <th>created_at</th>
@@ -41,7 +43,8 @@
           <a class="quick_match" href="/trucks/search/<%=cargo.fcity_code%>/<%=cargo.tcity_code%>/1">车源速配</a>
           <a  href="/cargos/destroy/<%=cargo.id%>">删除</a>
         </td>
-       
+         <td><%=cargo.mobilephone%></td>
+          <td><%=cargo.fixphone%></td>
           <td><%=cargo.comments%></td>
             <td><%=cargo.contact%></td>
              <td><%=cargo.created_at.localtime.to_s%></td>

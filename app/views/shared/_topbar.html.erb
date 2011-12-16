@@ -9,7 +9,7 @@
             <li ><a    href="/companies/yellowpage">公司黄页</a></li>
             <li ><a    href="/userlines">物流专线</a></li>      
             <li ><a    href="/users/center">用户中心</a></li>
-            <%if session[:user_name]=="admin"%>
+            <%if session[:user_name]=="admin" ||session[:user_name]=="hunter"%>
            <li ><a    href="/concerncargos/userconcern">我的关注</a></li>
            <%end%>
           </ul>

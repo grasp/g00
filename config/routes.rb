@@ -61,6 +61,8 @@ G0::Application.routes.draw do
   match '/admin/send_site_update_to_register(/:test)' =>'admin#send_site_update_to_register' ,:as=>:admin_send_site_update_to_register
   match '/admin/total_truck' =>'admin#total_truck' ,:as=>:admin_total_truck
   match '/admin/concerncargo(/:concern_type)' =>'admin#concerncargo' ,:as=>:admin_concerncargo
+    match '/admin/email_list' =>'admin#email_list' ,:as=>:admin_email_list
+      match '/admin/sms_list' =>'admin#sms_list' ,:as=>:admin_sms_list
   match '/admin/temp_task' =>'admin#temp_task' ,:as=>:admin_temp_task
   get "admin/index"
 

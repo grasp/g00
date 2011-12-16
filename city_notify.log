@@ -1,0 +1,53 @@
+email_list=["w22812@mot.com", "hunter.wxhu@gmail.com"]
+sms_list=[]
+cargo_id=4ee99cbe6b5725702c00002f
+cargo_id=4ee99cbe6b5725702c00002f
+email_list=["w22812@mot.com", "hunter.wxhu@gmail.com"]
+sms_list=[]
+cargo_id=4ee99cbe6b5725702c00002f
+cargo_id=4ee99cbe6b5725702c00002f
+email_list=["w22812@mot.com", "hunter.wxhu@gmail.com"]
+sms_list=[]
+cargo_id=4ee99dd76b5725702c000032,email
+cargo_id=4ee99dd76b5725702c000032,email
+email_list=["w22812@mot.com", "hunter.wxhu@gmail.com"]
+sms_list=[]
+cargo_id=4ee99dd76b5725702c000032,email
+cargo_id=4ee99dd76b5725702c000032,email
+email_list=["w22812@mot.com", "hunter.wxhu@gmail.com"]
+sms_list=[]
+cargo_id=4ee99e3c6b5725702c000035,email=w22812@mot.com
+email_list=["w22812@mot.com", "hunter.wxhu@gmail.com"]
+sms_list=[]
+cargo_id=4ee99ea76b5725702c000036,email=w22812@mot.com
+email_list=["w22812@mot.com", "hunter.wxhu@gmail.com"]
+sms_list=[]
+cargo_id=4ee99f4f6b5725702c000038,email=w22812@mot.com，existed cargolist=
+email_list=["w22812@mot.com", "hunter.wxhu@gmail.com"]
+sms_list=[]
+save cargo_id=4ee99fd96b5725702c00003a for a new email 
+save cargo_id=4ee99fd96b5725702c00003a for a new email 
+email_list=["w22812@mot.com", "hunter.wxhu@gmail.com"]
+sms_list=[]
+save cargo_id=4ee99fd96b5725702c00003a for a new email 
+save cargo_id=4ee99fd96b5725702c00003a for a new email 
+email_list=["w22812@mot.com", "hunter.wxhu@gmail.com"]
+sms_list=[]
+cargo_id=4ee9a00a6b5725702c000041,email=w22812@mot.com,existed cargolist=["4ee99fd96b5725702c00003a"]
+cargo_id=4ee9a00a6b5725702c000041,email=hunter.wxhu@gmail.com,existed cargolist=["4ee99fd96b5725702c00003a"]
+email_list=["w22812@mot.com", "hunter.wxhu@gmail.com"]
+sms_list=[]
+cargo_id=4ee9a00a6b5725702c000041,email=w22812@mot.com,existed cargolist=["4ee99fd96b5725702c00003a", "4ee9a00a6b5725702c000041"]
+cargo_id=4ee9a00a6b5725702c000041,email=hunter.wxhu@gmail.com,existed cargolist=["4ee99fd96b5725702c00003a", "4ee9a00a6b5725702c000041"]
+email_list=["w22812@mot.com", "hunter.wxhu@gmail.com"]
+sms_list=[]
+cargo_id=4ee9a11c6b5725702c000044,email=w22812@mot.com,existed cargolist=["4ee99fd96b5725702c00003a", "4ee9a00a6b5725702c000041"]
+email_list=["w22812@mot.com", "hunter.wxhu@gmail.com"]
+sms_list=[]
+cargo_id=4ee9a11c6b5725702c000044,email=w22812@mot.com,existed cargolist=["4ee99fd96b5725702c00003a", "4ee9a00a6b5725702c000041", "4ee9a11c6b5725702c000044"]
+email_list=["w22812@mot.com", "hunter.wxhu@gmail.com"]
+sms_list=[]
+cargo_id=4ee9a6166b5725702c000047,email=hunter.wxhu@gmail.com,existed cargolist=["4ee99fd96b5725702c00003a", "4ee9a00a6b5725702c000041"]
+email_list=["w22812@mot.com", "hunter.wxhu@gmail.com"]
+sms_list=[]
+cargo_id=4ee9a6166b5725702c000047,email=hunter.wxhu@gmail.com,existed cargolist=["4ee99fd96b5725702c00003a", "4ee9a00a6b5725702c000041", "4ee9a6166b5725702c000047"]

@@ -43,6 +43,8 @@ module QuzhougraspHelper
               one_item[:comments]=item_info[9]
               one_item[:need_che_length]=item_info[8]
               one_item[:contact_phone]=item_info[11]
+               one_item[:mobilephone]=item_info[11].match(/1\d\d\d\d\d\d\d\d\d\d/).to_s
+                one_item[:fixphone]=item_info[11].match(/\d\d\d+-\d\d\d\d\d\d\d+/).to_s  
               if item_info[11].size==7
                 item_info[11]="0570-"+item_info[11]
                 #   puts "item_info[11]=#{item_info[11]}"

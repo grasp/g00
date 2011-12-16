@@ -156,10 +156,12 @@ return Cargo.where(:status=>"正在配车",:tcity_code.gte=>province.to_s,:tcity
  end
  
  def cargo_show_helper
-  
+   unless @error
+
     @cargo = Cargo.find(params[:id])  
-     @contact=  @cargo.comments  if @cargo[:from_site]=="haoyun56"
-        @contact=  @cargo.comments  if @cargo[:from_site]=="56135"
+
+    @contact=  @cargo.comments  if @cargo[:from_site]=="haoyun56"
+    @contact=  @cargo.comments  if @cargo[:from_site]=="56135"
     @contact=  @cargo.comments+"联系电话:"+@cargo.contact  if @cargo[:from_site]=="56qq"
     @contact=  @cargo.comments  if @cargo[:from_site]=="tf56"
     @contact=  @cargo.contact_phone if @cargo[:from_site]=="quzhou"
@@ -168,13 +170,11 @@ return Cargo.where(:status=>"正在配车",:tcity_code.gte=>province.to_s,:tcity
        @stock_cargo=StockCargo.find(@cargo.stock_cargo_id)
        @user=User.find(@cargo.user_id)
     end
-    
-    #  @line_ad=LineAd.find({:line=>get_line(@cargo.fcity_code,@cargo.tcity_code)})
+
     if @line_ad.blank?
-      #@line_ad=LineAd.find_by_line("0")
-      #@line_ad.fcity_name=@cargo.fcity_name
-      #@line_ad.tcity_name=@cargo.tcity_name
+
     end
+   end
  end
 
  def     cargo_allcity_helper

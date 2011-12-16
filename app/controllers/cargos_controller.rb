@@ -126,6 +126,13 @@ class CargosController < ApplicationController
   # GET /cargos/1
   # GET /cargos/1.xml
   def show
+     @error=false
+    begin
+    @cargo=Cargo.find(params[:id])
+    rescue
+      @error=true
+    end
+    if not @error
     #for jubao purpose
     @user=User.find(session[:user_id]) if session[:user_id]
     #update site statistic here
@@ -135,16 +142,21 @@ class CargosController < ApplicationController
     @jubaotype="cargo"
     @fromip=request.remote_ip
     @belongid=params[:id]
-    @username=@user.name if  @user
-     
+    @username=@user.name if  @user     
     @wmail=Wmail.new
-    @cargo=Cargo.find(params[:id])
+ 
     @wmail.subject="物流零距离货源信息-#{@cargo.fcity_name}-#{@cargo.tcity_name}-#{@cargo.created_at.to_s.slice(0,19)}"
     @wmail.mailtype="cargo_myself"
     
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @cargo }
+    end
+    else
+          respond_to do |format|
+      format.html { render "cargos/showerror"} # show.html.erb
+      format.xml  { render :xml => @cargo }
+    end
     end
   end
 
@@ -196,15 +208,24 @@ class CargosController < ApplicationController
   def create
     params[:cargo][:from_site]="local"
     params[:cargo][:priority]=100
-    # @stock_cargo=StockCargo.find(BSON::ObjectId(params[:cargo][:stock_cargo_id]))
-    # @cargo.stock_cargo_id=
+
     params[:cargo][:stock_cargo_id]=BSON::ObjectId(params[:cargo][:stock_cargo_id])
-    @user=User.find(session[:user_id])
+   @user=User.find(session[:user_id])
+   
+    #update cargo phone information for concerncargo
+    params[:cargo][:mobilephone]=@user.mobilephone        
+    user_contact=UserContact.find(@user.user_contact_id) unless @user.user_contact_id .nil?
+    
+   unless user_contact.blank?
+     params[:cargo][:user_contact_id]= user_contact.id 
+     params[:cargo][:fixphone]=user_contact.quhao+"-"+user_contact.fixphone
+    end
+    
     @cargo=Cargo.new(params[:cargo])
-    @cargo.user_contact_id=UserContact.find(@user.user_contact_id) unless @user.user_contact_id .nil?
     @cargo.company_id=Company.find(@user.company_id) unless @user.company_id .nil?
     @cargo.user_id=@user.id
     @cargo.line=@cargo.fcity_code+"#"+@cargo.tcity_code
+
 
     respond_to do |format|
       if @cargo.save

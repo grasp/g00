@@ -106,44 +106,82 @@ module CitiesHelper
     from_city=a[0]
     to_city=a[1]
     if  is_region?(from_city) and  is_region?(to_city)
-     $region_code[from_city].each do |fcity|
+      $region_code[from_city].each do |fcity|
         $region_code[to_city].each do |tcity|
-            line_array<<fcity+"#"+tcity
-             line_array<<tcity+"#"+fcity
+          line_array<<fcity+"#"+tcity
+          line_array<<tcity+"#"+fcity
         end
-     end
+      end
       line_array<<line
-       line_array<<to_city+"#"+from_city
+      line_array<<to_city+"#"+from_city unless from_city==to_city
     elsif not is_region?(from_city) and  is_region?(to_city)
       $region_code[to_city].each do |tcity|
         line_array<<from_city+"#"+tcity
-          line_array<<tcity+"#"+from_city
+        line_array<<tcity+"#"+from_city
       end
-       line_array<<line
-        line_array<<to_city+"#"+from_city
+      line_array<<line
+      line_array<<to_city+"#"+from_city unless from_city==to_city
     elsif is_region?(from_city) and  not is_region?(to_city)
       $region_code[from_city].each do |fcity|
         line_array<<fcity+"#"+to_city
         line_array<<to_city+"#"+fcity
       end
-       line_array<<line
-        line_array<<to_city+"#"+from_city
+      line_array<<line
+      line_array<<to_city+"#"+from_city unless from_city==to_city
     else
       line_array<<line
-       line_array<<to_city+"#"+from_city
+      line_array<<to_city+"#"+from_city unless from_city==to_city
     end
+    line_array.uniq!
     return line_array
   end
   
   #only apply for city and region
   def get_sub_city(city)
     citylist=Array.new
-   if is_region?(city)
-     citylist=citylist.concat($region_code[city])
-     citylist<<city
-   else
-     citylist<<city
-   end
-   return citylist    
+    if is_region?(city)
+      citylist=citylist.concat($region_code[city])
+      citylist<<city
+    else
+      citylist<<city
+    end
+    return citylist    
+  end
+  
+  def get_parent_line(line)
+    line_array=Array.new
+    a=line.split("#")
+    from_city=a[0]
+    to_city=a[1]
+    if  is_region?(from_city) and  is_region?(to_city)
+      line_array<<line
+      line_array<<to_city+"#"+from_city unless from_city==to_city
+    elsif not is_region?(from_city) and  is_region?(to_city)
+      from_parent_city=from_city.slice(0,4)+"00000000"
+      line_array<<from_parent_city+"#"+to_city
+      line_array<<to_city+"#"+from_parent_city
+      
+      line_array<<line
+      line_array<<to_city+"#"+from_city unless from_city==to_city
+    elsif is_region?(from_city) and  not is_region?(to_city)
+      to_parent_city=to_city.slice(0,4)+"00000000"
+      line_array<<to_parent_city+"#"+from_city
+      line_array<<from_city+"#"+to_parent_city
+      
+      line_array<<line
+      line_array<<to_city+"#"+from_city unless from_city==to_city
+    else
+      from_parent_city=from_city.slice(0,4)+"00000000"
+      line_array<<from_parent_city+"#"+to_city
+      line_array<<to_city+"#"+from_parent_city
+      
+      to_parent_city=to_city.slice(0,4)+"00000000"
+      line_array<<to_parent_city+"#"+from_city
+      line_array<<from_city+"#"+to_parent_city
+      
+      line_array<<line
+      line_array<<to_city+"#"+from_city unless from_city==to_city
+    end
+    return line_array
   end
 end

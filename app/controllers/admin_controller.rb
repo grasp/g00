@@ -64,9 +64,9 @@ class AdminController < ApplicationController
 
   def cargo_manage
     puts "run cargo manager"
-    # @cargos = Cargo.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>20)
+    @cargos = Cargo.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>20)
     #@cargos = Cargo.all.limit(100).paginate(:page=>params[:page]||1,:per_page=>20)
-    @cargos = Cargo.where(:user_id =>session[:user_id]).desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
+ #   @cargos = Cargo.where(:user_id =>session[:user_id]).desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
   end
 
   def stockcargo_manage
@@ -292,9 +292,30 @@ class AdminController < ApplicationController
      @subscribe_lists=Concerncityc.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
     end
     
-    if params[:concern_type]=="concerncargo"
-       @concerncargo_lists=Concerncargo.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
+        if params[:concern_type]=="line"
+#Concernlinec.destroy_all
+     @subscribe_lists=Concernlinec.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
     end
+            if params[:concern_type]=="user"
+  #Concernuserc.destroy_all
+   @subscribe_lists=Concernuserc.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
+    end
+            if params[:concern_type]=="phone"
+ # Concernphonec.destroy_all
+   @subscribe_lists=Concernphonec.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
+    end
+    
+    if params[:concern_type]=="concerncargo"
+       @concerncargo_lists=Concerncargo.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>20)
+    end
+  end
+  
+  def email_list
+    @email_lists=Emaillistc.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>20)
+  end
+  
+    def sms_list
+    @sms_lists=Smslistc.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>20)
   end
   
   def temp_task

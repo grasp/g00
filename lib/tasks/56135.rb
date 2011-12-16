@@ -93,6 +93,9 @@ def parse_56135
      cargo[:fcity_name]=CityTree.get_city_full_path(cargo[:fcity_code])
    cargo[:tcity_name]=CityTree.get_city_full_path(cargo[:tcity_code])  
       cargo[:comments]=raw_array[5].to_s+raw_array[6].to_s+raw_array[7].to_s
+      
+                     cargo[:mobilephone]=cargo[:comments].match(/1\d\d\d\d\d\d\d\d\d\d/).to_s
+                cargo[:fixphone]=cargo[:comments].match(/\d\d\d+-\d\d\d\d\d\d\d+/).to_s  
    #   log.info   cargo[:comments]
       cargo[:cargo_weight]=raw_array[3]
       cargo[:cate_name]=raw_array[5]

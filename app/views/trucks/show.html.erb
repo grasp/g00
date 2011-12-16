@@ -2,6 +2,7 @@
 <%if session[:user_id]%>
   <%cache "truckshow"+params[:id] do%>
     <%truck_show_helper%>
+  <%if not @error%>
     <div id="truck_show">
       <%unless @contact%>
         <table>
@@ -10,18 +11,15 @@
             <th>车辆联系</th>    
           </tr>
           <tr>
-
             <td>
               <%= $truck_huicheng[@truck.huicheng] %>
             </td>
-
             <td>
               业务电话<%=@stock_truck.bis_phone%>, 司机 <%=@truck.driver_name%>, 电话<%=@truck.driver_phone%>，随车电话<%=@truck.car_phone%>
             </td>
           </tr>
         </table>
       <p>  备注: <%=@truck.comments%></p>
-
       </div>
       <!--  show user contact here-->
 
@@ -38,13 +36,18 @@
    <%= f.hidden_field :belongid ,:value=>@belongid%>
    <%= f.hidden_field :username,:value=>@username%>
    <div class="field">
-<br />
+  <br />
     <%= f.select(:fakereason,options_for_select([["假信息","假信息"],["电话不通","电话不通"],["已经成交","已经成交"]],@jubao.fakereason) )%>
     <%= f.submit("举报",:class => "btn info") %>
   </div>
 <% end %>
+  <%else%>
+    
+  <p>物流零距离-该车源信息已经被删除或者不存在.</p>
+      <%end%> 
   <%end%>
 <%else%>
+  
     <div class="span5">
       <p>登录后可见联系方式.</p>
       <div><a class="btn primary large" href="/users/login">登录</a>
@@ -53,5 +56,4 @@
     </div>
    
 <%end%>
-   </div>
-<p id="notice"><%= notice %></p>
+ </div>

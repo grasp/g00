@@ -111,5 +111,7 @@
         <td><%=Truck.where(:from_site=>"haoyun56",:created_at.gte=>Time.now.at_beginning_of_day).count%>/<%=Truck.where(:from_site=>"haoyun56").count%></td>
     </tr>
   </table>
-  
+    
+  <p>邮件订阅人数<%=Emaillistc.count%></p>
+<p>短信订阅人数<%=Smslistc.count%></p>
 </div>

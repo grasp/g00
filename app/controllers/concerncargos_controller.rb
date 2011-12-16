@@ -43,13 +43,10 @@ class ConcerncargosController < ApplicationController
         unless @concerncargo.line.blank? 
           linearray=Array.new
           @concerncargo.line.each  do |linecode|
-            linearray=linearray.concat(get_all_line_array(linecode[0]))
+            linearray=linearray.concat(get_all_line_array(linecode[0])) #combine all together
           end
-          # log=Logger.new("line.log")
-          # log.info   linearray
           @lineconcerncargo=Cargo.where(:status=>"正在配车",:created_at.gte=>Time.now.at_beginning_of_day).any_in(:line=>linearray).desc(:created_at).limit(10)
-          # @lineconcerncargo=Cargo.where(:status=>"正在配车").any_in(:line=>linearray).desc(:created_at).limit(10)
-          @count=@lineconcerncargo.count
+          @count=@lineconcerncargo.count         
         end       
         @total_cargos["关注线路"]= @lineconcerncargo
         
@@ -161,8 +158,17 @@ class ConcerncargosController < ApplicationController
             user=User.where(:name=>params[:username]).first
             unless user.blank?
               unless params[:username]=="admin"
-                @concerncargo.userid<<[params[:username],false,false,user.id.to_s]   #false, false, means mail and sms subscribe is not
-                @concerncargo.userid.uniq! 
+                @concerncargo.userid.each do |uid|
+                  if  uid[0]==params[:username]
+                    flash[:notice]="添加关注失败，重复关注!"
+                    @error=true
+                  end
+                end
+                unless @error==true
+                  @concerncargo.userid<<[params[:username],false,false,user.id.to_s]    #false, false, means mail and sms subscribe is not
+                  @concerncargo.userid.uniq! 
+                end
+                
               else
                 flash[:notice]="添加关注失败，你关注的用户名不存在!"
                 @error=true
@@ -247,7 +253,7 @@ class ConcerncargosController < ApplicationController
             #delete if unsubscribe from list
             puts "email= #{@concerncargo.city[index][1]}"
             if @concerncargo.city[index][1]==false #not added into yet
-             # puts "insert email!"
+              # puts "insert email!"
               all_cityconcern.each do |cityconcern|
                 cityconcern.emaillist<<session[:user_email]    
               end
@@ -257,12 +263,12 @@ class ConcerncargosController < ApplicationController
             new_concerncargocity[index][1]=true #must insert here, seemed will change the @concerncargo also,should refrence
           else
             if @concerncargo.city[index][1]==true
-            #  puts "remove for uncheck"
+              #  puts "remove for uncheck"
               all_cityconcern.each do |cityconcern|
                 cityconcern.emaillist.delete(session[:user_email])    
               end
             else
-             #   puts "already deleted "
+              #   puts "already deleted "
             end
             new_concerncargocity[index][1]=false
           end
@@ -273,15 +279,15 @@ class ConcerncargosController < ApplicationController
                 cityconcern.smslist<< @user.mobilephone      
               end
             end 
-               new_concerncargocity[index][2]=true
+            new_concerncargocity[index][2]=true
           else
             if @concerncargo.city[index][2]==true
-            #  puts "remove for uncheck"
+              #  puts "remove for uncheck"
               all_cityconcern.each do |cityconcern|
                 cityconcern.smslist.delete(@user.mobilephone )    
               end
             else
-             #   puts "already deleted "
+              #   puts "already deleted "
             end
             new_concerncargocity[index][2]=false #we must  set this value at last 
           end
@@ -293,10 +299,10 @@ class ConcerncargosController < ApplicationController
           #   cityconcern.save! 
           new_email_list=cityconcern.emaillist
           new_sms_list=cityconcern.smslist
-           cityconcern.save
-        #  cityconcern.update_attribute(:emaillist,nil)
-            cityconcern.update_attribute(:emaillist,new_email_list) #we have to do this due to save not fetch array data,only save a empty array
-            cityconcern.update_attribute(:smslist,new_sms_list)
+          cityconcern.save
+          #  cityconcern.update_attribute(:emaillist,nil)
+          cityconcern.update_attribute(:emaillist,new_email_list) #we have to do this due to save not fetch array data,only save a empty array
+          cityconcern.update_attribute(:smslist,new_sms_list)
         end
 
       end
@@ -310,20 +316,20 @@ class ConcerncargosController < ApplicationController
    
       (@concerncargo.line.size-1).downto(0).each do |index|      
         all_line_array=get_all_line_array(@concerncargo.line[index][0])
-        log=Logger.new("line.log")
-        log.info "all line_array_size=#{all_line_array.size}"
+        # log=Logger.new("line.log")
+        # log.info "all line_array_size=#{all_line_array.size}"
         all_line_concern=Array.new
         all_line_array.each do |eachline|
           lineconcern= Concernlinec.where(:line=>eachline).first         
           if lineconcern.blank? #initialize the lineconcern
             lineconcern=Concernlinec.new
-            lineconcern.line=@concerncargo.line[index][0]
+            lineconcern.line=eachline
             lineconcern.emaillist=Array.new      
             lineconcern.smslist=Array.new   
           end
           all_line_concern<<lineconcern
         end
-           if  params["delete#{index}"]    #if delete we dont care about other checkbox  just remove 
+        if  params["delete#{index}"]    #if delete we dont care about other checkbox  just remove 
           new_concerncargoline.delete_at(index)
           #remove email from city subscribe list
           all_line_concern.each do |lineconcern|
@@ -335,7 +341,7 @@ class ConcerncargosController < ApplicationController
             #delete if unsubscribe from list
             puts "email= #{@concerncargo.line[index][1]}"
             if @concerncargo.line[index][1]==false #not added into yet
-             # puts "insert email!"
+              # puts "insert email!"
               all_line_concern.each do |lineconcern|
                 lineconcern.emaillist<<session[:user_email]    
               end
@@ -344,13 +350,13 @@ class ConcerncargosController < ApplicationController
             end
             new_concerncargoline[index][1]=true #must insert here, seemed will change the @concerncargo also,should refrence
           else
-            if @concerncargo.line[index][1]==true
-            #  puts "remove for uncheck"
-             all_line_concern.each do |lineconcern|
+            if @concerncargo.line[index][1]==true #if original is true then we need delete from subscribe list
+              #  puts "remove for uncheck"
+              all_line_concern.each do |lineconcern|
                 lineconcern.emaillist.delete(session[:user_email])    
               end
             else
-             #   puts "already deleted "
+              #   puts "already deleted "
             end
             new_concerncargoline[index][1]=false
           end
@@ -361,15 +367,15 @@ class ConcerncargosController < ApplicationController
                 lineconcern.smslist<< @user.mobilephone      
               end
             end 
-               new_concerncargoline[index][2]=true
+            new_concerncargoline[index][2]=true
           else
             if @concerncargo.line[index][2]==true
-            #  puts "remove for uncheck"
+              #  puts "remove for uncheck"
               all_line_concern.each do |lineconcern|
                 lineconcern.smslist.delete(@user.mobilephone )    
               end
             else
-             #   puts "already deleted "
+              #   puts "already deleted "
             end
             new_concerncargoline[index][2]=false #we must  set this value at last 
           end
@@ -377,14 +383,14 @@ class ConcerncargosController < ApplicationController
         end
         
         #now update subscribe list of city
-         all_line_concern.each do |lineconcern|
+        all_line_concern.each do |lineconcern|
           #   cityconcern.save! 
           new_email_list=lineconcern.emaillist
           new_sms_list=lineconcern.smslist
-           lineconcern.save
-        #  cityconcern.update_attribute(:emaillist,nil)
-            lineconcern.update_attribute(:emaillist,new_email_list) #we have to do this due to save not fetch array data,only save a empty array
-            lineconcern.update_attribute(:smslist,new_sms_list)
+          lineconcern.save
+          #  cityconcern.update_attribute(:emaillist,nil)
+          lineconcern.update_attribute(:emaillist,new_email_list) #we have to do this due to save not fetch array data,only save a empty array
+          lineconcern.update_attribute(:smslist,new_sms_list)
         end
 
       end
@@ -397,29 +403,128 @@ class ConcerncargosController < ApplicationController
     if params[:concern_type]=="user" && !@concerncargo.userid.blank?
       new_concerncargouser=Array.new 
       new_concerncargouser=@concerncargo.userid
+      
       (@concerncargo.userid.size-1).downto(0).each do |index|
-        if  params["mail#{index}"]    
-          new_concerncargouser[index][1]=true
+        userconcern= Concernuserc.where(:userid=>@concerncargo.userid[index][3]).first  
+        if  userconcern.blank?
+          userconcern=Concernuserc.new
+          userconcern.userid=@concerncargo.userid[index][3]
+          userconcern.emaillist=[]
+          userconcern.smslist=[]
+        end
+        if  params["delete#{index}"] 
+          userconcern.emaillist.delete(session[:user_email])
+          userconcern.smslist.delete(@user.mobilephone)
+          new_concerncargouser.delete_at(index)    
         else
-          new_concerncargouser[index][1]=false
-        end        
-        new_concerncargouser.delete_at(index)  if  params["delete#{index}"]    
+          if  params["mail#{index}"]  
+            if  new_concerncargouser[index][1]==false
+              userconcern.emaillist<<session[:user_email]
+            end
+            new_concerncargouser[index][1]=true
+          else
+            if  new_concerncargouser[index][1]==true
+              userconcern.emaillist.delete(session[:user_email])
+            end
+            new_concerncargouser[index][1]=false
+          end  
+        
+          if  params["sms#{index}"]  
+            if  new_concerncargouser[index][2]==false
+              userconcern.smslist<< @user.mobilephone
+            end
+            new_concerncargouser[index][2]=true
+          else
+            if  new_concerncargouser[index][2]==true
+              userconcern.smslist.delete( @user.mobilephone)
+            end
+            new_concerncargouser[index][2]=false
+          end 
+        end
+        userconcern.save
+        userconcern.update_attribute(:emaillist,userconcern.emaillist) #we have to do this due to save not fetch array data,only save a empty array
+        userconcern.update_attribute(:smslist,userconcern.smslist)
       end
+      
       #this may be database bug,it could not update directly for element in array
       @concerncargo.update_attribute(:userid,nil)
       @concerncargo.update_attribute(:userid,new_concerncargouser)
     end
     
+    
     if params[:concern_type]=="phone" && !@concerncargo.phone.blank?
       new_concerncargophone=Array.new 
       new_concerncargophone=@concerncargo.phone
+      
       (@concerncargo.phone.size-1).downto(0).each do |index|
-        if  params["mail#{index}"]    
-          new_concerncargophone[index][1]=true
+        #phone 1 is mobile
+        phoneconcern1= Concernphonec.where(:phone=>@concerncargo.phone[index][0][0]).first  
+        #phone 2 is fix mobile phone
+        phoneconcern2= Concernphonec.where(:phone=>@concerncargo.phone[index][0][1]).first  unless @concerncargo.phone[index][0][1].blank?
+        if  phoneconcern1.blank?  and not @concerncargo.phone[index][0][0].blank?
+          phoneconcern1=Concernphonec.new
+          phoneconcern1.phone=@concerncargo.phone[index][0][0]
+          phoneconcern1.emaillist=[]
+          phoneconcern1.smslist=[]
+        end
+        
+        if  phoneconcern2.blank? and not @concerncargo.phone[index][0][1].blank?
+          phoneconcern2=Concernphonec.new
+          phoneconcern2.phone=@concerncargo.phone[index][0][1]
+          phoneconcern2.emaillist=[]
+          phoneconcern2.smslist=[]
+        end
+        if  params["delete#{index}"] 
+          phoneconcern1.emaillist.delete(session[:user_email]) if phoneconcern1
+          phoneconcern2.emaillist.delete(session[:user_email]) if phoneconcern2
+          phoneconcern1.smslist.delete(@user.mobilephone) if phoneconcern1
+          phoneconcern2.smslist.delete(@user.mobilephone)  if phoneconcern2
+          new_concerncargophone.delete_at(index)  
+      
         else
-          new_concerncargophone[index][1]=false
-        end        
-        new_concerncargophone.delete_at(index)  if  params["delete#{index}"]    
+          if  params["mail#{index}"]   
+            if @concerncargo.phone[index][1]==false
+              phoneconcern1.emaillist<<session[:user_email] if phoneconcern1
+              phoneconcern2.emaillist<<session[:user_email]  if phoneconcern2
+            end
+          
+            new_concerncargophone[index][1]=true
+          else
+            if @concerncargo.phone[index][1]==true
+              phoneconcern1.emaillist.delete(session[:user_email]) if phoneconcern1
+              phoneconcern2.emaillist.delete(session[:user_email])  if phoneconcern2
+            end
+            new_concerncargophone[index][1]=false
+          end      
+          
+          if  params["sms#{index}"]   
+            if @concerncargo.phone[index][2]==false
+              phoneconcern1.smslist<<@user.mobilephone if phoneconcern1
+              phoneconcern2.smslist<<@user.mobilephone  if phoneconcern2
+            end
+          
+            new_concerncargophone[index][2]=true
+          else
+            if @concerncargo.phone[index][2]==true
+              phoneconcern1.smslist.delete(@user.mobilephone) if phoneconcern1
+              phoneconcern2.smslist.delete(@user.mobilephone)   if phoneconcern2
+            end
+            new_concerncargophone[index][2]=false
+          end   
+        end
+
+        if  phoneconcern1
+            phoneconcern1.save
+        phoneconcern1.update_attribute(:emaillist, phoneconcern1.emaillist) #we have to do this due to save not fetch array data,only save a empty array
+        phoneconcern1.update_attribute(:smslist, phoneconcern1.smslist)
+        end
+        
+         if  phoneconcern2
+            phoneconcern2.save
+        phoneconcern2.update_attribute(:emaillist, phoneconcern1.emaillist) #we have to do this due to save not fetch array data,only save a empty array
+        phoneconcern2.update_attribute(:smslist, phoneconcern1.smslist)
+        end
+        
       end
       #this may be database bug,it could not update directly for element in array
       @concerncargo.update_attribute(:phone,nil)

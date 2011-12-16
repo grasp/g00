@@ -95,6 +95,10 @@ def parse_56qq
       cargo[:cate_name]=cargo[:comments].to_s[-10..-1]
 
       cargo[:contact]=onecargo[2].gsub(/TEL\:/,"")
+      
+      #fetch mobilephone and fixphone
+       cargo[:mobilephone]=cargo[:contact].match(/1\d\d\d\d\d\d\d\d\d\d/).to_s
+       cargo[:fixphone]=cargo[:contact].match(/\d\d\d+-\d\d\d\d\d\d\d+/).to_s  
       cargo[:send_date]=1
       cargo[:from_site]="56qq"
       cargo[:created_at]=Time.now

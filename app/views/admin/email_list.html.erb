@@ -1,0 +1,21 @@
+<%#coding:utf-8%>
+<p>邮件订阅人数<%=Emaillistc.count%></p>
+<p>短信订阅人数<%=Smslistc.count%></p>
+<%if @email_lists%>
+  <table>
+    <tr>
+      <th>email</th>
+      <th>cargolist</th>
+    </tr>
+    <%@email_lists.each do |concerncargo|%>
+      <tr>
+        <td><%=concerncargo.email%> </td>     
+        <td><%=concerncargo.cargolist%> </td>     
+  
+      </tr>
+    <%end%>
+    <%= will_paginate @email_lists ,:previous_label=>"上一页",:next_label=>"下一页"%>
+  </table>
+
+<%end%>
+

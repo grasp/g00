@@ -1,5 +1,4 @@
 <%#coding:utf-8%>
-<%=session[:user_email]%>
 <p>
   <a href="/admin/concerncargo/concerncargo">全部关注(<%=Concerncargo.count%>)</a>
 </p>
@@ -48,10 +47,17 @@
           <td><%=concern.emaillist%></td>
           <td><%=concern.smslist%></td>
         <%elsif params[:concern_type]=="line"%>
-
+          <td><%=concern.line%></td>
+          <td><%=concern.emaillist%></td>
+          <td><%=concern.smslist%></td>
         <%elsif params[:concern_type]=="user"%>
-
+          <td><%=concern.userid%></td>
+          <td><%=concern.emaillist%></td>
+          <td><%=concern.smslist%></td>
         <%elsif params[:concern_type]=="phone"%>
+           <td><%=concern.phone%></td>
+          <td><%=concern.emaillist%></td>
+          <td><%=concern.smslist%></td>
         <%else%>
         <%end%>
       </tr>

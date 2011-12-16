@@ -37,10 +37,13 @@ module Tf56graspHelper
             cal_city=CityTree.get_city_full_path(city_code) unless  city_code.nil?
 
             one_item_huo[:tcity_code]=city_code
-        if (not one_item_huo[:fcity_code].blank?  and not  one_item_huo[:tcity_code].blank?)  
+           if (not one_item_huo[:fcity_code].blank?  and not  one_item_huo[:tcity_code].blank?)  
             one_item_huo[:line]=one_item_huo[:fcity_code]+"#"+one_item_huo[:tcity_code]
             one_item_huo[:tcity_name]=cal_city
-
+            
+             #fetch out mobile phone and fix phone
+               one_item_huo[:mobilephone]= one_item_huo[:cate_name].match(/1\d\d\d\d\d\d\d\d\d\d/).to_s
+                 one_item_huo[:mobilephone]= one_item_huo[:cate_name].match(/1\d\d\d\d\d\d\d\d\d\d/).to_s
          #   one_item_huo[:created_at]=td_info[5].strip!
          one_item_huo[:created_at]=Time.now
             one_item_huo[:send_date]=1
@@ -66,6 +69,11 @@ module Tf56graspHelper
           end
           if td_info.size==7
             one_item_huo[:comments]=td_info[5]
+            if not one_item_huo[:mobilephone].blank? and not one_item_huo[:comments].blank?
+             one_item_huo[:mobilephone]=one_item_huo[:comments].match(/1\d\d\d\d\d\d\d\d\d\d/).to_s
+             one_item_huo[:fixphone]=one_item_huo[:comments].match(/\[\d\d\d+\]\d\d\d\d\d\d\d+/).to_s
+             one_item_huo[:fixphone]=one_item_huo[:fixphone].gsub("[","").gsub("]","-").to_s if one_item_huo[:fixphone]
+            end
             one_item_huo.delete(:url) #no use
           end
         end
@@ -147,7 +155,6 @@ module Tf56graspHelper
   def get_tf56_grasps
     start_time=Time.now;@huo_succ_counter=0;@huo_fail_counter=0
     @admin=User.where("name"=>"admin").first
-
     @page_huos=get_first_page_huo
 
     #insert each huo
@@ -164,9 +171,7 @@ module Tf56graspHelper
    start_time=Time.now;@che_succ_counter=0;@che_fail_counter=0
     @page_ches=get_first_page_che
         @page_ches.each do |che|
-
         che[:user_id]=@admin.id
-       # puts che
     begin
     a=Truck.new(che)
     @che_succ_counter+=1 if a.save
