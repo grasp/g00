@@ -30,6 +30,9 @@ else
   gem 'watir'
 end
 
+#dameon and every task
+gem 'foreverb'
+
 gem 'request-log-analyzer'
 #gem 'dalli'
 # Use unicorn as the web server

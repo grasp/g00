@@ -8,3 +8,7 @@ public/*.html
 *.html
 vendor/*.zip
 /nbproject/private/
+bin/log/*.log
+bin/tmp/*.pid
+bin/tmp/*.job
+bin/tmp/*.txt

@@ -68,6 +68,22 @@ class Notifier < ActionMailer::Base
   end
 
   
+  def send_notify_email(email)
+    @cargos=Array.new
+    email.cargolist.each do |cargoid|
+      begin
+      @cargos<<Cargo.find(cargoid)
+      rescue
+        puts "could not find cargo id #{cargoid}"
+      end
+    end
+     mail( :to => email.email, 
+      :subject => "关注的货源信息#{Time.now.to_s.slice(0,19)}",
+      :template_path => 'concerncargos',
+      :template_name => 'concern_mail')
+
+  end
+  
   def send_email(to,subject,body)
     mail( :to => to, 
       :subject => subject,
