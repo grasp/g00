@@ -43,7 +43,7 @@ end
 def parse_56qq    
   cookie=load_cookie #get all the cookies
   @admin=User.where("name"=>"admin").first
-  log = Logger.new("56qq.log")
+ # log = Logger.new("56qq.log")
   agent = Mechanize.new  
   agent.cookie_jar.load_cookiestxt(StringIO.new(cookie))  
   
@@ -136,7 +136,7 @@ def parse_56qq
       begin
         truck.save!
       rescue Exception 
-        log.info $@
+       # log.info $@
       end
 
     end

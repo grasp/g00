@@ -10,8 +10,7 @@ require 'logger'
 require 'mongoid'
 
 pn = Pathname.new(File.dirname(__FILE__))
-project_root=pn.parent.parent #do we have one line solution?
-puts "project_root=#{project_root}"
+project_root=pn.parent #do we have one line solution?
 require File.join(project_root,"app","helpers","cities_helper.rb")
 require File.join(project_root,"app","helpers","quzhougrasp_helper.rb")
 require File.join(project_root,"app","helpers","tf56grasp_helper.rb")
@@ -39,16 +38,20 @@ Forever.run do
   #  puts "All jobs will will wait me for 1 second"; sleep 1
   #end
 
-  every 2.minutes, :at => "#{Time.now.hour}:00" do
+  every 2.minutes do
+    hour=Time.now.hour
+    if hour>5 and hour<23
     begin
       parse_56qq
     rescue
       puts $@
     end
     get_tf56_grasps
+    end
   end
     
-  every 3.minutes, :at => "#{Time.now.hour}:00" do
+  every 3.minutes do
+        if hour>5 and hour<23
     begin
       parse_56135
     rescue
@@ -60,7 +63,11 @@ Forever.run do
     rescue
       puts $@
     end
+system("wget --spider http://w090.com/admin/dev_expire") #to expire city navi bar
+system("wget --spider http://w090.com/cargos/allcity") #to regenerate city navi  cache
+system("wget --spider http://w090.com/trucks/allcity") #to regenerate city navi  cache
 
+        end
   end
   
 
@@ -73,3 +80,4 @@ Forever.run do
     puts "Bye bye on #{Time.now}"
   end
 end
+
