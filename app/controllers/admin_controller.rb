@@ -222,7 +222,7 @@ class AdminController < ApplicationController
       @error="not right time to deploy"   
     elsif request.url.to_s.match("4500")
       unless Object::RUBY_PLATFORM.match("linux").nil?
-        @log= `/opt/vob/deploy.sh`
+        @log= exec("/opt/vob/deploy.sh") #because we need launch a forever dameon
       end
     else
       @error="not allowed deploy production in production mode!"
