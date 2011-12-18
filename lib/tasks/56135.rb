@@ -107,7 +107,11 @@ def parse_56135
       cargo[:user_id]=@admin.id unless @admin.nil?
       #  log.info cargo
       begin
-        cargo.save!
+       a=cargo.save!
+       if a
+         @cargo=a
+         notify
+       end
       rescue Exception 
         # log.info $@
       end

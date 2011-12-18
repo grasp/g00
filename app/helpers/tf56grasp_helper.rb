@@ -162,7 +162,11 @@ module Tf56graspHelper
     huo[:user_id]=@admin.id
     begin
     a=Cargo.new(huo)
-    @huo_succ_counter+=1 if a.save
+    if a.save!
+      @cargo=a
+      notify
+    end
+    @huo_succ_counter+=1 
     rescue
       @huo_fail_counter+=1
     end

@@ -110,7 +110,11 @@ module QuzhougraspHelper
       # puts huo
       begin
         a=Cargo.new(huo)
-        @huo_succ_counter+=1 if a.save
+        if a.save!
+        @huo_succ_counter+=1 
+        @cargo=a
+        notify
+        end
       rescue
         @huo_fail_counter+=1
       end
