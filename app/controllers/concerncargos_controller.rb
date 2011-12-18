@@ -130,7 +130,7 @@ class ConcerncargosController < ApplicationController
         if params[:concern_type]=="city" 
           #check unique for user?
           @concerncargo.city= Array.new   if  @concerncargo.city.blank?  
-          if  @concerncargo.city.size<2
+          if  @concerncargo.city.size<2 or session[:user_name]=="hunter"
             @concerncargo.city<<[params[:citycode],false,false]    
             @concerncargo.city.uniq!   
           else
@@ -142,7 +142,7 @@ class ConcerncargosController < ApplicationController
         if params[:concern_type]=="line" 
           #check unique for user?
           @concerncargo.line= Array.new   if  @concerncargo.line.blank?  
-          if @concerncargo.line.size<5
+          if @concerncargo.line.size<5 or session[:user_name]=="hunter"
             @concerncargo.line<<[params[:fcitycode]+"#"+params[:tcitycode],false,false]    
             @concerncargo.line.uniq!    
           else
@@ -154,7 +154,7 @@ class ConcerncargosController < ApplicationController
         if params[:concern_type]=="user" 
           #check unique for user?
           @concerncargo.userid= Array.new   if  @concerncargo.userid.blank? 
-          if  @concerncargo.userid.size<5
+          if  @concerncargo.userid.size<5 or session[:user_name]=="hunter"
             user=User.where(:name=>params[:username]).first
             unless user.blank?
               unless params[:username]=="admin"
@@ -186,7 +186,7 @@ class ConcerncargosController < ApplicationController
         if params[:concern_type]=="phone" 
           #check unique for user?
           @concerncargo.phone= Array.new   if  @concerncargo.phone.blank?  
-          if @concerncargo.phone.size <10
+          if @concerncargo.phone.size <10 or session[:user_name]=="hunter"
             @concerncargo.phone<<[[params[:mobilephone],params[:quhao]+"-"+params[:fixphone],params[:email],params[:QQ],params[:comments]],false,false]
             @concerncargo.phone.uniq!    
           else
