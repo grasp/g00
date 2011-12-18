@@ -138,23 +138,33 @@ class  Cargo
   end
   
   def update_notify_list(email_list,sms_list)
-    Emaillistc.destroy_all
+  #  log=Logger.new("notify.log")
+   # Emaillistc.destroy_all
     email_list.uniq!
     sms_list.uniq!
     email_list.each do |email|
       emailsubscribe=Emaillistc.where(:email=>email).first
+      
       user=User.where(:email=>email).first
+      
       unless user.id.to_s==self.user_id.to_s
         unless emailsubscribe.blank?
-          new_cargolist=Array.new
-          new_cargolist=emailsubscribe.cargolist
+        #  new_cargolist=Array.new
+          new_cargolist=emailsubscribe.cargolist||Array.new
+        #  log.info "original cargo list=#{emailsubscribe.cargolist},size=#{new_cargolist.size}"
           new_cargolist<<self.id.to_s
+        #   log.info "new cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
           new_cargolist.uniq!
-          emailsubscribe.update_attribute(:cargolist,new_cargolist)
+        #   log.info "uniq cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
+        #  emailsubscribe.update_attribute(:cargolist,nil) #why stupid operaton here
+          emailsubscribe.update_attributes(:cargolist=>new_cargolist,:csize=>new_cargolist.size)
+          
         else
+           log.info "create emaillist for new user"
           emailsubscribe= Emaillistc.new
           emailsubscribe.email=email
           emailsubscribe.cargolist=[self.id.to_s]
+          emailsubscribe.csize=1
           emailsubscribe.save
         end
   

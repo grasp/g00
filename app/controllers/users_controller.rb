@@ -243,7 +243,7 @@ class UsersController < ApplicationController
       else
        
         if @user.status =="new_register" 
-          flash[:notice] = "请到你的邮箱去确认邮箱，老用户请到用户中心，可以重新发送激活邮件" 
+          flash[:notice] = "请到你的邮箱#{@user.email}去确认邮箱，老用户请到用户中心，可以重新发送激活邮件" 
         end
         session[:user_id]=@user.id  #BSon to string??,no
         session[:user_name]=@user.name

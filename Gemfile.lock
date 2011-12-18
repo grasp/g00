@@ -52,6 +52,8 @@ GEM
     ffi (1.0.9-x86-mingw32)
     firewatir (1.9.2)
       commonwatir (= 1.9.2)
+    foreverb (0.3.0.f)
+      thor (~> 0.14.6)
     hoe (2.10.0)
       rake (~> 0.8)
     i18n (0.5.0)
@@ -136,6 +138,7 @@ PLATFORMS
 
 DEPENDENCIES
   bson (= 1.3.1)
+  foreverb
   mechanize
   mongoid (= 2.2.2)
   rails (= 3.0.7)

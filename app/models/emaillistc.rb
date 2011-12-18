@@ -5,5 +5,6 @@ class Emaillistc
  
      field :email, :type=>String
      field :cargolist, :type=>Array
+     field :csize, :type=>Integer
      index :email, unique: true
 end

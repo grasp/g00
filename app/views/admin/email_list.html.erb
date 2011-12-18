@@ -6,12 +6,13 @@
     <tr>
       <th>email</th>
       <th>cargolist</th>
+       <th>csize</th>
     </tr>
     <%@email_lists.each do |concerncargo|%>
       <tr>
         <td><%=concerncargo.email%> </td>     
         <td><%=concerncargo.cargolist%> </td>     
-  
+   <td><%=concerncargo.csize%> </td>     
       </tr>
     <%end%>
     <%= will_paginate @email_lists ,:previous_label=>"上一页",:next_label=>"下一页"%>

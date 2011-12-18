@@ -32,7 +32,7 @@
         <%end%>
         <div class="welcomeboard">
           <h4><%=session[:user_name]%>,欢迎来到我的关注！目前只能关注货源信息.</h4>
-
+          <p>目前你订阅接收的email是<%=session[:user_email]%>.</p>
         </div>
 
         <%= yield %>         

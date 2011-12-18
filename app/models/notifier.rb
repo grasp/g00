@@ -27,7 +27,7 @@ class Notifier < ActionMailer::Base
 
   
   def send_invite_mail(to,subject,user)
-   @user=user
+    @user=user
     mail( 
       :from=>user.email,
       :to => to,
@@ -40,18 +40,18 @@ class Notifier < ActionMailer::Base
     @user=user
     @cargo=cargo
     @contact=contact
-      mail( 
+    mail( 
       :to => user.email,
       :subject => "物流零距离货源信息-#{@cargo.fcity_name}-#{@cargo.tcity_name}- #{@cargo.cate_name ||'未知货物'}-#{@cargo.cargo_weight || '0 吨'}-#{@cargo.cargo_bulk ||'0 方' }",
       :template_path => 'cargos',
       :template_name => 'send_cargo_myself_mail')
   end
 
-    def send_cargo_friend(user,cargo,contact,to)
+  def send_cargo_friend(user,cargo,contact,to)
     @user=user
     @cargo=cargo
     @contact=contact
-      mail( 
+    mail( 
       :to => to,
       :subject => "物流零距离货源信息-#{@cargo.fcity_name}-#{@cargo.tcity_name}- #{@cargo.cate_name ||'未知货物'}-#{@cargo.cargo_weight || '0 吨'}-#{@cargo.cargo_bulk ||'0 方' }",
       :template_path => 'cargos',
@@ -60,7 +60,7 @@ class Notifier < ActionMailer::Base
 
   def send_site_update_to_register(user)
     @user=user
-      mail( 
+    mail( 
       :to => user.email,
       :subject => "物流零距离网站有更新了，更多货源和车源了，访问速度更快了",
       :template_path => 'users',
@@ -69,18 +69,26 @@ class Notifier < ActionMailer::Base
 
   
   def send_notify_email(email)
+    puts "start send_notify_email "
+    @user=User.where(:email=>email.email).first
     @cargos=Array.new
     email.cargolist.each do |cargoid|
       begin
-      @cargos<<Cargo.find(cargoid)
+        @cargos<<Cargo.find(cargoid)
       rescue
         puts "could not find cargo id #{cargoid}"
       end
     end
-     mail( :to => email.email, 
-      :subject => "关注的货源信息#{Time.now.to_s.slice(0,19)}",
-      :template_path => 'concerncargos',
-      :template_name => 'concern_mail')
+    puts "cargo size=#{@cargos.size}"
+    mail( :to => email.email, 
+      :charset => "UTF-8",
+      :from=>"w090.master@gmail.com",
+      # :subject => "关注的货源信息#{Time.now.to_s.slice(0,19)}",
+      :subject => "物流零距离货源信息-#{Time.now.to_s.slice(0,19)}")do |format|
+      format.html{render "#{$project_root}/app/views/concerncargos/concern_mail"}
+    end
+    #  :template_path => 'concerncargos',
+    #  :template_name => 'concern_mail')
 
   end
   

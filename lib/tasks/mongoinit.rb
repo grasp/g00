@@ -6,7 +6,7 @@ $debug=true
 else
   $debug=false
 end
- # $debug=true #remove this line !!!!
+  #$debug=true #remove this line !!!!
 puts "$debug=#{$debug}"
 
 $mongo=Mongo::Connection.new('localhost', 27017)

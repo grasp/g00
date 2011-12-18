@@ -1,0 +1,17 @@
+# Logfile created on 2011-12-18 14:36:01 +0800 by logger.rb/25413
+create emaillist for new user
+create emaillist for new user
+create emaillist for new user
+create emaillist for new user
+create emaillist for new user
+original cargo list=["4eed8b517af2a659f1000049"],size=1
+new cargo list=["4eed8b517af2a659f1000049", "4eed8ba07af2a659f100004f"],size=2
+uniq cargo list=["4eed8b517af2a659f1000049", "4eed8ba07af2a659f100004f"],size=2
+original cargo list=["4eed8b517af2a659f1000049"],size=1
+new cargo list=["4eed8b517af2a659f1000049", "4eed8bcc7af2a659f1000050"],size=2
+uniq cargo list=["4eed8b517af2a659f1000049", "4eed8bcc7af2a659f1000050"],size=2
+original cargo list=["4eed8b517af2a659f1000049", "4eed8bcc7af2a659f1000050"],size=2
+new cargo list=["4eed8b517af2a659f1000049", "4eed8bcc7af2a659f1000050", "4eed8bcc7af2a659f1000050"],size=3
+uniq cargo list=["4eed8b517af2a659f1000049", "4eed8bcc7af2a659f1000050"],size=2
+create emaillist for new user
+create emaillist for new user

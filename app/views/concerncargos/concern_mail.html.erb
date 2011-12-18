@@ -1,6 +1,7 @@
 <%#coding:utf-8%>
-<h1>以下为你关注的货源列别</h1>
-
+<p>尊敬的用户<%=@user.name unless @user.blank?%>,您好！</p>
+<h3>以下为你关注的货源类别</h3>
+<%puts "@cargos.size=#{@cargos.size}"%>
 <table class="cargo zebra-striped" >
   <th> 出发</th>
   <th> 到达</th>
@@ -8,51 +9,53 @@
   <th>重量</th>
   <th>有效</th>      
   <th>发布日期</th>
-  <th>货源状态</th>    
-  <th>车主操作</th>
+  <th>货源状态</th> 
+  <th>来自</th> 
+  <th>联系手机</th> 
+  <th>联系固定电话</th> 
+  <th>备注</th> 
   <% unless @cargos.blank? %>
     <% @cargos.each do |cargo| %>     
       <%unless cargo.nil? %>
         <tr>
-          <td class="span4"><%= cargo.fcity_name %></td>
-          <td class="span4"><%= cargo.tcity_name %></td>
-
-          <td class="span6"><a class ="show_float" href="/cargos/show/<%=cargo.id%>">
-              <%= cargo.cate_name ||"未知货物"%>
-            </a> 
-
+          <td><%= cargo.fcity_name %></td>
+          <td><%= cargo.tcity_name %></td>
+          <td> <%= cargo.cate_name ||"未知货物"%>         
           </td>
-          <td class="span3"><%= cargo.cargo_weight || "0" %>吨/<%= cargo.cargo_bulk ||0 %>方</td>
-          <td class="span2"><%= cargo.send_date %>天</td>
-          <td class="span4"><%=cargo.created_at.localtime.to_s.slice(0,19) unless cargo.updated_at.nil? %></td>
-
-          <td class="span2"><%=cargo.status %></td>
-          <td class="span2">
-            <%if cargo[:from_site]=="local"%>
-              <%unless session[:user_id].nil?%>
-                <%if cargo.user_id==session[:user_id]%>
-                  货主
-                <%else%>
-                  <a class=" btn default baojia" href="/cargos/<%=cargo.id%>/quotes/new">报价</a>
-                <%end%>
-              <%else%>
-                登录后报价
-              <%end%>
-            <%else%>
-              其他
-            <%end%>
-          </td>   
+          <td><%= cargo.cargo_weight || "0" %>吨/<%= cargo.cargo_bulk ||0 %>方</td>
+          <td><%= cargo.send_date %>天</td>
+          <td><%=cargo.created_at.localtime.to_s.slice(0,19) unless cargo.updated_at.nil? %></td>
+          <td><%=cargo.status %></td>
+           <td><%=cargo.from_site %></td>
+            <td><%=cargo.mobilephone %></td>
+              <td><%=cargo.fixphone %></td>
+              <%if cargo.from_site=="local" %>
+             <td><%=cargo.comments %></td>
+             <%else%>
+             <td><%=@contact%></td>
+             <%end%>
         </tr>
       <% end %>
     <% end %>
   </table>
 
-  <%= will_paginate @cargos ,:previous_label=>"上一页",:next_label=>"下一页"%>
 <%else%>     
-
-  <p>没有对应的货源.</p>   
-
+  <p>没有对应的货源，奇怪，肯定我们弄错了</p>   
 <%end %>
+  <br></br>
+<p>
+<h3> <a href="http://w090.com"> 物流零距离 - w090.com </a></h3>
+<h4>物流零距离是永久免费的面向全国的即时货源和即时车源网站</h4>
+<h4> 致力于整合各家物流信息并提供即时通知等服务</h4>
+<h4>  为货主和物流公司以及广大的物流从业者搭建一个物流信息平台</h4>
+</p>
+
+<p>我们不会滥用您的邮箱，只会发非常必要的信息给您或者你主动订阅的邮件.</p>
+
+<p><a href="http://w090.com"> 猛击这里,马上访问物流零距离 http://w090.com</a></p>
+
+
+<p>-物流零距离</p>
 
 
 
