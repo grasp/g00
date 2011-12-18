@@ -51,6 +51,7 @@ Forever.run do
   end
     
   every 3.minutes do
+      hour=Time.now.hour
         if hour>5 and hour<23
     begin
       parse_56135
