@@ -228,6 +228,7 @@ return Cargo.where(:status=>"正在配车",:tcity_code.gte=>province.to_s,:tcity
  end
  
   def notify
+   # log=Logger.new("notify.log")
     if self #this is under local database mode
     cargo=self 
     else
@@ -275,7 +276,7 @@ return Cargo.where(:status=>"正在配车",:tcity_code.gte=>province.to_s,:tcity
   end
   
   def update_notify_list(email_list,sms_list,cargo)
-  #  log=Logger.new("notify.log")
+    log=Logger.new("notify.log")
    # Emaillistc.destroy_all
     email_list.uniq!
     sms_list.uniq!
@@ -288,16 +289,15 @@ return Cargo.where(:status=>"正在配车",:tcity_code.gte=>province.to_s,:tcity
         unless emailsubscribe.blank?
         #  new_cargolist=Array.new
           new_cargolist=emailsubscribe.cargolist||Array.new
-        #  log.info "original cargo list=#{emailsubscribe.cargolist},size=#{new_cargolist.size}"
+          log.info "original cargo list=#{emailsubscribe.cargolist},size=#{new_cargolist.size}"
           new_cargolist<<cargo.id.to_s
-        #   log.info "new cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
+           log.info "new cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
           new_cargolist.uniq!
-        #   log.info "uniq cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
-        #  emailsubscribe.update_attribute(:cargolist,nil) #why stupid operaton here
+           log.info "uniq cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
           emailsubscribe.update_attributes(:cargolist=>new_cargolist,:csize=>new_cargolist.size)
           
         else
-           log.info "create emaillist for new user"
+          log.info "create emaillist for new user"
           emailsubscribe= Emaillistc.new
           emailsubscribe.email=email
           emailsubscribe.cargolist=[cargo.id.to_s]

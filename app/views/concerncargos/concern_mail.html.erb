@@ -26,7 +26,11 @@
           <td><%= cargo.send_date %>天</td>
           <td><%=cargo.created_at.localtime.to_s.slice(0,19) unless cargo.updated_at.nil? %></td>
           <td><%=cargo.status %></td>
-           <td><%=cargo.from_site %></td>
+              <%if cargo.from_site=="local" %>
+              <td>物流零距离</td>
+           <%else%>
+          <td><%=cargo.from_site %></td>
+            <%end%>
             <td><%=cargo.mobilephone %></td>
               <td><%=cargo.fixphone %></td>
               <%if cargo.from_site=="local" %>

@@ -168,6 +168,7 @@ module Tf56graspHelper
     end
     @huo_succ_counter+=1 
     rescue
+      puts $@
       @huo_fail_counter+=1
     end
     end
