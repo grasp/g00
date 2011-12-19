@@ -68,7 +68,7 @@ class  Cargo
   validates_presence_of :fcity_code,:tcity_code   #remove cate_name, could be empty from grasp
  
   before_create:check_unique
-  after_save:expire,:notify
+  after_save:notify,:expire
   def check_unique
     repeated=Cargo.where(:cate_name=>self.cate_name,:line=>self.line,:user_id=>self.user_id,:status=>"正在配车",
       :comments=>self.comments,:from_site=>self.from_site )
@@ -79,7 +79,7 @@ class  Cargo
     return true
   end
   def expire
- 
+ begin
     ActionController::Base.new.expire_fragment("cargos_allcity_1")
     ActionController::Base.new.expire_fragment("cargos_allcity_1")
     ActionController::Base.new.expire_fragment("provincecargo")
@@ -92,6 +92,9 @@ class  Cargo
       ActionController::Base.new.expire_fragment("cargo_city_#{city}_")
       ActionController::Base.new.expire_fragment("cargo_city_#{city}_city")#this is for region code is same as city code issue
     end
+ rescue
+   log.info "expire cargo fail"
+ end
   end
   
      

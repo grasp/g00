@@ -301,8 +301,10 @@ return Cargo.where(:status=>"正在配车",:tcity_code.gte=>province.to_s,:tcity
           emailsubscribe= Emaillistc.new
           emailsubscribe.email=email
           emailsubscribe.cargolist=[cargo.id.to_s]
+          new_cargolist=[cargo.id.to_s]
           emailsubscribe.csize=1
           emailsubscribe.save
+          emailsubscribe.update_attributes(:email=>email,:cargolist=>new_cargolist,:csize=>1)
         end
   
       end
