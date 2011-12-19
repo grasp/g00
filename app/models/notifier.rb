@@ -87,8 +87,8 @@ class Notifier < ActionMailer::Base
       :subject => "物流零距离货源信息-#{Time.now.to_s.slice(0,19)}")do |format|
       format.html{render "#{$project_root}/app/views/concerncargos/concern_mail"}
     end
-    #  :template_path => 'concerncargos',
-    #  :template_name => 'concern_mail')
+     # :template_path => 'concerncargos',
+     # :template_name => 'concern_mail')
 
   end
   
