@@ -68,7 +68,7 @@ class Notifier < ActionMailer::Base
   end
 
   
-  def send_notify_email(email)
+  def send_notify_email(email,project_root)
     puts "start send_notify_email "
     @user=User.where(:email=>email.email).first
     @cargos=Array.new
@@ -85,7 +85,7 @@ class Notifier < ActionMailer::Base
       :from=>"w090.master@gmail.com",
       # :subject => "关注的货源信息#{Time.now.to_s.slice(0,19)}",
       :subject => "物流零距离货源信息-#{Time.now.to_s.slice(0,19)}")do |format|
-      format.html{render "#{$project_root}/app/views/concerncargos/concern_mail"}
+      format.html{render "#{project_root}/app/views/concerncargos/concern_mail"}
     end
      # :template_path => 'concerncargos',
      # :template_name => 'concern_mail')
