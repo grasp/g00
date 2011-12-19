@@ -15,20 +15,22 @@ require File.join(project_root,"app","helpers","cities_helper.rb")
 
 
 require File.join(project_root,"app","models","user.rb")
-require File.join(project_root,"app","models","cargo.rb")
-require File.join(project_root,"app","models","truck.rb")
-require File.join(project_root,"app","models","grasp_record.rb")
-require File.join(project_root,"app","models","room_contact.rb")
-
+require File.join(project_root,"app","helpers","cargos_helper.rb")
+require File.join(project_root,"app","helpers","quzhougrasp_helper.rb")
+require File.join(project_root,"app","helpers","tf56grasp_helper.rb")
 require File.join(project_root,"app","models","concerncityc.rb")
 require File.join(project_root,"app","models","concernlinec.rb")
 require File.join(project_root,"app","models","concernuserc.rb")
 require File.join(project_root,"app","models","concernphonec.rb")
 require File.join(project_root,"app","models","emaillistc.rb")
 require File.join(project_root,"app","models","smslistc.rb")
-require File.join(project_root,"app","helpers","cargos_helper.rb")
-require File.join(project_root,"app","helpers","quzhougrasp_helper.rb")
-require File.join(project_root,"app","helpers","tf56grasp_helper.rb")
+require File.join(project_root,"app","models","cargo.rb")
+require File.join(project_root,"app","models","truck.rb")
+require File.join(project_root,"app","models","grasp_record.rb")
+require File.join(project_root,"app","models","room_contact.rb")
+
+
+
 
 require File.join(project_root,"config","initializers","init","city_dic.rb")
 require File.join(project_root,"config","initializers","init","city_load.rb")
