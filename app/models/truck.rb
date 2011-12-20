@@ -91,13 +91,17 @@ class Truck
     controller_base.expire_fragment("trucks_allcity_1")
     controller_base.expire_fragment("provincetruck")
     controller_base.expire_fragment("users_center_#{self.user_id}")    
+    unless self.fcity_code.blank?
     city_level(self.fcity_code)[1].each do |city|
      controller_base.expire_fragment("truck_city_#{city}_")
      controller_base.expire_fragment("truck_city_#{city}_city")
     end
+    end
+    unless self.tcity_code.blank?
     city_level(self.tcity_code)[1].each do |city|
       controller_base.expire_fragment("truck_city_#{city}_")
       controller_base.expire_fragment("truck_city_#{city}_city")
+    end
     end
   end
  
