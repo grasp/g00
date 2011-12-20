@@ -149,6 +149,7 @@ module CitiesHelper
   end
   
   def get_parent_line(line)
+    return [] if line.blank?
     line_array=Array.new
     a=line.split("#")
     from_city=a[0]
