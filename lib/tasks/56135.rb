@@ -2,49 +2,12 @@
 # To change this template, choose Tools | Templates
 # and open the template in the editor.
 
-require 'rubygems'
-require 'pathname'
-require 'mechanize'
-require 'mongo'
-require 'logger'
-require 'mongoid'
-
-
-
-pn = Pathname.new(File.dirname(__FILE__))
-project_root=pn.parent.parent #do we have one line solution?
-require File.join(project_root,"app","helpers","cities_helper.rb")
-require File.join(project_root,"app","models","user.rb")
-require File.join(project_root,"app","models","cargo.rb")
-require File.join(project_root,"app","models","truck.rb")
-require File.join(project_root,"app","models","grasp_record.rb")
-require File.join(project_root,"config","initializers","init","city_dic.rb")
-#require File.join(project_root,"config","initializers","init","city_load.rb")
-load File.join(project_root,"config","initializers","init","city_load.rb")
-require File.join(project_root,"lib","tasks","mongoinit.rb")
-
-def load_cookie
-  #  cookie_dir ="D:\\Profiles\\w22812\\Application Data\\Mozilla\\Firefox\\Profiles\\623tc49u.default"  
- 
-  cookie_dir ="/home/hunter/tttk3240"
-  cookie = String.new  
-  Dir.chdir(cookie_dir){|dir|  
-    db = SQLite3::Database.new('cookies.sqlite')  
-    p = Proc.new{|s| s.to_i.zero? ? 'TRUE' : 'FALSE'}  
-    db.execute("SELECT  host, isHttpOnly, path, isSecure, expiry, name, value FROM moz_cookies   
-    ORDER BY id DESC"){|r|  
-      cookie << [r[0], p.call(r[1]), r[2], p.call(r[3]), r[4], r[5], r[6]].join("\t") << "\n"  
-    }  
-  }  
-  return cookie
-end
-
 def parse_56135
-  cookie=load_cookie #get all the cookies
+
   @admin=User.where("name"=>"admin").first
   # log = Logger.new("56135.log")
   agent = Mechanize.new  
-  agent.cookie_jar.load_cookiestxt(StringIO.new(cookie))  
+  agent.cookie_jar.load_cookiestxt(StringIO.new($cookie))  
   agent.user_agent_alias = 'Windows Mozilla'
   #agent.set_proxy("wwwgate0-ch.mot.com", 1080)  if true
   

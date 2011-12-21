@@ -275,17 +275,103 @@ class AdminController < ApplicationController
   end
   
   def total_truck
+        yidong=[134,135,136,137,138,139,150,151,152,157,158,159,187,188,147]
+    liantong=[130,131,132,155,156,186,145]
+    dianxin=[133,153,189]
+    @yidong_count=0
+    @liantong_count=0
+    @dianxin_count=0
+ #   puts "start total_truck #{Time.now}"
     total_truck=Array.new
    ExpiredTruck.where(:paizhao.ne=>nil).each do |truck|
       total_truck<<truck.paizhao
-    end
-    Truck.where(:paizhao.ne=>nil).each do |truck|
-      total_truck<<truck.paizhao
+     unless truck.driver_phone.blank?    
+       yidong.each do |hao|
+        if truck.driver_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+             @yidong_count+=1
+           end
+         end
+                liantong.each do |hao|
+        if truck.driver_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+             @liantong_count+=1
+           end
+         end
+                dianxin.each do |hao|
+        if truck.driver_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+             @dianxin_count+=1
+           end
+         end
+      end
+      unless truck.car_phone.blank?
+       
+           yidong.each do |hao|
+        if truck.car_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+             @yidong_count+=1
+           end
+         end
+                liantong.each do |hao|
+        if truck.car_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+             @liantong_count+=1
+           end
+         end
+                dianxin.each do |hao|
+        if truck.car_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+             @dianxin_count+=1
+           end
+         end
+        end
     end
     
+    Truck.where(:paizhao.ne=>nil).each do |truck|
+      total_truck<<truck.paizhao
+           unless truck.driver_phone.blank?    
+       yidong.each do |hao|
+        if truck.driver_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+             @yidong_count+=1
+           end
+         end
+                liantong.each do |hao|
+        if truck.driver_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+             @liantong_count+=1
+           end
+         end
+                dianxin.each do |hao|
+        if truck.driver_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+             @dianxin_count+=1
+           end
+         end
+      end
+      unless truck.car_phone.blank?
+       
+           yidong.each do |hao|
+        if truck.car_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+             @yidong_count+=1
+           end
+         end
+                liantong.each do |hao|
+        if truck.car_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+             @liantong_count+=1
+           end
+         end
+                dianxin.each do |hao|
+        if truck.car_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+             @dianxin_count+=1
+           end
+         end
+        end
+    end
+    
+   # puts "@yidong_count=#{@yidong_count},@liantong_count=#{@liantong_count},@yidong_count=#{@dianxin_count}"
+
+  
+
     total_truck.uniq!
+    
     @expired_truck= total_truck.size
+  
+    
   end
+  
   
   def concerncargo
     if params[:concern_type]=="city"
