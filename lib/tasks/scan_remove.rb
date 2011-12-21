@@ -25,14 +25,16 @@ require '/opt/vob/g00/app/models/move.rb'
 
 require '/opt/vob/g00/app/helpers/scans_helper.rb'
 require '/opt/vob/g00/lib/tasks/mongoinit.rb'
+
 include ScansHelper
 scan_helper
 move_helper
 end
-
+def scan_move
 system("wget --spider http://w090.com/admin/scan") 
 system("wget --spider http://w090.com/admin/move") 
 
 system("wget --spider http://w090.com/admin/dev_expire") #to expire city navi bar
 system("wget --spider http://w090.com/cargos/allcity") #to regenerate city navi  cache
 system("wget --spider http://w090.com/trucks/allcity") #to regenerate city navi  cache
+end

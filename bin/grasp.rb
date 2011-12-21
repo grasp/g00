@@ -38,6 +38,7 @@ require File.join(project_root,"lib","tasks","mongoinit.rb")
 require File.join(project_root,"lib","tasks","56qq.rb")
 require File.join(project_root,"lib","tasks","56qq_helper.rb")
 require File.join(project_root,"lib","tasks","56135.rb")
+require File.join(project_root,"lib","tasks","scan_remove.rb")
 include QuzhougraspHelper
 include Tf56graspHelper
 
@@ -80,6 +81,10 @@ system("wget --spider http://w090.com/cargos/allcity") #to regenerate city navi 
 system("wget --spider http://w090.com/trucks/allcity") #to regenerate city navi  cache
 
         end
+  end
+  
+every 1.day, :at => ['2:30'] do
+    scan_move
   end
   
 
