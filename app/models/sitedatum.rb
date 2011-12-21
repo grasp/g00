@@ -9,6 +9,7 @@ class Sitedatum
   field :cargoshow, :type => Integer
   field :truckshow, :type => Integer
    field :spider, :type => Integer
-  
+   field :msent, :type => Integer
+   field :msent_today, :type => Integer
   
 end

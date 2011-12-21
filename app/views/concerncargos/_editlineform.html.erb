@@ -3,7 +3,6 @@
   <tr>
     <th>关注线路</th>
   <th>邮件订阅</th>
-    <th>短信订阅</th>
     <th>删除</th>
   </tr>
   <%=form_for(@concerncargo,:url=>{:action=>"update"}) do |f| %>
@@ -14,8 +13,7 @@
         <td><%=$city_code_name[@concerncargo.line[index][0].split("#")[0]]%><=><%=$city_code_name[@concerncargo.line[index][0].split("#")[1]]%></td>       
 
        <td> <input type="checkbox" name="mail<%=index%>"  value="true" <%="checked" if @concerncargo.line[index][1]==true%>></input></td>
-         <td> <input type="checkbox" name="sms<%=index%>"  value="true" <%="checked" if @concerncargo.line[index][2]==true%>></input></td>
-        <td> <input type="checkbox" name="delete<%=index%>" value="true"></input></td>
+       <td> <input type="checkbox" name="delete<%=index%>" value="true"></input></td>
    
 
     </tr>

@@ -3,7 +3,7 @@
     <th>关注用户</th>
 
   <th>邮件订阅</th>
-    <th>短信订阅</th>
+
     <th>删除</th>
   </tr>
   <%=form_for(@concerncargo,:url=>{:action=>"update"}) do |f| %>
@@ -14,7 +14,6 @@
         <td><%=@concerncargo.userid[index][0]%></td>        
 
        <td> <input type="checkbox" name="mail<%=index%>"  value="true" <%="checked" if @concerncargo.userid[index][1]==true%>></input></td>
-         <td> <input type="checkbox" name="sms<%=index%>"  value="true" <%="checked" if @concerncargo.userid[index][2]==true%>></input></td>
         <td> <input type="checkbox" name="delete<%=index%>" value="true"></input></td>
    
     </tr>

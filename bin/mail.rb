@@ -64,11 +64,14 @@ def notify
     begin
       Notifier.send_notify_email(email,$project_root).deliver!
       email.update_attributes(:cargolist=>nil,:csize=>0)
+      Sitedatum.first.inc(:msent,1)
+      Sitedatum.first.inc(:msent_today,1)
+      
     rescue
       puts $@
     end
   end
-  puts "send finished #{Time.now}"
+
 end
 
 
@@ -81,6 +84,10 @@ Forever.run do
 
   every 15.seconds do
    notify
+  end  
+  
+  every 1.day, :at => ['1:00'] do
+  Sitedatum.first.update_attribute(:msent_today,0) 
   end
   
   on_error do |e|
