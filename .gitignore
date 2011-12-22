@@ -3,6 +3,7 @@ db/*.sqlite3
 log/*.log.*
 log/*.log
 tmp/**/*
+lib/tasks/*.log
 thin
 public/*.html
 *.html
