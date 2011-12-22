@@ -79,17 +79,19 @@ class Notifier < ActionMailer::Base
         puts "could not find cargo id #{cargoid}"
       end
     end
-    puts "cargo size=#{@cargos.size},tempate path=#{project_root}/app/views/concerncargos"
+  #  puts "cargo size=#{@cargos.size},tempate path=#{project_root}/app/views/concerncargos"
+  title= $city_code_name[@cargos[0].fcity_code]+"到"+$city_code_name[@cargos[0].fcity_code]+ @cargos[0].cargo_weight || "0" +"吨/"+@cargos[0].cargo_bulk ||0+"方"
+
     project_root="/opt/vob/g00"
     mail( :to => email.email, 
       :charset => "UTF-8",
       :from=>"w090.master@gmail.com",
-       :subject => "关注的货源信息#{Time.now.to_s.slice(0,19)}",
-     # :subject => "物流零距离货源信息-#{Time.now.to_s.slice(0,19)}")do |format|
-     # format.html{render "#{project_root}/app/views/concerncargos/concern_mail"}
-   # end
-      :template_path => "#{project_root}/app/views/concerncargos",
-      :template_name => "concern_mail")
+     #  :subject => "关注的货源信息#{Time.now.to_s.slice(0,19)}",
+      :subject =>  title)do |format|
+      format.html{render "#{project_root}/app/views/concerncargos/concern_mail"}
+    end
+     # :template_path => "#{project_root}/app/views/concerncargos",
+    #  :template_name => "concern_mail")
 
   end
   

@@ -42,8 +42,8 @@ module Tf56graspHelper
             one_item_huo[:tcity_name]=cal_city
             
              #fetch out mobile phone and fix phone
-               one_item_huo[:mobilephone]= one_item_huo[:cate_name].match(/1\d\d\d\d\d\d\d\d\d\d/).to_s
-                 one_item_huo[:mobilephone]= one_item_huo[:cate_name].match(/1\d\d\d\d\d\d\d\d\d\d/).to_s
+             #  one_item_huo[:mobilephone]= one_item_huo[:cate_name].match(/1\d\d\d\d\d\d\d\d\d\d/).to_s
+              #   one_item_huo[:fixphone]= one_item_huo[:cate_name].match(/1\d\d\d\d\d\d\d\d\d\d/).to_s
          #   one_item_huo[:created_at]=td_info[5].strip!
          one_item_huo[:created_at]=Time.now
             one_item_huo[:send_date]=1
