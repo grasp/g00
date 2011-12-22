@@ -1,40 +1,18 @@
 #coding:utf-8
-
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-require 'rubygems'
 require 'pathname'
-require 'mechanize'
-require 'mongo'
-require 'logger'
-require 'mongoid'
-require "sqlite3"
-#require './56qq_helper.rb'
-
 pn = Pathname.new(File.dirname(__FILE__))
 project_root=pn.parent.parent #do we have one line solution?
-require File.join(project_root,"app","models","user.rb")
-require File.join(project_root,"app","models","cargo.rb")
-require File.join(project_root,"app","models","truck.rb")
-require File.join(project_root,"app","models","grasp_record.rb")
-
-require File.join(project_root,"config","initializers","init","city_dic.rb")
-require File.join(project_root,"config","initializers","init","city_load.rb")
-require File.join(project_root,"lib","tasks","load_cookie.rb")
-require File.join(project_root,"lib","tasks","mongoinit.rb")
-
-#to load cookie from firefox sqlite database
-
+require File.join(project_root,"lib","tasks","grasp_init.rb")
 
 def parse_56qq    
  # cookie=load_cookie #get all the cookies
   @admin=User.where("name"=>"admin").first
- # log = Logger.new("56qq.log")
+  log = Logger.new("56qq.log")
   agent = Mechanize.new  
   agent.cookie_jar.load_cookiestxt(StringIO.new($cookie))  
   
   agent.user_agent_alias = 'Windows Mozilla'
-#  agent.set_proxy("wwwgate0-ch.mot.com", 1080)  if true
+  #agent.set_proxy("wwwgate0-ch.mot.com", 1080)  if true
   
   #analysis page now
   page_raw_array=Array.new
@@ -83,8 +61,8 @@ def parse_56qq
       cargo[:contact]=onecargo[2].gsub(/TEL\:/,"")
       
       #fetch mobilephone and fixphone
-       cargo[:mobilephone]=cargo[:contact].match(/1\d\d\d\d\d\d\d\d\d\d/).to_s
-       cargo[:fixphone]=cargo[:contact].match(/\d\d\d+-\d\d\d\d\d\d\d+/).to_s  
+      cargo[:mobilephone]=cargo[:contact].match(/1\d\d\d\d\d\d\d\d\d\d/).to_s
+      cargo[:fixphone]=cargo[:contact].match(/\d\d\d+-\d\d\d\d\d\d\d+/).to_s  
       cargo[:send_date]=1
       cargo[:from_site]="56qq"
       cargo[:created_at]=Time.now
@@ -93,13 +71,18 @@ def parse_56qq
       cargo[:user_id]=@admin.id unless @admin.nil?
      # log.info cargo
       begin
-       a=cargo.save!
+       a=cargo.save
+      rescue Exception 
+        log.info $@
+      end
+      
+      begin
        if a
          @cargo=a
          notify
        end
       rescue Exception 
-        #log.info $@
+       # log.info $@
       end
     end
   end
@@ -126,7 +109,7 @@ def parse_56qq
       begin
         truck.save!
       rescue Exception 
-       # log.info $@
+       log.info $@
       end
 
     end

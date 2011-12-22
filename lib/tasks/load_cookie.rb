@@ -2,8 +2,8 @@
 # and open the template in the editor.
 
 def load_cookie
-#  cookie_dir ="D:\\Profiles\\w22812\\Application Data\\Mozilla\\Firefox\\Profiles\\623tc49u.default"  
- 
+ # cookie_dir ="D:\\Profiles\\w22812\\Application Data\\Mozilla\\Firefox\\Profiles\\623tc49u.default"  
+ # cookie_dir ="D:\\w090\\cookie"  
 cookie_dir ="/home/hunter/tttk3240"
  cookie = String.new  
   Dir.chdir(cookie_dir){|dir|  
