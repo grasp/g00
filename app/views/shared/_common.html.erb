@@ -28,14 +28,14 @@
 <%Sitedatum.first.inc(:ie7,1)%>
 <%elsif ietyte.include?("MSIE 8.0")%>
 <%Sitedatum.first.inc(:ie8,1)%>
-
 <%else%>
-<%Sitedatum.first.inc(:noneie,1)%>
+<%unless ietyte.include?("linux-gnu") %>
+   <%Sitedatum.first.inc(:noneie,1)%>
+<%end%>
 <%end%>
 <%else%>
 <%Sitedatum.first.inc(:loginuser,1) unless session[:user_name]=="admin"%>
 <%end%>
-
 <%if flash[:notice]%>
 <div>
   <p class="alert-message info"><%=flash[:notice]%></p>
