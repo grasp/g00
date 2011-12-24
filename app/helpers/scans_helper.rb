@@ -85,7 +85,11 @@ def move_helper
        expiredb[key[0]]=record[key[0]]
       end
       expiredb.save
+      begin
       record.destroy
+      rescue
+        log.info $@
+      end
      # puts "record moved!"
       @move.expired_truck+=1
     end
