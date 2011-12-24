@@ -79,16 +79,18 @@ def move_helper
    # a.each do |original,expired|
       Cargo.where(:status=>"超时过期").each do |cargo|
     #only move those expired 3 months
-      if compare_time_expired(record.created_at,10)==true
+      if compare_time_expired(cargo.created_at,10)==true
       expiredb=ExpiredCargo.new
      cargo.raw_attributes.keys.each do |key|
-       expiredb[key[0]]=record[key[0]]
+       expiredb[key[0]]=cargo[key[0]]
       end
       expiredb.save
       begin
       cargo.destroy
       rescue
-        puts $@
+      #  puts $@
+      puts "cargo error"
+      cargo.delete
       end
      # puts "record moved!"
       @move.expired_truck+=1
@@ -96,18 +98,20 @@ def move_helper
     end
     end
    # a.each do |original,expired|
-     Truck.where(:status=>"超时过期").each do |truck|
+    # Truck.where(:status=>nil).each do |truck|
+    Truck.where(:status=>"超时过期").each do |truck|
     #only move those expired 3 months
-      if compare_time_expired(record.created_at,10)==true
+      if compare_time_expired(truck.created_at,10)==true
       expiredb=ExpiredTruck.new
      truck.raw_attributes.keys.each do |key|
        expiredb[key[0]]=truck[key[0]]
       end
-      expiredb.save
+      expiredb.save!
       begin
       truck.destroy
       rescue
-        puts $@
+      #  puts $@
+         puts "truck error"
       end
      # puts "record moved!"
       @move.expired_truck+=1
