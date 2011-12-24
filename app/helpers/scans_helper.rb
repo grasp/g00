@@ -76,11 +76,11 @@ def move_helper
      start_time=Time.now; @move=Move.new;@move.expired_cargo=0;@move.expired_truck=0;@move.expired_quote=0;@move.expired_inquery=0
      a=Hash.new
     a[Truck]=ExpiredTruck;a[Cargo]=ExpiredCargo;a[Quote]=ExpiredQuote;a[Inquery]=ExpiredInquery
-    a.each do |a,b|
-      a.where(:status=>"超时过期").each do |record|
+    a.each do |original,expired|
+      original.where(:status=>"超时过期").each do |record|
     #only move those expired 3 months
       if compare_time_expired(record.created_at,10)==true
-      expiredb=b.new
+      expiredb=expired.new
       record.raw_attributes.keys.each do |key|
        expiredb[key[0]]=record[key[0]]
       end
