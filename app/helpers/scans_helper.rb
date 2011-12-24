@@ -76,26 +76,44 @@ def move_helper
      start_time=Time.now; @move=Move.new;@move.expired_cargo=0;@move.expired_truck=0;@move.expired_quote=0;@move.expired_inquery=0
      a=Hash.new
     a[Truck]=ExpiredTruck;a[Cargo]=ExpiredCargo;a[Quote]=ExpiredQuote;a[Inquery]=ExpiredInquery
-    a.each do |original,expired|
-      original.where(:status=>"超时过期").each do |record|
+   # a.each do |original,expired|
+      Cargo.where(:status=>"超时过期").each do |cargo|
     #only move those expired 3 months
       if compare_time_expired(record.created_at,10)==true
-      expiredb=expired.new
-      record.raw_attributes.keys.each do |key|
+      expiredb=ExpiredCargo.new
+     cargo.raw_attributes.keys.each do |key|
        expiredb[key[0]]=record[key[0]]
       end
       expiredb.save
       begin
-      record.destroy
+      cargo.destroy
       rescue
         puts $@
       end
      # puts "record moved!"
       @move.expired_truck+=1
+ #   end
     end
     end
+   # a.each do |original,expired|
+     Truck.where(:status=>"超时过期").each do |truck|
+    #only move those expired 3 months
+      if compare_time_expired(record.created_at,10)==true
+      expiredb=ExpiredTruck.new
+     truck.raw_attributes.keys.each do |key|
+       expiredb[key[0]]=truck[key[0]]
+      end
+      expiredb.save
+      begin
+      truck.destroy
+      rescue
+        puts $@
+      end
+     # puts "record moved!"
+      @move.expired_truck+=1
+ #   end
     end
-
+    end
     end_time=Time.now
     @move.cost_time=end_time-start_time
 
