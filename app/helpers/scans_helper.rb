@@ -88,7 +88,7 @@ def move_helper
       begin
       record.destroy
       rescue
-        puts.info $@
+        puts $@
       end
      # puts "record moved!"
       @move.expired_truck+=1
