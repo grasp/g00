@@ -22,6 +22,8 @@ require File.join(project_root,"app","models","concernphonec.rb")
 require File.join(project_root,"app","models","emaillistc.rb")
 require File.join(project_root,"app","models","smslistc.rb")
 require File.join(project_root,"app","helpers","cargos_helper.rb")
+require File.join(project_root,"config","initializers","init","city_dic.rb")
+require File.join(project_root,"config","initializers","init","city_load.rb")
 
 require File.join(project_root,"app","models","sitedatum.rb")
 require File.join(project_root,"app","models","ustatistic.rb")
@@ -104,6 +106,6 @@ Forever.run do
   end
 end
 end
-#run_forever
+run_forever
 
-notify
+#notify
