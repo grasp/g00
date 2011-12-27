@@ -67,7 +67,7 @@ def notify
   Emaillistc.where(:csize.gt =>0).asc(:updated_at).limit(1).each do |email|
    # puts "find one email=#{email.email}"
     begin
-    #  Notifier.send_notify_email(email,$project_root).deliver!
+      Notifier.send_notify_email(email,$project_root).deliver!
       email.update_attributes(:cargolist=>nil,:csize=>0)
       Sitedatum.first.inc(:msent,1)
       Sitedatum.first.inc(:msent_today,1)
