@@ -347,7 +347,7 @@ class CargosController < ApplicationController
   # DELETE /cargos/1.xml
   def destroy
     cargo = Cargo.find(BSON::ObjectId(params[:id]))
-    cargo.destroy if cargo
+    cargo.delete if cargo
 
     #do we need update the statisitc?
     # url=request.url

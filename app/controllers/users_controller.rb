@@ -71,7 +71,7 @@ class UsersController < ApplicationController
          session[:user_id]=@user.id
          @ustatistic=Ustatistic.create(:total_stock_cargo=>0,:total_stock_truck=>0,:total_truck=>0,
           :total_cargo=>0,:total_line=>0, :total_driver=>0,:total_custermer=>0,:valid_cargo=>0,
-          :valid_truck=>0,:user_id=>@user.id);
+          :valid_truck=>0,:user_id=>@user.id,:user_email=>@user.email,:user_name=>@user.name);
         
         #update statistic for user
         @user.update_attribute("ustatistic_id",@ustatistic.id) #it is not attributesSS

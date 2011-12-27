@@ -1,5 +1,8 @@
 <h1>Listing ustatistics</h1>
-
+<p>
+ustatisitc.count=<%=Ustatistic.count%>
+user.count=<%=User.count%>
+  </p>
 <table>
   <tr>
     <th>Total stock cargo</th>
@@ -9,6 +12,11 @@
     <th>Total line</th>
     <th>Total driver</th>
     <th>Total custermer</th>
+     <th>today_email</th>
+   <th>total_email</th>
+     <th>user_id</th>
+      <th>user_email</th>
+       <th>user_name</th>
     <th></th>
     <th></th>
     <th></th>
@@ -23,9 +31,14 @@
     <td><%= ustatistic.total_line %></td>
     <td><%= ustatistic.total_driver %></td>
     <td><%= ustatistic.total_custermer %></td>
+     <td><%= ustatistic.todaymail %></td>
+      <td><%= ustatistic.totalmail %></td>
+      <td><%= ustatistic.user_id %></td>
+       <td><%= ustatistic.user_email %></td>
+        <td><%= ustatistic.user_name %></td>
     <td><%= link_to 'Show', ustatistic %></td>
     <td><%= link_to 'Edit', edit_ustatistic_path(ustatistic) %></td>
-    <td><%= link_to 'Destroy', ustatistic, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= button_to  'Destroy', ustatistic, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

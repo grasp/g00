@@ -46,14 +46,21 @@ Forever.run do
   end
   every 20.minutes do
     hour=Time.now.hour
-    if hour>5 and hour<23
-          
+    if hour>5 and hour<23          
       parse_haoyun56    
     end
   end
     
   every 1.day, :at => ['2:30'] do
     scan_move
+  end
+  
+    every 1.day, :at => ['1:30'] do
+    Ustatistic.all.each do |ustatistic|
+     ustatistic.update_attribute(:todaymail,0)
+    end
+     Sitedatum.first.update_attribute(:msent,0)
+     Sitedatum.first.update_attributes(:ie6=>0,:ie7=>0,:ie8=>0,:noneie=>0,:loginuser=>0,:spider=>1)
   end
   
 

@@ -9,6 +9,8 @@
     <th>loginuser</th>
     <th>cargoshow</th>
     <th>truckshow</th>
+     <th>today sent mail</th>
+      <th>total sent mail</th>
     <th></th>
     <th></th>
     <th></th>
@@ -23,6 +25,8 @@
       <td><%= sitedatum.loginuser %></td>
       <td><%= sitedatum.cargoshow %></td>
       <td><%= sitedatum.truckshow %></td>
+       <td><%= sitedatum.msent_today %></td>
+        <td><%= sitedatum.msent %></td>
       <td><%= link_to 'Show', sitedatum %></td>
       <td><%= link_to 'Edit', edit_sitedatum_path(sitedatum) %></td>
       <td><%= link_to 'Destroy', sitedatum, :confirm => 'Are you sure?', :method => :delete %></td>

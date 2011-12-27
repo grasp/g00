@@ -61,7 +61,8 @@
           <th>spider</th>
       <th>cargoshow</th>
       <th>truckshow</th>
-   
+     <th>msent</th>
+       <th>all_msent</th>
     </tr>
 
     <% @sitedata.each do |sitedatum| %>
@@ -74,6 +75,8 @@
             <td><%= sitedatum.spider %></td>
         <td><%= sitedatum.cargoshow %></td>
         <td><%= sitedatum.truckshow %></td>
+         <td><%= sitedatum.msent_today %></td>
+         <td><%= sitedatum.msent %></td>
       </tr>
     <% end %>
   </table>

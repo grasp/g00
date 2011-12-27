@@ -3,7 +3,7 @@ class  Cargo
   include Mongoid::Document
   include Mongoid::Timestamps
   include CitiesHelper
-    include CargosHelper
+  include CargosHelper
   # cattr_reader :per_page
   # @@per_page = 20      
   # cargo self info

@@ -15,3 +15,12 @@ new cargo list=["4eed8b517af2a659f1000049", "4eed8bcc7af2a659f1000050", "4eed8bc
 uniq cargo list=["4eed8b517af2a659f1000049", "4eed8bcc7af2a659f1000050"],size=2
 create emaillist for new user
 create emaillist for new user
+ustatistic.todaymail=
+ustatistic.totalmail=
+ustatistic.todaymail=
+ustatistic.totalmail=
+ustatistic.todaymail=
+ustatistic.totalmail=
+original cargo list=["4ef96e386b57252f18000050"],size=1
+new cargo list=["4ef96e386b57252f18000050", "4ef96e386b57252f18000050"],size=2
+uniq cargo list=["4ef96e386b57252f18000050"],size=1

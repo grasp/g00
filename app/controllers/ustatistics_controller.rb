@@ -1,8 +1,24 @@
 class UstatisticsController < ApplicationController
   # GET /ustatistics
   # GET /ustatistics.xml
+    layout "admin"
   def index
     @ustatistics = Ustatistic.all
+    @ustatistics.each do |ustatistic|
+      if ustatistic.user_email.blank?||ustatistic.user_name.blank?
+        unless ustatistic.user_id.blank?
+          begin
+         user=User.find(ustatistic.user_id)
+         ustatistic.update_attributes(:user_email=>user.email,:user_name=>user.name)
+          rescue
+            puts "ustatistic.user_id#{ustatistic.user_id} not found"
+               ustatistic.delete
+          end
+    
+       
+        end
+      end
+    end
 
     respond_to do |format|
       format.html # index.html.erb

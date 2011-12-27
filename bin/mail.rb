@@ -13,6 +13,7 @@ pn = Pathname.new(File.dirname(__FILE__))
 project_root=pn.parent #do we have one line solution?
 
 require File.join(project_root,"app","helpers","mail_accounts_helper.rb")
+
 require File.join(project_root,"app","helpers","cities_helper.rb")
 require File.join(project_root,"app","models","concerncityc.rb")
 require File.join(project_root,"app","models","concernlinec.rb")
@@ -22,6 +23,8 @@ require File.join(project_root,"app","models","emaillistc.rb")
 require File.join(project_root,"app","models","smslistc.rb")
 require File.join(project_root,"app","helpers","cargos_helper.rb")
 
+require File.join(project_root,"app","models","sitedatum.rb")
+require File.join(project_root,"app","models","ustatistic.rb")
 require File.join(project_root,"app","models","user.rb")
 require File.join(project_root,"app","models","cargo.rb")
 require File.join(project_root,"app","models","truck.rb")
@@ -58,15 +61,17 @@ ActionMailer::Base.smtp_settings = {
 
 ActionMailer::Base.delivery_method = :smtp
 def notify
-  puts "load lib done #{Time.now}"
+ # puts "load lib done #{Time.now}"
   Emaillistc.where(:csize.gt =>0).asc(:updated_at).limit(1).each do |email|
-    puts "find one email=#{email.email}"
+   # puts "find one email=#{email.email}"
     begin
-      Notifier.send_notify_email(email,$project_root).deliver!
+    #  Notifier.send_notify_email(email,$project_root).deliver!
       email.update_attributes(:cargolist=>nil,:csize=>0)
       Sitedatum.first.inc(:msent,1)
       Sitedatum.first.inc(:msent_today,1)
-      
+     #update the send counter of each user
+      Ustatistic.where(:user_email=>email.email).first.inc(:todaymail,1)
+      Ustatistic.where(:user_email=>email.email).first.inc(:totalmail,1)
     rescue
       puts $@
     end
@@ -74,7 +79,7 @@ def notify
 
 end
 
-
+def run_forever
 Forever.run do
   dir File.expand_path('../', __FILE__) # Default is ../../__FILE__
 
@@ -98,3 +103,7 @@ Forever.run do
     puts "Bye bye"
   end
 end
+end
+#run_forever
+
+notify

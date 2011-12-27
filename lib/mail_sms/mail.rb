@@ -54,6 +54,7 @@ Emaillistc.where(:csize.gt =>0).asc(:updated_at).limit(1).each do |email|
   begin
   Notifier.send_notify_email(email).deliver!
   email.update_attributes(:cargolist=>nil,:csize=>0)
+
   rescue
     puts $@
   end

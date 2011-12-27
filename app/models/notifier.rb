@@ -86,8 +86,8 @@ class Notifier < ActionMailer::Base
     mail( :to => email.email, 
       :charset => "UTF-8",
       :from=>"w090.master@gmail.com",
-     #  :subject => "关注的货源信息#{Time.now.to_s.slice(0,19)}",
-      :subject =>  title)do |format|
+     #:subject => "关注的货源信息#{Time.now.to_s.slice(0,19)}",
+      :subject =>title)do |format|
       format.html{render "#{project_root}/app/views/concerncargos/concern_mail"}
     end
      # :template_path => "#{project_root}/app/views/concerncargos",

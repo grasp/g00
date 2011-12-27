@@ -1,6 +1,6 @@
 class Ustatistic
     include Mongoid::Document
-    include Mongoid::Timestamps
+    include Mongoid::Timestamps     
       field :total_stock_cargo,:type=>Integer
       field :total_stock_truck,:type=>Integer
       field :total_cargo,:type=>Integer      
@@ -11,6 +11,13 @@ class Ustatistic
       field :total_driver,:type=>Integer
       field :total_custermer,:type=>Integer
       field :status,:type=>String
-      field :user_id
+      field :todaymail,:type=>Integer
+      field :totalmail,:type=>Integer
+      field :user_id,:type=>String
+      field :user_email,:type=>String
+      field :user_name,:type=>String
+      
+      index ([[:user_id,Mongo::ASCENDING],[:user_email,Mongo::ASCENDING],[:user_name,Mongo::ASCENDING]])
+  
 
 end

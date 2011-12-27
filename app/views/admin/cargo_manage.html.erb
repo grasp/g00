@@ -1,58 +1,58 @@
 <%#coding:utf-8%>
- <%unless @cargos.blank?%>
-<table>
+<%unless @cargos.blank?%>
+  <table>
 
-  <tr>
+    <tr>
 
-    <th>货物</th>
-    <th>出发</th>
-    <th>到达</th>
-     <th>line</th>
+      <th>货物</th>
+      <th>出发</th>
+      <th>到达</th>
+      <th>line</th>
 
-    <th>重量体积</th>
-    <th>有效天数</th>
-    <th>发布时间</th>
-    <th>货源状态</th>
-    <th>车主报价/货主询价</th>
-    <th>车源速配</th>
-       <th>mobilephone</th>
-          <th>fixphone</th>
-    <th>comments</th>
-    <th>contact_phone</th>
-    <th>created_at</th>
+      <th>重量体积</th>
+      <th>有效天数</th>
+      <th>发布时间</th>
+      <th>货源状态</th>
+      <th>车主报价/货主询价</th>
+      <th>车源速配</th>
+      <th>mobilephone</th>
+      <th>fixphone</th>
+      <th>comments</th>
+      <th>contact_phone</th>
+      <th>created_at</th>
 
-  </tr>
+    </tr>
 
     <% @cargos.each do |cargo|  %>
       <tr>
-       <td><a class ="show_float" href="/cargos/show/<%=cargo.id%>">
-        <%= cargo.cate_name %></a> </td>
+        <td><a class ="show_float" href="/cargos/show/<%=cargo.id%>">
+            <%= cargo.cate_name %></a> </td>
         <td><%= cargo.fcity_name %></td>
         <td><%= cargo.tcity_name %></td>
-           <td><%= cargo.line %></td>
+        <td><%= cargo.line %></td>
         <td><%= cargo.cargo_weight ||"0" %>吨/<%= cargo.cargo_bulk ||"0" %>方</td>
         <td><%= cargo.send_date %>天</td>
         <td><%#= cargo.created_at%></td>
-  
-           <td><%= cargo.status %></td>
-    
-         <td><a class="link_show" href="/cargos/quoteinquery/<%=cargo.id%>"><%= cargo.total_baojia||0 %>个报价/<%= cargo.total_xunjia||0 %>个询价 </a></td>
+
+        <td><%= cargo.status %></td>
+
+        <td><a class="link_show" href="/cargos/quoteinquery/<%=cargo.id%>"><%= cargo.total_baojia||0 %>个报价/<%= cargo.total_xunjia||0 %>个询价 </a></td>
 
         <td>
-          
+
           <a class="quick_match" href="/trucks/search/<%=cargo.fcity_code%>/<%=cargo.tcity_code%>/1">车源速配</a>
           <a  href="/cargos/destroy/<%=cargo.id%>">删除</a>
         </td>
-         <td><%=cargo.mobilephone%></td>
-          <td><%=cargo.fixphone%></td>
-          <td><%=cargo.comments%></td>
-            <td><%=cargo.contact%></td>
-             <td><%=cargo.created_at.localtime.to_s%></td>
+        <td><%=cargo.mobilephone%></td>
+        <td><%=cargo.fixphone%></td>
+        <td><%=cargo.comments%></td>
+        <td><%=cargo.contact%></td>
+        <td><%=cargo.created_at.localtime.to_s%></td>
       </tr>
     <% end %>
-      </table>
-      <%else%>
-       <p>没有对应货源,或者你还没有发布任何货源.</p>
-  <% end %>
+  </table>
+<%else%>
+  <p>没有对应货源,或者你还没有发布任何货源.</p>
+<% end %>
 
 <%= will_paginate @cargos ,:class=>"page_navi_link"%>

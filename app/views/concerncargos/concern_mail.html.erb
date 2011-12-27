@@ -16,6 +16,13 @@
   <th>备注</th> 
   <% unless @cargos.blank? %>
     <% @cargos.each do |cargo| %>     
+  
+     <% contact=  cargo.comments  if cargo[:from_site]=="haoyun56"%>
+     <% contact=  cargo.comments  if cargo[:from_site]=="56135"%>
+     <% contact=  cargo.comments+"联系电话:"+cargo.contact  if cargo[:from_site]=="56qq"%>
+     <% contact=  cargo.comments  if cargo[:from_site]=="tf56"%>
+     <% contact=  cargo.contact_phone if cargo[:from_site]=="quzhou"%>
+  
       <%unless cargo.nil? %>
         <tr>
           <td><%= cargo.fcity_name %></td>
@@ -29,14 +36,14 @@
               <%if cargo.from_site=="local" %>
               <td>物流零距离</td>
            <%else%>
-          <td><%=cargo.from_site %></td>
+            <td><%=cargo.from_site %></td>
             <%end%>
             <td><%=cargo.mobilephone %></td>
-              <td><%=cargo.fixphone %></td>
+             <td><%=cargo.fixphone %></td>
               <%if cargo.from_site=="local" %>
              <td><%=cargo.comments %></td>
              <%else%>
-             <td><%=@contact%></td>
+             <td><%=contact%></td>
              <%end%>
         </tr>
       <% end %>

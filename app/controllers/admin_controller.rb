@@ -408,6 +408,12 @@ class AdminController < ApplicationController
     Cargo.where(:status=>"正在配车").each do |cargo|
       cargo.update_attribute(:line,cargo.fcity_code+"#"+cargo.tcity_code)
     end
+    
+    def show_mail
+      #not do yet
+    end
   end
+  
+
 
 end
