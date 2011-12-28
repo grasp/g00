@@ -13,7 +13,7 @@
       <tr>
         <td><%=$city_code_name[@concerncargo.city[index][0]]%></td>    
 
-          <td> <input type="checkbox" name="mail<%=index%>"  value="true" <%="checked" if @concerncargo.city[index][1]==true%>></input></td>
+          <td> <!--<input type="checkbox" name="mail<%=index%>"  value="true" <%="checked" if @concerncargo.city[index][1]==true%>></input>--></td>
           <td> <input type="checkbox" name="delete<%=index%>" value="true"></input></td>
 
 
@@ -25,4 +25,5 @@
   <input type="hidden" name="concerncargoid" value=<%=@concerncargo.id.to_s%>></input>
   <%= f.submit("确定",:class=>"btn primary")%>
 <% end %>
+  <p>目前还没有支持城市订阅，正在开发中</p>
 

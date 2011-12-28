@@ -37,9 +37,15 @@ class ConcerncargosController < ApplicationController
           @cityconcerncargo=Cargo.where(:status=>"正在配车",:created_at.gte=>Time.now.at_beginning_of_day).any_in(:fcity_code=>city_array).desc(:created_at).limit(100)
           #    @cityconcerncargo=Cargo.where(:status=>"正在配车").any_in(:fcity_code=>city_array).desc(:created_at).limit(100)
         end      
-
-        @total_cargos["关注城市"]= @cityconcerncargo
         
+        @total_cargos["关注线路"]= @lineconcerncargo        
+        unless @concerncargo.userid.blank? 
+          user_array=Array.new         
+          @concerncargo.userid.each {|x| user_array<<x[3]}
+          @userconcerncargo=Cargo.where(:status=>"正在配车",:created_at.gte=>Time.now.at_beginning_of_day).any_in(:user_id=>user_array).desc(:created_at).limit(10)
+        end   
+        
+        @total_cargos["关注城市"]= @cityconcerncargo        
         unless @concerncargo.line.blank? 
           linearray=Array.new
           @concerncargo.line.each  do |linecode|
@@ -47,25 +53,17 @@ class ConcerncargosController < ApplicationController
           end
           @lineconcerncargo=Cargo.where(:status=>"正在配车",:created_at.gte=>Time.now.at_beginning_of_day).any_in(:line=>linearray).desc(:created_at).limit(10)
           @count=@lineconcerncargo.count         
-        end       
-        @total_cargos["关注线路"]= @lineconcerncargo
+        end  
         
-        unless @concerncargo.userid.blank? 
-          user_array=Array.new
-         
-          @concerncargo.userid.each {|x| user_array<<x[3]}
-          @userconcerncargo=Cargo.where(:status=>"正在配车",:created_at.gte=>Time.now.at_beginning_of_day).any_in(:user_id=>user_array).desc(:created_at).limit(10)
-        end       
-        @total_cargos["关注用户"]= @userconcerncargo
-         
+    
+        @total_cargos["关注用户"]= @userconcerncargo         
         unless @concerncargo.phone.blank? 
           phone_array=Array.new
           @concerncargo.phone.each {|x| phone_array<<x[0]}
           @phoneconcerncargo=Cargo.where(:status=>"正在配车",:created_at.gte=>Time.now.at_beginning_of_day).any_in(:phone=>phone_array).desc(:created_at).limit(10)
         end       
         @total_cargos["关注电话"]= @phoneconcerncargo
-      end
-   
+      end   
     else
       session[:original_url]=request.url
       redirect_to userslogin_path,:flash=>{:notice=>" 添加你关注的城市，线路，用户和电话的货源信息，老客户的货源逃不掉，请先登录，谢谢！"}
