@@ -269,7 +269,11 @@ module CargosHelper
     end
     
     #update only do once 
+    begin
     update_notify_list(email_list,sms_list,cargo)
+    rescue
+      puts $@
+    end
   end
   
   def update_notify_list(email_list,sms_list,cargo)
@@ -279,11 +283,11 @@ module CargosHelper
     puts "need update list size=#{email_list.size}"
    # sms_list.uniq!
     email_list.each do |email|
-      
+       puts " hanle #{email} in email list"
       emailsubscribe=Emaillistc.where(:email=>email).first      
       user=User.where(:email=>email).first 
       ustatistic=Ustatistic.where(:user_email=>email).first 
-      
+      puts "notify #{user.name},todaymail=#{ustatistic.todaymail}" if user
       puts "ustatistic.todaymail=#{ustatistic.todaymail}"
        puts "ustatistic.totalmail=#{ustatistic.totalmail}"
        ustatistic.todaymail=0 if ustatistic.todaymail.blank?
@@ -314,6 +318,7 @@ module CargosHelper
       else
         puts "mail sent >10 in one day"
       end
+      puts "end of email list handle"
       #update each sms's cargo list
       if false  #not use on now
         sms_list.each do |sms|
