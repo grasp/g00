@@ -5,6 +5,32 @@
 
   <%@total_cargos.each do |key,cargos|%>
 
+
+      <%if key=="关注线路"%>
+
+        <%unless @concerncargo.line.blank?%>
+          <h3>我关注的线路(今日货源)</h3>
+          <div class="row">
+            <%@concerncargo.line .each do |line| %>
+
+              <span class="span3"><%=$city_code_name[line[0].split("#")[0]]%><=><%=$city_code_name[line[0].split("#")[1]]%></span>
+            <%end%>
+          </div>
+          <table class="cargo zebra-striped" >
+            <th> 出发</th>
+            <th> 到达</th>
+            <th>货物</th>
+            <th>重量</th>
+            <th>有效</th>      
+            <th>发布日期</th>
+            <th>货源状态</th>    
+            <th>车主操作</th>
+          <%else%>
+            <h3>你还没有添加关注的线路.</h3>
+          <%end%>
+
+        <%end%>
+            
     <%if key=="关注城市"%>
 
       <%unless @concerncargo.city.blank?%>     
@@ -32,30 +58,6 @@
       <%end%>
 
 
-      <%if key=="关注线路"%>
-
-        <%unless @concerncargo.line.blank?%>
-          <h3>我关注的线路(今日货源)</h3>
-          <div class="row">
-            <%@concerncargo.line .each do |line| %>
-
-              <span class="span3"><%=$city_code_name[line[0].split("#")[0]]%><=><%=$city_code_name[line[0].split("#")[1]]%></span>
-            <%end%>
-          </div>
-          <table class="cargo zebra-striped" >
-            <th> 出发</th>
-            <th> 到达</th>
-            <th>货物</th>
-            <th>重量</th>
-            <th>有效</th>      
-            <th>发布日期</th>
-            <th>货源状态</th>    
-            <th>车主操作</th>
-          <%else%>
-            <h3>你还没有添加关注的线路.</h3>
-          <%end%>
-
-        <%end%>
             
         <%if key=="关注用户"%>
 

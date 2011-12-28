@@ -162,6 +162,10 @@ class AdminController < ApplicationController
       send_file "/opt/vob/tmp/g00/log/development.log", :type=>"application/log"  
     elsif params[:logfile]=="dev-thin"
       send_file "/opt/vob/tmp/g00/log/thin.log", :type=>"application/log"  
+          elsif params[:logfile]=="grasp"
+      send_file "/opt/vob/g00/bin/log/grasp.log", :type=>"application/log" 
+          elsif params[:logfile]=="mail"
+      send_file "/opt/vob/g00/bin/log/mail.log", :type=>"application/log" 
     else      
       puts "show all file"
     end

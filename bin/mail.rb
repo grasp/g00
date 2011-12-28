@@ -63,9 +63,9 @@ ActionMailer::Base.smtp_settings = {
 
 ActionMailer::Base.delivery_method = :smtp
 def notify
- # puts "load lib done #{Time.now}"
+  puts "load lib done #{Time.now}"
   Emaillistc.where(:csize.gt =>0).asc(:updated_at).limit(1).each do |email|
-   # puts "find one email=#{email.email}"
+    puts "find one email=#{email.email}"
     begin
       Notifier.send_notify_email(email,$project_root).deliver!
       email.update_attributes(:cargolist=>nil,:csize=>0)

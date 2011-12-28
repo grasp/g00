@@ -155,9 +155,7 @@ module CargosHelper
  
   def cargo_show_helper
     unless @error
-
       @cargo = Cargo.find(params[:id])  
-
       @contact=  @cargo.comments  if @cargo[:from_site]=="haoyun56"
       @contact=  @cargo.comments  if @cargo[:from_site]=="56135"
       @contact=  @cargo.comments+"联系电话:"+@cargo.contact  if @cargo[:from_site]=="56qq"
@@ -286,23 +284,23 @@ module CargosHelper
       user=User.where(:email=>email).first 
       ustatistic=Ustatistic.where(:user_email=>email).first 
       
-    #  log.info "ustatistic.todaymail=#{ustatistic.todaymail}"
-     #  log.info "ustatistic.totalmail=#{ustatistic.totalmail}"
+     log.info "ustatistic.todaymail=#{ustatistic.todaymail}"
+       log.info "ustatistic.totalmail=#{ustatistic.totalmail}"
        ustatistic.todaymail=0 if ustatistic.todaymail.blank?
       if ustatistic.todaymail< 10
         unless user.id.to_s==cargo.user_id.to_s
           unless emailsubscribe.blank?
             #  new_cargolist=Array.new
             new_cargolist=emailsubscribe.cargolist||Array.new
-          #    log.info "original cargo list=#{emailsubscribe.cargolist},size=#{new_cargolist.size}"
+             log.info "original cargo list=#{emailsubscribe.cargolist},size=#{new_cargolist.size}"
             new_cargolist<<cargo.id.to_s
-          #   log.info "new cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
+            log.info "new cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
             new_cargolist.uniq!
-           #   log.info "uniq cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
+             log.info "uniq cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
             emailsubscribe.update_attributes(:cargolist=>new_cargolist,:csize=>new_cargolist.size)
           
           else
-            # log.info "create emaillist for new user"
+             log.info "create emaillist for new user"
             emailsubscribe= Emaillistc.new
             emailsubscribe.email=email
             emailsubscribe.cargolist=[cargo.id.to_s]
