@@ -224,7 +224,7 @@ module CargosHelper
   end
  
   def notify
-    # log=Logger.new("notify.log")
+     log=Logger.new("notify.log")
     if self #this is under local database mode
       cargo=self 
     else
@@ -247,7 +247,7 @@ module CargosHelper
     end
 
     get_parent_line(cargo.line).each do |eachline|    #need consider parent line concern
-    
+    puts "try update line #{eachline}"
       concernline=Concernlinec.where(:line=>eachline).first   
       
       email_list=email_list.concat(concernline.emaillist|| Array.new)  unless concernline.blank?
@@ -284,7 +284,7 @@ module CargosHelper
       user=User.where(:email=>email).first 
       ustatistic=Ustatistic.where(:user_email=>email).first 
       
-     log.info "ustatistic.todaymail=#{ustatistic.todaymail}"
+      log.info "ustatistic.todaymail=#{ustatistic.todaymail}"
        log.info "ustatistic.totalmail=#{ustatistic.totalmail}"
        ustatistic.todaymail=0 if ustatistic.todaymail.blank?
       if ustatistic.todaymail< 10
