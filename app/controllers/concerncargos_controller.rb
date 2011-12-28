@@ -23,7 +23,31 @@ class ConcerncargosController < ApplicationController
       @concerncargo=Concerncargo.where(:user_id=>session[:user_id]).first
       unless @concerncargo.blank?        #to get all city cargo 
         @total_cargos=Hash.new
-        unless @concerncargo.city.blank? 
+ 
+        
+                unless @concerncargo.line.blank? 
+          linearray=Array.new
+          @concerncargo.line.each  do |linecode|
+            linearray=linearray.concat(get_all_line_array(linecode[0])) #combine all together
+          end
+          @lineconcerncargo=Cargo.where(:status=>"正在配车",:created_at.gte=>Time.now.at_beginning_of_day).any_in(:line=>linearray).desc(:created_at).limit(10)
+          @count=@lineconcerncargo.count         
+        end  
+        @total_cargos["关注线路"]= @lineconcerncargo        
+        unless @concerncargo.userid.blank? 
+          user_array=Array.new         
+          @concerncargo.userid.each {|x| user_array<<x[3]}
+          @userconcerncargo=Cargo.where(:status=>"正在配车",:created_at.gte=>Time.now.at_beginning_of_day).any_in(:user_id=>user_array).desc(:created_at).limit(10)
+        end   
+            
+        @total_cargos["关注用户"]= @userconcerncargo         
+        unless @concerncargo.phone.blank? 
+          phone_array=Array.new
+          @concerncargo.phone.each {|x| phone_array<<x[0]}
+          @phoneconcerncargo=Cargo.where(:status=>"正在配车",:created_at.gte=>Time.now.at_beginning_of_day).any_in(:phone=>phone_array).desc(:created_at).limit(10)
+        end       
+        @total_cargos["关注电话"]= @phoneconcerncargo
+          unless @concerncargo.city.blank? 
           city_array=Array.new          
           @concerncargo.city.each  do |city|
             citycode=city[0]
@@ -36,33 +60,9 @@ class ConcerncargosController < ApplicationController
           end
           @cityconcerncargo=Cargo.where(:status=>"正在配车",:created_at.gte=>Time.now.at_beginning_of_day).any_in(:fcity_code=>city_array).desc(:created_at).limit(100)
           #    @cityconcerncargo=Cargo.where(:status=>"正在配车").any_in(:fcity_code=>city_array).desc(:created_at).limit(100)
-        end      
-        
-        @total_cargos["关注线路"]= @lineconcerncargo        
-        unless @concerncargo.userid.blank? 
-          user_array=Array.new         
-          @concerncargo.userid.each {|x| user_array<<x[3]}
-          @userconcerncargo=Cargo.where(:status=>"正在配车",:created_at.gte=>Time.now.at_beginning_of_day).any_in(:user_id=>user_array).desc(:created_at).limit(10)
-        end   
-        
+        end    
         @total_cargos["关注城市"]= @cityconcerncargo        
-        unless @concerncargo.line.blank? 
-          linearray=Array.new
-          @concerncargo.line.each  do |linecode|
-            linearray=linearray.concat(get_all_line_array(linecode[0])) #combine all together
-          end
-          @lineconcerncargo=Cargo.where(:status=>"正在配车",:created_at.gte=>Time.now.at_beginning_of_day).any_in(:line=>linearray).desc(:created_at).limit(10)
-          @count=@lineconcerncargo.count         
-        end  
-        
-    
-        @total_cargos["关注用户"]= @userconcerncargo         
-        unless @concerncargo.phone.blank? 
-          phone_array=Array.new
-          @concerncargo.phone.each {|x| phone_array<<x[0]}
-          @phoneconcerncargo=Cargo.where(:status=>"正在配车",:created_at.gte=>Time.now.at_beginning_of_day).any_in(:phone=>phone_array).desc(:created_at).limit(10)
-        end       
-        @total_cargos["关注电话"]= @phoneconcerncargo
+
       end   
     else
       session[:original_url]=request.url
