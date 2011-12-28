@@ -247,26 +247,25 @@ module CargosHelper
     end
 
     get_parent_line(cargo.line).each do |eachline|    #need consider parent line concern
-    puts "try update line #{eachline}"
-      concernline=Concernlinec.where(:line=>eachline).first   
-      
+    #puts "try update line #{eachline}"
+      concernline=Concernlinec.where(:line=>eachline).first         
       email_list=email_list.concat(concernline.emaillist|| Array.new)  unless concernline.blank?
-      sms_list=sms_list.concat(concernline.smslist || Array.new) unless concernline.blank?
+     # sms_list=sms_list.concat(concernline.smslist || Array.new) unless concernline.blank?
     end
 
     concernuser=Concernuserc.where(:userid=>cargo.user_id).first    
     email_list=email_list.concat(concernuser.emaillist || Array.new ) unless concernuser.blank?
-    sms_list=sms_list.concat(concernuser.smslist || Array.new ) unless concernuser.blank?
+   # sms_list=sms_list.concat(concernuser.smslist || Array.new ) unless concernuser.blank?
     
 
     concernphone1=Concernphonec.where(:mobilephone=>cargo.mobilephone).first    
     email_list=email_list.concat(concernphone1.emaillist || Array.new) unless concernphone1.blank?
-    sms_list=sms_list.concat(concernphone1.smslist || Array.new) unless concernphone1.blank?
+   # sms_list=sms_list.concat(concernphone1.smslist || Array.new) unless concernphone1.blank?
     concernphone2=Concernphonec.where(:fixphone=>cargo.fixphone).first 
     
     if concernphone2
       email_list=email_list.concat(concernphone2.emaillist )
-      sms_list=sms_list.concat(concernphone2.smslist)
+      #sms_list=sms_list.concat(concernphone2.smslist)
     end
     
     #update only do once 
@@ -274,33 +273,34 @@ module CargosHelper
   end
   
   def update_notify_list(email_list,sms_list,cargo)
-      log=Logger.new("notify.log")
+    #  log=Logger.new("notify.log")
     # Emaillistc.destroy_all
     email_list.uniq!
-    sms_list.uniq!
+    puts "need update list size=#{email_list.size}"
+   # sms_list.uniq!
     email_list.each do |email|
       
       emailsubscribe=Emaillistc.where(:email=>email).first      
       user=User.where(:email=>email).first 
       ustatistic=Ustatistic.where(:user_email=>email).first 
       
-      log.info "ustatistic.todaymail=#{ustatistic.todaymail}"
-       log.info "ustatistic.totalmail=#{ustatistic.totalmail}"
+      puts "ustatistic.todaymail=#{ustatistic.todaymail}"
+       puts "ustatistic.totalmail=#{ustatistic.totalmail}"
        ustatistic.todaymail=0 if ustatistic.todaymail.blank?
       if ustatistic.todaymail< 10
         unless user.id.to_s==cargo.user_id.to_s
           unless emailsubscribe.blank?
             #  new_cargolist=Array.new
             new_cargolist=emailsubscribe.cargolist||Array.new
-             log.info "original cargo list=#{emailsubscribe.cargolist},size=#{new_cargolist.size}"
+            puts "original cargo list=#{emailsubscribe.cargolist},size=#{new_cargolist.size}"
             new_cargolist<<cargo.id.to_s
-            log.info "new cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
+             puts "new cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
             new_cargolist.uniq!
-             log.info "uniq cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
+              puts "uniq cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
             emailsubscribe.update_attributes(:cargolist=>new_cargolist,:csize=>new_cargolist.size)
           
           else
-             log.info "create emaillist for new user"
+           puts"create emaillist for new user"
             emailsubscribe= Emaillistc.new
             emailsubscribe.email=email
             emailsubscribe.cargolist=[cargo.id.to_s]
@@ -311,6 +311,8 @@ module CargosHelper
           end
   
         end
+      else
+        puts "mail sent >10 in one day"
       end
       #update each sms's cargo list
       if false  #not use on now

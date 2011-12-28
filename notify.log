@@ -24,3 +24,13 @@ ustatistic.totalmail=
 original cargo list=["4ef96e386b57252f18000050"],size=1
 new cargo list=["4ef96e386b57252f18000050", "4ef96e386b57252f18000050"],size=2
 uniq cargo list=["4ef96e386b57252f18000050"],size=1
+ustatistic.todaymail=1
+ustatistic.totalmail=1
+original cargo list=,size=0
+new cargo list=["4efab8ad6b57251b84000009"],size=1
+uniq cargo list=["4efab8ad6b57251b84000009"],size=1
+ustatistic.todaymail=1
+ustatistic.totalmail=1
+original cargo list=["4efab8ad6b57251b84000009"],size=1
+new cargo list=["4efab8ad6b57251b84000009", "4efab8ad6b57251b84000009"],size=2
+uniq cargo list=["4efab8ad6b57251b84000009"],size=1

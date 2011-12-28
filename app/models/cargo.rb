@@ -93,7 +93,7 @@ class  Cargo
       ActionController::Base.new.expire_fragment("cargo_city_#{city}_city")#this is for region code is same as city code issue
     end
  rescue
-   log.info "expire cargo fail"
+  puts "expire cargo fail"
  end
   end
   
