@@ -1,8 +1,8 @@
 require 'rubygems'
 require 'mongo'
 
-source 'http://rubygems.org'
-source 'http://gemcutter.org'
+source 'http://ruby.taobao.org'
+
 gem 'rails', '3.0.7'
 gem "mechanize"
 # Bundle edge Rails instead:
