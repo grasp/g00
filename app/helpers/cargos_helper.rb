@@ -291,7 +291,7 @@ module CargosHelper
     #  puts "ustatistic.todaymail=#{ustatistic.todaymail}"
      #  puts "ustatistic.totalmail=#{ustatistic.totalmail}"
        ustatistic.todaymail=0 if ustatistic.todaymail.blank?
-      if ustatistic.todaymail < 10 || email=="hunter.wxhu@gmail.com"
+      if ustatistic.todaymail < 20 || email=="hunter.wxhu@gmail.com"
         unless user.id.to_s==cargo.user_id.to_s
           unless emailsubscribe.blank?
             #  new_cargolist=Array.new
