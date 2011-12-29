@@ -196,7 +196,7 @@ class AdminController < ApplicationController
     expire_fragment "userlines_all"
     expire_fragment "yellowpage"
     expire_fragment  "users_center_#{session[:user_id]}"
-  
+  expire_fragment "userlines_city_navi"
     # $city_code_name.each do |code,name| 
     #       expire_fragment "cargo_city_#{code}_" #if fragment_exist?("cargo_city_#{code}_")
     #       expire_fragment "truck_city_#{code}_" #if fragment_exist?("cargo_city_#{code}_")
