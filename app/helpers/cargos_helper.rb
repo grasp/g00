@@ -286,7 +286,7 @@ module CargosHelper
        puts " hanle #{email} in email list"
       emailsubscribe=Emaillistc.where(:email=>email).first      
       user=User.where(:email=>email).first 
-      ustatistic=Ustatistic.where(:user_email=>email).first 
+      ustatistic=Ustatistic.where(:user_email=>email).first
       puts "notify #{user.name},todaymail=#{ustatistic.todaymail}" if user
       puts "ustatistic.todaymail=#{ustatistic.todaymail}"
        puts "ustatistic.totalmail=#{ustatistic.totalmail}"

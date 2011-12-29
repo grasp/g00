@@ -26,6 +26,7 @@ require File.join(project_root,"app","models","emaillistc.rb")
 require File.join(project_root,"app","models","smslistc.rb")
 
 require File.join(project_root,"app","models","user.rb")
+require File.join(project_root,"app","models","ustatistic.rb")
 require File.join(project_root,"app","models","cargo.rb")
 require File.join(project_root,"app","models","truck.rb")
 require File.join(project_root,"app","models","grasp_record.rb")
