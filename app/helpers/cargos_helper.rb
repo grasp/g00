@@ -283,28 +283,28 @@ module CargosHelper
     puts "need update list size=#{email_list.size}"
    # sms_list.uniq!
     email_list.each do |email|
-       puts " hanle #{email} in email list"
+     #  puts " hanle #{email} in email list"
       emailsubscribe=Emaillistc.where(:email=>email).first      
       user=User.where(:email=>email).first 
       ustatistic=Ustatistic.where(:user_email=>email).first
-      puts "notify #{user.name},todaymail=#{ustatistic.todaymail}" if user
-      puts "ustatistic.todaymail=#{ustatistic.todaymail}"
-       puts "ustatistic.totalmail=#{ustatistic.totalmail}"
+    #  puts "notify #{user.name},todaymail=#{ustatistic.todaymail}" if user
+    #  puts "ustatistic.todaymail=#{ustatistic.todaymail}"
+     #  puts "ustatistic.totalmail=#{ustatistic.totalmail}"
        ustatistic.todaymail=0 if ustatistic.todaymail.blank?
-      if ustatistic.todaymail< 10
+      if ustatistic.todaymail < 10 || email=="hunter.wxhu@gmail.com"
         unless user.id.to_s==cargo.user_id.to_s
           unless emailsubscribe.blank?
             #  new_cargolist=Array.new
             new_cargolist=emailsubscribe.cargolist||Array.new
-            puts "original cargo list=#{emailsubscribe.cargolist},size=#{new_cargolist.size}"
+           # puts "original cargo list=#{emailsubscribe.cargolist},size=#{new_cargolist.size}"
             new_cargolist<<cargo.id.to_s
-             puts "new cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
+          #   puts "new cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
             new_cargolist.uniq!
-              puts "uniq cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
+           #   puts "uniq cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
             emailsubscribe.update_attributes(:cargolist=>new_cargolist,:csize=>new_cargolist.size)
           
           else
-           puts"create emaillist for new user"
+        #   puts"create emaillist for new user"
             emailsubscribe= Emaillistc.new
             emailsubscribe.email=email
             emailsubscribe.cargolist=[cargo.id.to_s]

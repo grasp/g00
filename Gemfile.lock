@@ -12,8 +12,7 @@ GIT
     rails-dev-boost (0.1.1)
 
 GEM
-  remote: http://rubygems.org/
-  remote: http://gemcutter.org/
+  remote: http://ruby.taobao.org/
   specs:
     abstract (1.0.0)
     actionmailer (3.0.7)
