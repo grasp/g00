@@ -6,53 +6,56 @@
 
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <title>物流零距离-车源-<%=@province_name%><%=@region_name%><%=@city_name%></title>   
-<meta name="description" content="物流车源,货源,有货, 装车,吨位,运价,回程, 零担,整车,司机,驾驶员,竭诚为你服务,准时, 半挂车,前四后八,平板,低栏,中栏,高栏,蓬车,厢式,罐式,集装箱,
-  大件,危险品,冷藏保温,专线,车队,运输,配货,配车, 货运,托运,拉货,天天装,货运公司,运输公司,发货,装车"/>
-<meta name="keywords" content=" 物流零距离 物流车源,货源,有货, 装车,吨位,运价,回程, 零担,整车,司机,驾驶员,竭诚为你服务,准时, 半挂车,前四后八,平板,低栏,中栏,高栏,蓬车,厢式,罐式,集装箱,
-  大件,危险品,冷藏保温,专线,车队,运输,配货,配车, 货运,托运,拉货,天天装,货运公司,运输公司,发货,装车"/>
- <%= favicon_link_tag("truckicon.jpg") %>
-<%= stylesheet_link_tag 'g0' %>
-    
+    <meta name="description" content="物流车源,货源,有货, 装车,吨位,运价,回程, 零担,整车,司机,驾驶员,竭诚为你服务,准时, 半挂车,前四后八,平板,低栏,中栏,高栏,蓬车,厢式,罐式,集装箱,
+          大件,危险品,冷藏保温,专线,车队,运输,配货,配车, 货运,托运,拉货,天天装,货运公司,运输公司,发货,装车"/>
+    <meta name="keywords" content=" 物流零距离 物流车源,货源,有货, 装车,吨位,运价,回程, 零担,整车,司机,驾驶员,竭诚为你服务,准时, 半挂车,前四后八,平板,低栏,中栏,高栏,蓬车,厢式,罐式,集装箱,
+          大件,危险品,冷藏保温,专线,车队,运输,配货,配车, 货运,托运,拉货,天天装,货运公司,运输公司,发货,装车"/>
+          <%= favicon_link_tag("truckicon.jpg") %>
+          <%= stylesheet_link_tag 'g0' %>
+
   </head> 
 
   <body>
 
-<%=render "shared/topbar"%>  
+    <%=render "shared/topbar"%>  
 
-<div class="container-fluid ">  
+    <div class="fluid-container">  
 
-  <div class="sidebar">
+      <div class="fluid-sidebar-left">
 
-    <%cache("provincetruck") do %>
-      <h4>今日 出发-到达 共<%=h Truck.where(:status=>"正在配货").count%></h4>
-
-      <%(0.upto($sequnced_province.size)).select{|x| x % 2==0}.each do |i|%>
-        <%province1=$sequnced_province[i]%>
-        <%if  province1%>
-          <ul class="menu-tree1">
-            <a  class="<%="p#{province1}"%>  span4" href="/trucks/city/<%=province1%>"> <%=$city_code_name[province1.to_s]%>(<%=get_province_truck_from_count(province1)%>-<%=get_province_cargo_to_count(province1)%>)</a>
-            <%if i!=$sequnced_province.size && !$sequnced_province[i+1].blank?%>
-              <%province2=$sequnced_province[i+1]%>
-              <a  class="<%="p#{province2}"%> span4" href="/trucks/city/<%=province2%>"> <%=$city_code_name[province2.to_s]%>(<%=get_province_truck_from_count(province2)%>-<%=get_province_cargo_to_count(province2)%>)</a>
+        <%cache("provincetruck") do %>
+          <h4>今日 出发-到达 共<%=h Truck.where(:status=>"正在配货").count%></h4>
+          <%(0.upto($sequnced_province.size)).select{|x| x % 2==0}.each do |i|%>
+            <%province1=$sequnced_province[i]%>
+            <%if  province1%>
+              <ul  >
+                <li>
+                  <a  class="<%="p#{province1}"%> " href="/trucks/city/<%=province1%>"> <%=$city_code_name[province1.to_s]%>(<%=get_province_truck_from_count(province1)%>-<%=get_province_cargo_to_count(province1)%>)</a>
+                </li>     
+                <li>
+                  <%if i!=$sequnced_province.size && !$sequnced_province[i+1].blank?%>
+                    <%province2=$sequnced_province[i+1]%>
+                    <a  class="<%="p#{province2}"%> " href="/trucks/city/<%=province2%>"> <%=$city_code_name[province2.to_s]%>(<%=get_province_truck_from_count(province2)%>-<%=get_province_cargo_to_count(province2)%>)</a>
+                  <%end%>
+                </li>
+              </ul>
             <%end%>
-          </ul>
+          <%end%>
+
+          <h3>历史车源<%=ExpiredTruck.count+Truck.count%></h3>
+
+
         <%end%>
-      <%end%>
 
-      <h3>历史车源<%=ExpiredTruck.count+Truck.count%></h3>
+      </div>
 
-
-    <%end%>
-
-  </div>
-
-  <div class="content">
-     <%= yield %> 
-    <%=render "shared/float_show"%>
-  </div>
-</div>
-<%=render "shared/footer"%>
-</body>
+      <div class="fluid-content">
+        <%= yield %> 
+        <%=render "shared/float_show"%>
+      </div>
+    </div>
+    <%=render "shared/footer"%>
+  </body>
 </html>
 
 

@@ -8,7 +8,7 @@
   <a  id="to_data_load"  href="/cities/to/<%=@search.tcity_code||"100000000000"%>" ><%=$city_code_name[@search.tcity_code] ||"到达地选择"%></a>
   <input type="hidden" name="cargo[tcitycode]"></input>
   <input type="hidden" name="cargo[tcityname]"></input>
-  <input value="货源查询" class="btn default" type="submit" name="asss" ></input>
+  <input value="货源查询" class="btn default cargo_search" type="submit" name="asss" ></input>
 
   <a    href="/cargos/baojiacargo/all">待报价货源(<%=Cargo.where(:from_site=>"local").count%>)</a>
 

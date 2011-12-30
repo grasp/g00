@@ -18,13 +18,13 @@
   <body>
     <%=render "shared/topbar"%>  
 
-    <div class="container-fluid ">  
+    <div class="fluid-container">  
 
-      <div class="sidebar">
+      <div class="fluid-sidebar-left">
         <%=render "/concerncargos/cargo_concern_navi"%>
       </div>
 
-      <div class="content">
+      <div class="fluid-content">
         <%if flash[:notice]%>
           <div>
             <p class="alert-message info"><%=flash[:notice]%></p>

@@ -18,25 +18,25 @@
  
     <% @cargos.each do |cargo|  %>
       <tr>
-       <td class="span4"> <a class ="show_float" href="/cargos/show/<%=cargo.id%>">
+       <td > <a class ="show_float" href="/cargos/show/<%=cargo.id%>">
         <%= cargo.cate_name %></a> </td>  
-        <td class="span4"><%= cargo.fcity_name %></td>
-        <td class="span4"><%= cargo.tcity_name %></td>
-        <td class="span3"><%= cargo.cargo_weight ||"0" %>吨/<%= cargo.cargo_bulk ||"0" %>方</td>
-        <td class="span3"><%= cargo.send_date %>天</td>
-        <td class="span2"><%= cargo.created_at.to_s.slice(5,11) %></td>
+        <td ><%= cargo.fcity_name %></td>
+        <td ><%= cargo.tcity_name %></td>
+        <td ><%= cargo.cargo_weight ||"0" %>吨/<%= cargo.cargo_bulk ||"0" %>方</td>
+        <td ><%= cargo.send_date %>天</td>
+        <td ><%= cargo.created_at.to_s.slice(5,11) %></td>
         <%if cargo.status!="正在配车"%>
-          <td  class="span2" style="color:red;" ><%= cargo.status %></td>
+          <td   style="color:red;" ><%= cargo.status %></td>
         <%else%>
-           <td class="span2"> <%= cargo.status %></td>
+           <td > <%= cargo.status %></td>
          <%end%>
-         <td class="span3"><a class="link_show" href="/cargos/quoteinquery/<%=cargo.id%>"><%= cargo.total_baojia||0 %>个报价/<%= cargo.total_xunjia||0 %>个询价 </a></td>
+         <td ><a class="link_show" href="/cargos/quoteinquery/<%=cargo.id%>"><%= cargo.total_baojia||0 %>个报价/<%= cargo.total_xunjia||0 %>个询价 </a></td>
      <!--   <td><a class="show_float " href="/cargos/<%=cargo.id%>/inqueries/cargo/"><%= cargo.total_xunjia||0 %>个</a></td>-->
         <%if cargo.status!="正在配车"%>
          <td> <%=cargo.status%></td>
         <%else%>
          <%l=Lstatistic.first(:conditions=>{:line=>cargo.line})%>
-        <td class="span3"><a  class="btn default" href="/trucks/search/<%=cargo.fcity_code%>/<%=cargo.tcity_code%>/1">车源速配</a></td>
+        <td ><a  class="btn default" href="/trucks/search/<%=cargo.fcity_code%>/<%=cargo.tcity_code%>/1">车源速配</a></td>
         <%end%>
       </tr>
     <% end %>

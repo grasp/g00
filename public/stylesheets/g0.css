@@ -2629,9 +2629,9 @@ a.thumbnail:hover {
   margin-bottom: 15px;
 }
 /* 浮动模块设置*/#float_show {
-  background-color: #D4E4FF;
-  border: 1px solid #eee;
+  border: 1px solid black;
   position: absolute;
+  background: white;
   z-index: 100;
 }
 /* Here is the float load 2 style */#float_show2, #float_show2 {
@@ -2688,6 +2688,14 @@ ul.centernavi li {
 }
 div.about {
   line-height: 25px;
+}
+.user_announce ul {
+  margin-bottom: 15px;
+}
+.user_announce ul li {
+  color: black;
+  margin-top: 7px;
+  list-style-type: none;
 }
 .hidden {
   display: none;

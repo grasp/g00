@@ -18,13 +18,13 @@
 
     <%=render "shared/topbar"%>  
 
-    <div class="container-fluid "> 
+    <div class="fluid-container "> 
 
-      <div class="sidebar">
+      <div class="fluid-sidebar-left">
         <%=render "/userlines/province_navi"%>
       </div>
 
-      <div class="content">
+      <div class="fluid-content">
         <%= yield %>    
         <%=render "shared/float_show"%>
       </div>

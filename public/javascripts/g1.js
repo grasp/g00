@@ -349,6 +349,7 @@ function float_load_layer1(){
         {
             select_parent.css("background-color","#f7d5bc");
         }
+        
         // ajust the location for each float
  
        // if(cord_top>($(".content").offset().top+$(".content").height()/2)+100)
