@@ -3,7 +3,6 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head> 
-
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <title>物流零距离-货源-<%=@province_name%><%=@region_name%><%=@city_name%></title>   
     
@@ -13,33 +12,34 @@
   大件,危险品,冷藏保温,专线,车队,运输,配货,配车, 货运,托运,拉货,天天装,货运公司,运输公司,发货,装车"/>
 
  <%= favicon_link_tag("truckicon.jpg") %>
-<%= stylesheet_link_tag 'g0' %>
-    
-  </head> 
+ <%= stylesheet_link_tag 'g0' %>
 
+  </head> 
+  
+
+  
   <body>
 <%=render "shared/topbar"%> 
 
-<div class="container-fluid ">  
-  <div class="sidebar">
+<div class="fluid-container ">  
+  <div class="fluid-sidebar-left">
+ 
     <%=render "cargos/province_navi"%>
+
   </div>
 
-  <div class="content">
+  <div class="fluid-content">
     <%=render "shared/common"%>
-
     <%= yield %>     
   <%=render "shared/float_show"%>
   </div>
-  <div class="clearing">&nbsp;</div>
+
 </div>
 
 <%=render "shared/footer"%>
 
 </body>
 
-
-<!--  <p>@2010-2011 www.w090.com 杭州全聚通网络技术有限公司</p>-->
 
 </html>
 

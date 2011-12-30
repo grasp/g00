@@ -1,4 +1,4 @@
-
+<!--
 <div  class="pull-right">     
 
 <span id="announce"><%="公告:加入物流零距离QQ交流群158576320"%></span>
@@ -6,12 +6,10 @@
 
 <%unless session[:user_id]%>
 
-<%ietyte=request.env["HTTP_USER_AGENT"]%>
-
-<%if ietyte.match(/spider|google/i) %>
+<%if request.env["HTTP_USER_AGENT"].match(/spider|google/i) %>
 <%Sitedatum.first.inc(:spider,1)%>
 <%end%>
-<%if ietyte.include?("MSIE 6.0") %>
+<%if request.env["HTTP_USER_AGENT"].include?("MSIE 6.0") %>
 <p class="alert-message error">您正在使用微软12年前发布的古老的IE6浏览器<%=image_tag("ie6.jpg")%>，为了更好的浏览各类网站,  请与时俱进，升级您的上网浏览器到IE8<%=image_tag("ie8.jpg")%>,<a  class="btn default" href="http://view.atdmt.com/action/mrtiex_FY12IE9StaPrdIE8WWpageforXPFNL_1?href=http://view.atdmt.com/action/mrtiex_FY12IE9StaPrdIE8WWpageforXPFNL_1?href=http://download.microsoft.com/download/1/6/1/16174D37-73C1-4F76-A305-902E9D32BAC9/IE8-WindowsXP-x86-CHS.exe">下载微软官方IE8</a> 下载后双击运行即可. </p>
 <p class="alert-message error">我们的网站支持IE6浏览器并不好<%=image_tag("ie_stop.jpg")%>,用IE6您将或将看到下面支离破碎，排版错乱的网页.
   您可以选择世界上最快的谷歌浏览器<%=image_tag("chrome.jpg")%><a  class="btn default" href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-cn">下载</a>
@@ -19,17 +17,17 @@
 </p>
 
 <%Sitedatum.first.inc(:ie6,1)%>
-<%elsif ietyte.include?("MSIE 7.0")%>
+<%elsif request.env["HTTP_USER_AGENT"].include?("MSIE 7.0")%>
 <p class="alert-message error">您正在使用微软IE7浏览器<%=image_tag("ie6.jpg")%>，为了更好的浏览各类网站,  请与时俱进，升级您的上网浏览器到IE8<%=image_tag("ie8.jpg")%>,<a  class="btn default" href="http://view.atdmt.com/action/mrtiex_FY12IE9StaPrdIE8WWpageforXPFNL_1?href=http://view.atdmt.com/action/mrtiex_FY12IE9StaPrdIE8WWpageforXPFNL_1?href=http://download.microsoft.com/download/1/6/1/16174D37-73C1-4F76-A305-902E9D32BAC9/IE8-WindowsXP-x86-CHS.exe">下载微软官方IE8</a> 下载后双击运行即可. </p>
 <p class="alert-message error">我们的网站支持IE6浏览器并不好<%=image_tag("ie_stop.jpg")%>,IE7 或也会有潜在问题，抱歉，现在全世界都在呼吁抛弃IE6,马上升级吧.
   您也可以选择世界上最快的谷歌浏览器<%=image_tag("chrome.jpg")%><a  class="btn default" href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-cn">下载</a>
   以及非常流行的Firefox浏览器<%=image_tag("firefox.jpg")%><a  class="btn default" href="http://download.firefox.com.cn/releases/webins3.0/official/zh-CN/Firefox-latest.exe">下载</a>
 </p>
 <%Sitedatum.first.inc(:ie7,1)%>
-<%elsif ietyte.include?("MSIE 8.0")%>
+<%elsif request.env["HTTP_USER_AGENT"].include?("MSIE 8.0")%>
 <%Sitedatum.first.inc(:ie8,1)%>
 <%else%>
-<%unless ietyte.include?("linux-gnu") %>
+<%unless request.env["HTTP_USER_AGENT"].include?("linux-gnu") %>
    <%Sitedatum.first.inc(:noneie,1)%>
 <%end%>
 <%end%>
@@ -42,3 +40,4 @@
 </div>
 <%end%>
 
+-->

@@ -153,13 +153,7 @@ function city_load(){
     $("#close1,#close2").live("click",function()
     {
         $(this).parent().parent().css("display","none");
-       
-        if($.browser.msie) {
-            event.returnValue = false;
-            event.preventDefault();
-            return false;
-        }
-        else   return false;
+
         return false;
     });
 
@@ -321,11 +315,12 @@ function float_load_layer1(){
     /* 显示报价 或者询价 子页面 not for form submit ajax*/
     $('a.baojia,a.cargo_fabu,a.truck_fabu,a.show_float').live("click",function(){
 
+  
         var corordiate= $(this).offset();
         var cord_left=corordiate.left;
         var cord_top=corordiate.top;
-        selected=$('#float_show');  
-        
+        selected=$('#float_show')
+
         var select_parent=$(this).parent().parent();
         var parent_coordiate=select_parent.offset();
         $('tr').css("background-color","white");
@@ -334,13 +329,13 @@ function float_load_layer1(){
             // stock_cargo_new_validation();
             inquery_new_validation();
             quote_new_validation();
-           submit_jubao();
-             submit_multiple_emails();
-          
+            submit_jubao();
+             submit_multiple_emails();   
+
         });
 
         css_class= $(this).attr("class");
-        if(selected.css("display")=="none")
+                  if(selected.css("display")=="none")
         {
             selected.css("display","inline");
         }
@@ -356,14 +351,14 @@ function float_load_layer1(){
         }
         // ajust the location for each float
  
-        if(cord_top>($(".content").offset().top+$(".content").height()/2)+100)
-        {
-            selected.css("top",$(".content").offset().top);
-        }
-        else
-        {
-            selected.css("top",corordiate.top+30);
-        }
+       // if(cord_top>($(".content").offset().top+$(".content").height()/2)+100)
+     //   {
+           // selected.css("top",$(".content").offset().top);
+     //   }
+       // else
+      //  {
+      //      selected.css("top",corordiate.top+30);
+      //  }
           
         //   selected.css("left",$("#show").offset().left);
        
@@ -380,12 +375,7 @@ function float_load_layer1(){
             selected.css("top",corordiate.top+$(this).height()+10);
             selected.css("left",parent_coordiate.left);  
         }
-        if($.browser.msie) {
-            event.returnValue = false;
-            event.preventDefault();
-            return false;
-        }
-        else   return false;
+    return false;
     });
 
     $('a.float_close').live("click",function(){
@@ -477,7 +467,6 @@ $(document).ready(function() {
      new_concerncargocity();
        
 
-     
     $('.quick_match ').live("click",function(){
         $("#show").load(this.href);
         return false;

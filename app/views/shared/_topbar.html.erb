@@ -1,37 +1,38 @@
 
-    <div class="topbar">
-      <div class="topbar-inner">
-        <div class="container-fluid">          
-          <a class="brand" href="#">物流零距离</a>
-          <ul class="nav">
-            <li > <a   href="/cargos/allcity">全部货源</a></li>
-            <li > <a   href="/trucks/allcity">全部车源</a></li>
-            <li ><a    href="/companies/yellowpage">公司黄页</a></li>
-            <li ><a    href="/userlines">物流专线</a></li>      
-            <li ><a    href="/users/center">用户中心</a></li>        
-           <li ><a    href="/concerncargos/userconcern">我的关注</a></li>   
-          </ul>
-          <div class="pull-right">
-            <a  href="/" >首页</a>
-            <%cookie_login_helper%>
-            <%if session[:user_id].blank?%>
-              | <a  href="/users/login" >登录</a>
-              | <a  href="/users/new" >快速注册,永久免费</a>
-            <%else%>
-              | <a  href="/users/logout" >退出</a>
-              |<span>欢迎您!<%=session[:user_name]%></span>
-            <%end%>
-    
-            <%time=Time.now%>
-            <span>今天是<%=time.year%>年<%=time.month%>月<%=time.day%>日,星期<%=$week_day[time.wday.to_i]%></span>
-            <%if session[:user_name]=="admin"%>
-              | <a class="btn success large" href="/admin">网站管理</a>
-             <%elsif session[:user_name]!=nil%>
-             | <a class="btn success large" href="/wmails/invite_new">邀请朋友</a>
-             <%else%>
-            <%end%> 
-          </div>
-        </div>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="fluid-container">          
+      <a class="brand" href="#">物流零距离</a>
+      <ul class="nav tabs">
+        <li> <a  href="/cargos/allcity">全部货源</a></li>
+    <li> <a  href="/trucks/allcity">全部车源</a></li>
+  <li><a   href="/companies/yellowpage">公司黄页</a></li>
+<li><a   href="/userlines">物流专线</a></li>  
+<li><a   href="/users/center">用户中心</a></li> 
+<li><a   href="/concerncargos/userconcern">我的关注</a></li> 
+</ul>
 
-      </div>
-    </div>
+<p class="pull-right">
+  <a  href="/" >首页</a>
+  <%cookie_login_helper%>
+  <%if session[:user_id].blank?%>
+    | <a  href="/users/login" >登录</a>
+    | <a  href="/users/new" >快速注册,永久免费</a>
+  <%else%>
+    | <a  href="/users/logout" >退出</a>
+    |<span>欢迎您!<%=session[:user_name]%></span>
+  <%end%>
+
+  <%time=Time.now%>
+  <span>今天是<%=time.year%>年<%=time.month%>月<%=time.day%>日,星期<%=$week_day[time.wday.to_i]%></span>
+  <%if session[:user_name]=="admin"%>
+    | <a class="btn success large" href="/admin">网站管理</a>
+  <%elsif session[:user_name]!=nil%>
+    | <a class="btn success large" href="/wmails/invite_new">邀请朋友</a>
+  <%else%>
+  <%end%> 
+</p>
+
+</div>
+</div>
+</div>
