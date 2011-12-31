@@ -18,10 +18,13 @@
   
          
       <a id="from_data_load"  href="/cities/from/<%="100000000000"%>"><%="出发地选择"%></a>
-     <%= f.hidden_field :fcityid%>
+       
+      <%= f.hidden_field(:fcityid, { :class => 'fcitycode' }) %>
+      <%= f.hidden_field(:fcity_name,{ :class => 'fcityname' }) %>
 
     <a  id="to_data_load"  href="/cities/to/<%="100000000000"%>" ><%="到达地选择"%></a>
-        <%= f.hidden_field :tcityid %>
+            <%= f.hidden_field(:tcityid, { :class => 'fcitycode' }) %>
+      <%= f.hidden_field(:fcity_name,{ :class => 'fcityname' }) %>
       <input type="hidden" ></input>
     
 

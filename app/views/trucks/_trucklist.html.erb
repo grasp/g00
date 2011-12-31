@@ -1,11 +1,11 @@
 
 <span class="lineselector">
       <a id="from_data_load"  href="/cities/from/<%=@search.fcity_code ||"100000000000"%>"><%=$city_code_name[@search.fcity_code] ||"出发地选择"%></a>
-      <input type="hidden" name="cargo[fcitycode]"></input>
-      <input type="hidden" name="cargo[fcityname]"></input>
+      <input class="fcitycode" type="hidden" name="cargo[fcitycode]"></input>
+      <input class="fcityname" type="hidden" name="cargo[fcityname]"></input>
       <a  id="to_data_load"  href="/cities/to/<%=@search.tcity_code||"100000000000"%>" ><%=$city_code_name[@search.tcity_code] ||"到达地选择"%></a>
-       <input type="hidden" name="cargo[tcitycode]"></input>
-      <input type="hidden" name="cargo[tcityname]"></input>
+       <input class="tcitycode" type="hidden" name="cargo[tcitycode]"></input>
+      <input  class="tcityname" type="hidden" name="cargo[tcityname]"></input>
    <input value="车源查询" class=" btn default truck_search" type="submit" name="asss"></input>
 <a  href="/trucks/baojiatruck/all">待报价车源(<%=Truck.where(:from_site=>"local").count%>)</a>
 <%if params[:city_id]%>

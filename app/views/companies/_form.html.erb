@@ -51,8 +51,10 @@
   <!-- do not change below  format -->
       <label class="line_from_label">所在城市*:</label>
       <div class="input">    <a id="from_data_load"  class="company_city" href="/cities/from"><%=@company.city_name ||"选择"%></a> 
-              <%= f.hidden_field(:city_code) %>
-      <%= f.hidden_field(:city_name) %>
+        
+      <%= f.hidden_field(:city_code, { :class => 'fcitycode' }) %>
+      <%= f.hidden_field(:city_name,{ :class => 'fcityname' }) %>        
+        
       </div>
 
 </div>

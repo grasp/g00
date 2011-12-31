@@ -83,10 +83,8 @@ function city_load(){
             
         new_province_code=code.slice(0,2)+"0000000000"
         region_code=code.slice(0,4)+"00000000"   
-        
-        // alert("clicked1");
+ 
         $("#float_load2 div div div a" ).css("background-color","white");
-        //  alert("clicked2");
          
         slected=$(this);   
       
@@ -113,9 +111,10 @@ function city_load(){
             }
             else
             {
-               
-                $("#from_data_load").next().val(code);
-                $("#from_data_load").next().next().val($("#selected_city").text());
+                 $(".fcitycode").val(code);
+                   $(".fcityname").val($("#selected_city").text());
+              //  $("#from_data_load").next().val(code);
+              //  $("#from_data_load").next().next().val($("#selected_city").text());
             }
         }
 
@@ -134,8 +133,10 @@ function city_load(){
             }
             else
             {
-                $("#to_data_load").next().val(code);
-                $("#to_data_load").next().next().val($("#selected_city").text());
+                   $(".tcitycode").val(code);
+                   $(".tcityname").val($("#selected_city").text());
+               // $("#to_data_load").next().val(code);
+               // $("#to_data_load").next().next().val($("#selected_city").text());
             }
         }
         last_province_code=new_province_code

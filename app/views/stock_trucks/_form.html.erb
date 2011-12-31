@@ -86,8 +86,10 @@
      <!-- <label class="line_from_label">常在城市*:</label>-->
         <%= f.label :常在城市 %>    
      <div class="input"> <a id="from_data_load"  class="company_city" href="/cities/from"><%=@stock_truck.favo_city ||"选择"%></a></div>  
-      <%= f.hidden_field(:favo_city) %>
-      <%#= f.hidden_field(:city_name) %>
+     
+           <%= f.hidden_field(:favo_city, { :class => 'fcitycode' }) %>
+
+
 </div>
   <%#= f.hidden_field :user_id %>
   <%#= f.hidden_field :company_id %>

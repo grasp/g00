@@ -1,4 +1,4 @@
-<%= form_for(@stock_cargo,:as=>:stockcargo,:html => {:class => "show_form"}) do |f| %>
+<%= form_for(@stock_cargo,:as=>:stockcargo,:html => {:class => "horizontal-form"}) do |f| %>
 <fieldset>
   <% if  @stock_cargo.errors.any? %>
     <div id="error_explanation">
@@ -12,39 +12,40 @@
     </div>
   <% end %>
 
-  <div class="clearfix">
-      <label>货物大类*:</label>
-     <%= f.select(:big_category,options_for_select($cargo_big_category_reverse.to_a,@stock_cargo.big_category) ) %>
-    </div>
+  <fieldset class="control-group">
+      <label class="control-label">货物大类*:</label>
+      <div class="controls"> <%= f.select(:big_category,options_for_select($cargo_big_category_reverse.to_a,@stock_cargo.big_category) ) %></div> 
+    </fieldset>
 
- <div class="clearfix">
-      <label>货物类别*:</label>
-      <a class="data_load"  style="width:150px;display:inline-block" href="/cargo_categories/show/<%=get_cate_code%>" ><%=get_cate_name%> </a>
+ <fieldset class="control-group">
+      <label class="control-label">货物类别*:</label>
+    <div class="controls">
+      <a class="data_load"  style="display:inline-block; height:25px; padding:5px;" href="/cargo_categories/show/<%=get_cate_code%>" ><%=get_cate_name%> </a>
       <span class="data_list" style="display:none"></span>
       <%= f.hidden_field(:cate_code, :value=>@stock_cargo.cate_code) %>
       <%= f.hidden_field(:cate_name, :value=>@stock_cargo.cate_name) %>
-    </div>
+      </div>
+    </fieldset>
 
- <div class="clearfix">
-      <label>货物包装*:</label>
-      <a class="data_load" style="width:150px;display:inline-block" href="/package_categories/show/<%=get_package_code%>"><%=get_package_name%></a>
+ <fieldset class="control-group">
+      <label class="control-label">货物包装*:</label>
+       <div class="controls">
+      <a class="data_load" style="display:inline-block;height:25px; padding:5px;" href="/package_categories/show/<%=get_package_code%>"><%=get_package_name%></a>
       <span class="data_list" style="display:none">  </span>
         <%= f.hidden_field(:package_code, :value=>@stock_cargo.package_code) %>
         <%= f.hidden_field(:package_name, :value=>@stock_cargo.package_name) %>
-   </div>
+  </div>
+ </fieldset>
 
 
-
-
-<div>
  <%= f.hidden_field(:user_id) %>
 
  <%= f.hidden_field(:company_id) %>
  <%= f.hidden_field(:status) %>
-</div>
-  <div class="actions">
+
+  <div class="form-actions">
     <%= f.submit(:value=>"确定",:class=>"btn primary") %>
   </div>
 <p>*号为必填项</p>
-</fieldset>
+
 <% end %>

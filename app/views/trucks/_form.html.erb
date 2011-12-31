@@ -18,12 +18,12 @@
     <!-- do not change below  format -->
      
       <a id="from_data_load"  href="/cities/from"><%=(@truck.fcity_name.nil?||@truck.fcity_name.empty?) ?"请选择出发地":@truck.fcity_name%></a>
-      <%= f.hidden_field(:fcity_code) %>
-      <%= f.hidden_field(:fcity_name) %>
+      <%= f.hidden_field(:fcity_code, { :class => 'fcitycode' }) %>
+      <%= f.hidden_field(:fcity_name,{ :class => 'fcityname' }) %>
  
       <a  id="to_data_load"   href="/cities/to" ><%=(@truck.tcity_name.nil?||@truck.tcity_name.empty?) ?"请选择到达地":@truck.tcity_name%></a>
-      <%= f.hidden_field(:tcity_code) %>
-      <%= f.hidden_field(:tcity_name) %>
+      <%= f.hidden_field(:tcity_code, { :class => 'tcitycode' }) %>
+      <%= f.hidden_field(:tcity_name,{ :class => 'tcityname' }) %>
    <!-- do not change this format -->
 </span>
 </div>
