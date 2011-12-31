@@ -2698,9 +2698,8 @@ div.about {
   list-style-type: none;
 }
 table.announce tr {
-  height: 40px;
-  padding: 5px;
-  margin-top: 5px;
+  height: 20px;
+  padding: 2px;
 }
 .hidden {
   display: none;

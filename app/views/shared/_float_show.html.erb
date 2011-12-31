@@ -2,12 +2,13 @@
  <%ietyte=request.env["HTTP_USER_AGENT"]%>   
 <div id="float_show" style="display:none;">       
        <%if ietyte.include?("MSIE 6.0")||ietyte.include?("MSIE 7.0") %>
-      <div class="float_close" style="display:inline;position: absolute;right: 5px;text-align: right;margin:0 5px 20px 5px;">
+    <!--  <div class="float_close" style="display:inline;position: absolute;right: 5px;text-align: right;margin:0 5px 20px 5px;">-->
+   <div class="float_close" style="text-align: right;margin-bottom: 1px;">
                <a style="display:inline;"id="close1" class="btn success"    href="">OK</a>        
          </div>
       <%else%>
-      <div class="pull-right">
-                  <a  id="close1" class="btn success"    href="">OK</a>          
+      <div style="text-align: right;margin-bottom: 1px;">
+                  <a  id="close1" class="btn success"  href="">OK</a>          
          </div> 
       <%end%>
  
