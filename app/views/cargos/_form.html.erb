@@ -1,4 +1,5 @@
- <h3><%=@stock_cargo.cate_name%>,<%=@stock_cargo.package_name%>包装, 货源发布</h3>
+
+<h3><%=@stock_cargo.cate_name%>,<%=@stock_cargo.package_name%>包装, 货源发布</h3>
 <%= form_for(@cargo,@stock_cargo,:as=>:cargo,:html => {:class => "show_form"}) do |f| %>
  <fieldset>
   <% if @cargo.errors.any? %>
@@ -11,7 +12,6 @@
       </ul>
     </div>
   <% end %>
-
     
   <span class="lineselector">
      
@@ -43,21 +43,26 @@
       <label>体积(方)</label>
      <div class="input">   <%= f.text_field :cargo_bulk %> </div>
      </div>
-    
+     
     <div class="clearfix">
      <label>有效天数*</label>
   <div class="input">     <%= f.select(:send_date,options_for_select([["一天","1"],["当天","0"],["二天","2"],["15天","15"],["一个月","30"],["三个月","90"]],@cargo.send_date) )%> </div>
      </div>
+    
+   
     <div class="clearfix">
      <label for="cargo_option">组货方式*：</label>
   <div class="input">     <%= f.select(:cargo_zuhuo,options_for_select($cargo_option_reverse.to_a,@cargo.cargo_zuhuo) )%></div>
      </div>
-
+</iframe>
+  
     <div class="clearfix">
      <label>自有货源</label>
-  <div class="input">    <%= f.select(:is_self,options_for_select([["自有货源","自有货源"],["委托货源","委托货源"],["其他货源","其他货源"]],@cargo.is_self) )%></div>
-     </div>
+  <div class="input">   
+  <%= f.select(:is_self,options_for_select([["自有货源","自有货源"],["委托货源","委托货源"],["其他货源","其他货源"]],@cargo.is_self) )%></div>
    
+    </div>
+  
      <div class="clearfix">
     <label >备注：</label>
    <div class="input"> <%=f.text_area :comments,:rows=>5 %> </div>
@@ -75,13 +80,14 @@
    </div>
     <%= f.hidden_field :stock_cargo_id%>
     <div class="actions">
-       <%= f.submit("确 定",:class=>"btn primary large") %>
+       <%= f.submit("确 定",:class=>"btn primary") %>
     </div>   
 
 
 <p>*号为必填项</p>
 </fieldset>
   <% end %>
+
 
 <div>
 <p id="notice"><%= notice %></p>

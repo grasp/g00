@@ -3,7 +3,7 @@
  
 <%get_city_array(@code)%>
 
-<div class="city_selector">
+<div class="city_selector" style="display:inline">
  <div class="citytitle">
 <%if params[:dir]=="from"%>
 <p style="display: inline"> 出发城市:<b id="selected_city" > <%=@selected_city_name%></b></p>
@@ -35,9 +35,6 @@
   <%end%>
      </div>
   </div>
-
-<hr style="width: auto"></hr>
-
 
 <div class="region ">
   <div style="margin-top: 10px">

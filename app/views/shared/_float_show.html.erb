@@ -1,36 +1,40 @@
 
- <%ietyte=request.env["HTTP_USER_AGENT"]%>   
+<%ietyte=request.env["HTTP_USER_AGENT"]%>   
+
 <div id="float_show" style="display:none;">       
-       <%if ietyte.include?("MSIE 6.0")||ietyte.include?("MSIE 7.0") %>
-    <!--  <div class="float_close" style="display:inline;position: absolute;right: 5px;text-align: right;margin:0 5px 20px 5px;">-->
-   <div class="float_close" style="text-align: right;margin-bottom: 1px;">
-               <a style="display:inline;"id="close1" class="btn success"    href="">OK</a>        
-         </div>
-      <%else%>
-      <div style="text-align: right;margin-bottom: 1px;">
-                  <a  id="close1" class="btn success"  href="">OK</a>          
-         </div> 
-      <%end%>
- 
-      <div id="float_load" style="width:auto;"></div>
 
+  <%if ietyte.include?("MSIE 6.0")||ietyte.include?("MSIE 7.0") %>
+    <div class="float_close" style="position: absolute;right: 5px;text-align: right;margin:0 5px 20px 5px;">
+      <a id="close1" class="btn success">OK</a>        
     </div>
+  <br></br>
+  <%else%>
+    <div class="pull-right" style="display:inline-block;">
+      <a  style="display:inline-block;" id="close1" class="btn success">OK</a>          
+    </div> 
+  <%end%>
 
-     <div id="float_show2" style="display:none;">
-    
-     <%if ietyte.include?("MSIE 6.0")||ietyte.include?("MSIE 7.0") %>
-          <div style="position: absolute;right: 5px;text-align: right;">
-             <a  style="display: inline;" id="close2" class="btn success"    href="">确定</a>          
-         </div>
-       <%else%>
-               <div class="pull-right">
-                  <a  id="close2" class="btn success"    href="">确定</a>          
-         </div> 
-       <%end%>       
-    
+ <div id="float_load"></div>
 
-      <div id="float_load2">
+</div>
 
-      </div>
+</div>
 
+<div id="float_show2" style="display:none;">
+
+  <%if ietyte.include?("MSIE 6.0")||ietyte.include?("MSIE 7.0") %>
+    <div style="position: absolute;right: 5px;text-align: right;">
+      <a  style="display: inline;" id="close2" class="btn success"   >确定</a>          
     </div>
+  <%else%>
+    <div class="pull-right">
+      <a  id="close2" class="btn success"   >确定</a>          
+    </div> 
+  <%end%>       
+
+
+  <div id="float_load2">
+
+  </div>
+
+</div>

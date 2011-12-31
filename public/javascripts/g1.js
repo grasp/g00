@@ -46,6 +46,7 @@ function city_load(){
         if($("#float_show2").css("display")=="none")
         {
             $("#float_show2").css("display","inline");
+            $("form select").css("display","none");
             if($(this).attr("class")=="company_city")
             {
                 $("#float_show2").css("top",coordinate.top-400);
@@ -67,15 +68,11 @@ function city_load(){
         {
              selected.empty();
             $("#float_show2").css("display","none");
+             $("form select").css("display","inline-block");
             
         }
             
-        if($.browser.msie){
-            event.returnValue = false;
-            event.preventDefault();
-            return false;
-        }
-        else   return false;
+       return false;
     });
 
     $("#float_load2 a.city_province,#float_load2 a.city_region,#float_load2 a.city" ).live("click",function()
@@ -142,18 +139,13 @@ function city_load(){
             }
         }
         last_province_code=new_province_code
-        if($.browser.msie) {
-            event.returnValue = false;
-            event.preventDefault();
-            return false;
-        }
-        else   return false;
+     return false;
     });
 
     $("#close1,#close2").live("click",function()
     {
         $(this).parent().parent().css("display","none");
-
+        $("form select").css("display","inline-block");
         return false;
     });
 
@@ -189,12 +181,7 @@ function city_load(){
             $("#float_show2").css("display","none");
         }
 
-        if($.browser.msie) {
-            event.returnValue = false;
-            event.preventDefault();
-            return false;
-        }
-        else   return false;
+  return false;
     });
     
 }
@@ -222,13 +209,7 @@ function general_data_load(){
         selected.css("top",corordiate.top+$(this).height()+10);
         selected.css("left",corordiate.left -100);
         
-
-        if($.browser.msie) {
-            event.returnValue = false;
-            event.preventDefault();
-            return false;
-        }
-        else   return false;
+  return false;
     });
 
     $(".data_list div ul li a" ).live("click",function()
@@ -245,25 +226,13 @@ function general_data_load(){
         $(this).css("background-color","#ffcc00");
         selected.next().val(code);
         selected.next().next().val($(this).text());
-
-        if($.browser.msie) {
-            event.returnValue = false;
-            event.preventDefault();
-            return false;
-        }
-        else   return false;
+  return false;
     });
 
     $(".list_close a").live("click",function()
     {
         $('.data_list').css("display","none");
-
-        if($.browser.msie) {
-            event.returnValue = false;
-            event.preventDefault();
-            return false;
-        }
-        else   return false;
+   return false;
     });
 }
 
@@ -280,12 +249,7 @@ function request_chenjiao(){
             $('#float_show').css("display","none");
             $('tr').css("background-color","white");             
         }
-        // if($.browser.msie) {
-        //  event.returnValue = false;
-        //   event.preventDefault();
-        //   return false;
-        //  }
-        else   return false;
+   return false;
                 
     });
 }
@@ -299,13 +263,7 @@ function confirm_chenjiao(){
             $('#float_load').empty();
             $('#float_show').css("display","none");
         }
-    
-        // if($.browser.msie) {
-        //  event.returnValue = false;
-        //   event.preventDefault();
-        //  return false;
-        // }
-        else   return false;
+  return false;
                 
     });
 }
@@ -382,12 +340,7 @@ function float_load_layer1(){
     $('a.float_close').live("click",function(){
         $('#float_show').css("display","none");
         $('tr').css("background-color","white");
-        if($.browser.msie) {
-            event.returnValue = false;
-            event.preventDefault();
-            return false;
-        }
-        else   return false;
+   return false;
     });
 
 

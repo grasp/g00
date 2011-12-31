@@ -1,5 +1,5 @@
 <%#coding:utf-8%>
-    <%#cache("provincecargo") do %>
+    <%cache("provincecargo") do %>
    <h4>今日 出发-到达 共<%=h Cargo.where(:status=>"正在配车").count%></h4>
       <%(0.upto($sequnced_province.size)).select{|x| x % 2==0}.each do |i|%>
         <%province1=$sequnced_province[i]%>
@@ -20,4 +20,4 @@
 
       <h3>历史货源<%=ExpiredCargo.count+Cargo.count%></h3>
 
-    <%#end%>
+    <%end%>

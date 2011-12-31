@@ -3,30 +3,22 @@
     <%cache "cargoshow"+params[:id] do%>
       <%cargo_show_helper%>
       <%unless @contact%>
-        <table >
-          <tr>
-            <th>组货方式</th>
-            <th>货物大类</th>
-            <th>货物包装</th>
-            <th>联系人</th>
-            <th>联系方式</th>
-          </tr>
-          <tr>
-            <td> <%= $cargo_option[@cargo.cargo_zuhuo]%> </td>
-            <td> <%=$cargo_big_category[@stock_cargo.big_category]%></td>
-            <td> <%=@stock_cargo.package_name%></td>
+  <ul>
+            <li> 组货方式:<%= $cargo_option[@cargo.cargo_zuhuo]%>  </li> 
+            <li> 货物大类:<%=$cargo_big_category[@stock_cargo.big_category]%> </li> 
+            <li> 货物包装:<%=@stock_cargo.package_name%> </li> 
             <%@user=User.find(@cargo.user_id)%>
-            <td>  <%= @user.name %> </td>
-            <td>   <%if @user.user_contact_id%>
+            <li>  联系人:<%= @user.name %>  </li> 
+            <li>  联系方式: <%if @user.user_contact_id%>
                 <%usercontact=UserContact.find(@user.user_contact_id)%>
                 <%= usercontact.mobilephone %>
                 <%= usercontact.quhao+"-"+usercontact.fixphone %>
               <%else%>
                 <%=@user.mobilephone%>
               <%end%>
-            </td>
-          </tr>
-        </table>
+            </li>
+       
+       </ul>
         <p> 
           备注:<%=@cargo.comments  %>
         </p>
@@ -47,13 +39,14 @@
     <%=render "cargos/new_send_cargo_friend"%>
      <span class="help_inline mail_result" style="display:none">请稍等5秒</span>
     <%end%>
-
   <%else%>
-    <div class="span4">
+   <div class="span4">
       <p>登录后可见联系方式.</p>
-      <span><a class="btn primary large" href="/users/login">登录</a>
-        <a  style="margin: 10px 10px 10px 35px;" class="btn primary large" href="users/new">注册</a>
-      </span>
+      <p>
+      <span><a class="btn primary" href="/users/login">登录</a> 
+       <a  style="margin-left:30px;"class="btn primary " href="users/new">注册</a></span>   
+       
+       </p>
     </div>
   </div>
 <%end%>
