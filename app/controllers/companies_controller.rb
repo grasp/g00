@@ -183,14 +183,14 @@ class CompaniesController < ApplicationController
         raise if @user.blank?
         @user.update_attributes({:company_id=>@company.id})
          expire_fragment "yellowpage"
-          expire_fragment "users_center_#{session[:user_id]}"
-     #   flash[:notice] = '公司创建成功，恭喜你注册完成了'
-        # session[:user_id]=@user.id
+         expire_fragment "users_center_#{session[:user_id]}"
+        flash[:notice] = '公司创建成功，恭喜你注册完成了'
+         session[:user_id]=@user.id
         format.html {  redirect_to :action=>"privatecenter"}
         format.xml  { render :xml => @company, :status => :created, :location => @company }
       else
-       # flash[:notice] = '公司创建失败了'
-       format.html {  redirect_to :action=>"privatecenter"}
+        flash[:notice] = '公司创建失败了'
+        format.html {  render :action=>"new"}
         format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
       end
     end

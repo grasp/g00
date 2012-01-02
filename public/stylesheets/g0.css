@@ -2718,6 +2718,14 @@ table.announce tr {
   marging-top: 10px;
   padding-top: 10px;
 }
+.help-inline {
+  color: red;
+}
+.lineshow {
+  width: 960px;
+  margin-top: 15px;
+  padding: 5px;
+}
 .hidden {
   display: none;
   visibility: hidden;

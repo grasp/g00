@@ -1,6 +1,5 @@
 
-<%= form_for(@user_contact,:as=>:usercontact,:html => {:class => "show_form"}) do |f| %>
-<fieldset>
+<%= form_for(@user_contact,:as=>:usercontact,:html => {:class => "horizontal-form"}) do |f| %>
   <% if @user_contact.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user_contact.errors.count, "error") %> prohibited this contact_person from being saved:</h2>
@@ -13,37 +12,36 @@
     </div>
   <% end %>
 
- <div class="clearfix">
-    <%= f.label "真实姓名*" %>
-    <div class="input"><%= f.text_field :name %> </div>
-  </div>
- <div class="clearfix">
-    <%= f.label "移动电话*" %>
-    <div class="input"><%= f.text_field :mobilephone %> </div>
-  </div>
-
- <div class="clearfix">
-    <%= f.label :固定电话区号 %>
-   <div class="input">  <input  style="width:30px;" id="user_contact_phone_quhao" name="usercontact[quhao]" type="text" value=<%=@user_contact.quhao%> > </input> </div>
-       </div>
-     <div class="clearfix">
-       <%= f.label :固定电话号码 %>
-   <div class="input">  <input  style="width:150px;" id="user_contact_fix_phone" name="usercontact[fixphone]" type="text" value=<%=@user_contact.fixphone%> > </input> </div>
-  </div>
-
- <div class="clearfix">
-    <%= f.label :QQ %>
-    <div class="input"><%= f.text_field :QQ %> </div>
-  </div>
- <div class="clearfix">
-    <%= f.label "email*" %>
-    <div class="input"><%= f.text_field :email %> </div>
-  </div>
-
-  <div class="actions">
-    <%= f.submit(:value=>"确定",:class=>"btn primary") %>
-  </div>
+ <fieldset class="control-group">
+    <%= f.label "真实姓名*",{:class=>"control-label"} %>
+    <div class="controls"><%= f.text_field :name %> </div>
   </fieldset>
+ <fieldset class="control-group">
+    <%= f.label "移动电话*",{:class=>"control-label"} %>
+    <div class="controls"><%= f.text_field :mobilephone %> </div>
+  </fieldset>
+
+ <fieldset class="control-group">
+    <%= f.label :固定电话区号 ,{:class=>"control-label"}%>
+   <div class="controls">  <input  style="width:30px;" id="user_contact_phone_quhao" name="usercontact[quhao]" type="text" value=<%=@user_contact.quhao%> > </input> </div>
+      </fieldset>
+     <fieldset class="control-group">
+       <%= f.label :固定电话号码 ,{:class=>"control-label"}%>
+   <div class="controls">  <input  style="width:150px;" id="user_contact_fix_phone" name="usercontact[fixphone]" type="text" value=<%=@user_contact.fixphone%> > </input> </div>
+  </fieldset>
+
+ <fieldset class="control-group">
+    <%= f.label :QQ,{:class=>"control-label"} %>
+    <div class="controls"><%= f.text_field :QQ %> </div>
+  </fieldset>
+ <fieldset class="control-group">
+    <%= f.label "email*",{:class=>"control-label"} %>
+    <div class="controls"><%= f.text_field :email %> </div>
+ </fieldset>
+
+  <div class="form-actions">
+    <%= f.submit(:value=>"确定",:class=>"btn primary") %>
+  </fieldset>
+
 <% end %>
 <p id="notice"><%= notice %></p>
-

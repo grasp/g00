@@ -1,6 +1,6 @@
 
 
-<%= form_for(@company,:as=>:company,:html => {:class => "show_form"}) do |f| %>
+<%= form_for(@company,:as=>:company,:html => {:class => "horizontal-form"}) do |f| %>
 <fieldset>
   <% if @company.errors.any? %>
     <div id="error_explanation">
@@ -13,84 +13,84 @@
     </div>
   <% end %>
 
-  <div class="clearfix">
-    <%= f.label "公司名称*" %>
-    <div class="input"><%= f.text_field :name %>  </div>
-  </div>
+  <fieldset class="control-group">
+    <%= f.label "公司名称*",{:class=>"control-label"} %>
+    <div class="controls"><%= f.text_field :name %>  </div>
+  </fieldset>
 
-  <div class="clearfix">
-    <%= f.label "公司介绍*" %>
-    <div class="input"> <%= f.text_area :about,:class=>"xxlarge" %></div>
-  </div>
+  <fieldset class="control-group">
+    <%= f.label "公司介绍*",{:class=>"control-label"} %>
+    <div class="controls"> <%= f.text_area :about,:class=>"xxlarge" %></div>
+  </fieldset>
 
-    <div class="clearfix">
-    <%= f.label :员工数量 %>
-    <div class="input"><%= f.text_field :num_employ %>  </div>
-    </div>
+    <fieldset class="control-group">
+    <%= f.label :员工数量 ,{:class=>"control-label"}%>
+    <div class="controls"><%= f.text_field :num_employ %>  </div>
+    </fieldset>
 
-  <div class="clearfix">
-    <%= f.label :自有车辆 %>
-    <div class="input"><%= f.text_field :self_che %>  </div>
-  </div>
+  <fieldset class="control-group">
+    <%= f.label :自有车辆,{:class=>"control-label"} %>
+    <div class="controls"><%= f.text_field :self_che %>  </div>
+  </fieldset>
 <!--
-  <div class="clearfix">
-    <%= f.label :协议车辆 %>
-    <div class="input"><%= f.text_field :signed_che %>
+  <fieldset class="control-group">
+    <%= f.label :协议车辆 ,{:class=>"control-label"}%>
+    <div class="controls"><%= f.text_field :signed_che %>
   </div>
 -->
 
 <h3>公司的联系信息 </h3>
-<div class="clearfix">
-    <%= f.label "联系人*" %>
-    <div class="input"><%= f.text_field :contact_name %>  </div>
-</div>
+<fieldset class="control-group">
+    <%= f.label "联系人*" ,{:class=>"control-label"}%>
+    <div class="controls"><%= f.text_field :contact_name %>  </div>
+  </fieldset>
 
 
-<div class="clearfix" >
+<fieldset class="control-group">
 
   <!-- do not change below  format -->
       <label class="line_from_label">所在城市*:</label>
-      <div class="input">    <a id="from_data_load"  class="company_city" href="/cities/from"><%=@company.city_name ||"选择"%></a> 
+      <div class="controls">    <a id="from_data_load"  class="company_city" href="/cities/from"><%=@company.city_name ||"选择"%></a> 
         
       <%= f.hidden_field(:city_code, { :class => 'fcitycode' }) %>
       <%= f.hidden_field(:city_name,{ :class => 'fcityname' }) %>        
         
       </div>
 
-</div>
+  </fieldset>
 
-  <div class="clearfix">
-    <%= f.label "公司地址*" %>
-    <div class="input"><%= f.text_field :address %>  </div>
-  </div>
+  <fieldset class="control-group">
+    <%= f.label "公司地址*",{:class=>"control-label"} %>
+    <div class="controls"><%= f.text_field :address %>  </div>
+  </fieldset>
 
-  <div class="clearfix">
-    <label style="width:130px;">固定电话区号:</label>
-     <div class="input"> <input  style="width:50px;" id="quhao" name="company[quhao]" type="text" value=<%=@company.quhao%> > </input>  </div>
-     </div>
-     <div class="clearfix">
-        <label style="width:130px;">固定电话号码:</label>
-   <div class="input">  <input  style="width:150px;" id="companyfix_phone" name="company[fix_phone]" type="text" value=<%=@company.fix_phone%> > </input> </div>
+  <fieldset class="control-group">
+    <label class="control-label" style="width:130px;">固定电话区号:</label>
+     <div class="controls"> <input  style="width:50px;" id="quhao" name="company[quhao]" type="text" value=<%=@company.quhao%> > </input>  </div>
+    </fieldset>
+     <fieldset class="control-group">
+        <label class="control-label" style="width:130px;">固定电话号码:</label>
+   <div class="controls">  <input  style="width:150px;" id="companyfix_phone" name="company[fix_phone]" type="text" value=<%=@company.fix_phone%> > </input> </div>
      <%#= f.text_field :fix_phone %>
-  </div>
+  </fieldset>
 
-  <div class="clearfix">
-    <%= f.label "联系人移动电话*" %>
-    <div class="input"><%= f.text_field :mobile_phone %> </div>
-  </div>
+  <fieldset class="control-group">
+    <%= f.label "联系人移动电话*",{:class=>"control-label"} %>
+    <div class="controls"><%= f.text_field :mobile_phone %> </div>
+  </fieldset>
 
-  <div class="clearfix">
-    <%= f.label :联系人email %>
-    <div class="input"><%= f.text_field :email %></div>
-  </div>
+  <fieldset class="control-group">
+    <%= f.label :联系人email* ,{:class=>"control-label"}%>
+    <div class="controls"><%= f.text_field :email %></div>
+  </fieldset>
 <%= f.hidden_field :user_id %>
 <%= f.hidden_field :user_name %>
 <%= f.hidden_field(:ispersonal) %>
-  <div class="actions">
+  <div class="form-actions">
     <%= f.submit("确定",:class=>"btn primary")%>
   </div>
 
-</fieldset>
+
 
 <% end %>
 
