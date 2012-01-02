@@ -1,7 +1,5 @@
 
-
 <%= form_for(@company,:as=>:company,:html => {:class => "horizontal-form"}) do |f| %>
-<fieldset>
   <% if @company.errors.any? %>
     <div id="error_explanation">
       <h4><%= pluralize(@company.errors.count, "error") %></h4>
@@ -19,19 +17,19 @@
   </fieldset>
 
   <fieldset class="control-group">
-    <%= f.label "公司介绍*",{:class=>"control-label"} %>
+    <%= f.label "公司介绍*" ,{:class=>"control-label"}%>
     <div class="controls"> <%= f.text_area :about,:class=>"xxlarge" %></div>
-  </fieldset>
+</fieldset>
 
     <fieldset class="control-group">
     <%= f.label :员工数量 ,{:class=>"control-label"}%>
     <div class="controls"><%= f.text_field :num_employ %>  </div>
-    </fieldset>
+   </fieldset>
 
   <fieldset class="control-group">
-    <%= f.label :自有车辆,{:class=>"control-label"} %>
+    <%= f.label :自有车辆 ,{:class=>"control-label"}%>
     <div class="controls"><%= f.text_field :self_che %>  </div>
-  </fieldset>
+ </fieldset>
 <!--
   <fieldset class="control-group">
     <%= f.label :协议车辆 ,{:class=>"control-label"}%>
@@ -43,7 +41,7 @@
 <fieldset class="control-group">
     <%= f.label "联系人*" ,{:class=>"control-label"}%>
     <div class="controls"><%= f.text_field :contact_name %>  </div>
-  </fieldset>
+</fieldset>
 
 
 <fieldset class="control-group">
@@ -51,13 +49,11 @@
   <!-- do not change below  format -->
       <label class="line_from_label">所在城市*:</label>
       <div class="controls">    <a id="from_data_load"  class="company_city" href="/cities/from"><%=@company.city_name ||"选择"%></a> 
-        
-      <%= f.hidden_field(:city_code, { :class => 'fcitycode' }) %>
-      <%= f.hidden_field(:city_name,{ :class => 'fcityname' }) %>        
-        
+              <%= f.hidden_field(:city_code) %>
+      <%= f.hidden_field(:city_name) %>
       </div>
 
-  </fieldset>
+</fieldset>
 
   <fieldset class="control-group">
     <%= f.label "公司地址*",{:class=>"control-label"} %>
@@ -67,22 +63,22 @@
   <fieldset class="control-group">
     <label class="control-label" style="width:130px;">固定电话区号:</label>
      <div class="controls"> <input  style="width:50px;" id="quhao" name="company[quhao]" type="text" value=<%=@company.quhao%> > </input>  </div>
-    </fieldset>
+</fieldset>
      <fieldset class="control-group">
         <label class="control-label" style="width:130px;">固定电话号码:</label>
    <div class="controls">  <input  style="width:150px;" id="companyfix_phone" name="company[fix_phone]" type="text" value=<%=@company.fix_phone%> > </input> </div>
      <%#= f.text_field :fix_phone %>
-  </fieldset>
+</fieldset>
 
   <fieldset class="control-group">
     <%= f.label "联系人移动电话*",{:class=>"control-label"} %>
-    <div class="controls"><%= f.text_field :mobile_phone %> </div>
-  </fieldset>
+    <div class="controls" ><%= f.text_field :mobile_phone %> </div>
+ </fieldset>
 
   <fieldset class="control-group">
-    <%= f.label :联系人email* ,{:class=>"control-label"}%>
+    <%= f.label :联系人email ,{:class=>"control-label"}%>
     <div class="controls"><%= f.text_field :email %></div>
-  </fieldset>
+</fieldset>
 <%= f.hidden_field :user_id %>
 <%= f.hidden_field :user_name %>
 <%= f.hidden_field(:ispersonal) %>
@@ -95,3 +91,4 @@
 <% end %>
 
 <p id="notice"><%= notice %></p>
+
