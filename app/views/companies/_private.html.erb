@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%unless @company.city_name.blank?%>
 <div  class="span15">
   <h3><%= @company.name %></h3>
   </div>
@@ -66,3 +66,9 @@
    <%end%>
   </p>
  <%end%>
+  
+  <%else%>
+    <p>
+      你还没有创建你的公司信息.<a  class="btn primary" href="/companies/new">马上创建</a>
+    </p>
+  <%end%>

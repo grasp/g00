@@ -250,7 +250,7 @@ class CompaniesController < ApplicationController
   def privatecenter  
     #we have to use username 
    @company=Company.where(:user_id =>session[:user_id].to_s).first #only one company actull
-   
+   @company=Company.new if @company.blank?
     respond_to do |format|
       format.html { render :action=>"show" }
       format.xml  { head :ok }
