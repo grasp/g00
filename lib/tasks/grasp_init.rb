@@ -41,6 +41,9 @@ require File.join(project_root,"lib","tasks","56qq.rb")
 require File.join(project_root,"lib","tasks","56qq_helper.rb")
 require File.join(project_root,"lib","tasks","56135.rb")
 require File.join(project_root,"lib","tasks","haoyun56.rb")
+require File.join(project_root,"lib","tasks","scan_remove.rb")
+
+
 
 include QuzhougraspHelper
 include Tf56graspHelper
