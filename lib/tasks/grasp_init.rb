@@ -18,7 +18,7 @@ require File.join(project_root,"app","helpers","cargos_helper.rb")
 require File.join(project_root,"app","helpers","trucks_helper.rb")
 
 
-require File.join(project_root,"app","models","concerncityc.rb")
+
 require File.join(project_root,"app","models","concernlinec.rb")
 require File.join(project_root,"app","models","concernuserc.rb")
 require File.join(project_root,"app","models","concernphonec.rb")
@@ -31,6 +31,8 @@ require File.join(project_root,"app","models","cargo.rb")
 require File.join(project_root,"app","models","truck.rb")
 require File.join(project_root,"app","models","grasp_record.rb")
 require File.join(project_root,"app","models","room_contact.rb")
+require File.join(project_root,"app","models","concerncityc.rb")
+require File.join(project_root,"app","models","sitedatum.rb")
 
 require File.join(project_root,"app","helpers","quzhougrasp_helper.rb")
 require File.join(project_root,"app","helpers","tf56grasp_helper.rb")
