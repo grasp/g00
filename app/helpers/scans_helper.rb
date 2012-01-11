@@ -79,7 +79,7 @@ def move_helper
    # a.each do |original,expired|
       Cargo.where(:status=>"超时过期").each do |cargo|
     #only move those expired 3 months
-      if compare_time_expired(cargo.created_at,10)==true
+      if compare_time_expired(cargo.created_at,1)==true
       expiredb=ExpiredCargo.new
      cargo.raw_attributes.keys.each do |key|
        expiredb[key[0]]=cargo[key[0]]

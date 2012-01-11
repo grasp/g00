@@ -2,6 +2,7 @@
 require 'pathname'
 pn = Pathname.new(File.dirname(__FILE__))
 project_root=pn.parent.parent #do we have one line solution?
+#puts "project_root=#{project_root}"
 require File.join(project_root,"lib","tasks","grasp_init.rb")
 
 def parse_56qq    
@@ -41,8 +42,9 @@ def parse_56qq
       end
     end    
   end
+ # puts "cargolist.count=#{cargolist.size}"
   # log.info   cargolist
-  # log.info   trucklist
+   #log.info   trucklist
   
   #now save to database, seemed it is easy to do
   cargolist.each do |onecargo|
@@ -50,6 +52,7 @@ def parse_56qq
       cargo=Cargo.new  
       cargo[:fcity_code]=onecargo[0][0]
       cargo[:tcity_code]=onecargo[0][1]
+    #  puts "#{ cargo[:fcity_code]}-->#{ cargo[:tcity_code]}"
       cargo[:line]=cargo[:fcity_code]+"#"+cargo[:tcity_code]
       cargo[:fcity_name]=CityTree.get_city_full_path(cargo[:fcity_code])
       cargo[:tcity_name]=CityTree.get_city_full_path(cargo[:tcity_code])  
@@ -69,7 +72,7 @@ def parse_56qq
       cargo[:status]="正在配车"  # for match local
       cargo[:priority]=300
       cargo[:user_id]=@admin.id unless @admin.nil?
-     # log.info cargo
+     #log.info cargo
       begin
        a=cargo.save
       rescue Exception 
@@ -82,7 +85,7 @@ def parse_56qq
          notify
        end
       rescue Exception 
-       # log.info $@
+      #  log.info $@
       end
     end
   end
