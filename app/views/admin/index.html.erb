@@ -90,7 +90,7 @@
        <th>好运56货源</th>
     </tr>
     <tr>
-      <td><%=Cargo.where(:from_site=>"tf56",:created_at.gte=>Time.now.at_beginning_of_day).count%>/<%=Cargo.where(:from_site=>"tf56",:status=>"正在配车").count%>/<%=Cargo.where(:from_site=>"tf56").count%></td>
+      <td><%=Cargo.where(:from_site=>"tf56",:created_at.gte=>Time.now.at_beginning_of_day).count%>/<%=Cargo.where(:from_site=>"tf56",:status=>"正在配车").count%>//<%=Cargo.where(:from_site=>"tf56",:status=>"超时过期").count%>/<%=Cargo.where(:from_site=>"tf56").count%></td>
        <td><%=Cargo.where(:from_site=>"56qq",:created_at.gte=>Time.now.at_beginning_of_day).count%>/<%=Cargo.where(:from_site=>"56qq",:status=>"正在配车").count%>/<%=Cargo.where(:from_site=>"56qq").count%></td>
         <td><%=Cargo.where(:from_site=>"56135",:created_at.gte=>Time.now.at_beginning_of_day).count%>/<%=Cargo.where(:from_site=>"56135",:status=>"正在配车").count%>/<%=Cargo.where(:from_site=>"56135").count%></td>
         <td><%=Cargo.where(:from_site=>"quzhou",:created_at.gte=>Time.now.at_beginning_of_day).count%>/<%=Cargo.where(:from_site=>"quzhou",:status=>"正在配车").count%>/<%=Cargo.where(:from_site=>"quzhou").count%></td>

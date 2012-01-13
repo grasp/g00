@@ -2,7 +2,7 @@
 module ScansHelper
 
 def compare_time_expired(created_time,expired)
-unless created_time.nil? || expired.nil?
+unless (created_time.blank? || expired.blank?)
    current_time=Time.now   
    case expired
     when "0"
@@ -21,13 +21,14 @@ unless created_time.nil? || expired.nil?
   #   Rails.logger.info "expired=#{expired},created_time=#{created_time},expired_time=#{expired_time}"
   # end
     if(Time.parse(expired_time.to_s) -current_time <=0)
-    #  puts "expired #{created_time}"
+     puts "expired #{created_time}"
       return true
     else
-       # puts "not expired"
+        puts "not expired,create_time=#{created_time} expired_time=#{expired_time},current_time=#{current_time}"
       return false
     end
 else
+  puts "invalid time input"
   return false #keep those illegal ?
 end
 end
@@ -83,7 +84,9 @@ def move_helper
    # a.each do |original,expired|
       Cargo.where(:status=>"超时过期").each do |cargo|
     #only move those expired 3 months
-      if compare_time_expired(cargo.created_at,3)==true
+      if compare_time_expired(cargo.created_at,"1")==true #must "1" or "2"...
+        
+      puts  cargo.created_at
       expiredb=ExpiredCargo.new
      cargo.raw_attributes.keys.each do |key|
        expiredb[key[0]]=cargo[key[0]]
@@ -99,6 +102,7 @@ def move_helper
      # puts "record moved!"
       @move.expired_truck+=1
  #   end
+       
     end
     end
    # a.each do |original,expired|
