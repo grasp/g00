@@ -44,9 +44,9 @@ def parse_56qq
       end
     end    
   end
-   puts "cargolist.count=#{cargolist.size}"
-   log.info   cargolist
-   log.info   trucklist
+  # puts "cargolist.count=#{cargolist.size}"
+  # log.info   cargolist
+  # log.info   trucklist
   
   #now save to database, seemed it is easy to do
   cargolist.each do |onecargo|
