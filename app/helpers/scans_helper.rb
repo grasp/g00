@@ -52,12 +52,16 @@ a.each do |records|
           StockCargo.where("cargo_id"=>record.id).each { |stockcargo| stockcargo.inc(:valid_cargo,-1)}
           Quote.where("cargo_id"=>record.id).each { |quote| quote.update_attribute("status","超时过期")}
           Inquery.where("cargo_id"=>record.id).each { |inquery| inquery.update_attribute("status","超时过期")}
-          Ustatistic.where(:user_id=>record.user_id).first.inc(:valid_cargo,-1)
+          
+         # Ustatistic.where(:user_id=>record.user_id).first.inc(:valid_cargo,-1)
+           ustatistic=Ustatistic.where(:user_id=>record.user_id).first 
+          ustatistic.inc(:valid_truck,-1) unless ustatistic.blank?
         rescue  #is che record
            StockTruck.where("truck_id"=>record.id).each { |stocktruck| stocktruck.inc(:valid_truck,-1)}
            Quote.where("truck_id"=>record.id).each { |quote| quote.update_attribute("status","超时过期")}
            Inquery.where("truck_id"=>record.id).each { |inquery| inquery.update_attribute("status","超时过期")}
-           Ustatistic.where(:user_id=>record.user_id).first.inc(:valid_truck,-1)
+          ustatistic=Ustatistic.where(:user_id=>record.user_id).first 
+          ustatistic.inc(:valid_truck,-1) unless ustatistic.blank?
         end
       end
    end
