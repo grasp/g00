@@ -21,14 +21,14 @@ unless (created_time.blank? || expired.blank?)
   #   Rails.logger.info "expired=#{expired},created_time=#{created_time},expired_time=#{expired_time}"
   # end
     if(Time.parse(expired_time.to_s) -current_time <=0)
-     puts "expired #{created_time}"
+  #   puts "expired #{created_time}"
       return true
     else
-        puts "not expired,create_time=#{created_time} expired_time=#{expired_time},current_time=#{current_time}"
+      #  puts "not expired,create_time=#{created_time} expired_time=#{expired_time},current_time=#{current_time}"
       return false
     end
 else
-  puts "invalid time input"
+ # puts "invalid time input"
   return false #keep those illegal ?
 end
 end
@@ -86,7 +86,7 @@ def move_helper
     #only move those expired 3 months
       if compare_time_expired(cargo.created_at,"1")==true #must "1" or "2"...
         
-      puts  cargo.created_at
+   #   puts  cargo.created_at
       expiredb=ExpiredCargo.new
      cargo.raw_attributes.keys.each do |key|
        expiredb[key[0]]=cargo[key[0]]
