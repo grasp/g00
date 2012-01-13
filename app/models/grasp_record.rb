@@ -20,6 +20,10 @@ include Mongoid::Timestamps
       field :repeat_che,:type=>Integer
       field :cargos_lines,:type=>Array
       field :trucks_lines,:type=>Array
+       field :from_site,:type=>String
+      
+       index ([[:from_site,Mongo::ASCENDING],[:created_at,Mongo::ASCENDING]])
      # timestamps!    
+
 end
 

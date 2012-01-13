@@ -37,7 +37,7 @@ class AdminController < ApplicationController
   end
   
   def quzhougrasp
-    @grasps=GraspRecord.where(:from_site=>"quzhou").desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>20)
+    @grasps=GraspRecord.where(:from_site=>"quzhou").limit(100).desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>20)
     respond_to do |format|
       format.html{render :template=>"/admin/grasp"} # index.html.erb
       format.xml  { render :xml => @scans }

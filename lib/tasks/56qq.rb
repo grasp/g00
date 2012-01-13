@@ -9,15 +9,17 @@ def parse_56qq
  # cookie=load_cookie #get all the cookies
   @admin=User.where("name"=>"admin").first
   log = Logger.new("56qq.log")
+ # log.level = Logger::WARN
+  log.level = Logger::info
   agent = Mechanize.new  
   agent.cookie_jar.load_cookiestxt(StringIO.new($cookie))  
   
   agent.user_agent_alias = 'Windows Mozilla'
-  #agent.set_proxy("wwwgate0-ch.mot.com", 1080)  if true
+  agent.set_proxy("wwwgate0-ch.mot.com", 1080)  if true
   
   #analysis page now
   page_raw_array=Array.new
-  agent.get("http://www.56qq.cn") do |page|
+  agent.get("http://www.56qq.cn/#msgboard/list/all") do |page|
     page.parser.css("div.entry").each do |entrycontainer|
       page_raw_array<<[ entrycontainer.css("span.entry_city").text.strip.gsub(/\r\n/,"")  ,
         entrycontainer.css("span.spanentry_text").text.strip.gsub(/\r\n/,"") ,
@@ -42,9 +44,9 @@ def parse_56qq
       end
     end    
   end
- # puts "cargolist.count=#{cargolist.size}"
-  # log.info   cargolist
-   #log.info   trucklist
+   puts "cargolist.count=#{cargolist.size}"
+   log.info   cargolist
+   log.info   trucklist
   
   #now save to database, seemed it is easy to do
   cargolist.each do |onecargo|
