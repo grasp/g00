@@ -27,42 +27,46 @@ class  Cargo
   field :fcity_code, :type=>String
   field :tcity_code, :type=>String   
 
+
+
+  #below is for phone concern, we need add this two field when we create cargo
+  field :mobilephone, :type=>String
+  field :fixphone, :type=>String
+  
+   field :user_id
+  field :contact
+  field :user_contact_id
+  
+  field :company
+  field :company_id
+  
+  field :price, :type=>String
+  field :price_unit, :type=>String   
+  
+  # from site
+  field :from_site, :type=>String
+  field :priority, :type=>Integer #show priority
+  
   #important information
   field :zhuang_addr, :type=>String
   field :zhuang_time, :type=>String
   field :xie_addr, :type=>String
-  field :contact, :type=>String
-      
-  field :price, :type=>String
-  field :price_unit, :type=>String
-      
-  # from site
-  field :from_site, :type=>String
-  field :priority, :type=>Integer #show priority
-      
-  #tousu and jubao
-
       
   # statistic
   field :total_baojia, :type=>Integer
   field :total_xunjia, :type=>Integer
   field :total_match, :type=>Integer
   field :total_click, :type=>Integer
+  field :tousu, :type=>Integer
       
   field :cj_truck_id
   field :cj_quote_id
   field :cj_user_id
   field :cj_company_id
       
-
-  field :user_id
-  field :user_contact_id
-  field :company_id
   field :stock_cargo_id
   
-  #below is for phone concern, we need add this two field when we create cargo
-  field :mobilephone, :type=>String
-  field :fixphone, :type=>String
+
 
   index ([[:from_site,Mongo::ASCENDING],[:updated_at,Mongo::ASCENDING],[:status,Mongo::ASCENDING],[:fcity_code,Mongo::ASCENDING],[:tcity_code,Mongo::ASCENDING]])
   validates_presence_of :fcity_code,:tcity_code   #remove cate_name, could be empty from grasp

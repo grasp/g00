@@ -10,12 +10,12 @@ def parse_56qq
   @admin=User.where("name"=>"admin").first
   log = Logger.new("56qq.log")
  # log.level = Logger::WARN
-  log.level = Logger::info
+  log.level = Logger::INFO
   agent = Mechanize.new  
   agent.cookie_jar.load_cookiestxt(StringIO.new($cookie))  
   
   agent.user_agent_alias = 'Windows Mozilla'
-  agent.set_proxy("wwwgate0-ch.mot.com", 1080)  if true
+  #agent.set_proxy("wwwgate0-ch.mot.com", 1080)  if true
   
   #analysis page now
   page_raw_array=Array.new
