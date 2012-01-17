@@ -2,7 +2,7 @@
   <%if session[:user_id]%>
     <%cache "cargoshow"+params[:id] do%>
       <%cargo_show_helper%>
-      <%unless @contact%>
+      <%unless @show_other_cargo%>
   <ul>
             <li> 组货方式:<%= $cargo_option[@cargo.cargo_zuhuo]%>  </li> 
             <li> 货物大类:<%=$cargo_big_category[@stock_cargo.big_category]%> </li> 
@@ -24,7 +24,7 @@
         </p>
       <%else%>
         <div>
-          <%=@contact%>
+          <%=@show_other_cargo%>
         </div>
         <p>信息来自<%=@cargo[:from_site]%>物流网,网络信息有风险，请注意交易安全.</p>     
       <%end%>

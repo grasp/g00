@@ -19,7 +19,7 @@ gem "mongoid", "2.2.2"
 #gem 'memcache-client'
 gem "webrobots", "~> 0.0.10", :git => 'http://github.com/knu/webrobots.git'
 #gem "webrobots","0.0.11"
-gem 'bson' , "1.3.1"
+gem 'bson' , "1.5.2"
 platform=Object::RUBY_PLATFORM
 unless  platform.match("linux").nil?#for linux
 gem 'thin'

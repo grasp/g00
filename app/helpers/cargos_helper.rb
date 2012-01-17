@@ -156,15 +156,17 @@ module CargosHelper
   def cargo_show_helper
     unless @error
       @cargo = Cargo.find(params[:id])  
-      @contact=  @cargo.comments  if @cargo[:from_site]=="haoyun56"
-      @contact=  @cargo.comments  if @cargo[:from_site]=="56135"
-      @contact=  @cargo.comments+"联系电话:"+@cargo.contact  if @cargo[:from_site]=="56qq"
-      @contact=  @cargo.comments  if @cargo[:from_site]=="tf56"
-      @contact=  @cargo.contact_phone if @cargo[:from_site]=="quzhou"
+    #  @contact=  @cargo.comments  if @cargo[:from_site]=="haoyun56"
+    #  @contact=  @cargo.comments  if @cargo[:from_site]=="56135"
+    #  @contact=  @cargo.comments+"联系电话:"+@cargo.contact  if @cargo[:from_site]=="56qq"
+    #  @contact=  @cargo.comments  if @cargo[:from_site]=="tf56"
+    #  @contact=  @cargo.contact_phone if @cargo[:from_site]=="quzhou"
       @jubao_counter=Jubao.where(:belongid=>@cargo.id).count
       if @cargo[:from_site]=="local"
         @stock_cargo=StockCargo.find(@cargo.stock_cargo_id)
         @user=User.find(@cargo.user_id)
+      else
+        @show_other_cargo=(@cargo.contact||"")+(@cargo.comments||"")
       end
 
       if @line_ad.blank?
@@ -176,6 +178,7 @@ module CargosHelper
   def     cargo_allcity_helper
     @search=Search.new;    @search.fcity_code="100000000000";    @search.tcity_code="100000000000"
     @cargos=Cargo.where(:status=>"正在配车") .desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
+ # @cargos=Cargo.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
   end
  
   def cargo_city_helper

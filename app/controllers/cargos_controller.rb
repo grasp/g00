@@ -17,6 +17,7 @@ class CargosController < ApplicationController
   layout :choose_layout 
   
   def choose_layout
+    return nil  if action_name =='post_cargo'     
     return 'usercenter'  if action_name =='index'      
     return  nil if  action_name=="show" ||action_name=="send_cargo_myself"||action_name=="cargo_to_friend"
     return "usercenter" if action_name=="new"
@@ -461,6 +462,18 @@ class CargosController < ApplicationController
       @result="无效发送,今日已发送#{@today_total}/10"
     end
     
+  end
+  
+  def post_cargo
+     logger.info "params[:cargo]="+params[:cargo]
+    new_cargo= eval(params[:cargo]).to_hash  
+       
+      @cargo=Cargo.new( new_cargo)
+      begin
+       @cargo.save!
+      rescue
+        logger.info "repeated cargo!"
+      end
   end
 
 end

@@ -33,8 +33,8 @@ class  Cargo
   field :mobilephone, :type=>String
   field :fixphone, :type=>String
   
-   field :user_id
-  field :contact
+   field :user_id, :type=>String
+  field :contact, :type=>String
   field :user_contact_id
   
   field :company
@@ -46,6 +46,8 @@ class  Cargo
   # from site
   field :from_site, :type=>String
   field :priority, :type=>Integer #show priority
+  field :timetag    
+  field :posted, :type=>String
   
   #important information
   field :zhuang_addr, :type=>String
@@ -74,13 +76,14 @@ class  Cargo
  before_create:check_unique
   after_create:notify,:expire
   def check_unique
-    repeated=Cargo.where(:cate_name=>self.cate_name,:line=>self.line,:user_id=>self.user_id,:status=>"正在配车",
-      :comments=>self.comments,:from_site=>self.from_site )
-    unless repeated.size==0
-      errors.add(:base,"不能重复发布货源信息")
+   # repeated=Cargo.where(:cate_name=>self.cate_name,:line=>self.line,:user_id=>self.user_id,:status=>"正在配车",
+   #   :contact=>self.contact,:comments=>self.comments,:from_site=>self.from_site ).count 
+        repeated=Cargo.where(:cate_name=>self.cate_name,:line=>self.line,:user_id=>self.user_id,:status=>"正在配车",
+     :contact=>self.contact,:from_site=>self.from_site ).count 
+  if  repeated > 0
       return false
-    end
-    return true
+  end
+      return true
   end
   def expire
  begin

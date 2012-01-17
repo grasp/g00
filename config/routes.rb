@@ -112,6 +112,8 @@ G0::Application.routes.draw do
   match 'users/:user_id/quotes/tome/:to' =>'quotes#index',:as=>:quotesto
  # match "quotes/request_chenjiao/:id" =>'quotes#request_chenjiao',:as=>:quotesrequest_chenjiao
 #  match "quotes/confirm_chenjiao/:id" =>'quotes#confirm_chenjiao',:as=>:quotesconfirm_chenjiao
+ match '/cargos/post_cargo/:cargo' =>'cargos#postcargo',:as=>:postcargo,  :via => :post
+
   resources :quotes
 
   resources :line_ads
