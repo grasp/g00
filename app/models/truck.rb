@@ -25,6 +25,9 @@ class Truck
       field  :huicheng,:type=>String
       field  :contact,:type=>String
 
+  
+     field  :mobilephone,:type=>String
+     field  :fixphone,:type=>String
       #line info
       field  :line,:type=>String
       field  :fcity_name,:type=>String
@@ -72,10 +75,10 @@ class Truck
     def check_unique
    if self.from_site!="quzhou"
     repeated=Truck.where(:paizhao=>self.paizhao,:line=>self.line,:user_id=>self.user_id,:status=>"正在配货",
-            :comments=>self.comments,:from_site=>self.from_site)
+            :comments=>self.comments,:contact=>self.contact,:from_site=>self.from_site)
    else
         repeated=Truck.where(:line=>self.line,:user_id=>self.user_id,:status=>"正在配货",
-            :comments=>self.comments,:from_site=>self.from_site)
+            :comments=>self.comments,:contact=>self.contact,:from_site=>self.from_site)
    end
    # puts "repeated.size=#{repeated.size}"
     unless repeated.size==0

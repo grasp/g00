@@ -166,7 +166,7 @@ module CargosHelper
         @stock_cargo=StockCargo.find(@cargo.stock_cargo_id)
         @user=User.find(@cargo.user_id)
       else
-        @show_other_cargo=(@cargo.contact||"")+(@cargo.comments||"")
+        @show_other_cargo=(@cargo.contact||"")+"  "+(@cargo.comments||"")+"  "+(@cargo.timetag||"")+""
       end
 
       if @line_ad.blank?

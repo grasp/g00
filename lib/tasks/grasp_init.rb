@@ -7,8 +7,14 @@ require 'logger'
 require 'mongoid'
 require "sqlite3"
 
+ARGF.argv[0]=="development" ? $debug=true : $debug=false
+$mongo=Mongo::Connection.new('localhost', 27017)
+$debug ? $db = $mongo.db('w090_development') : $db = $mongo.db('w090_production')
+Mongoid.database = $db
+
 pn = Pathname.new(File.dirname(__FILE__))
 project_root=pn.parent.parent #do we have one line solution?
+
 require File.join(project_root,"lib","tasks","mongoinit.rb")
 require File.join(project_root,"config","initializers","init","city_dic.rb")
 require File.join(project_root,"config","initializers","init","city_load.rb")
