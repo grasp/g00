@@ -75,13 +75,13 @@ class Truck
     def check_unique
    if self.from_site!="quzhou"
     repeated=Truck.where(:paizhao=>self.paizhao,:line=>self.line,:user_id=>self.user_id,:status=>"正在配货",
-            :comments=>self.comments,:contact=>self.contact,:from_site=>self.from_site)
+            :comments=>self.comments,:contact=>self.contact,:from_site=>self.from_site).count
    else
         repeated=Truck.where(:line=>self.line,:user_id=>self.user_id,:status=>"正在配货",
-            :comments=>self.comments,:contact=>self.contact,:from_site=>self.from_site)
+            :comments=>self.comments,:contact=>self.contact,:from_site=>self.from_site).count
    end
    # puts "repeated.size=#{repeated.size}"
-    unless repeated.size==0
+    unless repeated==0
        errors.add(:base,"不能重复发布车源信息")
       return false
     end

@@ -153,22 +153,18 @@ return Truck.where(:status=>"正在配货",:tcity_code.gte=>province.to_s,:tcity
      @error=true
    end
     if not @error
-     @contact=  "司机 #{@truck.driver_name || '无'}"+"电话 #{@truck.driver_phone || '无'}"+"随车电话 #{@truck.car_phone || '无'}"  if  @truck[:from_site]=="tf56"
-     @contact= @truck.comments+@truck.contact if  @truck[:from_site]=="56qq"
-     @contact= @truck.contact_phone if  @truck[:from_site]=="quzhou"
+   #  @contact=  "司机 #{@truck.driver_name || '无'}"+"电话 #{@truck.driver_phone || '无'}"+"随车电话 #{@truck.car_phone || '无'}"  if  @truck[:from_site]=="tf56"
+  #   @contact= @truck.comments+@truck.contact if  @truck[:from_site]=="56qq"
+  #   @contact= @truck.contact_phone if  @truck[:from_site]=="quzhou"
     @jubao_counter=Jubao.where(:belongid=>@truck.id).count
     if @truck[:from_site]=="local"
        @stock_truck=StockTruck.find( @truck.stock_truck_id)
        @user=User.find(@truck.user_id)
        @user_contact=UserContact.find( @user.user_contact_id) if @user.user_contact_id
+    else
+      @other_truck_show= (@truck.comments||"")+"  "+(@truck.contact||"")
     end
-    
-    #  @line_ad=LineAd.find({:line=>get_line(@cargo.fcity_code,@cargo.tcity_code)})
-    if @line_ad.blank?
-      #@line_ad=LineAd.find_by_line("0")
-      #@line_ad.fcity_name=@cargo.fcity_name
-      #@line_ad.tcity_name=@cargo.tcity_name
-    end
+
     end
  end
 def truck_allcity_helper

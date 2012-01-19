@@ -406,4 +406,15 @@ class TrucksController < ApplicationController
     city_level(params[:city_id]) #for title usage , SEO friendlly
   end
   
+  def posttruck
+    logger.info  
+        new_truck= eval(params[:truck]).to_hash  
+    
+    begin
+    Truck.new(new_truck).save!
+    rescue
+      logger.info  "truck save excetion !!!!!"
+    end
+  end
+  
 end
