@@ -153,7 +153,7 @@ return Truck.where(:status=>"正在配货",:tcity_code.gte=>province.to_s,:tcity
      @error=true
    end
     if not @error
-   #  @contact=  "司机 #{@truck.driver_name || '无'}"+"电话 #{@truck.driver_phone || '无'}"+"随车电话 #{@truck.car_phone || '无'}"  if  @truck[:from_site]=="tf56"
+     @contact=  "司机 #{@truck.driver_name || '无'}"+"电话 #{@truck.driver_phone || '无'}"+"随车电话 #{@truck.car_phone || '无'}"  if  @truck[:from_site]=="tf56"
   #   @contact= @truck.comments+@truck.contact if  @truck[:from_site]=="56qq"
   #   @contact= @truck.contact_phone if  @truck[:from_site]=="quzhou"
     @jubao_counter=Jubao.where(:belongid=>@truck.id).count

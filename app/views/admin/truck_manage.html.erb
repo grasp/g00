@@ -12,6 +12,10 @@
     <th>货主询价/我已报价</th>
     <th>匹配货源</th>
       <th> created_at</th>
+      
+       <th>Comments</th>
+        <th>Contact</th>
+         <th>mobilephone</th>
 </tr>
 
     <% @trucks.each do |truck|%>
@@ -37,6 +41,9 @@
           <%else%>
            <td><%=truck.status%></td>
  <td><%=truck.created_at%></td>
+  <td><%=truck.comments%></td>
+   <td><%=truck.contact%></td>
+    <td><%=truck.mobilephone%></td>
           <%end%>
 
     <!--   <td><a class="show_float" href="/trucks/<%=truck.id%>/edit">编辑</a>|<a href="/trucks/destroy/<%=truck.id%>">删除</a></td> -->

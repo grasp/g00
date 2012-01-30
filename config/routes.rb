@@ -65,7 +65,7 @@ G0::Application.routes.draw do
   match '/admin/sms_list' =>'admin#sms_list' ,:as=>:admin_sms_list
   match '/admin/show_mail' =>'admin#show_mail' ,:as=>:admin_show_mail
   match '/admin/temp_task' =>'admin#temp_task' ,:as=>:admin_temp_task
-
+  match '/admin/allcity'=>'admin#allcity',:as=>:adminallcity
   get "admin/index"
 
   resources :citystatistics
@@ -220,6 +220,7 @@ G0::Application.routes.draw do
   resources :cargo_categories
 
   match '/cities/:dir(/:code)'=>'cities#index',:as=>:citiesindex
+
   resources :cities
    match '/users/center'=>'users#center',:as=>:userscenter
       match 'users/download_setup' =>'users#download_setup',:as=>:usersdownload_setup

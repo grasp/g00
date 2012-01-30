@@ -8,7 +8,7 @@ else
 end
  # $debug=true #remove this line !!!!
 puts "$debug=#{$debug}"
-
+$debug=true
 $mongo=Mongo::Connection.new('localhost', 27017)
 $debug ? $db = $mongo.db('w090_development') : $db = $mongo.db('w090_production')
 Mongoid.database = $db

@@ -38,3 +38,10 @@ if Sitedatum.first.blank?
 end
 
 @first_announce=Announce.first
+#City.delete_all
+#initialize Cities
+if City.count==0
+  $city_code_name.each do |code,name|
+    City.create(:code=>code,:name=>name)
+  end
+end

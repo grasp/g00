@@ -28,7 +28,7 @@ Forever.run do
     hour=Time.now.hour
     if hour>5 and hour<23
       begin
-        parse_56135
+       # parse_56135
       rescue
         puts $@
       end

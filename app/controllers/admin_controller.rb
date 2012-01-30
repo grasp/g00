@@ -420,6 +420,10 @@ class AdminController < ApplicationController
     end
   end
   
+  def allcity
+    @cities=City.all.paginate(:page=>params[:page]||1,:per_page=>20)
+  end
+  
 
 
 end
