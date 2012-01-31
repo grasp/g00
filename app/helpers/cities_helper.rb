@@ -38,6 +38,30 @@ module CitiesHelper
     end
   end
   
+  def add_sheng_for_province(province_name)
+    unless province_name.match("市")
+      return province_name+"省"
+    end    
+    
+    return province_name
+    
+  end
+    def get_city_full_name_for_location_search(code)
+    if code.match(/\d\d0000000000$/) # is a province id
+      city_name= add_sheng_for_province($province_region[code])
+      return city_name
+
+    elsif code.match(/\d\d\d\d00000000$/)  and (not code.match(/\d\d0000000000$/))
+      city_name= ($province_region[code]||"")+"，"+(add_sheng_for_province($province_region[code.slice(0,2)+"0000000000"])||"") # all should be chinese character include ,！！！
+      return city_name
+    else
+      province_code=code.slice(0,2)+"0000000000"
+      region_code=code.slice(0,4)+"00000000"
+      city_name=($citytree[province_code][region_code][code]||"")+"，"+($province_region[region_code]||"")+"，"+(add_sheng_for_province($province_region[province_code]) ||"")      
+      return city_name
+    end
+  end
+  
   def get_max_min_code(code)
     max_code,min_code=0
     if code.match(/\d\d0000000000$/) # is a province id 
