@@ -406,8 +406,8 @@ class TrucksController < ApplicationController
     city_level(params[:city_id]) #for title usage , SEO friendlly
   end
   
-  def posttruck
-    logger.info  
+  def post_truck
+    logger.info  "get post truck request"
         new_truck= eval(params[:truck]).to_hash  
     
     begin

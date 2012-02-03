@@ -8,13 +8,10 @@ require 'active_support/all'
 require "test/unit"
 puts "load test env cost #{Time.now-start_time} sec"
 
-
-
 class ActiveSupport::TestCase
-
   $browser =Watir::IE.new
   $browser.speed = :fast
-#  $browser.minimize
+# $browser.minimize
   $site_root= "http://ym.163.com/" 
 
    

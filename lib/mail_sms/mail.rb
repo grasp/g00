@@ -47,17 +47,17 @@ ActionMailer::Base.smtp_settings = {
   :enable_starttls_auto => true
 }
 
-  ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.delivery_method = :smtp
 puts "load lib done"
 Emaillistc.where(:csize.gt =>0).asc(:updated_at).limit(1).each do |email|
   puts "find one email=#{email.email}"
   begin
   Notifier.send_notify_email(email).deliver!
   email.update_attributes(:cargolist=>nil,:csize=>0)
-
   rescue
     puts $@
   end
 end
+
 puts "send finished"
 

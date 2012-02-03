@@ -113,7 +113,7 @@ G0::Application.routes.draw do
  # match "quotes/request_chenjiao/:id" =>'quotes#request_chenjiao',:as=>:quotesrequest_chenjiao
 #  match "quotes/confirm_chenjiao/:id" =>'quotes#confirm_chenjiao',:as=>:quotesconfirm_chenjiao
  match '/cargos/post_cargo/:cargo' =>'cargos#postcargo',:as=>:postcargo,  :via => :post
- match '/trucks/post_truck/:from_site' =>'trucks#posttruck',:as=>:postruck,  :via => :post
+ match '/trucks/post_truck/:truck' =>'trucks#posttruck',:as=>:postruck,  :via => :post
 
   resources :quotes
 
