@@ -9,7 +9,8 @@ gem "mechanize"
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'will_paginate',:git => 'http://github.com/mislav/will_paginate.git',:branch=>'rails3'
-gem "will_paginate", "~> 3.0.pre2"
+#gem "will_paginate", "~> 3.0.pre2"
+gem "will_paginate_mongoid"
 
 gem 'redis', '2.2.1'
 gem 'redis-store', '1.0.0.rc1'
@@ -61,4 +62,6 @@ group :test do
 end
 
 gem "geocoder"
+gem "gmaps4rails"
+gem 'mongoid_spacial'
 #test

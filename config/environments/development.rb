@@ -27,5 +27,7 @@ G0::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
 #  config.paths.log="/d/vob/g00/log/#{Rails.env}.log"
  # config.paths.log="/var/log/rails/#{Rails.env}.log"
+ 
+  Gmaps4rails.http_proxy = "http://wwwgate0-ch.mot.com:1080"
 end
 
