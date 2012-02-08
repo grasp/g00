@@ -13,3 +13,5 @@ bin/log/*.log
 bin/tmp/*.pid
 bin/tmp/*.job
 bin/tmp/*.txt
+builder/
+builder/*.*

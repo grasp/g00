@@ -14,7 +14,7 @@ G0::Application.configure do
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
-  config.action_view.debug_rjs             = true
+ # config.action_view.debug_rjs             = true
   config.action_controller.perform_caching = true
 
   # Don't care if the mailer can't send
@@ -28,6 +28,13 @@ G0::Application.configure do
 #  config.paths.log="/d/vob/g00/log/#{Rails.env}.log"
  # config.paths.log="/var/log/rails/#{Rails.env}.log"
  
+  # Do not compress assets
+config.assets.compress = false
+ 
+# Expands the lines which load the assets
+config.assets.debug = true
+ 
+  
   Gmaps4rails.http_proxy = "http://wwwgate0-ch.mot.com:1080"
 end
 

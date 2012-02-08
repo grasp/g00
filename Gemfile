@@ -1,26 +1,42 @@
 require 'rubygems'
-require 'mongo'
+
 
 source 'http://ruby.taobao.org'
 
-gem 'rails', '3.0.7'
-gem "mechanize"
+gem 'rails', '3.2.1'
+gem "railties", '~>3.2.1'
+gem "builder","3.0.0"
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails',   "~> 3.2.3"
+  gem 'coffee-rails' , "~> 3.2.1"
+  gem 'uglifier', "~> 1.0.3"
+end
+
+
+#gem "mechanize" not used for now
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'will_paginate',:git => 'http://github.com/mislav/will_paginate.git',:branch=>'rails3'
-#gem "will_paginate", "~> 3.0.pre2"
-gem "will_paginate_mongoid"
+gem "will_paginate", "~> 3.0.pre4"
+#gem "will_paginate_mongoid"
+#gem 'kaminari'
 
 gem 'redis', '2.2.1'
+gem 'bson' , "~>1.5.2"
 gem 'redis-store', '1.0.0.rc1'
 
-#gem 'unicorn'
-gem "mongoid", "2.2.2"
+
+gem 'mongo', '1.5.2'
+gem "mongoid", "~>2.3.0"
 #gem 'memcache-client'
+#gem 'unicorn'
 gem "webrobots", "~> 0.0.10", :git => 'http://github.com/knu/webrobots.git'
 #gem "webrobots","0.0.11"
-gem 'bson' , "1.5.2"
+
 platform=Object::RUBY_PLATFORM
 unless  platform.match("linux").nil?#for linux
 gem 'thin'
@@ -37,31 +53,18 @@ gem 'foreverb'
 gem 'request-log-analyzer'
 #gem 'dalli'
 # Use unicorn as the web server
-# Deploy with Capistrano
-# gem 'capistrano'
-# To use debugger
-# gem 'ruby-debug'
-# Bundle the extra gems:
-# gem 'bj'
-# gem 'nokogiri'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
-# Bundle gems for the local environment. Make sure to
-# put test-only gems in this group so their generators
-# and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
-# end
-group :development do
-  gem "rails-dev-boost", :git => "http://github.com/thedarkone/rails-dev-boost.git", :require => "rails_development_boost"
- #gem 'rails-dev-boost', :require => 'rails_development_boost'
-end
 
-group :test do
-  gem "rails-dev-boost", :git => "http://github.com/thedarkone/rails-dev-boost.git", :require => "rails_development_boost"
-end
+#group :development do
+ # gem "rails-dev-boost", :git => "http://github.com/thedarkone/rails-dev-boost.git", :require => "rails_development_boost"
+ #gem 'rails-dev-boost', :require => 'rails_development_boost'
+#end
+
+#group :test do
+ # gem "rails-dev-boost", :git => "http://github.com/thedarkone/rails-dev-boost.git", :require => "rails_development_boost"
+#end
 
 gem "geocoder"
 gem "gmaps4rails"
-gem 'mongoid_spacial'
-#test
+gem 'mongoid_spacial',"~>0.2.16"
+
+

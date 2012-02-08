@@ -36,7 +36,8 @@ G0::Application.configure do
   # In production, Apache or nginx will already do this
   config.serve_static_assets = true
   
-  config.paths.log="/var/log/rails/#{Rails.env}.log"
+ #config.paths.log="/var/log/rails/#{Rails.env}.log" 
+ #config.paths.log="/#{Rails.root}/log/#{Rails.env}.log"
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
@@ -53,4 +54,26 @@ G0::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  
+  #below if for rails 3.1
+  
+  # Compress JavaScripts and CSS
+config.assets.compress = true
+ 
+# Choose the compressors to use
+# config.assets.js_compressor  = :uglifier
+# config.assets.css_compressor = :yui
+ 
+# Don't fallback to assets pipeline if a precompiled asset is missed
+config.assets.compile = false
+ 
+# Generate digests for assets URLs.
+config.assets.digest = true
+ 
+# Defaults to Rails.root.join("public/assets")
+# config.assets.manifest = YOUR_PATH
+ config.assets.manifest = "public/assets"
+# Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+# config.assets.precompile += %w( search.js )
 end
