@@ -9,5 +9,5 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require g00
+ *= require g00.css
 */

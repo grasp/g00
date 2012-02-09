@@ -9,11 +9,12 @@
 //
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
-//
-//= require jquery-1.4.2.min
-//= require jquery.validate
-//= require jquery.form
-//= require myvalidate
-//= require g1
+
+//= require jquery-1.4.2.min.js
+//= require jquery.form.js
+//= require jquery.validate.js
+//= require myvalidate.js
+//= require zz-g1.js
+
 
 
