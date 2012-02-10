@@ -1,0 +1,31 @@
+<% if enable_js == true && scripts.try(:to_sym) != :none %>
+  <% case map_options.try(:[], :provider) %>
+  <% when "openlayers" %>
+    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+  <% when "mapquest" %>
+    <script src="http://mapquestapi.com/sdk/js/v6.0.0/mqa.toolkit.js?key=<%= map_options.try(:[], :provider_key) %>"></script>
+  <% when "bing" %>
+    <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+  <% else %>
+    <script type="text/javascript" src="//ditu.google.cn/maps/api/js?v=3.5&sensor=false&language=zh-CN&amp;libraries=geometry<%= gmaps4rails_js_libraries(map_options.try(:[], :libraries)) %>"></script>
+    <script type="text/javascript" src="//google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.9/src/infobox_packed.js"></script>
+    <script type="text/javascript" src="//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.5/src/markerclusterer_packed.js"></script>
+    <script type="text/javascript" src="//google-maps-utility-library-v3.googlecode.com/svn/trunk/richmarker/src/richmarker-compiled.js"></script>  
+  <% end %>
+  
+  <% if Rails::VERSION::MAJOR >= 3 && Rails::VERSION::MINOR < 1 %>
+    <% unless scripts.try(:to_sym) == :api %>
+      <%= javascript_include_tag 'gmaps4rails/gmaps4rails.base.js' %>
+    <% end %>
+    <% case map_options.try(:[], :provider) %>
+    <% when "openlayers" %>
+      <%= javascript_include_tag 'gmaps4rails/gmaps4rails.openlayers.js' %>
+    <% when "mapquest" %>
+      <%= javascript_include_tag 'gmaps4rails/gmaps4rails.mapquest.js' %>
+    <% when "bing" %>
+      <%= javascript_include_tag 'gmaps4rails/gmaps4rails.bing.js' %>
+    <% else %>
+      <%= javascript_include_tag 'gmaps4rails/gmaps4rails.googlemaps.js' %>
+    <% end %>
+  <% end %>
+<% end  %>

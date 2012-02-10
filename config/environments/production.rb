@@ -76,5 +76,5 @@ config.assets.digest = true
 # config.assets.manifest = "public/assets"
 # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
 # config.assets.precompile += %w( search.js )
-
+Gmaps4rails.http_proxy = "http://wwwgate0-ch.mot.com:1080"
 end

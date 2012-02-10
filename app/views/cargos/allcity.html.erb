@@ -1,4 +1,10 @@
 
+<%#= gmaps4rails(@json) %>
+<%= gmaps(
+  "map_options" => { "type" => "ROADMAP", "center_longitude" => @lng, "center_latitude" => @lat, "zoom" => 8, "auto_adjust" => false},
+  "markers" => { "data" => @markers }) %>
+
+
 <%if params[:page]==1||params[:page]==nil%>
   <%cache "cargos_allcity_1" do %>
   <%cargo_allcity_helper%>

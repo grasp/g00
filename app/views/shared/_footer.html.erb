@@ -25,13 +25,16 @@
  <%#=javascript_include_tag "jquery-1.4.2.min.js","jquery.form","jquery.validate","myvalidate","g1",:cache => "all" %>
  <%= yield :scripts %>
 <%else%>
+  <%= javascript_include_tag "application.js" %>   
   <%= javascript_include_tag 'jquery-1.4.2.min.js' %>
   <%= javascript_include_tag "jquery.form.js" %>
   <%= javascript_include_tag "jquery.validate.js " %>
   <%= javascript_include_tag "myvalidate.js " %>
-  <%= javascript_include_tag "g1.js" %>   
-  <%= javascript_include_tag "bootstrap-tab.js" %>   
+  <%= javascript_include_tag "zz-g1.js" %>   
+  <%#= javascript_include_tag "bootstrap-tab.js" %>   
+
   <%#=javascript_include_tag "jquery-1.4.2.min.js","jquery.form","jquery.validate","myvalidate","g1",:cache => "all" %>
 
 <%= yield :scripts %>
+
 <%end%>

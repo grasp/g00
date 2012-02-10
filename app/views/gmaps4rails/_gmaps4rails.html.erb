@@ -1,0 +1,19 @@
+<% #thanks to enable_css, user can avoid this css to be loaded
+if enable_css == true && options[:scripts].nil? %>
+  <% if Rails::VERSION::MAJOR >= 3 && Rails::VERSION::MINOR < 1 %>
+    <% content_for :head do %>
+      <%= stylesheet_link_tag 'gmaps4rails' %>
+    <% end %>
+	<% end %>
+<% end %>
+
+<% content_for :scripts do %>
+
+<%= gmaps4rails_js_files(options[:map_options], options[:scripts], enable_js) %>
+<script type="text/javascript" charset="utf-8">
+<%=raw options.to_gmaps4rails %>
+</script>
+
+<% end %>
+
+<%= gmaps4rails_html(options[:map_options]) %>
