@@ -1,11 +1,29 @@
 <%#coding:utf-8%>
-<a href="/admin/show_log/logfile/production"> production.log</a>
-<a href="/admin/show_log/logfile/access"> access.log</a>
-<a href="/admin/show_log/logfile/mongodb"> mongodb.log</a>
-<a href="/admin/show_log/logfile/thin3000"> thin3000.log</a>
-<a href="/admin/show_log/logfile/cron"> cron.log</a>
+<ul>
+  <h4> Railslog</h4>
+<li><a href="/admin/show_log/logfile/production"> production.log</a></li>
+<li><a href="/admin/show_log/logfile/thin3000"> thin3000.log</a></li>
+<li><a href="/admin/show_log/logfile/development"> development.log</a></li>
+<li><a href="/admin/show_log/logfile/thin3000"> thin3000.log</a></li>
+<li><a href="/admin/show_log/logfile/thin3001"> thin3001.log</a></li>
+<li><a href="/admin/show_log/logfile/thin3002"> thin3002.log</a></li>
+<h4> 数据库log</h4>
+<li><a href="/admin/show_log/logfile/mongodb"> mongodb.log</a></li>
+<h4> Access.log</h4>
+<li><a href="/admin/show_log/logfile/access"> access.log</a></li>
+<h4> Cron.log</h4>
+<li><a href="/admin/show_log/logfile/cron"> cron.log</a></li>
+<li><a href="/admin/show_log/logfile/grasp"> grasp.log</a></li>
+<li><a href="/admin/show_log/logfile/mail">mail.log</a></li>
 
-<a href="/admin/show_log/logfile/development"> development.log</a>
-<a href="/admin/show_log/logfile/dev-thin"> dev-thin.log</a>
-<a href="/admin/show_log/logfile/grasp"> grasp.log</a>
-<a href="/admin/show_log/logfile/mail">mail.log</a>
+</ul>
+
+<h4>Thin Exception</h4>
+<p>
+  <h4>thin fail exception</h4>
+   <%=@thin_fail_exception %>
+<h4>thin exception</h4>
+   <%=@thin_exception %>
+<h4>thin not found exception</h4>
+  <%=@thin_notfound_exception %>
+</p>

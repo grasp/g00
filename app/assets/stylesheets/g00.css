@@ -209,14 +209,14 @@ body {
   clear: both;
 }
 .fluid-sidebar-left, .fluid-sidebar-right {
-  width: 220px;
+  width: 250px;
 }
 .fluid-sidebar-left ul, .fluid-sidebar-right ul {
   display: inline-block;
   padding-left: 0px;
   margin-left: 0px;
-  margin-top: 5px;
-  height: 25px;
+  margin-top: 2px;
+  height: 20px;
 }
 .fluid-sidebar-left ul li, .fluid-sidebar-right ul li {
   display: inline;
@@ -225,7 +225,7 @@ body {
   display: inline-block;
   padding-top: 3px;
   padding-bottom: 3px;
-  width: 95px;
+  width: 100px;
 }
 .fluid-sidebar-left {
   float: left;
@@ -234,11 +234,11 @@ body {
   float: right;
 }
 .fluid-content {
-  margin-left: 240px;
+  margin-left: 250px;
 }
 .fluid-container.reverse .fluid-content {
   margin-left: 0;
-  margin-right: 240px;
+  margin-right: 250px;
 }
 a {
   font-weight: inherit;
@@ -2618,7 +2618,10 @@ a.thumbnail:hover {
   height: 30px;
 }
 .lineselector a {
+  display: inline-block;
   margin-right: 20px;
+  margin-top: 5px;
+  padding: 2px;
 }
 .lineselector .cargo_search, .lineselector .truck_search {
   margin-right: 30px;
@@ -2633,8 +2636,13 @@ a.thumbnail:hover {
   position: absolute;
   background: white;
   z-index: 100;
+  margin-right: -3px;
 }
-/* Here is the float load 2 style */#float_show2, #float_show2 {
+#float_load {
+  /*  display: inline;*/
+  margin-right: -3px;
+}
+/* Here is the float load 2 style */#float_show2 {
   padding: 3px;
   border: 1px solid black;
   background: white;
@@ -2644,7 +2652,7 @@ a.thumbnail:hover {
 #close1, #close2 {
   margin: 5px;
   margin-bottom: 2px;
-  display: block;
+  display: inline;
 }
 .citytitle {
   margin-bottom: 10px;
@@ -2698,8 +2706,25 @@ div.about {
   list-style-type: none;
 }
 table.announce tr {
-  height: 20px;
+  height: 40px;
+  padding: 5px;
+  margin-top: 5px;
+}
+#cargo_show ul li {
   padding: 2px;
+  list-style-type: none;
+}
+.left_navi h3 {
+  marging-top: 10px;
+  padding-top: 10px;
+}
+.help-inline {
+  color: red;
+}
+.lineshow {
+  width: 960px;
+  margin-top: 15px;
+  padding: 5px;
 }
 .hidden {
   display: none;

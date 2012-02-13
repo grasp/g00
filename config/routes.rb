@@ -43,7 +43,7 @@ G0::Application.routes.draw do
   match '/admin/stocktruck_manage'  =>'admin#stocktruck_manage',:as=>:adminstocktruck_manage
   match '/admin/quote_manage'  =>'admin#quote_manage',:as=>:adminquote_manage
   match '/admin/usercontact_manage'  =>'admin#usercontact_manage',:as=>:adminusercontact_manage
-  match '/admin/company_manage  '  =>'admin#company_manage' ,:as=>:admincompany_manage
+  match '/admin/company_manage'  =>'admin#company_manage' ,:as=>:admincompany_manage
   match '/admin/get_room_contact' =>'admin#get_room_contact' ,:as=>:admin_get_room_contact
   match '/admin/show_room_contact' =>'admin#show_room_contact' ,:as=>:admin_show_room_contact
   match '/admin/grasp_tf56' =>'admin#grasp_tf56' ,:as=>:admin_grasp_tf56

@@ -93,7 +93,7 @@ class AdminController < ApplicationController
   end
 
   def user_manage
-    @users = User.all.order(:created_at.desc).paginate(:page=>params[:page]||1,:per_page=>20)
+    @users = User.all.order(:created_at.desc).paginate(:page=>params[:page]||1,:per_page=>50)
   end
 
   def company_manage
@@ -146,22 +146,36 @@ class AdminController < ApplicationController
   end
 
   def show_log
+    @thin_fail_exception=String.new
+    @thin_exception=String.new
+    @thin_notfound_exception=String.new
+    if  Object::RUBY_PLATFORM.match("linux") 
+     @thin_fail_exception <<`cat /opt/vob/g00/log/thin.3000.log |grep fail`
+     @thin_fail_exception <<`cat /opt/vob/g00/log/thin.3001.log |grep fail`
+     @thin_fail_exception <<`cat /opt/vob/g00/log/thin.3002.log |grep fail`
+       @thin_exception <<`cat /opt/vob/g00/log/thin.3000.log |grep xception`
+      @thin_exception <<`cat /opt/vob/g00/log/thin.3001.log |grep xception`
+     @thin_exception <<`cat /opt/vob/g00/log/thin.3002.log |grep xception`
+      @thin_notfound_exception <<`cat /opt/vob/g00/log/thin.3000.log |grep NotFound`
+    @thin_notfound_exception <<`cat /opt/vob/g00/log/thin.3001.log |grep NotFound`
+   @thin_notfound_exception <<`cat /opt/vob/g00/log/thin.3002.log |grep NotFound`      
+    end
     if params[:logfile]=="access"
       send_file "/var/log/rails/access.log", :type=>"application/log"
     elsif params[:logfile]=="mongodb"
       send_file "/var/log/mongodb/mongodb.log", :type=>"application/log"  
-    elsif params[:logfile]=="mongodb"
-      send_file "/var/log/mongodb/mongodb.log", :type=>"application/log"  
     elsif params[:logfile]=="thin3000"
       send_file "/opt/vob/g00/log/thin.3000.log", :type=>"application/log"  
+          elsif params[:logfile]=="thin3001"
+      send_file "/opt/vob/g00/log/thin.3001.log", :type=>"application/log" 
+          elsif params[:logfile]=="thin3002"
+      send_file "/opt/vob/g00/log/thin.3002.log", :type=>"application/log" 
     elsif params[:logfile]=="production"
       send_file "/var/log/rails/production.log", :type=>"application/log"  
     elsif params[:logfile]=="cron"
       send_file "/var/mail/hunter", :type=>"application/log"  
     elsif params[:logfile]=="development"
       send_file "/opt/vob/tmp/g00/log/development.log", :type=>"application/log"  
-    elsif params[:logfile]=="dev-thin"
-      send_file "/opt/vob/tmp/g00/log/thin.log", :type=>"application/log"  
           elsif params[:logfile]=="grasp"
       send_file "/opt/vob/g00/bin/log/grasp.log", :type=>"application/log" 
           elsif params[:logfile]=="mail"

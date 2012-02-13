@@ -2,10 +2,8 @@
 class User 
   include Mongoid::Document
   include Mongoid::Timestamps
- # include UsersHelper
-  
-  attr_accessor:password_confirmation,:email_confirm
-  
+ # include UsersHelper  
+  attr_accessor:password_confirmation,:email_confirm  
   field :email,:type=>String
   field :name,:type=>String
   field :admin,:type=>Boolean, :default=>false

@@ -1,136 +1,130 @@
 <%user=User.find(session[:user_id]) unless session[:user_id].nil?%>
-
-<hr id="head_line">
-<table class="navi">
-  <tr class="row">
-    <td class="span4"> <a  href="/admin/">总体情况</a></td>
-        <td class="navi_user span4">
-      <a class="navi_scan_link" href="/admin/user_manage/">用户信息</a>   </td>
-    <td class="span4"><a href="/mail_accounts">邮箱信息</a></td>
-    <td class="span4">
+<ul>
+    <li><a  href="/admin/">总体情况</a></li>
+      <li> <a class="navi_scan_link" href="/admin/usercontact_manage/">联系方式</a>   </li>
+    <li>    <a class="navi_scan_link" href="/admin/user_manage/">用户管理</a>   </li>
+        <!--
+    <li><a href="/mail_accounts">邮箱信息</a></li>
+    <li>
       <a  href="/lib_companies">采集的公司(<%=LibCompany.count%>)</a>
-    </td>
+    </li>
     
-    
-    <td class="span4"><a class="navi_scan_link" href="/admin/scan">过期扫描</a></td></td>
-    <td class="span4">
-      <a class="navi_scan_link" href="/admin/scaninfo">扫描历史(<%=h Scan.count%>)</a></td>
-    <td class="span4">   <a class="navi_scan_link" href="/admin/move">迁移过期</a></td>
-    <td class="span4">   <a class="navi_scan_link" href="/admin/moveinfo">迁移历史(<%=h Move.count%>)</a></td>
+    <li><a class="navi_scan_link" href="/admin/scan">过期扫描</a></li></li>
+    <li>
+      <a class="navi_scan_link" href="/admin/scaninfo">扫描历史(<%=h Scan.count%>)</a></li>
+    <li>  <a class="navi_scan_link" href="/admin/move">迁移过期</a></li>
+    <li>  <a class="navi_scan_link" href="/admin/moveinfo">迁移历史(<%=h Move.count%>)</a></li>
 
-    <td class="span4"> <a class="navi_scan_link" href="/admin/grasp_quzhou">采集QuZhou</a></td>
-    <td class="span4"> <a class="navi_scan_link" href="/admin/grasp_tf56">采集Tf56</a></td>
-    <td class="span4"> <a class="navi_scan_link" href="/admin/get_room_contact">整理房间</a></td>
-    <td class="span4">
-      <a class="navi_scan_link" href="/admin/tf56grasp">tf56历史(<%=h GraspRecord.count%>)</a></td>
-    <td class="span4">
-      <a class="navi_scan_link" href="/admin/quzhougrasp">quzhou历史</a> </td>
-    <!--
-    <td class="span4"><a href="/mail_accounts/tuiguang/mode/test/way/sent/domain/<%=CGI.escape("smtp#gmail#com")%>">Gmail发测试</a></td>
-    <td class="span4"><a href="/mail_accounts/tuiguang/mode/test/way/sent/domain/<%=CGI.escape("smtp#163#com")%>">163发测试</a></td>
-    <td class="span4"><a href="/mail_accounts/tuiguang/mode/test/way/sent/domain/<%=CGI.escape("smtp#live#com")%>">hotmail发测试</a></td>
+    <li><a class="navi_scan_link" href="/admin/grasp_quzhou">采集QuZhou</a></li>
+    <li><a class="navi_scan_link" href="/admin/grasp_tf56">采集Tf56</a></li>
+    <li><a class="navi_scan_link" href="/admin/get_room_contact">整理房间</a></li>
+    <li>
+      <a class="navi_scan_link" href="/admin/tf56grasp">tf56历史(<%=h GraspRecord.count%>)</a></li>
+    <li>
+      <a class="navi_scan_link" href="/admin/quzhougrasp">quzhou历史</a> </li>
+    <li><a href="/mail_accounts/tuiguang/mode/test/way/sent/domain/<%=CGI.escape("smtp#gmail#com")%>">Gmail发测试</a></li>
+    <li><a href="/mail_accounts/tuiguang/mode/test/way/sent/domain/<%=CGI.escape("smtp#163#com")%>">163发测试</a></li>
+    <li><a href="/mail_accounts/tuiguang/mode/test/way/sent/domain/<%=CGI.escape("smtp#live#com")%>">hotmail发测试</a></li>
   
-    <td class="span4"><a href="/mail_accounts/tuiguang/mode/test/way/receive/domain/<%=CGI.escape("smtp#gmail#com")%>">Gmail收测试</a></td>
-    <td class="span4"><a href="/mail_accounts/tuiguang/mode/test/way/receive/domain/<%=CGI.escape("smtp#163#com")%>">163收测试</a></td>
-    <td class="span4"><a href="/mail_accounts/tuiguang/mode/test/way/receive/domain/<%=CGI.escape("smtp#live#com")%>">hotmail收测试</a></td>
+    <li><a href="/mail_accounts/tuiguang/mode/test/way/receive/domain/<%=CGI.escape("smtp#gmail#com")%>">Gmail收测试</a></li>
+    <li><a href="/mail_accounts/tuiguang/mode/test/way/receive/domain/<%=CGI.escape("smtp#163#com")%>">163收测试</a></li>
+    <li><a href="/mail_accounts/tuiguang/mode/test/way/receive/domain/<%=CGI.escape("smtp#live#com")%>">hotmail收测试</a></li>
     
+
+    <li> <a class="navi_scan_link" href="/admin/daily_trends/day/30/table/cargo">每日趋势</a> </li>
+    <li><a class="navi_scan_link" href="/admin/hourly_trends/day/<%=Time.now.to_s.slice(0,10)%>/table/cargo">小时趋势</a></li>
+    <li> <a class="navi_scan_link" href="/admin/request_log_analysis">访问分析</a> </li>
+        
+    <li><a href="/admin/show_cron_mail">后台邮件 </a></li>
+            <li>
+      <a  href="http://dev-wl090.heroku.com/projects/g0/issues"> 问题列表</a>
+    </li>
+            
+      <li>
+      <a href="/wmails/new">新建邮件</a>
+    </li>
+     <li>
+      <a href="/wmails">全部邮件</a>
+    </li>
     -->
  
-
-
-    <td class="span4">  <a class="navi_scan_link" href="/admin/usercontact_manage/">联系方式</a>   </td>
-    <td class="span4"> <a class="navi_scan_link" href="/admin/company_manage">公司</a></td>
-    <td class="span4"> <a class="navi_scan_link" href="/admin/cargo_manage">货源</a></td>
-    <td class="span4"> <a class="navi_scan_link" href="/admin/stockcargo_manage">货物</a></td>
-    <td class="span4"> <a class="navi_scan_link" href="/admin/truck_manage">车源</a></td>
-    <td class="span4"> <a class="navi_scan_link" href="/admin/stocktruck_manage">车辆</a></td>
-    <td class="span4"> <a class="navi_scan_link" href="/admin/quote_manage">报价</a></td>
-    <td class="span4"> <a class="navi_scan_link" href="/admin/inquery_manage">询价</a></td>
-
-
-
-
-    <td class="span4">  <a class="navi_scan_link" href="/admin/daily_trends/day/30/table/cargo">每日趋势</a> </td>
-    <td class="span4"><a class="navi_scan_link" href="/admin/hourly_trends/day/<%=Time.now.to_s.slice(0,10)%>/table/cargo">小时趋势</a></td>
-    <td class="span4">  <a class="navi_scan_link" href="/admin/request_log_analysis">访问分析</a> </td>
-    <td class="span4"><a href="/admin/show_cron_mail">后台邮件 </a></td>
-    <td class="span4"><a href="/admin/show_log">日志分析 </a></td>
-    <td class="span4"><a href="/admin/backup_db">数据库下载 </a></td>
-
-    <td class="span4">
-      <a  href="http://dev-wl090.heroku.com/projects/g0/issues"> 问题列表</a>
-    </td>
-    <td class="span4">
-      <a  href="/jubaos"> 举报查看(<%=Jubao.count%>)</a>
-    </td>
-    <td class="span4">
-      <a  href="/feedbacks"> 用户反馈(<%=Feedback.count%>)</a>
-    </td>
-
-    <td class="span4">
-      <a href="/announces/new">增加公告</a>
-    </td>
-    <td class="span4">
-      <a href="/announces/">全部公告</a>
-    </td>
-    <td class="span4">
+  
+    <li><a class="navi_scan_link" href="/admin/company_manage">公司管理</a></li>
+    <li><a class="navi_scan_link" href="/admin/cargo_manage">货源管理</a></li>
+    <li><a class="navi_scan_link" href="/admin/stockcargo_manage">货物管理</a></li>
+    <li><a class="navi_scan_link" href="/admin/truck_manage">车源管理</a></li>
+    <li><a class="navi_scan_link" href="/admin/stocktruck_manage">车辆管理</a></li>
+    <li><a class="navi_scan_link" href="/admin/quote_manage">报价管理</a></li>
+    <li><a class="navi_scan_link" href="/admin/inquery_manage">询价管理</a></li>
+      <li>      <a href="/admin/allcity">全部城市</a>    </li>
+    <li>      <a href="/announces/">全部公告</a>    </li>
+    <h4>缓存管理</h4>
+    <li>
       <a href="/admin/expire_city_navi">超期用户缓存</a>
-    </td>
-     <td class="span4">
+    </li>
+     <li>
       <a href="/admin/dev_expire">超期开发缓存</a>
-    </td>
-    <td class="span4">
-      <a href="/admin/sync_database">数据库同步到开发</a>
-    </td>
-    <td class="span4">
-      <a href="/admin/deploy_test">部署测试（在正式版中部署）</a>
-    </td>
-       <td class="span4">
-      <a href="/admin/deploy">部署正式版本（在测试版中部署）</a>
-    </td>
-  <td class="span2">
-      <a href="/sitedata">站点数据</a>
-    </td>
-       </tr>
-  <tr class="row">
-   
-    
-      <td class="span2">
-      <a href="/wmails/new">新建邮件</a>
-    </td>
-     <td class="span2">
-      <a href="/wmails">全部邮件</a>
-    </td>
-    
-         <td class="span2">
-      <a href="/admin/send_site_update_to_register">发送站点更新邮件</a>
-    </td>
-         <td class="span2">
-      <a href="/admin/send_site_update_to_register/test">发送站点更新测试</a>
-    </td>
-  <td class="span2">
-      <a href="/admin/total_truck">车辆统计</a>
-    </td>
-    
-      <td class="span2">
-      <a href="/admin/concerncargo">关注货源</a>
-    </td>
-    
-      <td class="span2">
-        <a href="/admin/email_list">邮件列表</a>
-    </td>
-          <td class="span2">
-        <a href="/admin/sms_list">短信列表</a>
-    </td>
-      <td class="span2">
-      <a href="/admin/temp_task">临时任务</a>
-    </td>
-      <td class="span2">
-      <a href="/ustatistics">用户统计</a>
-    </td>
-  <td class="span2">
-      <a href="/admin/allcity">全部城市</a>
-    </td>
-  </tr>
+    </li>
+       <h4>用户反馈</h4>
+        <li>
+      <a  href="/jubaos"> 举报查看(<%=Jubao.count%>)</a>
+    </li>
+    <li>
+      <a  href="/feedbacks"> 用户反馈(<%=Feedback.count%>)</a>
+    </li>
+    <li>
+      <a href="/announces/new">增加公告</a>
+    </li>
 
-</table>
+    <h4>部署管理</h4>
+        <li>
+      <a href="/admin/sync_database">数据库同步到开发</a>
+    </li>
+    <li>
+      <a href="/admin/deploy_test">部署测试</a>
+    </li>
+      <li>
+      <a href="/admin/deploy">部署正式版本</a>
+    </li>
+    <h4>其他管理</h4>
+    <li><a href="/admin/show_log">日志分析 </a></li>
+    <li><a href="/admin/backup_db">数据库下载 </a></li>
+
+
+
+
+    <li>
+      <a href="/sitedata">站点数据</a>
+    </li>
+   
+
+    
+         <li>
+      <a href="/admin/send_site_update_to_register">发送站点更新邮件</a>
+    </li>
+         <li>
+      <a href="/admin/send_site_update_to_register/test">发送站点更新测试</a>
+    </li>
+  <li>
+      <a href="/admin/total_truck">车辆统计</a>
+    </li>
+    
+      <li>
+      <a href="/admin/concerncargo">关注货源</a>
+    </li>
+    
+      <li>
+        <a href="/admin/email_list">邮件列表</a>
+    </li>
+          <li>
+        <a href="/admin/sms_list">短信列表</a>
+    </li>
+      <li>
+      <a href="/admin/temp_task">临时任务</a>
+    </li>
+      <li>
+      <a href="/ustatistics">用户统计</a>
+    </li>
+
+
+</ul>

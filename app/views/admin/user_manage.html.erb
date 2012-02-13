@@ -1,16 +1,19 @@
 
 <h1>Listing users</h1>
+<p>全部用户<%=User.count%>,verified=<%=User.where(:activate=>"verified").count%></p>
 
 <table>
   <tr>
      <th>Name</th>
-    <th>Email</th>
-   
+    <th>Email</th>   
+     <th>mobilephone</th>  
     <th>Status</th>
-    <th>Activate</th>
-    <th>created_at</th>
-      <th>货-货源-有效</th>
-      <th>车-车源-有效</th>
+
+      
+      <th>货车-货车源-有效</th>
+       <th>Activate</th>
+      <th>ustatistic-id</th>
+       <th>created_at</th>
     <th></th>
     <th></th>
     <th></th>
@@ -20,20 +23,21 @@
 
   <%ustatistic=Ustatistic.find(user.ustatistic_id) unless user.ustatistic_id.blank?%>
   <tr>
-      <td><%= user.name %>-<%=ustatistic.id unless user.ustatistic_id.blank? %></td>
-    <td><%= user.email %></td>
-  
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>  
+     <td><%= user.mobilephone %></td>
     <td><%= user.status %></td>
-    <td><%= user.activate %></td>
-    <td><%= user.created_at.localtime.to_s %></td>
+
     <%unless ustatistic.blank?%>
-    <td><%= ustatistic.total_stock_cargo %>-<%= ustatistic.total_cargo %>-<%= ustatistic.valid_cargo %></td>
-    <td><%= ustatistic.total_stock_truck %>-<%= ustatistic.total_truck %>-<%= ustatistic.valid_truck %></td>
+    <td><%= ustatistic.total_stock_cargo %>-<%= ustatistic.total_cargo %>-<%= ustatistic.valid_cargo %>:<%= ustatistic.total_stock_truck %>-<%= ustatistic.total_truck %>-<%= ustatistic.valid_truck %></td>
+
     <%else%>
     <td>no statistic</td>
       <td>no statistic</td>
     <%end%>
     <td><%= user.activate %></td>
+    <td><%=ustatistic.id unless user.ustatistic_id.blank? %></td>
+        <td><%= user.created_at.localtime.to_s.slice(0,11) %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td> <a  href="/users/destroy/<%=user.id%>" onclick="return confirm('do you want to delete the data?')">删除</a></td>
