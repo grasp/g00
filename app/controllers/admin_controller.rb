@@ -1,12 +1,16 @@
 # coding: utf-8
 class AdminController < ApplicationController
-  layout "admin"
+   layout "admin"
   include Tf56graspHelper
   include QuzhougraspHelper
   include ScansHelper
   include AdminHelper
   #   before_filter:admin_authorize,:except=>[:index] #for debug purpose
   before_filter:admin_authorize, :except=>[:grasp_tf56,:grasp_quzhou,:scan,:move,:dev_expire] #for debug purpose
+ 
+  
+
+  
   def index
     @today=Hash.new
     @today["huo"]=Cargo.where(:created_at.lte=>Time.now,:created_at.gte=>Time.now-86400).count
@@ -438,6 +442,5 @@ class AdminController < ApplicationController
     @cities=City.all.paginate(:page=>params[:page]||1,:per_page=>20)
   end
   
-
 
 end

@@ -66,8 +66,11 @@ G0::Application.routes.draw do
   match '/admin/show_mail' =>'admin#show_mail' ,:as=>:admin_show_mail
   match '/admin/temp_task' =>'admin#temp_task' ,:as=>:admin_temp_task
   match '/admin/allcity'=>'admin#allcity',:as=>:adminallcity
-  get "admin/index"
 
+  get "admin/index"
+  #this is for test GUI controller ,we try run test in rails env
+    match '/g00tests(/users(/testname))'=>'g00tests#g00test',:as=>:g00testsg00test
+  
   resources :citystatistics
 
   get "quzhou_wuliu/index"

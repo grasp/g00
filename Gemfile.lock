@@ -46,6 +46,8 @@ GEM
     coffee-script-source (1.2.0)
     commonwatir (2.0.4)
       user-choices
+    domain_name (0.5.2)
+      unf (~> 0.0.3)
     erubis (2.7.0)
     execjs (1.3.0)
       multi_json (~> 1.0)
@@ -65,6 +67,13 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mechanize (2.1)
+      domain_name (>= 0.5.1, ~> 0.5)
+      net-http-digest_auth (>= 1.1.1, ~> 1.1)
+      net-http-persistent (>= 2.3.2, ~> 2.3)
+      nokogiri (~> 1.4)
+      ntlm-http (>= 0.1.1, ~> 0.1)
+      webrobots (>= 0.0.9, ~> 0.0)
     mime-types (1.17.2)
     mongo (1.5.2)
       bson (= 1.5.2)
@@ -76,8 +85,11 @@ GEM
       activesupport (~> 3.0)
       mongoid (>= 2.3.0)
     multi_json (1.0.4)
+    net-http-digest_auth (1.2)
+    net-http-persistent (2.3.3)
     nokogiri (1.5.0)
     nokogiri (1.5.0-x86-mingw32)
+    ntlm-http (0.1.1)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.1)
@@ -129,6 +141,9 @@ GEM
     uglifier (1.0.4)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    unf (0.0.4)
+      unf_ext
+    unf_ext (0.0.4-x86-mingw32)
     user-choices (1.1.6.1)
       builder (>= 2.1.2)
       s4t-utils (>= 1.0.3)
@@ -163,6 +178,7 @@ DEPENDENCIES
   foreverb
   geocoder
   gmaps4rails
+  mechanize
   mongo (= 1.5.2)
   mongoid (~> 2.3.0)
   mongoid_spacial (~> 0.2.16)

@@ -16,7 +16,7 @@ group :assets do
 end
 
 
-#gem "mechanize" not used for now
+gem "mechanize" 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

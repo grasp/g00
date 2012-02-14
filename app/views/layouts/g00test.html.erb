@@ -1,0 +1,41 @@
+<!DOCTYPE  html  PUBLIC  "-//W3C//DTD  XHTML  1.0  Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head> 
+
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title> 管理平台</title>   
+    <meta name="description" content="物流专线,货源，车源,有货, 装车,吨位,运价,回程, 零担,整车,司机,驾驶员,竭诚为你服务,准时, 半挂车,前四后八,平板,低栏,中栏,高栏,蓬车,厢式,罐式,集装箱,
+          大件,危险品,冷藏保温,专线,车队,运输,配货,配车, 货运,托运,拉货,天天装,货运公司,运输公司,发货,装车"/>
+    <meta name="keywords" content="物流专线,货源，车源,有货, 装车,吨位,运价,回程, 零担,整车,司机,驾驶员,竭诚为你服务,准时, 半挂车,前四后八,平板,低栏,中栏,高栏,蓬车,厢式,罐式,集装箱,
+          大件,危险品,冷藏保温,专线,车队,运输,配货,配车, 货运,托运,拉货,天天装,货运公司,运输公司,发货,装车"/>
+          <%=render "shared/stylesheet"%>
+  </head> 
+
+  <body>
+
+    <%=render "shared/topbar"%>  
+
+
+
+    <div class="fluid-container ">  
+      <div class="fluid-sidebar-left">
+        <%=render "shared/testnavi"%>
+      </div>
+
+      <div class="fluid-content">
+        <%=render "shared/common"%>
+        <%= yield %>     
+        <%=render "shared/float_show"%>
+      </div>
+
+    </div>
+
+
+    <%=render "shared/footer"%>
+
+
+  </body>
+</html>
+
+

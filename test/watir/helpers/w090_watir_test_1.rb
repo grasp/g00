@@ -8,24 +8,19 @@ start_time=Time.now
 require 'watir'
 require  'rubygems'
 require 'active_support/all'
-#require 'test/unit/notify'
 require "test/unit"
 puts "load test env cost #{Time.now-start_time} sec"
 #end
 
 
 class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
-  #
-  # Note: You'll currently still have to declare fixtures explicitly in integration tests
-  # -- they do not yet inherit this setting
-  # fixtures :all
-  # Add more helper methods to be used by all tests here...
-  #$browser = Watir::Browser.new()
+
+  
+  
   $browser =Watir::IE.new
   $browser.speed = :fast
   $browser.minimize
-  $site_root= "http://10.192.185.193"  
+  $site_root= "http://localhost:4500"  
   
   $user_name1=Time.now.to_s.gsub(/\s|:|\+/,"").to_s 
   $user_email1="#{$user_name1}@gmail.com"
@@ -37,17 +32,7 @@ class ActiveSupport::TestCase
   $user_email2="#{$user_name2}@gmail.com"
   $mobile_phone2=$user_name2.slice(9,18)
   $paizhao2=$mobile_phone2.slice(0,6)
-  
-  
-  #each time run test, new a user  
-  # puts "we got a new user =#{$user_name} with email=#{$user_email} and mobilephone=#{$mobile_phone}"
-  #  $browser.goto("#{$site_root}")
 
- # create_user($user_name1,$user_email1,$mobile_phone1)
- # create_user($user_name2,$user_email2,$mobile_phone2)
-
-  
-# def create_user(username,useremail,mobilephone)
   $browser.goto("#{$site_root}")
   $browser.link(:href, "#{$site_root}/users/new").click
   $browser.text_field(:id, "user_name").set($user_name1)
@@ -76,6 +61,7 @@ class ActiveSupport::TestCase
     logout
     login(username)
   end
+  
   def logout
      if $browser.text.match("登出")
       $browser.link(:text, "登出").click;sleep 1
@@ -83,6 +69,7 @@ class ActiveSupport::TestCase
       $browser.goto("#{$site_root}");sleep 1
     end
   end
+  
   def login(username)
    assert $browser.link(:href, "#{$site_root}/users/login").click;sleep 1
     result=$browser.text.force_encoding('utf-8')
@@ -122,11 +109,4 @@ class ActiveSupport::TestCase
   
 end
 
-require  File.dirname(__FILE__) + "/cargos/cargo_public_page_test"
-require  File.dirname(__FILE__) + "/trucks/truck_page_test"
-require  File.dirname(__FILE__) + "/trucks/new_stock_truck_and_truck"
-require  File.dirname(__FILE__) + "/users/user_page_test"
-require  File.dirname(__FILE__) + "/cargos/new_stock_cargo"
-require  File.dirname(__FILE__) + "/companies/new_company"
-require  File.dirname(__FILE__) + "/contacts/new_contact"
 
