@@ -7,10 +7,12 @@ require 'watir'
 require  'rubygems'
 require 'active_support/all'
 require "test/unit"
+require 'watir/close_all'  
 
 puts "load test env cost #{Time.now-start_time} sec"
 
 def prepare_watir
+  #Watir::IE.close_all  
   @browser =Watir::IE.new
   @browser.speed = :fast
   # @browser.minimize

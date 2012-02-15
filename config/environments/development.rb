@@ -37,5 +37,7 @@ config.assets.debug = false
  config.log_level = :info
   
   Gmaps4rails.http_proxy = "http://wwwgate0-ch.mot.com:1080"
+  
+  config.action_dispatch.rack_cache = {:verbose => false}
 end
 

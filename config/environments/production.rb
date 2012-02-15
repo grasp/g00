@@ -37,8 +37,10 @@ G0::Application.configure do
   config.serve_static_assets = true
   
  #config.paths.log="/var/log/rails/#{Rails.env}.log" 
- #config.paths.log="/#{Rails.root}/log/#{Rails.env}.log"
-
+ platform=Object::RUBY_PLATFORM
+if  platform.match("linux").nil?#for linux
+ config.paths.log="/#{Rails.root}/log/#{Rails.env}.log"
+end
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
 
@@ -59,8 +61,13 @@ G0::Application.configure do
   #below if for rails 3.1
   
   # Compress JavaScripts and CSS
-config.assets.compress = true
- 
+unless Object::RUBY_PLATFORM.match("linux")
+config.assets.compress = false
+config.assets.js_compressor = :closure
+else
+  config.assets.compress = true
+end
+
 # Choose the compressors to use
 # config.assets.js_compressor  = :uglifier
 # config.assets.css_compressor = :yui

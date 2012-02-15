@@ -17,16 +17,16 @@ class W090NewCompanyTest < ActiveSupport::TestCase
     user_logout(@browser)  
   end
   
-  test "new stockcargo" do
+  test "new cargo" do
     user_logout_login(@browser,@site_root,@user_name1,"1234567")
     @browser.goto("#{@site_root}/users/stock_cargos")
     @browser.link(:text, "添加新的货物").click;sleep 0.5  
     create_stock_cargo(@browser,@site_root)   
     
-  end
-  
-  test "new cargo" do 
-     @browser.goto("#{@site_root}/users/stock_cargos")
-     
+
+     @browser.goto("#{@site_root}/users/stock_cargos");sleep 0.5 
+      @browser.link(:text, "发布货源").click;sleep 2
+      
+    create_cargo(@browser,"浙江","杭州","江苏","常熟","12","12","二天","整车")
   end
 end

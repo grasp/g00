@@ -37,6 +37,7 @@ GEM
     arel (3.0.0)
     bson (1.5.2)
     builder (3.0.0)
+    closure-compiler (1.1.5)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -126,8 +127,8 @@ GEM
     s4t-utils (1.0.4)
       hoe (>= 1.3.0)
     sass (3.1.15)
-    sass-rails (3.2.4)
-      railties (~> 3.2.0)
+    sass-rails (3.2.3)
+      railties (~> 3.2.0.beta)
       sass (>= 3.1.10)
       tilt (~> 1.3)
     sprockets (2.1.2)
@@ -177,6 +178,7 @@ PLATFORMS
 DEPENDENCIES
   bson (~> 1.5.2)
   builder (= 3.0.0)
+  closure-compiler
   coffee-rails (~> 3.2.1)
   ffi (= 1.0.9)
   foreverb
@@ -191,8 +193,8 @@ DEPENDENCIES
   redis (= 2.2.1)
   redis-store (~> 1.0.0.rc1)
   request-log-analyzer
-  sass-rails (~> 3.2.3)
-  uglifier (~> 1.0.3)
+  sass-rails (= 3.2.3)
+  uglifier (= 1.0.4)
   watir
   webrobots (~> 0.0.10)!
   will_paginate (~> 3.0.pre4)

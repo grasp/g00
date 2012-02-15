@@ -23,8 +23,4 @@
 <%else%>
 <%Sitedatum.first.inc(:loginuser,1) unless session[:user_name]=="admin"%>
 <%end%>
-<%if flash[:notice]%>
-<div>
-  <p class="alert-message info"><%=flash[:notice]%></p>
-</div>
-<%end%>
+

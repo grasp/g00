@@ -10,11 +10,11 @@ gem "ffi","1.0.9"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   "~> 3.2.3"
+  gem 'sass-rails',   "3.2.3"
   gem 'coffee-rails' , "~> 3.2.1"
-  gem 'uglifier', "~> 1.0.3"
+  gem 'uglifier', "1.0.4"
 end
-
+gem 'closure-compiler'
 
 gem "mechanize" 
 # Bundle edge Rails instead:
@@ -28,7 +28,6 @@ gem "will_paginate", "~> 3.0.pre4"
 gem 'redis', '2.2.1'
 gem 'bson' , "~>1.5.2"
 gem 'redis-store', "~>1.0.0.rc1"
-
 
 gem 'mongo', '1.5.2'
 gem "mongoid", "~>2.3.0"
@@ -53,15 +52,6 @@ gem 'foreverb'
 gem 'request-log-analyzer'
 #gem 'dalli'
 # Use unicorn as the web server
-
-#group :development do
- # gem "rails-dev-boost", :git => "http://github.com/thedarkone/rails-dev-boost.git", :require => "rails_development_boost"
- #gem 'rails-dev-boost', :require => 'rails_development_boost'
-#end
-
-#group :test do
- # gem "rails-dev-boost", :git => "http://github.com/thedarkone/rails-dev-boost.git", :require => "rails_development_boost"
-#end
 
 gem "geocoder"
 gem "gmaps4rails"

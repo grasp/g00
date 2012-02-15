@@ -374,6 +374,7 @@ end
     
   # @json = City.limit(1).to_gmaps4rails   
  #  logger.info @json
+ if false
  @lng=City.limit(1)[0].lat
   @lat=City.limit(1)[0].lng
     puts "lat=#{@lat},lng=#{@lng}"
@@ -382,6 +383,7 @@ end
              {'lng': #{@lng}, 'lat': #{@lat} }
             ]"
     puts "marker=#{@markers}"
+  end
   end
   
   def cityfrom
