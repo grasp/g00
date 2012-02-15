@@ -19,7 +19,9 @@
     <div class="fluid-container ">  
 
       <div class="fluid-sidebar-left">
-
+        <ul>
+          <li> .</li>
+        </ul>
       </div>
 
       <div class="fluid-content">
@@ -29,7 +31,8 @@
         <p class="alert-message info"><%=flash[:notice]%></p>
       </div>
     <%end%>
-        <%= yield %>        
+        <div>
+        <%= yield %>    </div>    
 
         <%=render "shared/float_show"%>
       </div>

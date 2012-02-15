@@ -7,6 +7,7 @@ class CompaniesController < ApplicationController
   before_filter:authorize,:except => [:yellowpage,:show,:search]
   protect_from_forgery :except => [:tip,:login,:search]
   include CompaniesHelper
+  include CitiesHelper
   layout :choose_layout
   
   def choose_layout
@@ -22,7 +23,7 @@ class CompaniesController < ApplicationController
   end
   
   def yellowpage
-
+    @company = Company.where(:user_id =>session[:user_id]).first #only one company actully
   end
   
   def index
@@ -87,13 +88,14 @@ class CompaniesController < ApplicationController
   # GET /companies/1.xml
   def show
     @company = Company.find(params[:id])
-@company_name=@company.name
+    @company_name=@company.name
+    
     respond_to do |format|
-
       format.html # new.html.erb
       format.xml  { render :xml => @company }
     end
   end
+  
   def showf
     @company = Company.find(params[:id])
 
@@ -170,26 +172,20 @@ class CompaniesController < ApplicationController
   def create
     # params[:company][:fix_phone]=params[:quhao]+"-"+ params[:company][:fix_phone]
     @company = Company.new(params[:company])  
-   # puts "below is  params[:company]"
-  #  puts params[:company]
-     
-    #ret_val_company=get_company_from_params(params)
 
     respond_to do |format|
       if @company.save
-        #update user'company_id
-        #@user=User.find(params[:company][:user_id])
         @user=User.find(session[:user_id])
         raise if @user.blank?
         @user.update_attributes({:company_id=>@company.id})
          expire_fragment "yellowpage"
          expire_fragment "users_center_#{session[:user_id]}"
-        flash[:notice] = '公司创建成功，恭喜你注册完成了'
+        flash[:notice] = '公司成功创建，恭喜你创建完成了!'
          session[:user_id]=@user.id
-        format.html {  redirect_to :action=>"privatecenter"}
+        format.html {  redirect_to :action=>"show",:id=>@company.id}
         format.xml  { render :xml => @company, :status => :created, :location => @company }
       else
-        flash[:notice] = '公司创建失败了'
+        flash[:notice] = '公司创建失败了,再次创建试试看？'
         format.html {  render :action=>"new"}
         format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
       end
@@ -217,14 +213,25 @@ class CompaniesController < ApplicationController
     end
   end
 
-  def search
-    
+  def search    
+    puts params
+    puts "paramssearch#{params[:companysearch]}"
     @company=Company.new
     @company.city_code=params[:companysearch][:city_code]
     @company.city_name=params[:companysearch][:city_name]
+    begin
+    @search_city=get_city_full_name(params[:companysearch][:city_code]) #city code is nil   
+    rescue
+      @search_city=nil
+    #  puts "search city code=#{params[:companysearch][:city_code]}"
+     #     respond_to do |format|
+     #        format.html { render :action=>"yellowpage" }
+    #      end
+     #     return
+    end
     
-  #  @companies=Company.where(:city_code =>params[:companysearch][:city_code])
-   @companies=get_search_companies(params[:companysearch][:city_code])
+      @companies=get_search_companies(params[:companysearch][:city_code])
+   
     respond_to do |format|
       format.html 
       format.xml 
@@ -251,6 +258,9 @@ class CompaniesController < ApplicationController
     #we have to use username 
    @company=Company.where(:user_id =>session[:user_id].to_s).first #only one company actull
    @company=Company.new if @company.blank?
+   
+     @search_city="city name is not blank" if @company.city_name.blank?
+   @search_city="请选择城市"
     respond_to do |format|
       format.html { render :action=>"show" }
       format.xml  { head :ok }

@@ -1,6 +1,7 @@
 
 <h3><%=@stock_cargo.cate_name%>,<%=@stock_cargo.package_name%>包装, 货源发布</h3>
-<%= form_for(@cargo,@stock_cargo,:as=>:cargo,:html => {:class => "horizontal-form"}) do |f| %>
+
+<%= form_for(@cargo,:as=>:cargo,:html => {:class => "horizontal-form"}) do |f| %>
  <fieldset>
   <% if @cargo.errors.any? %>
     <div id="error_explanation">

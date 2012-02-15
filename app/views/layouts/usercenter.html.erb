@@ -27,6 +27,7 @@
       <h4><%=session[:user_name]%>,欢迎来到用户中心！</h4>
 
     </div>
+     <%if flash[:notice]%> <div>   <p class="alert-message info"><%=flash[:notice]%></p></div> <%end%>
     <%= yield %>         
 
 

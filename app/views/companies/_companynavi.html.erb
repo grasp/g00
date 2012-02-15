@@ -2,11 +2,11 @@
 
 <div class="bottom_link">
 
-<% if @company.user_id==session[:user_id] %>
+<% if @company.user_id.to_s == session[:user_id].to_s %>
 
   <a class="page_navi_link" href="/companies/show/<%=@company.id%>">我的公司</a>
-  <a class="page_navi_link" href="/companies/index/<%=@company.id%>/vendor">历史成交车源公司</a>
-  <a class="page_navi_link" href="/companies/index/<%=@company.id%>/custermer">历史成交货源公司</a>
+ <!-- <a class="page_navi_link" href="/companies/index/<%=@company.id%>/vendor">历史成交车源公司</a>
+  <a class="page_navi_link" href="/companies/index/<%=@company.id%>/custermer">历史成交货源公司</a>-->
   <a  href="/companies/<%=@company.id%>/edit">更新我的公司</a>
   <%end%>
 

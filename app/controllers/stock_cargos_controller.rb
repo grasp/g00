@@ -84,13 +84,13 @@ class StockCargosController < ApplicationController
     @stock_cargo = StockCargo.new(params[:stockcargo])  
     respond_to do |format|
       if @stock_cargo.save
-        flash[:notice]="货物创建成功"
+        flash[:notice]="货物创建成功,点击下面的发布货源按钮，发布该类货物的货源信息"
         Ustatistic.collection.update({'user_id' => session[:user_id]},{'$inc' => {"total_stock_cargo" => 1}})        
         # format.html { redirect_to(@stock_cargo) }
         format.html { redirect_to :action=>"index"}
         format.xml  { render :xml => @stock_cargo, :status => :created, :location => @stock_cargo }
       else
-        flash[:notice] = '货物创建失败！.'
+        flash[:notice] = '货物创建失败了！.'
         format.html { render :action => "new" }
         format.xml  { render :xml => @stock_cargo.errors, :status => :unprocessable_entity }
       end

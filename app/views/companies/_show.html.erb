@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></div>
-<%unless @company.city_name.blank?%>
+<%unless @company.name.blank?%>
 <div  class="lineshow">
   <h3><%= @company.name %></h3>
  </div>
@@ -56,7 +55,7 @@
 </div>
 
 
-<% if @company.user_id==session[:user_id] %>
+<% if @company.user_id.to_s == session[:user_id].to_s %> 
    <div class="lineshow">该信息由
    <%if @company.created_at.to_s==@company.updated_at.to_s%>
    <%= User.find(@company.user_id).name %> 创建于<%=@company.created_at.to_s%>
@@ -64,10 +63,13 @@
    <%= User.find(@company.user_id).name %> 更新于<%=@company.updated_at.to_s%>
    <%end%>
   </div>
- <%end%>
-  
+  <%end%>
   <%else%>
      <div class="lineshow">
-      你还没有创建你的公司信息.<a  class="btn primary" href="/companies/new">马上创建</a>
+      你还没有创建你的公司信息.
+      <a  class="btn primary" href="/companies/new">马上创建</a>
     </div>
-  <%end%>
+
+ <%end%>
+  
+

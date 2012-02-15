@@ -34,7 +34,7 @@ config.assets.compress = false
 # Expands the lines which load the assets
 #config.assets.debug = true
 config.assets.debug = false
- config.log_level = :fatal
+ config.log_level = :info
   
   Gmaps4rails.http_proxy = "http://wwwgate0-ch.mot.com:1080"
 end

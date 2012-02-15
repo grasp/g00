@@ -1,21 +1,9 @@
 #coding:utf-8
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-#if false
-ENV["RAILS_ENV"] = "test"
-#require  File.dirname(__FILE__) + "/../test_helper.rb"
-start_time=Time.now
-require 'watir'
-require  'rubygems'
-require 'active_support/all'
-require "test/unit"
-puts "load test env cost #{Time.now-start_time} sec"
-#end
+require 'pathname'
 pn = Pathname.new(File.dirname(__FILE__))
 project_root=pn.parent.parent.parent #do we have one line solution?
-require File.join(project_root,"test","watir","helpers","users_helper.rb")
 require File.join(project_root,"test","watir","w090_test_common.rb")
-
+require File.join(project_root,"test","watir","helpers","users_helper.rb")
 class  W090UserLoginLogoutTest <ActiveSupport::TestCase
 
   def setup

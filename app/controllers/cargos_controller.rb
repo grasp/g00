@@ -173,7 +173,7 @@ class CargosController < ApplicationController
     @cargo.user_id=@user.id
     @cargo.status="正在配车"
     @cargo.stock_cargo_id=@stock_cargo.id
-
+if false
     if @user.user_contact_id.blank?
       flash[:notice]="填写更多的联系信息，可以增加成交机会"
     end
@@ -185,7 +185,7 @@ class CargosController < ApplicationController
       end
 
     end
-
+end
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @cargo }
