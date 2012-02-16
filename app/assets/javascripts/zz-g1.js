@@ -420,7 +420,7 @@ $(document).ready(function() {
      cargo_myself_click();
      submit_multiple_emails();
      new_concerncargocity();
-       
+       $('.dropdown-toggle').dropdown()
 
     $('.quick_match ').live("click",function(){
         $("#show").load(this.href);

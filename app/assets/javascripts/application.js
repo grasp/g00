@@ -10,9 +10,9 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 
-//= require a-jquery-1.7.1.min.js
-//= require ab-jquery.form.js
-//= require ab-jquery.validate.js
+//= require ajquery-1.7.1.min.js
+//= require jquery.form.js
+//= require jquery.validate.js
 //= require myvalidate.js
 //= require zz-g1.js
 //= require gmaps4rails/bing.js
@@ -23,17 +23,19 @@
 
 //= require gmaps4rails/openlayers.js
 
-//= require gmaps4rails/all_apis.js
-//= require bootstrap-alert.js
-//= require bootstrap-button.js
-//= require bootstrap-carousel.js
-//= require bootstrap-collapse.js
-//= require bootstrap-dropdown.js
-//= require bootstrap-modal.js
-//= require a-bootstrap-atooltip.js
-//= require bootstrap-popover.js
-//= require bootstrap-scrollspy.js
+//= require gmaps4rails/all_apis.
+//= require bootstrap-alert.js 
+//= require bootstrap-dropdown.js 
 //= require bootstrap-tab.js
-
+//= require bootstrap-button.js 
+//= require bootstrap-modal.js   
+//= require bootstrap-tooltip.js
+//= require bootstrap-carousel.js 
+//= require bootstrap-popover.js  
 //= require bootstrap-transition.js
+//= require bootstrap-collapse.js 
+//= require bootstrap-scrollspy.js  
 //= require bootstrap-typeahead.js
+
+
+

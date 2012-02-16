@@ -25,23 +25,41 @@
 
 <div>
 
-<table class="table table-striped" >
+  <table class="table table-striped" >
 
-  <tr>
-  <th> 出发</th>
-  <th> 到达</th>
-  <th>货物</th>
-  <th>重量</th>
-  <th>有效</th>      
-  <th>发布日期</th>
-  <th>货源状态</th>    
-  <th>车主操作</th>
-  </tr>
-  <% unless @cargos.blank? %>
-    <% @cargos.each do |cargo| %>     
-      <%unless cargo.nil? %>
-        <tr>
-          <td><%= cargo.fcity_name %></td>
+    <tr>
+      <th> 出发</th>
+      <th> 到达</th>
+      <th>货物</th>
+      <th>重量</th>
+      <th>有效</th>      
+      <th>发布日期</th>
+      <th>货源状态</th>    
+      <th>车主操作</th>
+    </tr>
+    <% unless @cargos.blank? %>
+      <% @cargos.each do |cargo| %>     
+        <%unless cargo.nil? %>
+          <tr>
+            <td>
+
+<li class="dropdown" id="menu1">
+<a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
+<%= cargo.fcity_name %>
+<b class="caret"></b>
+</a>
+<ul class="dropdown-menu">
+<li><a href="#">Action</a></li>
+<li><a href="#">Another action</a></li>
+<li><a href="#">Something else here</a></li>
+<li class="divider"></li>
+<li><a href="#">Separated link</a></li>
+</ul>
+</li>
+              
+
+ 
+          </td>
           <td><%= cargo.tcity_name %></td>
           <td><a class ="show_float" href="/cargos/show/<%=cargo.id%>">
               <%= cargo.cate_name ||"未知货物"%>
@@ -68,18 +86,18 @@
               其他
             <%end%>
           </td>   
-        </tr>
+          </tr>
+        <% end %>
       <% end %>
-    <% end %>
-  </table>
+    </table>
 
   </div>
 
   <div class="pagination">
-    
-  <%= will_paginate @cargos ,:previous_label=>"上一页",:next_label=>"下一页"%>
-  
-    </div>
+
+    <%= will_paginate @cargos ,:previous_label=>"上一页",:next_label=>"下一页"%>
+
+  </div>
 <%else%>     
 
   <p>没有对应的货源.</p>   
