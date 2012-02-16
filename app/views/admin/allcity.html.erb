@@ -1,7 +1,7 @@
 <h1>Listing All city <%=City.count%></h1>
 <p>lat:<%=City.where(:lat.ne=>nil).count%></p>
 <p>lng:<%=City.where(:lng.ne=>nil).count%></p>
-<table>
+<table class="table table-striped">
   <tr>
     <th>name</th>
     <th>code</th>

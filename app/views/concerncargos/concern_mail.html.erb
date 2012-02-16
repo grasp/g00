@@ -2,7 +2,7 @@
 <p>尊敬的用户<%=@user.name unless @user.blank?%>,您好！</p>
 <h3>以下为你关注的货源类别</h3>
 <%puts "@cargos.size=#{@cargos.size}"%>
-<table class="cargo zebra-striped" >
+<table class="cargo table table-striped" >
   <th> 出发</th>
   <th> 到达</th>
   <th>货物</th>

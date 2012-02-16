@@ -1,8 +1,8 @@
 /* ============================================================
  * bootstrap-dropdown.js v2.0.0
- * http://twitter.github.com/bootstrap/javascript.html#dropdown
+ * http://twitter.github.com/bootstrap/javascript.html#dropdowns
  * ============================================================
- * Copyright 2011 Twitter, Inc.
+ * Copyright 2012 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,10 @@
 
   var toggle = '[data-toggle="dropdown"]'
     , Dropdown = function ( element ) {
-        $(element).bind('click', this.toggle)
+        var $el = $(element).on('click.dropdown.data-api', this.toggle)
+        $('html').on('click.dropdown.data-api', function () {
+          $el.parent().removeClass('open')
+        })
       }
 
   Dropdown.prototype = {
@@ -36,14 +39,22 @@
 
   , toggle: function ( e ) {
       var $this = $(this)
-        , selector = $this.attr('data-target') || $this.attr('href')
-        , $parent = $(selector)
+        , selector = $this.attr('data-target')
+        , $parent
+        , isActive
 
+      if (!selector) {
+        selector = $this.attr('href')
+        selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
+      }
+
+      $parent = $(selector)
       $parent.length || ($parent = $this.parent())
 
-      clearMenus()
+      isActive = $parent.hasClass('open')
 
-      !$parent.hasClass('open') && $parent.toggleClass('open')
+      clearMenus()
+      !isActive && $parent.toggleClass('open')
 
       return false
     }
@@ -78,4 +89,4 @@
     $('body').on('click.dropdown.data-api', toggle, Dropdown.prototype.toggle)
   })
 
-}( window.jQuery )
+}( window.jQuery );

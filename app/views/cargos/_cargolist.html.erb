@@ -5,12 +5,11 @@
   <input  class="fcitycode" type="hidden" name="cargo[fcitycode]"></input>
   <input class="fcityname"  type="hidden" name="cargo[fcityname]"></input>
 
-  
 
   <a  id="to_data_load"  href="/cities/to/<%=@search.tcity_code||"100000000000"%>" ><%=$city_code_name[@search.tcity_code] ||"到达地选择"%></a>
   <input  class="tcitycode" type="hidden" name="cargo[tcitycode]"></input>
   <input class="tcityname" type="hidden" name="cargo[tcityname]"></input>
-  <input value="货源查询" class="btn default cargo_search" type="submit" name="asss" ></input>
+  <input value="货源查询" class="btn btn-default cargo_search" type="submit" name="asss" ></input>
 
   <a    href="/cargos/baojiacargo/all">待报价货源(<%=Cargo.where(:from_site=>"local").count%>)</a>
 
@@ -18,7 +17,7 @@
     <a  href="/cargos/cityfrom/<%=params[:city_id]%>"><%=$city_code_name[params[:city_id]] ||"全国"%>出发</a>
     <a  href="/cargos/cityto/<%=params[:city_id]%>"> 到达<%=$city_code_name[params[:city_id]] ||"全国"%></a>  
   <%end%>
-  <a  style="margin-left:50px;" class="btn primary"  href="/users/stock_cargos"><b>发布货源</b></a>
+  <a  style="margin-left:50px;" class="btn btn-btn-primary"  href="/users/stock_cargos"><b>发布货源</b></a>
 </span>
 
 <%=render "cargos/region_navi"%>
@@ -26,7 +25,7 @@
 
 <div>
 
-<table class="testtable striped-table" >
+<table class="table table-striped" >
 
   <tr>
   <th> 出发</th>
@@ -44,7 +43,6 @@
         <tr>
           <td><%= cargo.fcity_name %></td>
           <td><%= cargo.tcity_name %></td>
-
           <td><a class ="show_float" href="/cargos/show/<%=cargo.id%>">
               <%= cargo.cate_name ||"未知货物"%>
             </a> 

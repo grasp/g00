@@ -4,7 +4,7 @@
 
 <p id="notice"><%= notice %></p>
   <%unless @user_contact.nil?%>
-  <table>
+  <table class="table table-striped">
     <tr>
       <th> <b>信息发布</b></th>
       <th> <b>移动电话</b></th>
@@ -32,6 +32,6 @@
     </tr>
   </table>
 <%else%>
-<p>你还没有完善你的个人联系方式.<a  class="btn primary large" href="/user_contacts/new"> <b>马上完善</b>
+<p>你还没有完善你的个人联系方式.<a  class="btn btn-primary large" href="/user_contacts/new"> <b>马上完善</b>
   </a></p>
 <%end%>

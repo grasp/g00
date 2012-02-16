@@ -1,88 +1,118 @@
-// Dropdown Menus
+// DROPDOWN MENUS
+// --------------
+
 // Use the .menu class on any <li> element within the topbar or ul.tabs and you'll get some superfancy dropdowns
 .dropdown {
   position: relative;
 }
-// The link that is clicked to toggle the dropdown
-.dropdown-toggle:after {
+.dropdown-toggle {
+  // The caret makes the toggle a bit too tall in IE7
+  *margin-bottom: -3px;
+}
+.dropdown-toggle:active,
+.open .dropdown-toggle {
+  outline: 0;
+}
+// Dropdown arrow/caret
+.caret {
   display: inline-block;
   width: 0;
   height: 0;
-  margin-top: 8px;
-  margin-left: 6px;
   text-indent: -99999px;
+  // IE7 won't do the border trick if there's a text indent, but it doesn't
+  // do the content that text-indent is hiding, either, so we're ok.
+  *text-indent: 0;
   vertical-align: top;
-  border-left: 4px solid transparent;
+  border-left:  4px solid transparent;
   border-right: 4px solid transparent;
-  border-top: 4px solid @white;
+  border-top:   4px solid @black;
   .opacity(30);
-  content: "&darr;";
+  content: "\2193";
 }
-.dropdown:hover .dropdown-toggle:after {
+.dropdown .caret {
+  margin-top: 8px;
+  margin-left: 2px;
+}
+.dropdown:hover .caret,
+.open.dropdown .caret {
   .opacity(100);
 }
 // The dropdown menu (ul)
 .dropdown-menu {
   position: absolute;
-  top: 40px;
-  z-index: 900;
+  top: 100%;
+  left: 0;
+  z-index: @zindexDropdown;
   float: left;
-  display: none; // None by default, but block on "open" of the menu
+  display: none; // none by default, but block on "open" of the menu
   min-width: 160px;
-  max-width: 220px;
   _width: 160px;
-  padding: 6px 0;
-  margin-left: 0; // override default ul styles
-  margin-right: 0;
+  padding: 4px 0;
+  margin: 0; // override default ul
+  list-style: none;
   background-color: @white;
-  border-color: #999;
+  border-color: #ccc;
   border-color: rgba(0,0,0,.2);
   border-style: solid;
-  border-width: 0 1px 1px;
-  .border-radius(0 0 6px 6px);
-  .box-shadow(0 2px 4px rgba(0,0,0,.2));
-  .background-clip(padding-box);
-  zoom: 1; // do we need this?
+  border-width: 1px;
+  .border-radius(0 0 5px 5px);
+  .box-shadow(0 5px 10px rgba(0,0,0,.2));
+  -webkit-background-clip: padding-box;
+     -moz-background-clip: padding;
+          background-clip: padding-box;
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
 
-  // Unfloat any li's to make them stack
-  li {
-    float: none;
-    display: block;
-    background-color: none;
+  // Allow for dropdowns to go bottom up (aka, dropup-menu)
+  &.bottom-up {
+    top: auto;
+    bottom: 100%;
+    margin-bottom: 2px;
   }
+
   // Dividers (basically an hr) within the dropdown
   .divider {
     height: 1px;
-    margin: 5px 0;
+    margin: 5px 1px;
     overflow: hidden;
-    background-color: #eee;
+    background-color: #e5e5e5;
     border-bottom: 1px solid @white;
-  }
-}
 
-.topbar .dropdown-menu, .dropdown-menu {
+    // IE7 needs a set width since we gave a height. Restricting just
+    // to IE7 to keep the 1px left/right space in other browsers.
+    // It is unclear where IE is getting the extra space that we need
+    // to negative-margin away, but so it goes.
+    *width: 100%;
+    *margin: -5px 0 5px;
+  }
+
   // Links within the dropdown menu
   a {
     display: block;
-    padding: 4px 15px;
+    padding: 3px 15px;
     clear: both;
     font-weight: normal;
-    line-height: 18px;
+    line-height: @baseLineHeight;
     color: @gray;
-    text-shadow: 0 1px 0 @white;
-    // Hover state
-    &:hover {
-      color: @grayDark;
-      text-decoration: none;
-      #gradient > .vertical(#eeeeee, #dddddd);
-      @shadow: inset 0 1px 0 rgba(0,0,0,.025), inset 0 -1px rgba(0,0,0,.025);
-      .box-shadow(@shadow);
-    }
+    white-space: nowrap;
   }
+}
+
+// Hover state
+.dropdown-menu li > a:hover,
+.dropdown-menu .active > a,
+.dropdown-menu .active > a:hover {
+  color: @white;
+  text-decoration: none;
+  background-color: @linkColor;
 }
 
 // Open state for the dropdown
 .dropdown.open {
+  // IE7's z-index only goes to the nearest positioned ancestor, which would
+  // make the menu appear below buttons that appeared later on the page
+  *z-index: @zindexDropdown;
+
   .dropdown-toggle {
     color: @white;
     background: #ccc;
@@ -91,4 +121,10 @@
   .dropdown-menu {
     display: block;
   }
+}
+
+// Typeahead
+.typeahead {
+  margin-top: 2px; // give it some space to breathe
+  .border-radius(4px);
 }

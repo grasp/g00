@@ -16,7 +16,7 @@
               <span class="span3"><%=$city_code_name[line[0].split("#")[0]]%><=><%=$city_code_name[line[0].split("#")[1]]%></span>
             <%end%>
           </div>
-          <table class="cargo zebra-striped" >
+          <table class="cargo table table-striped" >
             <th> 出发</th>
             <th> 到达</th>
             <th>货物</th>
@@ -42,7 +42,7 @@
           <%end%>
         </div>
 
-        <table class="cargo zebra-striped" >
+        <table class="cargo table table-striped" >
           <th> 出发</th>
           <th> 到达</th>
           <th>货物</th>
@@ -68,7 +68,7 @@
                 <span class="span2"><%=username[0]%></span>
               <%end%>
             </div>
-            <table class="cargo zebra-striped" >
+            <table class="cargo table table-striped" >
               <th> 出发</th>
               <th> 到达</th>
               <th>货物</th>
@@ -97,7 +97,7 @@
                     </div>
                   <div>
                   <%end%>
-                  <table class="cargo zebra-striped" >
+                  <table class="cargo table table-striped" >
                     <th> 出发</th>
                     <th> 到达</th>
                     <th>货物</th>
@@ -152,10 +152,10 @@
   <hr>          </hr>
             <% end %>
   <hr>          </hr>
-          <p ><a class="btn default alert-message warning" href="/concerncargos/destroy/<%=@concerncargo.id%>" onclick="return confirm('全部删除？')">删除全部关注</a></p>
+          <p ><a class="btn btn-default alert alert-warning" href="/concerncargos/destroy/<%=@concerncargo.id%>" onclick="return confirm('全部删除？')">删除全部关注</a></p>
 
           <%else%>
-            <p class="alert-message info">您还没有添加任何关注,点击左边导航栏添加您的关注.</p>
+            <p class="alert alert-info">您还没有添加任何关注,点击左边导航栏添加您的关注.</p>
           <%end%>
 
         

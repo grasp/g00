@@ -2,7 +2,7 @@
 <h1>Listing users</h1>
 <p>全部用户<%=User.count%>,verified=<%=User.where(:activate=>"verified").count%></p>
 
-<table>
+<table class="table table-striped">
   <tr>
      <th>Name</th>
     <th>Email</th>   

@@ -2,7 +2,7 @@
 <p>注意:该信息也是您发布的联系信息.</p>
 <p id="notice"><%= notice %></p>
   <%unless @user_contact.nil?%>
-<table>
+<table class="table table-striped">
 <tr>
   <td class="label_td"> <b>信息发布</b></td>
         <td> <%= @user_contact.name || "无"%></td> 

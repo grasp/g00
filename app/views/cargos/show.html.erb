@@ -33,7 +33,7 @@
     <%end #end of cache%> 
     <%if session[:user_id]%>
       <div>
-        <a class="btn default cargo_myself" href="/cargos/send_cargo_myself/<%=@cargo.id%>"> 把该货源信息发送到自己邮箱</a>
+        <a class="btn btn-default cargo_myself" href="/cargos/send_cargo_myself/<%=@cargo.id%>"> 把该货源信息发送到自己邮箱</a>
         <span class="help_inline" style="display:none">请稍等5秒</span>
       </div>
     <%=render "cargos/new_send_cargo_friend"%>
@@ -43,8 +43,8 @@
    <div class="span4">
       <p>登录后可见联系方式.</p>
       <p>
-      <span><a class="btn primary" href="/users/login">登录</a> 
-       <a  style="margin-left:30px;"class="btn primary " href="users/new">注册</a></span>          
+      <span><a class="btn btn-primary" href="/users/login">登录</a> 
+       <a  style="margin-left:30px;"class="btn btn-primary " href="users/new">注册</a></span>          
        </p>
     </div>
   </div>

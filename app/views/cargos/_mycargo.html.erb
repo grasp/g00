@@ -1,6 +1,6 @@
 <%#coding:utf-8%>
  <%unless @cargos.blank?%>
-<table class="zebra-striped">
+<table class="table table-striped">
   
   <tr>
    
@@ -36,11 +36,11 @@
          <td> <%=cargo.status%></td>
         <%else%>
          <%l=Lstatistic.first(:conditions=>{:line=>cargo.line})%>
-        <td ><a  class="btn default" href="/trucks/search/<%=cargo.fcity_code%>/<%=cargo.tcity_code%>/1">车源速配</a></td>
+        <td ><a  class="btn btn-default" href="/trucks/search/<%=cargo.fcity_code%>/<%=cargo.tcity_code%>/1">车源速配</a></td>
         <%end%>
       </tr>
     <% end %>
       </table>
       <%else%>
-<p>没有正在配车的货源,<a class="btn primary" href="/users/stock_cargos"><b>马上创建货源</b></a></p>
+<p>没有正在配车的货源,<a class="btn btn-primary" href="/users/stock_cargos"><b>马上创建货源</b></a></p>
   <% end %>

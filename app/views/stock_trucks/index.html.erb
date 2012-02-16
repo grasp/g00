@@ -3,7 +3,7 @@
 <div class="stock_trucklist">
 <p style="margin-top:20px;">请点击每个车子的<b style="color:blue;">发布车源</b>来发布该车子的车源信息</p>
   <%unless @stock_trucks.blank?%>
-<table>
+<table class="table table-striped">
 
   <tr>
         <th>发布车源</th>
@@ -20,7 +20,7 @@
   </tr>
   <% @stock_trucks.each do |stock_truck| %>
     <tr>
-       <td><a class="btn default" href="/trucks/new/<%=stock_truck.id%>">发布车源</a></td>
+       <td><a class="btn btn-default" href="/trucks/new/<%=stock_truck.id%>">发布车源</a></td>
       <td> <a class="show_float" href="/stock_trucks/show/<%=stock_truck.id%>"> <%= stock_truck.paizhao %>,<%= $truck_pinpai[stock_truck.truck_pinpai] %>/<%= stock_truck.truck_xinghao %>,<%=stock_truck.dun_wei%>吨,
         <%= stock_truck.che_length %>米,
         <%= $truck_shape[stock_truck.truck_shape] %></a>
@@ -38,7 +38,7 @@
       <td><%= stock_truck.owner_name %></td>
       <td><%= stock_truck.owner_phone %></td>
      
-      <td><a class="btn default"  href="/stock_trucks/<%=stock_truck.id%>/edit">更新</a></td>
+      <td><a class="btn btn-default"  href="/stock_trucks/<%=stock_truck.id%>/edit">更新</a></td>
     </tr>
   <% end %>
     </table>

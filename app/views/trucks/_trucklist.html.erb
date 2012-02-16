@@ -13,13 +13,13 @@
 <a  href="/trucks/cityto/<%=params[:city_id]%>"><%=$city_code_name[params[:city_id]] ||"全国"%>到达</a>
 <%end%>
 
-<a  style="margin-left:50px;" class="btn primary"  href="/users/stock_trucks"><b>发布车源</b></a>
+<a  style="margin-left:50px;" class="btn btn-primary"  href="/users/stock_trucks"><b>发布车源</b></a>
  </span>
     
      <%=render "trucks/region_navi"%>
      <%=render "trucks/city_navi"%>
      <% unless @trucks.blank? %>
-<table class="truck zebra-striped">  
+<table class="truck table table-striped">  
 <tr>
  
  <th>出发城市</th>
@@ -58,7 +58,7 @@
              <%if truck.user_id.to_s==session[:user_id].to_s%>
             车主
             <%elsif truck.from_site=="local"%>
-              <a class="btn default baojia" href="/trucks/<%=truck.id%>/inqueries/new">询价</a>
+              <a class="btn btn-default baojia" href="/trucks/<%=truck.id%>/inqueries/new">询价</a>
              <%else%>
               其他
               <%end%>

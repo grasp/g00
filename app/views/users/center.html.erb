@@ -1,6 +1,6 @@
 <div>
   <%if @user.activate!="verified" and @user.status="new_register"%>
-  <p class="alert-message warning">请到你的注册邮箱点击激活链接，以便我们确认你的邮箱的存在，如果时间很长了，点击这里 <a class ="btn default "href="/users/resend_activate_code">重新发送激活邮件</a></p>
+  <p class="alert alert-warning">请到你的注册邮箱点击激活链接，以便我们确认你的邮箱的存在，如果时间很长了，点击这里 <a class ="btn default "href="/users/resend_activate_code">重新发送激活邮件</a></p>
   <%end%>
 </div>
 

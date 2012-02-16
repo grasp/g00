@@ -22,7 +22,7 @@
 <%=render "shared/topbar"%> 
 
 <div class="fluid-container ">  
-  <div class="fluid-sidebar-left">
+  <div class=" fluid-sidebar-left">
  
     <%=render "cargos/province_navi"%>
 
@@ -31,7 +31,7 @@
   <div class="fluid-content">
     <%=render "shared/common"%>
     
-   <%if flash[:notice]%> <div>   <p class="alert-message info"><%=flash[:notice]%></p></div> <%end%>
+   <%if flash[:notice]%> <div>   <p class="alert alert-info"><%=flash[:notice]%></p></div> <%end%>
     
     <%= yield %>     
   <%=render "shared/float_show"%>

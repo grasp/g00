@@ -1,6 +1,6 @@
 <%#coding:utf-8%>
  <% unless @trucks.blank? %>
-<table>
+<table class="table table-striped">
   <tr>
     <th>车辆</th>
     <th>出发</th>
@@ -39,7 +39,7 @@
           <td><a  href="/trucks/quoteinquery/<%=truck.id%>"><%= truck.total_xunjia||0 %>条询价/<%= truck.total_baojia||0 %>条报价</a></td>
 
           <%if truck.status=="正在配货"%>
-            <td><a  class="btn default" href="/cargos/search/<%=truck.fcity_code%>/<%=truck.tcity_code%>/1">货源速配</a></td>
+            <td><a  class="btn btn-default" href="/cargos/search/<%=truck.fcity_code%>/<%=truck.tcity_code%>/1">货源速配</a></td>
           <%else%>
            <td><%=truck.status%></td>
              
@@ -51,6 +51,6 @@
     <% end %>
         </table>
     <%else%>
-<p>没有正在配货的车源，<a class="btn primary" href="/users/stock_trucks"><b>马上创建车源</b></a></p>
+<p>没有正在配货的车源，<a class="btn btn-primary" href="/users/stock_trucks"><b>马上创建车源</b></a></p>
   <%end %>
 

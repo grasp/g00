@@ -1,7 +1,7 @@
 
 <%if  @userlines%>   
 
-<table>
+<table class="table table-striped">
   <tr>
 
     <th>专线城市</th>
@@ -17,7 +17,7 @@
     <td><%= userline.tcityname %></td>
     <td><%= userline.created_at %></td>
 
-    <td><a class="btn default" href="/userlines/destroy/<%=userline.id%>">删除</a></td>
+    <td><a class="btn btn-default" href="/userlines/destroy/<%=userline.id%>">删除</a></td>
   </tr>
 <% end %>
 </table>

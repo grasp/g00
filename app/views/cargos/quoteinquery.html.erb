@@ -5,7 +5,7 @@
 <p>务必先和车主协商并取得车主同意,车主将会在线确认成交,然后你将可以评价车主服务(待开发）</p>
 <%unless @baojia.blank? %>
   <h3>车主给我的报价</h3>
-  <table>
+  <table class="table table-striped">
   <tr>
      <th>车源发布人</th>
      <th>所在公司</th>
@@ -70,7 +70,7 @@
   
 <%unless @xunjia.blank? %>
   <h3>我询价的全部车子</h3>
-  <table>
+  <table class="table table-striped">
   <tr>
      <th>车源发布人</th>
      <th>所在公司</th>
@@ -113,12 +113,12 @@
              <td>
             <%if record.cargo_user_id.to_s==session[:user_id].to_s%>            
                  <%if @cargo.status=="正在配车" && record.truck_user_id.to_s!=session[:user_id].to_s && truck.status=="正在配货"%>
-                    <a class="btn default request_chenjiao" href="/cargos/request_chenjiao/<%=record.cargo_id%>">点击成交</a>
+                    <a class="btn btn-default request_chenjiao" href="/cargos/request_chenjiao/<%=record.cargo_id%>">点击成交</a>
                  <%end%>  
              <%end%>
           <%if record.truck_user_id.to_s==session[:user_id].to_s && record.cargo_user_id.to_s!=session[:user_id].to_s%>
                  <%if truck.status=="正在成交"%>
-                     <a class="btn default confirm_chenjiao" href="/quotes/confirm_chenjiao/<%=record.cargo_id%>">确认成交</a>
+                     <a class="btn btn-default confirm_chenjiao" href="/quotes/confirm_chenjiao/<%=record.cargo_id%>">确认成交</a>
                   <%end%>
            <%end%>             
            </td>

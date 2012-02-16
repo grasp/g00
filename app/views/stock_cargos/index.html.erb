@@ -3,7 +3,7 @@
 
   <!--<h2>我的全部货物</h2>-->
   <%unless @stock_cargos.blank?%>
-    <table>
+    <table class="table table-striped">
       <tr>
           <th>发布货源</th>
         <th>货物</th>
@@ -17,7 +17,7 @@
       <% @stock_cargos.each do |stock_cargo| %>
         <tr>   
          <td>
-            <a class="btn default" href="/cargos/new/<%=stock_cargo.id.to_s%>">发布货源</a>      
+            <a class="btn btn-default" href="/cargos/new/<%=stock_cargo.id.to_s%>">发布货源</a>      
           </td>
           <td>       
             <a class ="show_float" href="/stock_cargos/show/<%=stock_cargo.id.to_s%>"><%=h stock_cargo.cate_name %></a></td> 
@@ -44,7 +44,7 @@
   <div class="caozuo_area" ></div>
 
   <div class="bottom_link">
-    <a  class="btn primary" href="/stock_cargos/new">添加新的货物</a>
+    <a  class="btn btn-primary" href="/stock_cargos/new">添加新的货物</a>
   </div>
 </div>
 

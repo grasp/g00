@@ -26,9 +26,9 @@
   <%time=Time.now%>
   <span>今天是<%=time.year%>年<%=time.month%>月<%=time.day%>日,星期<%=$week_day[time.wday.to_i]%></span>
   <%if session[:user_name]=="admin"%>
-    | <a style="color:black;" class="btn default " href="/admin">网站管理</a>
+    | <a style="color:black;" class="btn btn-default " href="/admin">网站管理</a>
   <%elsif session[:user_name]!=nil%>
-    | <a style="color:black;" class="btn default " href="/wmails/invite_new">邀请朋友</a>
+    | <a style="color:black;" class="btn btn-default " href="/wmails/invite_new">邀请朋友</a>
   <%else%>
   <%end%> 
 </p>
