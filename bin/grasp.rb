@@ -11,7 +11,7 @@ Forever.run do
   #before :all do
   #  puts "All jobs will will wait me for 1 second"; sleep 1
   #end
-
+if false
   every 2.minutes do
     hour=Time.now.hour
     if hour>5 and hour<23
@@ -50,7 +50,7 @@ Forever.run do
       parse_haoyun56    
     end
   end
-    
+end
   every 1.day, :at => ['2:30'] do
     scan_move
   end
