@@ -41,51 +41,44 @@
       <% @cargos.each do |cargo| %>     
         <%unless cargo.nil? %>
           <tr>
+            <td> 
+              <a class="show_float" href="/cities/modal/show/<%=cargo.fcity_code%>/line/<%=cargo.fcity_code%>/<%=cargo.tcity_code%>">
+            
+              <%= cargo.fcity_name %>
+              </a>
+            </td>
             <td>
+   
+               <a class="show_float" href="/cities/modal/show/<%=cargo.tcity_code%>/line/<%=cargo.fcity_code%>/<%=cargo.tcity_code%>">
+             
+             <%= cargo.tcity_name %>
+              </a>
+            </td>
+            <td><a class ="show_float" href="/cargos/show/<%=cargo.id%>">
+                <%= cargo.cate_name ||"未知货物"%>
+              </a> 
 
-<li class="dropdown" id="menu1">
-<a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
-<%= cargo.fcity_name %>
-<b class="caret"></b>
-</a>
-<ul class="dropdown-menu">
-<li><a href="#">Action</a></li>
-<li><a href="#">Another action</a></li>
-<li><a href="#">Something else here</a></li>
-<li class="divider"></li>
-<li><a href="#">Separated link</a></li>
-</ul>
-</li>
-              
+            </td>
+            <td><%= cargo.cargo_weight || "0" %>吨/<%= cargo.cargo_bulk ||0 %>方</td>
+            <td><%= cargo.send_date %>天</td>
+            <td><%=cargo.created_at.localtime.to_s.slice(0,19) unless cargo.updated_at.nil? %></td>
 
- 
-          </td>
-          <td><%= cargo.tcity_name %></td>
-          <td><a class ="show_float" href="/cargos/show/<%=cargo.id%>">
-              <%= cargo.cate_name ||"未知货物"%>
-            </a> 
-
-          </td>
-          <td><%= cargo.cargo_weight || "0" %>吨/<%= cargo.cargo_bulk ||0 %>方</td>
-          <td><%= cargo.send_date %>天</td>
-          <td><%=cargo.created_at.localtime.to_s.slice(0,19) unless cargo.updated_at.nil? %></td>
-
-          <td><%=cargo.status %></td>
-          <td>
-            <%if cargo[:from_site]=="local"%>
-              <%unless session[:user_id].nil?%>
-                <%if cargo.user_id==session[:user_id]%>
-                  货主
+            <td><%=cargo.status %></td>
+            <td>
+              <%if cargo[:from_site]=="local"%>
+                <%unless session[:user_id].nil?%>
+                  <%if cargo.user_id==session[:user_id]%>
+                    货主
+                  <%else%>
+                    <a class=" btn default baojia" href="/cargos/<%=cargo.id%>/quotes/new">报价</a>
+                  <%end%>
                 <%else%>
-                  <a class=" btn default baojia" href="/cargos/<%=cargo.id%>/quotes/new">报价</a>
+                  登录后报价
                 <%end%>
               <%else%>
-                登录后报价
+                其他
               <%end%>
-            <%else%>
-              其他
-            <%end%>
-          </td>   
+            </td>   
           </tr>
         <% end %>
       <% end %>

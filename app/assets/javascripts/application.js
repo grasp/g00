@@ -15,15 +15,7 @@
 //= require jquery.validate.js
 //= require myvalidate.js
 //= require zz-g1.js
-//= require gmaps4rails/bing.js
 
-//= require gmaps4rails/googlemaps.js
-
-//= require gmaps4rails/mapquest.js
-
-//= require gmaps4rails/openlayers.js
-
-//= require gmaps4rails/all_apis.
 //= require bootstrap-alert.js 
 //= require bootstrap-dropdown.js 
 //= require bootstrap-tab.js
@@ -36,6 +28,12 @@
 //= require bootstrap-collapse.js 
 //= require bootstrap-scrollspy.js  
 //= require bootstrap-typeahead.js
+
+//= require gmaps4rails/bing.js
+//= require gmaps4rails/googlemaps.js
+//= require gmaps4rails/mapquest.js
+//= require gmaps4rails/openlayers.js
+//= require gmaps4rails/all_apis.js
 
 
 

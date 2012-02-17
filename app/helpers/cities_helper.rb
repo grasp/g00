@@ -23,6 +23,8 @@ module CitiesHelper
   end
 
   def get_city_full_name(code)
+    return nil if code.nil?
+    return nil if code.size<5
     if code.match(/\d\d0000000000$/) # is a province id
       city_name= $province_region[code]
       return city_name

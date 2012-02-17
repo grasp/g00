@@ -66,13 +66,13 @@ function city_load(){
         }
         else
         {
-             selected.empty();
+            selected.empty();
             $("#float_show2").css("display","none");
-             $("form select").css("display","inline-block");
+            $("form select").css("display","inline-block");
             
         }
             
-       return false;
+        return false;
     });
 
     $("#float_load2 a.city_province,#float_load2 a.city_region,#float_load2 a.city" ).live("click",function()
@@ -111,10 +111,10 @@ function city_load(){
             }
             else
             {
-                 $(".fcitycode").val(code);
-                   $(".fcityname").val($("#selected_city").text());
-              //  $("#from_data_load").next().val(code);
-              //  $("#from_data_load").next().next().val($("#selected_city").text());
+                $(".fcitycode").val(code);
+                $(".fcityname").val($("#selected_city").text());
+            //  $("#from_data_load").next().val(code);
+            //  $("#from_data_load").next().next().val($("#selected_city").text());
             }
         }
 
@@ -133,14 +133,14 @@ function city_load(){
             }
             else
             {
-                   $(".tcitycode").val(code);
-                   $(".tcityname").val($("#selected_city").text());
-               // $("#to_data_load").next().val(code);
-               // $("#to_data_load").next().next().val($("#selected_city").text());
+                $(".tcitycode").val(code);
+                $(".tcityname").val($("#selected_city").text());
+            // $("#to_data_load").next().val(code);
+            // $("#to_data_load").next().next().val($("#selected_city").text());
             }
         }
         last_province_code=new_province_code
-     return false;
+        return false;
     });
 
     $("#close1,#close2").live("click",function()
@@ -182,7 +182,7 @@ function city_load(){
             $("#float_show2").css("display","none");
         }
 
-  return false;
+        return false;
     });
     
 }
@@ -210,7 +210,7 @@ function general_data_load(){
         selected.css("top",corordiate.top+$(this).height()+10);
         selected.css("left",corordiate.left -100);
         
-  return false;
+        return false;
     });
 
     $(".data_list div ul li a" ).live("click",function()
@@ -227,13 +227,13 @@ function general_data_load(){
         $(this).css("background-color","#ffcc00");
         selected.next().val(code);
         selected.next().next().val($(this).text());
-  return false;
+        return false;
     });
 
     $(".list_close a").live("click",function()
     {
         $('.data_list').css("display","none");
-   return false;
+        return false;
     });
 }
 
@@ -250,7 +250,7 @@ function request_chenjiao(){
             $('#float_show').css("display","none");
             $('tr').css("background-color","white");             
         }
-   return false;
+        return false;
                 
     });
 }
@@ -264,7 +264,7 @@ function confirm_chenjiao(){
             $('#float_load').empty();
             $('#float_show').css("display","none");
         }
-  return false;
+        return false;
                 
     });
 }
@@ -289,19 +289,18 @@ function float_load_layer1(){
             inquery_new_validation();
             quote_new_validation();
             submit_jubao();
-             submit_multiple_emails();   
+            submit_multiple_emails();   
 
         });
-
         css_class= $(this).attr("class");
-                  if(selected.css("display")=="none")
+        if(selected.css("display")=="none")
         {
             selected.css("display","inline");
         }
         else
         {            
             selected.css("display","none");             
-            selected.css("display","inline");    //????         
+        //    selected.css("display","inline");    //????         
         }
 
         if(select_parent.get(0).nodeName=="TR")
@@ -311,37 +310,44 @@ function float_load_layer1(){
         
         // ajust the location for each float
  
-       // if(cord_top>($(".content").offset().top+$(".content").height()/2)+100)
-     //   {
-           // selected.css("top",$(".content").offset().top);
-     //   }
-       // else
-      //  {
-      //      selected.css("top",corordiate.top+30);
-      //  }
+        // if(cord_top>($(".content").offset().top+$(".content").height()/2)+100)
+        //   {
+        // selected.css("top",$(".content").offset().top);
+        //   }
+        // else
+        //  {
+        //      selected.css("top",corordiate.top+30);
+        //  }
           
         //   selected.css("left",$("#show").offset().left);
        
         selected.css("left",corordiate.left);
 
-        if ((this.href.match(/cargos\/show/))||(this.href.match(/trucks\/show/)))
-        {
-            selected.css("top",corordiate.top+$(this).height()-30);
-            selected.css("left",corordiate.left);
-        }
+        // if ((this.href.match(/cargos\/show/))||(this.href.match(/trucks\/show/)))
+        //  {
+        //       selected.css("top",corordiate.top+$(this).height()-30);
+        //        selected.css("left",corordiate.left);
+        //      }
          
         if ((this.href.match(/quotes/))||(this.href.match(/inqueries/)))
         {
             selected.css("top",corordiate.top+$(this).height()+10);
             selected.css("left",parent_coordiate.left);  
         }
-    return false;
+        else
+        {
+            selected.css("top",corordiate.top+$(this).height()-30);
+            selected.css("left",corordiate.left);
+                
+        }
+        
+        return false;
     });
 
     $('a.float_close').live("click",function(){
         $('#float_show').css("display","none");
         $('tr').css("background-color","white");
-   return false;
+        return false;
     });
 
 
@@ -372,11 +378,11 @@ function line_search()
 
 function  cargo_myself_click()
 {
-$('.cargo_myself').live("click",function(){
-    $('.cargo_myself').next().css("display","inline");
-    $('.cargo_myself').next().load(this.href);
-    return false;
-});
+    $('.cargo_myself').live("click",function(){
+        $('.cargo_myself').next().css("display","inline");
+        $('.cargo_myself').next().load(this.href);
+        return false;
+    });
 }
 
                 
@@ -413,14 +419,14 @@ $(document).ready(function() {
     cargo_new_validation();
     truck_new_validation();
     stock_truck_update_validation();
-     submit_userlines();
+    submit_userlines();
     general_data_load();
     city_load();
     
-     cargo_myself_click();
-     submit_multiple_emails();
-     new_concerncargocity();
-       $('.dropdown-toggle').dropdown()
+    cargo_myself_click();
+    submit_multiple_emails();
+    new_concerncargocity();
+    $('.dropdown-toggle').dropdown()
 
     $('.quick_match ').live("click",function(){
         $("#show").load(this.href);
@@ -438,19 +444,18 @@ $(document).ready(function() {
         rcity="div.region_navi >"+" ."+"p"+window.location.pathname.match(/\d\d\d\d/)+"00000000"
         scity="."+"p"+window.location.pathname.match(/\d+/)
         $(pcity).css("background-color","#FAD163");
-         $(rcity).css("background-color","#FAD163");
-         if (window.location.pathname.match(/\d\d\/city/)){
-         $(scity).css("background-color","#FAD163");
-         }
- //alert(rcity);
+        $(rcity).css("background-color","#FAD163");
+        if (window.location.pathname.match(/\d\d\/city/)){
+            $(scity).css("background-color","#FAD163");
+        }
+    //alert(rcity);
     }
     //change background of selected navi
     $("#navi td").live("click",function(){
-       // alert("you click navi");
-       $("#navi table tr td").css("background-color","#6a0881");
+        // alert("you click navi");
+        $("#navi table tr td").css("background-color","#6a0881");
         $(this).css("background-color","#a249b8");
     });
-
 
   
 });

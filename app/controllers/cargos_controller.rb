@@ -367,23 +367,7 @@ end
 
   def allcity
 
-  #  City.all.each do |city|
-    #  city.update_attributes(:lat=>(city.lat||0).to_f,:lng=>(city.lng||0).to_f)
-  #  puts "#{city.lat.kind_of?(Float)}"
-   # end
-    
-  # @json = City.limit(1).to_gmaps4rails   
- #  logger.info @json
- if false
- @lng=City.limit(1)[0].lat
-  @lat=City.limit(1)[0].lng
-    puts "lat=#{@lat},lng=#{@lng}"
-        @markers = "[
-             {'description': 'Hi', 'title': 'test', 'sidebar': '', 'lng': #{@lng}, 'lat': #{@lat}, 'picture': '', 'width': '800', 'height': '400'},
-             {'lng': #{@lng}, 'lat': #{@lat} }
-            ]"
-    puts "marker=#{@markers}"
-  end
+
   end
   
   def cityfrom

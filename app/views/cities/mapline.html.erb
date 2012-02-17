@@ -1,0 +1,30 @@
+<%#coding:utf-8%>
+<h1> <%=@city_name%> 地图显示</h1>
+
+<%#= gmaps4rails(@json) %>
+
+<%=@fcity.lat%>
+<%=@fcity.lng%>
+<%=@tcity.lat%>
+<%=@tcity.lng%>
+<p>
+<%=@fcity_full_name%>
+<%=@tcity_full_name%></p>
+<%if @fcity && @tcity%>
+
+<%= gmaps({
+      # "direction"   => { "data" => { "from" => [@fcity.lng,@fcity.lat], "to" => [@tcity.lng,@tcity.lat] } }
+        "direction"   => { "data" => { "from" => @fcity_full_name, "to" => @tcity_full_name } }
+            })
+ %>
+<%#=gmaps("map_options" => { "type" => "ROADMAP", "center_longitude" => @lng, "center_latitude" => @lat, "zoom" => 8, "auto_adjust" => true},
+  "markers" => { "data" => @markers }) %>
+<%#=gmaps("map_options" => { "type" => "ROADMAP", "center_longitude" => @lng, "center_latitude" => @lat, "auto_adjust" => true},
+  "markers" => { "data" => @markers }) %>
+<%else%>
+<p>
+  没有可以显示的地图，因为位置不详.
+</p>
+<%end%>
+
+

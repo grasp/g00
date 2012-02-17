@@ -8,11 +8,9 @@ G0::Application.routes.draw do
   match '/wmails/send_cargo_myself/:id'=>"wmails#send_cargo_myself" ,:as=>:wmailssend_cargo_myself
   match '/wmails/invite_new'=>"wmails#invite_new" ,:as=>:wmailsinvitenew
   resources :wmails
-
   resources :sitedata
-
   resources :announces
-
+  
   match '/userlines/city/:city_id'=>"userlines#city" ,:as=>:userlinescity
   match '/userlines/cityto/:city_id'=>"userlines#cityto" ,:as=>:userlinescityto
   match '/userlines/cityfrom/:city_id'=>"userlines#cityfrom" ,:as=>:userlinescityfrom
@@ -27,9 +25,7 @@ G0::Application.routes.draw do
   match '/mail_accounts/tuiguang((/mode/:mode/way/sent)(/domain/:domain))'  =>'mail_accounts#tuiguang',:as=>:mail_account_tuiguang
   match '/mail_accounts/tuiguang/((/mode/:mode/way/receive)(/domain/:domain))'  =>'mail_accounts#receive',:as=>:mail_account_receive
   resources :mail_accounts
-
   resources :lib_companies
-
   resources :feedbacks
   match '/admin/hourscan'  =>'admin#hourscan',:as=>:adminhourscan
   match '/admin/hourscaninfo'  =>'admin#hourscaninfo',:as=>:adminhourscaninfo  
@@ -222,8 +218,11 @@ G0::Application.routes.draw do
   match '/cargo_categories/show/:code'=>'cargo_categories#show',:as=>:cargo_categoriesshow
   resources :cargo_categories
 
-  match '/cities/:dir(/:code)'=>'cities#index',:as=>:citiesindex
-
+   match '/cities/:dir(/:code)'=>'cities#index',:as=>:citiesindex
+   match '/cities/modal/show(/:code)/line/:fcode/:tcode'=>'cities#modal',:as=>:citiesmodal
+   match '/cities/map/show/city/:code'=>'cities#mapcity',:as=>:citiesmapcity
+   match '/cities/map/show/line/:fcode/:tcode'=>'cities#mapline',:as=>:citiesmapline
+   
   resources :cities
    match '/users/center'=>'users#center',:as=>:userscenter
       match 'users/download_setup' =>'users#download_setup',:as=>:usersdownload_setup
