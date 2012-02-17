@@ -17,7 +17,7 @@
     <a  href="/cargos/cityfrom/<%=params[:city_id]%>"><%=$city_code_name[params[:city_id]] ||"全国"%>出发</a>
     <a  href="/cargos/cityto/<%=params[:city_id]%>"> 到达<%=$city_code_name[params[:city_id]] ||"全国"%></a>  
   <%end%>
-  <a  style="margin-left:50px;" class="btn btn-btn-primary"  href="/users/stock_cargos"><b>发布货源</b></a>
+  <a  style="margin-left:50px;" class="btn btn-primary"  href="/users/stock_cargos"><b>发布货源</b></a>
 </span>
 
 <%=render "cargos/region_navi"%>
