@@ -394,8 +394,7 @@ $(document).ready(function() {
     var to_city_code="340000000000";
     var options={
         target:  '#show'
-    };
-    
+    };   
                 
     custermized_validation();
     line_search();

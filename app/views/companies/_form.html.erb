@@ -12,14 +12,38 @@
   <% end %>
 
   <fieldset class="control-group">
-    <%= f.label "公司名称*",{:class=>"control-label"} %>
+    <%= f.label "商家名称*",{:class=>"control-label"} %>
     <div class="controls"><%= f.text_field :name %>  </div>
   </fieldset>
 
   <fieldset class="control-group">
-    <%= f.label "公司介绍*" ,{:class=>"control-label"}%>
+    <%= f.label "商家介绍*" ,{:class=>"control-label"}%>
     <div class="controls"> <%= f.text_area :about,:class=>"xxlarge" %></div>
 </fieldset>
+  <fieldset class="control-group">
+    <%= f.label "商家类型*" ,{:class=>"control-label"}%>
+     <div class="controls">     <%= f.select(:ctype,options_for_select(
+     [["国内陆运公司","国内陆运公司"],
+    ["物流个体","物流个体"],
+   ["配货信息部","配货信息部"],
+  ["配货站点","配货站点"],
+  ["货主企业" ,"货主企业"],
+ ["仓储仓库","仓储仓库"],
+ ["物流园区","物流园区"],
+ ["停车场", "停车场"],
+ ["铁路运输","铁路运输"],
+ ["海路运输","海路运输"],
+ ["内河运输","内河运输"],
+ ["航空运输","航空运输"],
+ ["国际物流","国际物流"],
+ ["快递公司","快递公司"],
+ ["物流设备","物流设备"],
+ ["搬家服务","搬家服务"],
+ ["其他物流类","其他物流类"]],@company.ctype) )%> </div>
+</fieldset>
+
+
+
 
     <fieldset class="control-group">
     <%= f.label :员工数量 ,{:class=>"control-label"}%>
@@ -56,7 +80,7 @@
 </fieldset>
 
   <fieldset class="control-group">
-    <%= f.label "公司地址*",{:class=>"control-label"} %>
+    <%= f.label "商家地址*",{:class=>"control-label"} %>
     <div class="controls"><%= f.text_field :address %>  </div>
   </fieldset>
 

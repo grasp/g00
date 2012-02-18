@@ -27,6 +27,10 @@
           <td><%=h company.fix_phone %></td>
           <td><%=h company.mobile_phone %></td>
           <td><%=h company.user_id%></td>
+              <td><%= link_to 'Show', company %></td>
+          <td><%= link_to 'Edit', edit_company_path(company) %></td>
+          <td><%#= link_to 'Destroy', company, :confirm => 'Are you sure?', :method => :delete %></td>
+          <td> <a  href="/companies/destroy/<%=company.id%>" onclick="return confirm('do you want to delete the data?')">删除</a></td>          
         </tr>
       <% end %>
     <%else%>

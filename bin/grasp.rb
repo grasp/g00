@@ -51,7 +51,7 @@ if false
     end
   end
 end
-  every 1.day, :at => ['2:30'] do
+  every 2.day, :at => ['2:30'] do
     scan_move
   end
   

@@ -244,7 +244,7 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     @company.destroy
     respond_to do |format|
-      format.html { redirect_to(companies_url) }
+      format.html { redirect_to(admincompany_manage_url) }
       format.xml  { head :ok }
     end
   end

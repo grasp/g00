@@ -3,6 +3,7 @@ class CitiesController < ApplicationController
   # GET /cities
   # GET /cities.xml
   include CitiesHelper
+  include CompaniesHelper
   caches_page :index
   #   expire_page :action => :index
   layout :choose_layout 
@@ -98,6 +99,8 @@ class CitiesController < ApplicationController
     @city_code=params[:code]
     @fcity_code=params[:fcode]
     @tcity_code=params[:tcode]
+    @companies= get_search_companies(params[:code])
+    
   end
   
   def mapcity

@@ -18,8 +18,8 @@ class Company
      field :mobile_phone, :type=>String
      field :email, :type=>String    
      field :user_name, :type=>String
-     field :ispersonal, :type=>Integer
-
+     field :ispersonal, :type=>String
+      field :ctype, :type=>Integer
     field :user_id, :type=>String #why must be string be here, maybe it is not a real bson object.
       
     validates_uniqueness_of :name ,:message=>"该公司名字已经被注册."

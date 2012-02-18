@@ -234,7 +234,7 @@ function form_validate(){
 
 function user_new_validation(){
       
-    $("#user_new").validate(
+    $("#new_user").validate(
     {
 
         rules: {
@@ -412,8 +412,11 @@ function login_validation(){
 
 function company_new_validation()
 {
-    $("#company_new,#company_edit").validate(
-    {         
+    
+       
+    $("#new_company,#edit_company").validate(
+    {    
+    
         rules: {
             "company[name]": {
                 required: true,
@@ -441,6 +444,7 @@ function company_new_validation()
                 required: true
             },
             "company[city_code]":{
+                required: true,
                 notprovince: true
             },
             
@@ -501,6 +505,7 @@ function company_new_validation()
                 required: "没有选择所在城市"
             },
             "company[city_code]":{
+                required: "请选择所在城市",
                 notprovince: "不能是省份"
             },
             
@@ -534,10 +539,8 @@ function company_new_validation()
 function usercontacts_new_validation()
 {
     
-
-    $("#usercontact_new").validate(
-    {
- 
+    $("#new_usercontact").validate(
+    { 
         rules: {
             "usercontact[name]":{
                 required:true,
@@ -611,7 +614,7 @@ function usercontacts_new_validation()
 
 function stock_cargo_new_validation(){
 
-    $("#stockcargo_new").validate(
+    $("#new_stockcargo").validate(
     {
 
         rules: {
@@ -637,7 +640,7 @@ function stock_cargo_new_validation(){
 
 function stock_truck_new_validation(){
 
-    $("#stocktruck_new").validate(
+    $("#new_stocktruck").validate(
     {
 
         rules: {
@@ -760,7 +763,7 @@ function stock_truck_new_validation(){
 }
 function cargo_new_validation(){
 
-    $("#cargo_new").validate(
+    $("#new_cargo").validate(
     {
 
         rules: {
@@ -809,7 +812,7 @@ function cargo_new_validation(){
 
 function truck_new_validation(){
 
-    $("#truck_new").validate(
+    $("#new_truck").validate(
     {
 
         rules: {
@@ -838,7 +841,7 @@ function truck_new_validation(){
 
 function inquery_new_validation(){
 
-    $("#inquery_new").validate(
+    $("#new_inquery").validate(
     {
         submitHandler: function(form) {
             $('#inquery_new').ajaxSubmit({
@@ -871,7 +874,7 @@ function inquery_new_validation(){
 
 function quote_new_validation(){
 
-    $("#quote_new").validate(
+    $("#new_quote").validate(
     {
         submitHandler: function(form) {
             $('#quote_new').ajaxSubmit({
@@ -903,7 +906,7 @@ function quote_new_validation(){
 
 function stock_truck_update_validation(){
 
-    $("#stocktruck_edit").validate(
+    $("#edit_stocktruck").validate(
     {
     
 

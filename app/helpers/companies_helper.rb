@@ -75,9 +75,9 @@ module CompaniesHelper
    else citycode!="100000000000"
       result=get_max_min_code(citycode)
       min=result[0];    max=result[1]
-      puts "min=#{min},max=#{max},result=#{result[2]}"
+    #  puts "min=#{min},max=#{max},result=#{result[2]}"
     if result[2]
-   @companies=Company.where(:city_code=>min).desc(:created_at).asc(:priority).paginate(:page=>params[:page]||1,:per_page=>20)
+    @companies=Company.where(:city_code=>min).desc(:created_at).asc(:priority).paginate(:page=>params[:page]||1,:per_page=>20)
       else
     @companies=Company.where(:city_code.gte =>min,:city_code.lt =>max).desc(:created_at).asc(:priority).paginate(:page=>params[:page]||1,:per_page=>20)
       end

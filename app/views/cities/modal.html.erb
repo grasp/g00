@@ -1,5 +1,5 @@
 <%#coding:utf-8%>
-<div class="span2">
+<div class="span5 ">
 <p>
 <a target="_blank" href="/cities/map/show/city/<%=@city_code%>">查看城市位置</a>
 </p>
@@ -7,5 +7,35 @@
 <p>
   <a target="_blank" href="/cities/map/show/line/<%=@fcity_code%>/<%=@tcity_code%>">查看参考行驶线路(高速)</a>
 </p>
+
+</div>
+<br></br>
+<div class="span5">
+<%unless @companies.blank? %>
+  <h4>城市物流黄页信息</h4>
+  <table class="table" >
+    <thead>
+      <tr>
+        <th>名称</th>
+        <th>联系人</th>        
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <%@companies.each do |company|%>   
+        <tr>
+          <td><a target="_blank" href="/companies/show/<%=company.id%>"><%=h company.name %></a>
+          </td>
+          <td><%=h company.contact_name %></td>
+        </tr>
+      <% end %>
+  </tbody>
+  </table>
+    <%else%>
+    <p>没有找到该城市的物流公司,添加你的城市黄页信息，就会出现在这里.</p>
+
+  
+<% end %>
 
 </div>

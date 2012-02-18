@@ -211,3 +211,1992 @@
  图木舒克市659003000000parse 图木舒克市，直辖区，新疆省 from google start
  五家渠市659004000000parse 五家渠市，直辖区，新疆省 from google start
 left counter=229
+city_counter 0,nilcounter=0,parseerror=0
+全国经纬度表
+ city_name=邹县,city_counter=6,nilcounter=1
+ city_name=纵阳,city_counter=7,nilcounter=2
+ city_name=涿县,city_counter=19,nilcounter=3
+ city_name=准格尔,city_counter=22,nilcounter=4
+ city_name=庄宁,city_counter=23,nilcounter=5
+ city_name=中甸,city_counter=45,nilcounter=6
+ city_name=正镶白,city_counter=52,nilcounter=7
+ city_name=正蓝,city_counter=53,nilcounter=8
+ city_name=镇源,city_counter=57,nilcounter=9
+ city_name=彰化,city_counter=86,nilcounter=10
+ city_name=张家川,city_counter=89,nilcounter=11
+ city_name=扎鲁特,city_counter=92,nilcounter=12
+ city_name=扎达,city_counter=93,nilcounter=13
+ city_name=垣仁,city_counter=116,nilcounter=14
+ city_name=禹县,city_counter=133,nilcounter=15
+ city_name=于干,city_counter=146,nilcounter=16
+ city_name=永喜,city_counter=153,nilcounter=17
+ city_name=永富,city_counter=168,nilcounter=18
+ city_name=颖上,city_counter=179,nilcounter=19
+ city_name=营县,city_counter=179,nilcounter=20
+ city_name=鄞县,city_counter=191,nilcounter=21
+ city_name=宜山,city_counter=204,nilcounter=22
+ city_name=宜兰,city_counter=205,nilcounter=23
+ city_name=宜汉,city_counter=207,nilcounter=24
+ city_name=伊克昭,city_counter=223,nilcounter=25
+ city_name=伊克昭盟,city_counter=223,nilcounter=26
+ city_name=伊金霍洛,city_counter=223,nilcounter=27
+ city_name=掖县,city_counter=226,nilcounter=28
+ city_name=耀县,city_counter=228,nilcounter=29
+ city_name=鄢县,city_counter=263,nilcounter=30
+ city_name=崖县,city_counter=268,nilcounter=31
+ city_name=寻甸,city_counter=273,nilcounter=32
+ city_name=叙水,city_counter=277,nilcounter=33
+ city_name=徐水,city_counter=280,nilcounter=34
+ city_name=修永,city_counter=283,nilcounter=35
+ city_name=忻县,city_counter=349,nilcounter=36
+ city_name=萧县,city_counter=354,nilcounter=37
+ city_name=镶黄,city_counter=360,nilcounter=38
+ city_name=香港,city_counter=369,nilcounter=39
+ city_name=下河,city_counter=380,nilcounter=40
+ city_name=喜桂图,city_counter=383,nilcounter=41
+ city_name=喜桂图旗,city_counter=383,nilcounter=42
+ city_name=武宜,city_counter=415,nilcounter=43
+ city_name=五台,city_counter=437,nilcounter=44
+ city_name=吴县,city_counter=444,nilcounter=45
+ city_name=吴壁,city_counter=448,nilcounter=46
+ city_name=乌审,city_counter=457,nilcounter=47
+ city_name=乌恰,city_counter=458,nilcounter=48
+ city_name=乌拉特中,city_counter=461,nilcounter=49
+ city_name=乌拉特前,city_counter=461,nilcounter=50
+ city_name=乌拉特后,city_counter=461,nilcounter=51
+ city_name=尉梨,city_counter=490,nilcounter=52
+ city_name=潍县,city_counter=490,nilcounter=53
+ city_name=望都,city_counter=503,nilcounter=54
+ city_name=旺苍,city_counter=504,nilcounter=55
+ city_name=万县,city_counter=507,nilcounter=56
+ city_name=万山,city_counter=508,nilcounter=57
+ city_name=畹町,city_counter=513,nilcounter=58
+ city_name=完县,city_counter=513,nilcounter=59
+ city_name=铜仁,city_counter=525,nilcounter=60
+ city_name=通县,city_counter=541,nilcounter=61
+ city_name=通北,city_counter=550,nilcounter=62
+ city_name=铁法,city_counter=552,nilcounter=63
+ city_name=滕县,city_counter=567,nilcounter=64
+ city_name=陶乐,city_counter=569,nilcounter=65
+ city_name=桃园,city_counter=570,nilcounter=66
+ city_name=洮安,city_counter=571,nilcounter=67
+ city_name=汤源,city_counter=575,nilcounter=68
+ city_name=泰县,city_counter=579,nilcounter=69
+ city_name=太仆寺,city_counter=585,nilcounter=70
+ city_name=台中,city_counter=593,nilcounter=71
+ city_name=台南,city_counter=595,nilcounter=72
+ city_name=台东,city_counter=596,nilcounter=73
+ city_name=台北,city_counter=596,nilcounter=74
+ city_name=塔什库,city_counter=597,nilcounter=75
+ city_name=塔什库尔,city_counter=597,nilcounter=76
+ city_name=宿县,city_counter=620,nilcounter=77
+ city_name=肃南,city_counter=623,nilcounter=78
+ city_name=苏尼特左,city_counter=625,nilcounter=79
+ city_name=苏尼特右,city_counter=625,nilcounter=80
+ city_name=四子王,city_counter=638,nilcounter=81
+ city_name=朔县,city_counter=643,nilcounter=82
+ city_name=束鹿,city_counter=657,nilcounter=83
+ city_name=师阡,city_counter=684,nilcounter=84
+ city_name=嵊县,city_counter=684,nilcounter=85
+ city_name=深县,city_counter=692,nilcounter=86
+ city_name=上默特左,city_counter=708,nilcounter=87
+ city_name=上默特右,city_counter=708,nilcounter=88
+ city_name=上默特左旗,city_counter=708,nilcounter=89
+ city_name=上默特右旗,city_counter=708,nilcounter=90
+ city_name=商县,city_counter=713,nilcounter=91
+ city_name=日上,city_counter=769,nilcounter=92
+ city_name=人荔,city_counter=776,nilcounter=93
+ city_name=曲麻菜,city_counter=792,nilcounter=94
+ city_name=丘县,city_counter=795,nilcounter=95
+ city_name=琼中,city_counter=796,nilcounter=96
+ city_name=穷结,city_counter=798,nilcounter=97
+ city_name=庆无,city_counter=801,nilcounter=98
+ city_name=晴龙,city_counter=802,nilcounter=99
+ city_name=清江,city_counter=812,nilcounter=100
+ city_name=清江,city_counter=812,nilcounter=101
+ city_name=黔阳,city_counter=834,nilcounter=102
+ city_name=蕲春,city_counter=845,nilcounter=103
+ city_name=琪县,city_counter=846,nilcounter=104
+ city_name=屏由,city_counter=875,nilcounter=105
+ city_name=屏东,city_counter=876,nilcounter=106
+ city_name=邳县,city_counter=913,nilcounter=107
+ city_name=澎湖,city_counter=913,nilcounter=108
+ city_name=彭由,city_counter=917,nilcounter=109
+ city_name=彭县,city_counter=917,nilcounter=110
+ city_name=彭水,city_counter=917,nilcounter=111
+ city_name=奈曼,city_counter=993,nilcounter=112
+ city_name=钠雍,city_counter=995,nilcounter=113
+ city_name=莫力达瓦,city_counter=1015,nilcounter=114
+ city_name=莫力达瓦达,city_counter=1015,nilcounter=115
+ city_name=莫力达瓦达斡,city_counter=1015,nilcounter=116
+ city_name=莫力达瓦达斡尔,city_counter=1015,nilcounter=117
+ city_name=莫力达瓦达斡尔族,city_counter=1015,nilcounter=118
+ city_name=莫力达瓦达斡尔族自,city_counter=1015,nilcounter=119
+ city_name=莫力达瓦达斡尔族自治,city_counter=1015,nilcounter=120
+ city_name=莫力达瓦达斡尔族自治旗,city_counter=1015,nilcounter=121
+ city_name=苗粟,city_counter=1026,nilcounter=122
+ city_name=密云,city_counter=1030,nilcounter=123
+ city_name=密县,city_counter=1030,nilcounter=124
+ city_name=孟县,city_counter=1039,nilcounter=125
+ city_name=孟县,city_counter=1039,nilcounter=126
+ city_name=罗川,city_counter=1089,nilcounter=127
+ city_name=吕都,city_counter=1098,nilcounter=128
+ city_name=禄劝,city_counter=1102,nilcounter=129
+ city_name=卢江,city_counter=1120,nilcounter=130
+ city_name=龙溪,city_counter=1135,nilcounter=131
+ city_name=咯什,city_counter=1145,nilcounter=132
+ city_name=六枝,city_counter=1145,nilcounter=133
+ city_name=酃县,city_counter=1155,nilcounter=134
+ city_name=林县,city_counter=1201,nilcounter=135
+ city_name=连县,city_counter=1219,nilcounter=136
+ city_name=泪罗,city_counter=1247,nilcounter=137
+ city_name=乐由,city_counter=1250,nilcounter=138
+ city_name=乐普湖,city_counter=1253,nilcounter=139
+ city_name=澜沦,city_counter=1265,nilcounter=140
+ city_name=来易,city_counter=1279,nilcounter=141
+ city_name=来阳,city_counter=1279,nilcounter=142
+ city_name=克什克腾,city_counter=1292,nilcounter=143
+ city_name=科尔沁左翼中,city_counter=1299,nilcounter=144
+ city_name=科尔沁左翼后,city_counter=1299,nilcounter=145
+ city_name=科尔沁左翼中旗,city_counter=1299,nilcounter=146
+ city_name=科尔沁左翼后旗,city_counter=1299,nilcounter=147
+ city_name=科尔沁右翼,city_counter=1299,nilcounter=148
+ city_name=科尔沁右翼,city_counter=1299,nilcounter=149
+ city_name=科尔沁右翼中,city_counter=1299,nilcounter=150
+ city_name=科尔沁右翼前,city_counter=1299,nilcounter=151
+ city_name=柯平,city_counter=1301,nilcounter=152
+ city_name=靖县,city_counter=1335,nilcounter=153
+ city_name=旌得,city_counter=1349,nilcounter=154
+ city_name=晋县,city_counter=1356,nilcounter=155
+ city_name=锦县,city_counter=1361,nilcounter=156
+ city_name=锦西,city_counter=1361,nilcounter=157
+ city_name=金县,city_counter=1367,nilcounter=158
+ city_name=金门,city_counter=1374,nilcounter=159
+ city_name=金口,city_counter=1374,nilcounter=160
+ city_name=胶县,city_counter=1385,nilcounter=161
+ city_name=交河,city_counter=1387,nilcounter=162
+ city_name=江浦,city_counter=1395,nilcounter=163
+ city_name=剑阁,city_counter=1406,nilcounter=164
+ city_name=嘉义,city_counter=1421,nilcounter=165
+ city_name=嘉山,city_counter=1424,nilcounter=166
+ city_name=枷师,city_counter=1427,nilcounter=167
+ city_name=冀县,city_counter=1432,nilcounter=168
+ city_name=汲县,city_counter=1442,nilcounter=169
+ city_name=基隆,city_counter=1452,nilcounter=170
+ city_name=鸡四,city_counter=1454,nilcounter=171
+ city_name=鸡东,city_counter=1454,nilcounter=172
+ city_name=霍县,city_counter=1454,nilcounter=173
+ city_name=霍丘,city_counter=1455,nilcounter=174
+ city_name=获鹿,city_counter=1456,nilcounter=175
+ city_name=浑江,city_counter=1458,nilcounter=176
+ city_name=黄县,city_counter=1479,nilcounter=177
+ city_name=怀德,city_counter=1503,nilcounter=178
+ city_name=花县,city_counter=1521,nilcounter=179
+ city_name=花莲,city_counter=1521,nilcounter=180
+ city_name=红安,city_counter=1541,nilcounter=181
+ city_name=黑江,city_counter=1556,nilcounter=182
+ city_name=贺县,city_counter=1562,nilcounter=183
+ city_name=荷泽,city_counter=1563,nilcounter=184
+ city_name=毫县,city_counter=1588,nilcounter=185
+ city_name=海龙,city_counter=1609,nilcounter=186
+ city_name=海康,city_counter=1612,nilcounter=187
+ city_name=贵县,city_counter=1623,nilcounter=188
+ city_name=广济,city_counter=1635,nilcounter=189
+ city_name=光元,city_counter=1642,nilcounter=190
+ city_name=灌县,city_counter=1645,nilcounter=191
+ city_name=沽益,city_counter=1660,nilcounter=192
+ city_name=巩县,city_counter=1664,nilcounter=193
+ city_name=盖县,city_counter=1701,nilcounter=194
+ city_name=复县,city_counter=1714,nilcounter=195
+ city_name=浮风,city_counter=1737,nilcounter=196
+ city_name=佛岗,city_counter=1742,nilcounter=197
+ city_name=方由,city_counter=1776,nilcounter=198
+ city_name=二连,city_counter=1782,nilcounter=199
+ city_name=鄂温克,city_counter=1785,nilcounter=200
+ city_name=鄂温克族,city_counter=1785,nilcounter=201
+ city_name=鄂温克族自,city_counter=1785,nilcounter=202
+ city_name=鄂温克族自治,city_counter=1785,nilcounter=203
+ city_name=鄂托克,city_counter=1787,nilcounter=204
+ city_name=鄂伦春,city_counter=1788,nilcounter=205
+ city_name=鄂伦春自,city_counter=1788,nilcounter=206
+ city_name=鄂伦春自治,city_counter=1788,nilcounter=207
+ city_name=额济纳,city_counter=1791,nilcounter=208
+ city_name=额尔古纳左,city_counter=1792,nilcounter=209
+ city_name=额尔古纳右,city_counter=1792,nilcounter=210
+ city_name=额尔古纳左旗,city_counter=1792,nilcounter=211
+ city_name=额尔古纳右旗,city_counter=1792,nilcounter=212
+ city_name=娥眉,city_counter=1794,nilcounter=213
+ city_name=定远,city_counter=1833,nilcounter=214
+ city_name=定县,city_counter=1835,nilcounter=215
+ city_name=邓县,city_counter=1848,nilcounter=216
+ city_name=德都,city_counter=1860,nilcounter=217
+ city_name=儋县,city_counter=1872,nilcounter=218
+ city_name=大庸,city_counter=1886,nilcounter=219
+ city_name=川沙,city_counter=1928,nilcounter=220
+ city_name=崇庆,city_counter=1935,nilcounter=221
+ city_name=陈巴尔虎,city_counter=1956,nilcounter=222
+ city_name=郴县,city_counter=1959,nilcounter=223
+ city_name=巢县,city_counter=1963,nilcounter=224
+ city_name=察哈尔右中,city_counter=2000,nilcounter=225
+ city_name=察哈尔右前,city_counter=2000,nilcounter=226
+ city_name=察哈尔右后,city_counter=2000,nilcounter=227
+ city_name=察布察尔,city_counter=2003,nilcounter=228
+ city_name=册亭,city_counter=2007,nilcounter=229
+ city_name=苍悟,city_counter=2009,nilcounter=230
+ city_name=布特哈旗,city_counter=2014,nilcounter=231
+ city_name=波阳,city_counter=2024,nilcounter=232
+ city_name=滨县,city_counter=2026,nilcounter=233
+ city_name=壁山,city_counter=2032,nilcounter=234
+ city_name=碧江,city_counter=2032,nilcounter=235
+ city_name=北镇,city_counter=2035,nilcounter=236
+ city_name=保由,city_counter=2041,nilcounter=237
+ city_name=保亭,city_counter=2041,nilcounter=238
+ city_name=宝应,city_counter=2044,nilcounter=239
+ city_name=百沙,city_counter=2058,nilcounter=240
+ city_name=霸县,city_counter=2065,nilcounter=241
+ city_name=巴林左,city_counter=2070,nilcounter=242
+ city_name=巴林右,city_counter=2070,nilcounter=243
+ city_name=澳门,city_counter=2075,nilcounter=244
+ city_name=敖汉,city_counter=2075,nilcounter=245
+ city_name=鞍由,city_counter=2077,nilcounter=246
+ city_name=阿荣,city_counter=2108,nilcounter=247
+ city_name=阿鲁科尔,city_counter=2109,nilcounter=248
+ city_name=阿拉善左,city_counter=2112,nilcounter=249
+ city_name=阿拉善右,city_counter=2112,nilcounter=250
+ city_name=阿巴哈,city_counter=2120,nilcounter=251
+ city_name=阿巴哈纳,city_counter=2120,nilcounter=252
+ city_name=阿巴哈纳尔,city_counter=2120,nilcounter=253
+ city_name=阿巴哈纳尔旗,city_counter=2120,nilcounter=254
+ city_name=阿巴嘎,city_counter=2120,nilcounter=255
+city_counter 2121,nilcounter=255,parseerror=0
+浙江省
+ city_name=庆无,city_counter=2137,nilcounter=256
+ city_name=嵊县,city_counter=2147,nilcounter=257
+ city_name=鄞县,city_counter=2156,nilcounter=258
+ city_name=嵊四,city_counter=2157,nilcounter=259
+ city_name=永喜,city_counter=2176,nilcounter=260
+city_counter 2188,nilcounter=260,parseerror=0
+港澳台
+ city_name=澎湖,city_counter=2188,nilcounter=261
+ city_name=屏东,city_counter=2188,nilcounter=262
+ city_name=台东,city_counter=2188,nilcounter=263
+ city_name=花莲,city_counter=2188,nilcounter=264
+ city_name=彰化,city_counter=2189,nilcounter=265
+ city_name=嘉义,city_counter=2189,nilcounter=266
+ city_name=苗粟,city_counter=2189,nilcounter=267
+ city_name=桃园,city_counter=2191,nilcounter=268
+ city_name=宜兰,city_counter=2191,nilcounter=269
+ city_name=台南,city_counter=2191,nilcounter=270
+ city_name=台中,city_counter=2191,nilcounter=271
+ city_name=基隆,city_counter=2191,nilcounter=272
+ city_name=台北,city_counter=2192,nilcounter=273
+ city_name=澳门,city_counter=2192,nilcounter=274
+ city_name=香港,city_counter=2192,nilcounter=275
+city_counter 2192,nilcounter=275,parseerror=0
+北京市
+ city_name=通县,city_counter=2197,nilcounter=276
+ city_name=密云,city_counter=2198,nilcounter=277
+city_counter 2200,nilcounter=277,parseerror=0
+天津市
+ parse error city_name=武清,city_counter=2201,nilcounter=277,120114000000,430781000000
+ parse error city_name=宝坻,city_counter=2202,nilcounter=277,120115000000,430781000000
+ parse error city_name=蓟县,city_counter=2203,nilcounter=277,120225000000,430781000000
+ parse error city_name=静海,city_counter=2204,nilcounter=277,120223000000,430781000000
+ parse error city_name=宁河,city_counter=2205,nilcounter=277,120221000000,430781000000
+ parse error city_name=天津,city_counter=2206,nilcounter=277,120000000000,430781000000
+city_counter 2206,nilcounter=277,parseerror=6
+重庆市
+ city_name=壁山,city_counter=2210,nilcounter=278
+ parse error city_name=南桐,city_counter=2214,nilcounter=278,430921000000,500000000000
+city_counter 2217,nilcounter=278,parseerror=7
+上海市
+ city_name=川沙,city_counter=2223,nilcounter=279
+city_counter 2226,nilcounter=279,parseerror=7
+河北省
+ city_name=冀县,city_counter=2226,nilcounter=280
+ city_name=深县,city_counter=2230,nilcounter=281
+ city_name=交河,city_counter=2241,nilcounter=282
+ city_name=霸县,city_counter=2254,nilcounter=283
+ city_name=完县,city_counter=2296,nilcounter=284
+ city_name=望都,city_counter=2297,nilcounter=285
+ city_name=徐水,city_counter=2300,nilcounter=286
+ parse error city_name=新城,city_counter=2302,nilcounter=286,610102000000,130000000000
+ city_name=定县,city_counter=2306,nilcounter=287
+ city_name=涿县,city_counter=2311,nilcounter=288
+ parse error city_name=南官,city_counter=2325,nilcounter=288,430921000000,130000000000
+ parse error city_name=宁普,city_counter=2328,nilcounter=288,621026000000,130000000000
+ city_name=丘县,city_counter=2335,nilcounter=289
+ city_name=获鹿,city_counter=2352,nilcounter=290
+ city_name=晋县,city_counter=2356,nilcounter=291
+ city_name=束鹿,city_counter=2356,nilcounter=292
+city_counter 2360,nilcounter=292,parseerror=10
+内蒙古
+ city_name=伊克昭盟,city_counter=2382,nilcounter=293
+ city_name=科尔沁左翼中旗,city_counter=2395,nilcounter=294
+ city_name=科尔沁左翼后旗,city_counter=2395,nilcounter=295
+ city_name=莫力达瓦达斡尔族自治旗,city_counter=2398,nilcounter=296
+ city_name=布特哈旗,city_counter=2401,nilcounter=297
+ city_name=喜桂图旗,city_counter=2402,nilcounter=298
+ city_name=额尔古纳左旗,city_counter=2402,nilcounter=299
+ city_name=额尔古纳右旗,city_counter=2402,nilcounter=300
+ city_name=阿巴哈纳尔旗,city_counter=2415,nilcounter=301
+ parse error city_name=达尔罕茂明安联合旗,city_counter=2417,nilcounter=301,511721000000,150000000000
+ parse error city_name=兴和,city_counter=2430,nilcounter=301,141123000000,150000000000
+ city_name=上默特右旗,city_counter=2433,nilcounter=302
+ city_name=上默特左旗,city_counter=2435,nilcounter=303
+city_counter 2436,nilcounter=303,parseerror=12
+辽宁省
+ city_name=铁法,city_counter=2444,nilcounter=304
+ city_name=盖县,city_counter=2451,nilcounter=305
+ parse error city_name=东沟,city_counter=2458,nilcounter=305,510402000000,210000000000
+ city_name=锦西,city_counter=2461,nilcounter=306
+ city_name=北镇,city_counter=2461,nilcounter=307
+ city_name=锦县,city_counter=2463,nilcounter=308
+ city_name=垣仁,city_counter=2464,nilcounter=309
+ city_name=鞍由,city_counter=2470,nilcounter=310
+ parse error city_name=新金,city_counter=2473,nilcounter=310,411523000000,210000000000
+ city_name=复县,city_counter=2473,nilcounter=311
+ city_name=金县,city_counter=2473,nilcounter=312
+city_counter 2477,nilcounter=312,parseerror=14
+山西省
+ city_name=霍县,city_counter=2494,nilcounter=313
+ city_name=方由,city_counter=2530,nilcounter=314
+ city_name=孟县,city_counter=2543,nilcounter=315
+ city_name=五台,city_counter=2555,nilcounter=316
+ city_name=忻县,city_counter=2556,nilcounter=317
+ city_name=朔县,city_counter=2557,nilcounter=318
+city_counter 2574,nilcounter=318,parseerror=14
+吉林省
+ city_name=洮安,city_counter=2574,nilcounter=319
+ city_name=怀德,city_counter=2584,nilcounter=320
+ city_name=浑江,city_counter=2589,nilcounter=321
+ city_name=海龙,city_counter=2591,nilcounter=322
+city_counter 2612,nilcounter=322,parseerror=14
+黑龙江省
+ city_name=鸡东,city_counter=2645,nilcounter=323
+ city_name=汤源,city_counter=2647,nilcounter=324
+ city_name=通北,city_counter=2665,nilcounter=325
+ city_name=德都,city_counter=2665,nilcounter=326
+ city_name=鸡四,city_counter=2683,nilcounter=327
+city_counter 2687,nilcounter=327,parseerror=14
+江苏省
+ city_name=吴县,city_counter=2688,nilcounter=328
+ parse error city_name=沙洲,city_counter=2692,nilcounter=328,350427000000,320000000000
+ city_name=泰县,city_counter=2709,nilcounter=329
+ city_name=宝应,city_counter=2712,nilcounter=330
+ city_name=清江,city_counter=2739,nilcounter=331
+ city_name=邳县,city_counter=2741,nilcounter=332
+ city_name=江浦,city_counter=2752,nilcounter=333
+city_counter 2755,nilcounter=333,parseerror=15
+安徽省
+ city_name=颖上,city_counter=2759,nilcounter=334
+ city_name=毫县,city_counter=2762,nilcounter=335
+ city_name=霍丘,city_counter=2768,nilcounter=336
+ city_name=纵阳,city_counter=2777,nilcounter=337
+ parse error city_name=太平,city_counter=2780,nilcounter=337,210904000000,340000000000
+ city_name=旌得,city_counter=2784,nilcounter=338
+ city_name=卢江,city_counter=2795,nilcounter=339
+ city_name=巢县,city_counter=2799,nilcounter=340
+ city_name=定远,city_counter=2801,nilcounter=341
+ city_name=嘉山,city_counter=2804,nilcounter=342
+ city_name=吴壁,city_counter=2809,nilcounter=343
+ city_name=萧县,city_counter=2809,nilcounter=344
+ city_name=宿县,city_counter=2810,nilcounter=345
+city_counter 2822,nilcounter=345,parseerror=16
+福建省
+ city_name=龙溪,city_counter=2831,nilcounter=346
+ city_name=金门,city_counter=2849,nilcounter=347
+ parse error city_name=吉田,city_counter=2869,nilcounter=347,141028000000,350000000000
+ parse error city_name=宁德,city_counter=2874,nilcounter=347,621026000000,350000000000
+ parse error city_name=崇安,city_counter=2878,nilcounter=347,320202000000,350000000000
+city_counter 2888,nilcounter=347,parseerror=19
+江西省
+ parse error city_name=宁冈,city_counter=2912,nilcounter=347,621026000000,360000000000
+ parse error city_name=东乡,city_counter=2922,nilcounter=347,622926000000,360000000000
+ city_name=清江,city_counter=2935,nilcounter=348
+ city_name=于干,city_counter=2945,nilcounter=349
+ city_name=波阳,city_counter=2945,nilcounter=350
+ city_name=修永,city_counter=2957,nilcounter=351
+city_counter 2970,nilcounter=351,parseerror=21
+山东省
+ city_name=荷泽,city_counter=2987,nilcounter=352
+ city_name=邹县,city_counter=2989,nilcounter=353
+ parse error city_name=新汶,city_counter=3000,nilcounter=353,411523000000,370000000000
+ city_name=营县,city_counter=3008,nilcounter=354
+ parse error city_name=仓山,city_counter=3012,nilcounter=354,350104000000,370000000000
+ city_name=黄县,city_counter=3017,nilcounter=355
+ city_name=掖县,city_counter=3024,nilcounter=356
+ parse error city_name=高都,city_counter=3031,nilcounter=356,511525000000,370000000000
+ city_name=潍县,city_counter=3040,nilcounter=357
+ city_name=滨县,city_counter=3050,nilcounter=358
+ city_name=滕县,city_counter=3067,nilcounter=359
+ city_name=胶县,city_counter=3069,nilcounter=360
+city_counter 3077,nilcounter=360,parseerror=24
+河南省
+ parse error city_name=临汝,city_counter=3091,nilcounter=360,141124000000,410000000000
+ city_name=邓县,city_counter=3100,nilcounter=361
+ city_name=禹县,city_counter=3123,nilcounter=362
+ city_name=鄢县,city_counter=3133,nilcounter=363
+ city_name=林县,city_counter=3152,nilcounter=364
+ city_name=孟县,city_counter=3166,nilcounter=365
+ city_name=汲县,city_counter=3175,nilcounter=366
+ city_name=巩县,city_counter=3177,nilcounter=367
+ city_name=密县,city_counter=3177,nilcounter=368
+city_counter 3190,nilcounter=368,parseerror=25
+湖北省
+ parse error city_name=蒲圻,city_counter=3197,nilcounter=368,141033000000,420000000000
+ city_name=广济,city_counter=3204,nilcounter=369
+ city_name=蕲春,city_counter=3205,nilcounter=370
+ city_name=罗川,city_counter=3206,nilcounter=371
+ city_name=红安,city_counter=3207,nilcounter=372
+ parse error city_name=应山,city_counter=3214,nilcounter=372,140622000000,420000000000
+city_counter 3226,nilcounter=372,parseerror=27
+湖南省
+ city_name=大庸,city_counter=3247,nilcounter=373
+ city_name=靖县,city_counter=3255,nilcounter=374
+ city_name=黔阳,city_counter=3259,nilcounter=375
+ parse error city_name=新宁,city_counter=3273,nilcounter=375,411523000000,430000000000
+ city_name=来阳,city_counter=3290,nilcounter=376
+ city_name=郴县,city_counter=3299,nilcounter=377
+ city_name=酃县,city_counter=3301,nilcounter=378
+ city_name=泪罗,city_counter=3307,nilcounter=379
+city_counter 3316,nilcounter=379,parseerror=28
+海南省
+ city_name=崖县,city_counter=3319,nilcounter=380
+ city_name=琼中,city_counter=3320,nilcounter=381
+ city_name=保亭,city_counter=3321,nilcounter=382
+ city_name=儋县,city_counter=3322,nilcounter=383
+city_counter 3330,nilcounter=383,parseerror=28
+广西壮族自治区
+ city_name=贵县,city_counter=3349,nilcounter=384
+ city_name=贺县,city_counter=3360,nilcounter=385
+ city_name=苍悟,city_counter=3362,nilcounter=386
+ city_name=武宜,city_counter=3379,nilcounter=387
+ city_name=宜山,city_counter=3390,nilcounter=388
+ parse error city_name=环江,city_counter=3392,nilcounter=388,621022000000,450000000000
+city_counter 3411,nilcounter=388,parseerror=29
+四川省
+ parse error city_name=南坪,city_counter=3453,nilcounter=388,430921000000,510000000000
+ city_name=百沙,city_counter=3467,nilcounter=389
+ city_name=宜汉,city_counter=3475,nilcounter=390
+ parse error city_name=华云,city_counter=3478,nilcounter=390,610521000000,510000000000
+ parse error city_name=南允,city_counter=3489,nilcounter=390,430921000000,510000000000
+ parse error city_name=梁平,city_counter=3490,nilcounter=390,500228000000,510000000000
+ parse error city_name=忠县,city_counter=3491,nilcounter=390,500233000000,510000000000
+ parse error city_name=云阳,city_counter=3492,nilcounter=390,500235000000,510000000000
+ parse error city_name=奉节,city_counter=3493,nilcounter=390,500236000000,510000000000
+ parse error city_name=巫山,city_counter=3494,nilcounter=390,500237000000,510000000000
+ parse error city_name=巫溪,city_counter=3495,nilcounter=390,500238000000,510000000000
+ parse error city_name=城口,city_counter=3496,nilcounter=390,500229000000,510000000000
+ parse error city_name=开县,city_counter=3497,nilcounter=390,500234000000,510000000000
+ city_name=万县,city_counter=3497,nilcounter=391
+ parse error city_name=南川,city_counter=3498,nilcounter=391,500119000000,510000000000
+ parse error city_name=武隆,city_counter=3499,nilcounter=391,500232000000,510000000000
+ city_name=彭水,city_counter=3499,nilcounter=392
+ parse error city_name=黔江,city_counter=3500,nilcounter=392,500114000000,510000000000
+ parse error city_name=秀山,city_counter=3502,nilcounter=392,500241000000,510000000000
+ parse error city_name=石柱,city_counter=3503,nilcounter=392,500240000000,510000000000
+ parse error city_name=丰都,city_counter=3504,nilcounter=392,500230000000,510000000000
+ parse error city_name=垫江,city_counter=3505,nilcounter=392,500231000000,510000000000
+ parse error city_name=涪陵,city_counter=3506,nilcounter=392,500102000000,510000000000
+ city_name=金口,city_counter=3506,nilcounter=393
+ city_name=娥眉,city_counter=3508,nilcounter=394
+ city_name=彭由,city_counter=3512,nilcounter=395
+ parse error city_name=眉由,city_counter=3513,nilcounter=395,610326000000,510000000000
+ city_name=乐由,city_counter=3517,nilcounter=396
+ city_name=屏由,city_counter=3517,nilcounter=397
+ city_name=琪县,city_counter=3519,nilcounter=398
+ city_name=叙水,city_counter=3521,nilcounter=399
+ city_name=剑阁,city_counter=3549,nilcounter=400
+ city_name=旺苍,city_counter=3549,nilcounter=401
+ city_name=光元,city_counter=3549,nilcounter=402
+ city_name=崇庆,city_counter=3553,nilcounter=403
+ city_name=彭县,city_counter=3558,nilcounter=404
+ city_name=灌县,city_counter=3558,nilcounter=405
+ city_name=来易,city_counter=3560,nilcounter=406
+city_counter 3566,nilcounter=406,parseerror=49
+贵州省
+ city_name=晴龙,city_counter=3594,nilcounter=407
+ city_name=册亭,city_counter=3596,nilcounter=408
+ city_name=钠雍,city_counter=3611,nilcounter=409
+ city_name=师阡,city_counter=3620,nilcounter=410
+ city_name=万山,city_counter=3621,nilcounter=411
+ city_name=铜仁,city_counter=3624,nilcounter=412
+ city_name=六枝,city_counter=3636,nilcounter=413
+city_counter 3640,nilcounter=413,parseerror=49
+云南省
+ city_name=中甸,city_counter=3642,nilcounter=414
+ city_name=碧江,city_counter=3645,nilcounter=415
+ city_name=畹町,city_counter=3648,nilcounter=416
+ parse error city_name=下关,city_counter=3664,nilcounter=416,320107000000,530000000000
+ city_name=禄劝,city_counter=3667,nilcounter=417
+ parse error city_name=景淇,city_counter=3677,nilcounter=417,131127000000,530000000000
+ parse error city_name=西畴,city_counter=3696,nilcounter=417,510403000000,530000000000
+ city_name=保由,city_counter=3706,nilcounter=418
+ parse error city_name=临沦,city_counter=3714,nilcounter=418,141124000000,530000000000
+ city_name=澜沦,city_counter=3717,nilcounter=419
+ city_name=黑江,city_counter=3717,nilcounter=420
+ parse error city_name=景谷,city_counter=3718,nilcounter=420,131127000000,530000000000
+ city_name=寻甸,city_counter=3731,nilcounter=421
+ parse error city_name=路南,city_counter=3732,nilcounter=421,130202000000,530000000000
+ city_name=沽益,city_counter=3736,nilcounter=422
+ city_name=永富,city_counter=3742,nilcounter=423
+city_counter 3757,nilcounter=423,parseerror=55
+西藏自治区
+ city_name=日上,city_counter=3759,nilcounter=424
+ city_name=扎达,city_counter=3760,nilcounter=425
+ city_name=穷结,city_counter=3788,nilcounter=426
+ city_name=吕都,city_counter=3804,nilcounter=427
+city_counter 3825,nilcounter=427,parseerror=55
+陕西省
+ city_name=商县,city_counter=3852,nilcounter=428
+ city_name=人荔,city_counter=3858,nilcounter=429
+ parse error city_name=成城,city_counter=3861,nilcounter=429,621221000000,610000000000
+ parse error city_name=安寨,city_counter=3891,nilcounter=429,510724000000,610000000000
+ city_name=浮风,city_counter=3908,nilcounter=430
+ city_name=耀县,city_counter=3914,nilcounter=431
+city_counter 3917,nilcounter=431,parseerror=57
+甘肃省
+ parse error city_name=安西,city_counter=3920,nilcounter=431,510724000000,620000000000
+ city_name=肃南,city_counter=3924,nilcounter=432
+ city_name=下河,city_counter=3945,nilcounter=433
+ city_name=张家川,city_counter=3953,nilcounter=434
+ city_name=镇源,city_counter=3966,nilcounter=435
+ city_name=庄宁,city_counter=3966,nilcounter=436
+city_counter 3987,nilcounter=436,parseerror=58
+青海省
+ city_name=曲麻菜,city_counter=3991,nilcounter=437
+ parse error city_name=河南,city_counter=4008,nilcounter=437,410000000000,630000000000
+city_counter 4025,nilcounter=437,parseerror=59
+宁夏回族自治区
+ city_name=陶乐,city_counter=4037,nilcounter=438
+city_counter 4042,nilcounter=438,parseerror=59
+新疆维吾尔自治区
+ city_name=察布察尔,city_counter=4056,nilcounter=439
+ city_name=乌恰,city_counter=4075,nilcounter=440
+ city_name=乐普湖,city_counter=4086,nilcounter=441
+ city_name=枷师,city_counter=4086,nilcounter=442
+ city_name=咯什,city_counter=4087,nilcounter=443
+ city_name=柯平,city_counter=4088,nilcounter=444
+ city_name=尉梨,city_counter=4104,nilcounter=445
+city_counter 4117,nilcounter=445,parseerror=59
+广东省
+ city_name=海康,city_counter=4129,nilcounter=446
+ parse error city_name=五华,city_counter=4163,nilcounter=446,530102000000,440000000000
+ parse error city_name=连山,city_counter=4182,nilcounter=446,211402000000,440000000000
+ city_name=连县,city_counter=4182,nilcounter=447
+ city_name=佛岗,city_counter=4185,nilcounter=448
+ parse error city_name=洪江,city_counter=4199,nilcounter=448,431281000000,440000000000
+ parse error city_name=海口,city_counter=4201,nilcounter=448,460100000000,440000000000
+ parse error city_name=新十,city_counter=4206,nilcounter=448,411523000000,440000000000
+ city_name=花县,city_counter=4206,nilcounter=449
+city_counter 4207,nilcounter=449,parseerror=64
+ 直辖区1110100000000parse 直辖区1，北京省 from google start
+ 东城区110101000000parse 东城区，直辖区1，北京省 from google start
+ 西城区110102000000parse 西城区，直辖区1，北京省 from google start
+ 崇文区110103000000parse 崇文区，直辖区1，北京省 from google start
+ 宣武区110104000000parse 宣武区，直辖区1，北京省 from google start
+ 朝阳区110105000000parse 朝阳区，直辖区1，北京省 from google start
+ 丰台区110106000000parse 丰台区，直辖区1，北京省 from google start
+ 石景山区110107000000parse 石景山区，直辖区1，北京省 from google start
+ 海淀区110108000000parse 海淀区，直辖区1，北京省 from google start
+ 门头沟区110109000000parse 门头沟区，直辖区1，北京省 from google start
+ 通州区110112000000parse 通州区，直辖区1，北京省 from google start
+ 直辖区2110200000000parse 直辖区2，北京省 from google start
+ 市直辖乡110228000000parse 市直辖乡，直辖区2，北京省 from google start
+ 天津120000000000parse 天津省 from google start
+ 直辖区1120100000000parse 直辖区1，天津省 from google start
+ 和平区120101000000parse 和平区，直辖区1，天津省 from google start
+ 河东区120102000000parse 河东区，直辖区1，天津省 from google start
+ 河西区120103000000parse 河西区，直辖区1，天津省 from google start
+ 南开区120104000000parse 南开区，直辖区1，天津省 from google start
+ 河北区120105000000parse 河北区，直辖区1，天津省 from google start
+ 红桥区120106000000parse 红桥区，直辖区1，天津省 from google start
+ 塘沽区120107000000parse 塘沽区，直辖区1，天津省 from google start
+ 汉沽区120108000000parse 汉沽区，直辖区1，天津省 from google start
+ 大港区120109000000parse 大港区，直辖区1，天津省 from google start
+ 东丽区120110000000parse 东丽区，直辖区1，天津省 from google start
+ 西青区120111000000parse 西青区，直辖区1，天津省 from google start
+ 津南区120112000000parse 津南区，直辖区1，天津省 from google start
+ 北辰区120113000000parse 北辰区，直辖区1，天津省 from google start
+ 武清区120114000000parse 武清区，直辖区1，天津省 from google start
+ 宝坻区120115000000parse 宝坻区，直辖区1，天津省 from google start
+ 直辖区2120200000000parse 直辖区2，天津省 from google start
+ 宁河县120221000000parse 宁河县，直辖区2，天津省 from google start
+ 静海县120223000000parse 静海县，直辖区2，天津省 from google start
+ 蓟县120225000000parse 蓟县，直辖区2，天津省 from google start
+ 河北130000000000parse 河北省 from google start
+ 长安区130102000000parse 长安区，石家庄市，河北省 from google start
+ 桥东区130103000000parse 桥东区，石家庄市，河北省 from google start
+ 桥西区130104000000parse 桥西区，石家庄市，河北省 from google start
+ 新华区130105000000parse 新华区，石家庄市，河北省 from google start
+ 开发区130106000000parse 开发区，石家庄市，河北省 from google start
+ 井陉矿区130107000000parse 井陉矿区，石家庄市，河北省 from google start
+ 裕华区130108000000parse 裕华区，石家庄市，河北省 from google start
+ 辛集市130181000000parse 辛集市，石家庄市，河北省 from google start
+ 晋州市130183000000parse 晋州市，石家庄市，河北省 from google start
+ 鹿泉市130185000000parse 鹿泉市，石家庄市，河北省 from google start
+ 路南区130202000000parse 路南区，唐山市，河北省 from google start
+ 路北区130203000000parse 路北区，唐山市，河北省 from google start
+ 古冶区130204000000parse 古冶区，唐山市，河北省 from google start
+ 开平区130205000000parse 开平区，唐山市，河北省 from google start
+ 芦台经济区130291000000parse 芦台经济区，唐山市，河北省 from google start
+ 高新区130293000000parse 高新区，唐山市，河北省 from google start
+ 南堡开发区130294000000parse 南堡开发区，唐山市，河北省 from google start
+ 海港区130302000000parse 海港区，秦皇岛市，河北省 from google start
+ 山海关区130303000000parse 山海关区，秦皇岛市，河北省 from google start
+ 北戴河区130304000000parse 北戴河区，秦皇岛市，河北省 from google start
+ 秦皇岛市开发区130325000000parse 秦皇岛市开发区，秦皇岛市，河北省 from google start
+ 邯山区130402000000parse 邯山区，邯郸市，河北省 from google start
+ 丛台区130403000000parse 丛台区，邯郸市，河北省 from google start
+ 复兴区130404000000parse 复兴区，邯郸市，河北省 from google start
+ 峰峰矿区130406000000parse 峰峰矿区，邯郸市，河北省 from google start
+ 邯郸县130421000000parse 邯郸县，邯郸市，河北省 from google start
+ 邱县130430000000parse 邱县，邯郸市，河北省 from google start
+ 马头生态工业城130482000000parse 马头生态工业城，邯郸市，河北省 from google start
+ 高开区130483000000parse 高开区，邯郸市，河北省 from google start
+ 桥东区130502000000parse 桥东区，邢台市，河北省 from google start
+ 桥西区130503000000parse 桥西区，邢台市，河北省 from google start
+ 高开区130504000000parse 高开区，邢台市，河北省 from google start
+ 大曹庄管理区130505000000parse 大曹庄管理区，邢台市，河北省 from google start
+ 邢台县130521000000parse 邢台县，邢台市，河北省 from google start
+ 宁晋县130528000000parse 宁晋县，邢台市，河北省 from google start
+ 南宫市130581000000parse 南宫市，邢台市，河北省 from google start
+ 新市区130602000000parse 新市区，保定市，河北省 from google start
+ 北市区130603000000parse 北市区，保定市，河北省 from google start
+ 南市区130604000000parse 南市区，保定市，河北省 from google start
+ 顺平县130636000000parse 顺平县，保定市，河北省 from google start
+ 涿州市130681000000parse 涿州市，保定市，河北省 from google start
+ 定州市汇总130682000000parse 定州市汇总，保定市，河北省 from google start
+ 高碑店市130684000000parse 高碑店市，保定市，河北省 from google start
+ 桥东区130702000000parse 桥东区，张家口市，河北省 from google start
+ 桥西区130703000000parse 桥西区，张家口市，河北省 from google start
+ 宣化区130705000000parse 宣化区，张家口市，河北省 from google start
+ 下花园区130706000000parse 下花园区，张家口市，河北省 from google start
+ 察北管理区130734000000parse 察北管理区，张家口市，河北省 from google start
+ 塞北管理区130735000000parse 塞北管理区，张家口市，河北省 from google start
+ 高新区130736000000parse 高新区，张家口市，河北省 from google start
+ 双桥区130802000000parse 双桥区，承德市，河北省 from google start
+ 双滦区130803000000parse 双滦区，承德市，河北省 from google start
+ 鹰手营子矿区130804000000parse 鹰手营子矿区，承德市，河北省 from google start
+ 承德县130821000000parse 承德县，承德市，河北省 from google start
+ 新华区130902000000parse 新华区，沧州市，河北省 from google start
+ 运河区130903000000parse 运河区，沧州市，河北省 from google start
+ 沧县130921000000parse 沧县，沧州市，河北省 from google start
+ 中捷农场130985000000parse 中捷农场，沧州市，河北省 from google start
+ 南大岗130986000000parse 南大岗，沧州市，河北省 from google start
+ 广阳区131003000000parse 广阳区，廊坊市，河北省 from google start
+ 霸州市131081000000parse 霸州市，廊坊市，河北省 from google start
+ 桃城区131102000000parse 桃城区，衡水市，河北省 from google start
+ 高新区131103000000parse 高新区，衡水市，河北省 from google start
+ 冀州市131181000000parse 冀州市，衡水市，河北省 from google start
+ 衡水湖区131191000000parse 衡水湖区，衡水市，河北省 from google start
+ 山西140000000000parse 山西省 from google start
+ 小店区140105000000parse 小店区，太原市，山西省 from google start
+ 迎泽区140106000000parse 迎泽区，太原市，山西省 from google start
+ 杏花岭区140107000000parse 杏花岭区，太原市，山西省 from google start
+ 尖草坪区140108000000parse 尖草坪区，太原市，山西省 from google start
+ 万柏林区140109000000parse 万柏林区，太原市，山西省 from google start
+ 晋源区140110000000parse 晋源区，太原市，山西省 from google start
+ 古交市140181000000parse 古交市，太原市，山西省 from google start
+ 城区140202000000parse 城区，大同市，山西省 from google start
+ 矿区140203000000parse 矿区，大同市，山西省 from google start
+ 南郊区140211000000parse 南郊区，大同市，山西省 from google start
+ 新荣区140212000000parse 新荣区，大同市，山西省 from google start
+ 大同县140227000000parse 大同县，大同市，山西省 from google start
+ 城区140302000000parse 城区，阳泉市，山西省 from google start
+ 矿区140303000000parse 矿区，阳泉市，山西省 from google start
+ 郊区140311000000parse 郊区，阳泉市，山西省 from google start
+ 盂县140322000000parse 盂县，阳泉市，山西省 from google start
+ 城区140402000000parse 城区，长治市，山西省 from google start
+ 郊区140411000000parse 郊区，长治市，山西省 from google start
+ 长治县140421000000parse 长治县，长治市，山西省 from google start
+ 城区140502000000parse 城区，晋城市，山西省 from google start
+ 泽州县140525000000parse 泽州县，晋城市，山西省 from google start
+ 朔州市140600000000parse 朔州市，山西省 from google start
+ 朔城区140602000000parse 朔城区，朔州市，山西省 from google start
+ 晋中市140700000000parse 晋中市，山西省 from google start
+ 县直辖村140701000000parse 县直辖村，晋中市，山西省 from google start
+ 盐湖区140802000000parse 盐湖区，运城市，山西省 from google start
+ 忻州市140900000000parse 忻州市，山西省 from google start
+ 忻府区140902000000parse 忻府区，忻州市，山西省 from google start
+ 尧都区141002000000parse 尧都区，临汾市，山西省 from google start
+ 隰县141031000000parse 隰县，临汾市，山西省 from google start
+ 霍州市141082000000parse 霍州市，临汾市，山西省 from google start
+ 吕梁市141100000000parse 吕梁市，山西省 from google start
+ 方山县141128000000parse 方山县，吕梁市，山西省 from google start
+ 内蒙古150000000000parse 内蒙古省 from google start
+ 新城区150102000000parse 新城区，呼和浩特市，内蒙古省 from google start
+ 回民区150103000000parse 回民区，呼和浩特市，内蒙古省 from google start
+ 玉泉区150104000000parse 玉泉区，呼和浩特市，内蒙古省 from google start
+ 赛罕区150105000000parse 赛罕区，呼和浩特市，内蒙古省 from google start
+ 土默特左旗150121000000parse 土默特左旗，呼和浩特市，内蒙古省 from google start
+ 东河区150202000000parse 东河区，包头市，内蒙古省 from google start
+ 昆都仑区150203000000parse 昆都仑区，包头市，内蒙古省 from google start
+ 青山区150204000000parse 青山区，包头市，内蒙古省 from google start
+ 石拐区150205000000parse 石拐区，包头市，内蒙古省 from google start
+ 白云矿区150206000000parse 白云矿区，包头市，内蒙古省 from google start
+ 九原区150207000000parse 九原区，包头市，内蒙古省 from google start
+ 土默特右旗150221000000parse 土默特右旗，包头市，内蒙古省 from google start
+ 达尔罕150223000000parse 达尔罕，包头市，内蒙古省 from google start
+ 海勃湾区150302000000parse 海勃湾区，乌海市，内蒙古省 from google start
+ 乌达区150304000000parse 乌达区，乌海市，内蒙古省 from google start
+ 红山区150402000000parse 红山区，赤峰市，内蒙古省 from google start
+ 元宝山区150403000000parse 元宝山区，赤峰市，内蒙古省 from google start
+ 松山区150404000000parse 松山区，赤峰市，内蒙古省 from google start
+ 科尔沁区150502000000parse 科尔沁区，通辽市，内蒙古省 from google start
+ 科尔沁左翼150521000000parse 科尔沁左翼，通辽市，内蒙古省 from google start
+ 科尔沁左翼150522000000parse 科尔沁左翼，通辽市，内蒙古省 from google start
+ 科尔沁左翼150522000000parse error!!!
+ 霍林郭勒市150581000000parse 霍林郭勒市，通辽市，内蒙古省 from google start
+ 鄂尔多斯市150600000000parse 鄂尔多斯市，内蒙古省 from google start
+ 呼伦贝尔市150700000000parse 呼伦贝尔市，内蒙古省 from google start
+ 莫力达150722000000parse 莫力达，呼伦贝尔市，内蒙古省 from google start
+ 牙克石市150782000000parse 牙克石市，呼伦贝尔市，内蒙古省 from google start
+ 扎兰屯市150783000000parse 扎兰屯市，呼伦贝尔市，内蒙古省 from google start
+ 额尔古纳市150784000000parse 额尔古纳市，呼伦贝尔市，内蒙古省 from google start
+ 根河市150785000000parse 根河市，呼伦贝尔市，内蒙古省 from google start
+ 巴彦淖尔市150800000000parse 巴彦淖尔市，内蒙古省 from google start
+ 市辖区150801000000parse 市辖区，巴彦淖尔市，内蒙古省 from google start
+ 乌兰察布市150900000000parse 乌兰察布市，内蒙古省 from google start
+ 兴安盟152200000000parse 兴安盟，内蒙古省 from google start
+ 阿尔山市152202000000parse 阿尔山市，兴安盟，内蒙古省 from google start
+ 扎赉特旗152223000000parse 扎赉特旗，兴安盟，内蒙古省 from google start
+ 锡林郭勒盟152500000000parse 锡林郭勒盟，内蒙古省 from google start
+ 锡林浩特市152502000000parse 锡林浩特市，锡林郭勒盟，内蒙古省 from google start
+ 阿拉善盟152900000000parse 阿拉善盟，内蒙古省 from google start
+ 辽宁210000000000parse 辽宁省 from google start
+ 和平区210102000000parse 和平区，沈阳市，辽宁省 from google start
+ 沈河区210103000000parse 沈河区，沈阳市，辽宁省 from google start
+ 大东区210104000000parse 大东区，沈阳市，辽宁省 from google start
+ 皇姑区210105000000parse 皇姑区，沈阳市，辽宁省 from google start
+ 铁西区210106000000parse 铁西区，沈阳市，辽宁省 from google start
+ 苏家屯区210111000000parse 苏家屯区，沈阳市，辽宁省 from google start
+ 东陵区210112000000parse 东陵区，沈阳市，辽宁省 from google start
+ 沈北新区210113000000parse 沈北新区，沈阳市，辽宁省 from google start
+ 于洪区210114000000parse 于洪区，沈阳市，辽宁省 from google start
+ 棋盘山开发区210115000000parse 棋盘山开发区，沈阳市，辽宁省 from google start
+ 浑南新区210117000000parse 浑南新区，沈阳市，辽宁省 from google start
+ 沈阳经济区210196000000parse 沈阳经济区，沈阳市，辽宁省 from google start
+ 中山区210202000000parse 中山区，大连市，辽宁省 from google start
+ 西岗区210203000000parse 西岗区，大连市，辽宁省 from google start
+ 沙河口区210204000000parse 沙河口区，大连市，辽宁省 from google start
+ 甘井子区210211000000parse 甘井子区，大连市，辽宁省 from google start
+ 旅顺口区210212000000parse 旅顺口区，大连市，辽宁省 from google start
+ 金州区210213000000parse 金州区，大连市，辽宁省 from google start
+ 开发区210214000000parse 开发区，大连市，辽宁省 from google start
+ 瓦房店市210281000000parse 瓦房店市，大连市，辽宁省 from google start
+ 普兰店市210282000000parse 普兰店市，大连市，辽宁省 from google start
+ 鞍山市210300000000parse 鞍山市，辽宁省 from google start
+ 铁东区210302000000parse 铁东区，鞍山市，辽宁省 from google start
+ 铁西区210303000000parse 铁西区，鞍山市，辽宁省 from google start
+ 立山区210304000000parse 立山区，鞍山市，辽宁省 from google start
+ 千山区210311000000parse 千山区，鞍山市，辽宁省 from google start
+ 新抚区210402000000parse 新抚区，抚顺市，辽宁省 from google start
+ 东洲区210403000000parse 东洲区，抚顺市，辽宁省 from google start
+ 望花区210404000000parse 望花区，抚顺市，辽宁省 from google start
+ 顺城区210411000000parse 顺城区，抚顺市，辽宁省 from google start
+ 抚顺县210421000000parse 抚顺县，抚顺市，辽宁省 from google start
+ 本溪市210500000000parse 本溪市，辽宁省 from google start
+ 平山区210502000000parse 平山区，本溪市，辽宁省 from google start
+ 溪湖区210503000000parse 溪湖区，本溪市，辽宁省 from google start
+ 明山区210504000000parse 明山区，本溪市，辽宁省 from google start
+ 南芬区210505000000parse 南芬区，本溪市，辽宁省 from google start
+ 桓仁210522000000parse 桓仁，本溪市，辽宁省 from google start
+ 元宝区210602000000parse 元宝区，丹东市，辽宁省 from google start
+ 振兴区210603000000parse 振兴区，丹东市，辽宁省 from google start
+ 振安区210604000000parse 振安区，丹东市，辽宁省 from google start
+ 东港市210681000000parse 东港市，丹东市，辽宁省 from google start
+ 古塔区210702000000parse 古塔区，锦州市，辽宁省 from google start
+ 凌河区210703000000parse 凌河区，锦州市，辽宁省 from google start
+ 太和区210711000000parse 太和区，锦州市，辽宁省 from google start
+ 凌海市210781000000parse 凌海市，锦州市，辽宁省 from google start
+ 北宁市210782000000parse 北宁市，锦州市，辽宁省 from google start
+ 站前区210802000000parse 站前区，营口市，辽宁省 from google start
+ 西市区210803000000parse 西市区，营口市，辽宁省 from google start
+ 鲅鱼圈区210804000000parse 鲅鱼圈区，营口市，辽宁省 from google start
+ 盖州市210881000000parse 盖州市，营口市，辽宁省 from google start
+ 大石桥市210882000000parse 大石桥市，营口市，辽宁省 from google start
+ 阜新市210900000000parse 阜新市，辽宁省 from google start
+ 海州区210902000000parse 海州区，阜新市，辽宁省 from google start
+ 新邱区210903000000parse 新邱区，阜新市，辽宁省 from google start
+ 太平区210904000000parse 太平区，阜新市，辽宁省 from google start
+ 清河门区210905000000parse 清河门区，阜新市，辽宁省 from google start
+ 细河区210911000000parse 细河区，阜新市，辽宁省 from google start
+ 白塔区211002000000parse 白塔区，辽阳市，辽宁省 from google start
+ 文圣区211003000000parse 文圣区，辽阳市，辽宁省 from google start
+ 宏伟区211004000000parse 宏伟区，辽阳市，辽宁省 from google start
+ 弓长岭区211005000000parse 弓长岭区，辽阳市，辽宁省 from google start
+ 太子河区211011000000parse 太子河区，辽阳市，辽宁省 from google start
+ 辽阳县211021000000parse 辽阳县，辽阳市，辽宁省 from google start
+ 盘锦市211100000000parse 盘锦市，辽宁省 from google start
+ 双台子区211102000000parse 双台子区，盘锦市，辽宁省 from google start
+ 兴隆台区211103000000parse 兴隆台区，盘锦市，辽宁省 from google start
+ 银州区211202000000parse 银州区，铁岭市，辽宁省 from google start
+ 清河区211204000000parse 清河区，铁岭市，辽宁省 from google start
+ 铁岭县211221000000parse 铁岭县，铁岭市，辽宁省 from google start
+ 调兵山市211281000000parse 调兵山市，铁岭市，辽宁省 from google start
+ 双塔区211302000000parse 双塔区，朝阳市，辽宁省 from google start
+ 龙城区211303000000parse 龙城区，朝阳市，辽宁省 from google start
+ 朝阳县211321000000parse 朝阳县，朝阳市，辽宁省 from google start
+ 喀喇沁左翼211324000000parse 喀喇沁左翼，朝阳市，辽宁省 from google start
+ 葫芦岛市211400000000parse 葫芦岛市，辽宁省 from google start
+ 连山区211402000000parse 连山区，葫芦岛市，辽宁省 from google start
+ 龙港区211403000000parse 龙港区，葫芦岛市，辽宁省 from google start
+ 南票区211404000000parse 南票区，葫芦岛市，辽宁省 from google start
+ 杨家杖子开发区211405000000parse 杨家杖子开发区，葫芦岛市，辽宁省 from google start
+ 南关区220102000000parse 南关区，长春市，吉林省 from google start
+ 宽城区220103000000parse 宽城区，长春市，吉林省 from google start
+ 朝阳区220104000000parse 朝阳区，长春市，吉林省 from google start
+ 二道区220105000000parse 二道区，长春市，吉林省 from google start
+ 绿园区220106000000parse 绿园区，长春市，吉林省 from google start
+ 开发区220107000000parse 开发区，长春市，吉林省 from google start
+ 净月旅游区220108000000parse 净月旅游区，长春市，吉林省 from google start
+ 高新区220109000000parse 高新区，长春市，吉林省 from google start
+ 吉林市220200000000parse 吉林市，吉林省 from google start
+ 昌邑区220202000000parse 昌邑区，吉林市，吉林省 from google start
+ 龙潭区220203000000parse 龙潭区，吉林市，吉林省 from google start
+ 船营区220204000000parse 船营区，吉林市，吉林省 from google start
+ 经济区220205000000parse 经济区，吉林市，吉林省 from google start
+ 高新区220206000000parse 高新区，吉林市，吉林省 from google start
+ 丰满区220211000000parse 丰满区，吉林市，吉林省 from google start
+ 铁西区220302000000parse 铁西区，四平市，吉林省 from google start
+ 铁东区220303000000parse 铁东区，四平市，吉林省 from google start
+ 辽河农垦管理区220304000000parse 辽河农垦管理区，四平市，吉林省 from google start
+ 公主岭市220381000000parse 公主岭市，四平市，吉林省 from google start
+ 龙山区220402000000parse 龙山区，辽源市，吉林省 from google start
+ 西安区220403000000parse 西安区，辽源市，吉林省 from google start
+ 东辽县220422000000parse 东辽县，辽源市，吉林省 from google start
+ 东昌区220502000000parse 东昌区，通化市，吉林省 from google start
+ 二道江区220503000000parse 二道江区，通化市，吉林省 from google start
+ 通化县220521000000parse 通化县，通化市，吉林省 from google start
+ 梅河口市220581000000parse 梅河口市，通化市，吉林省 from google start
+ 白山市220600000000parse 白山市，吉林省 from google start
+ 八道江区220602000000parse 八道江区，白山市，吉林省 from google start
+ 江源县220625000000parse 江源县，白山市，吉林省 from google start
+ 临江市220681000000parse 临江市，白山市，吉林省 from google start
+ 松原市220700000000parse 松原市，吉林省 from google start
+ 宁江区220702000000parse 宁江区，松原市，吉林省 from google start
+ 前郭尔罗斯220721000000parse 前郭尔罗斯，松原市，吉林省 from google start
+ 洮北区220802000000parse 洮北区，白城市，吉林省 from google start
+ 镇赉县220821000000parse 镇赉县，白城市，吉林省 from google start
+ 洮南市220881000000parse 洮南市，白城市，吉林省 from google start
+ 延边222400000000parse 延边，吉林省 from google start
+ 龙井市222405000000parse 龙井市，延边，吉林省 from google start
+ 黑龙江230000000000parse 黑龙江省 from google start
+ 哈尔滨市230100000000parse 哈尔滨市，黑龙江省 from google start
+ 道里区230102000000parse 道里区，哈尔滨市，黑龙江省 from google start
+ 南岗区230103000000parse 南岗区，哈尔滨市，黑龙江省 from google start
+ 道外区230104000000parse 道外区，哈尔滨市，黑龙江省 from google start
+ 香坊区230106000000parse 香坊区，哈尔滨市，黑龙江省 from google start
+ 平房区230108000000parse 平房区，哈尔滨市，黑龙江省 from google start
+ 松北区230109000000parse 松北区，哈尔滨市，黑龙江省 from google start
+ 呼兰区230111000000parse 呼兰区，哈尔滨市，黑龙江省 from google start
+ 依兰县230123000000parse 依兰县，哈尔滨市，黑龙江省 from google start
+ 方正县230124000000parse 方正县，哈尔滨市，黑龙江省 from google start
+ 宾县230125000000parse 宾县，哈尔滨市，黑龙江省 from google start
+ 巴彦县230126000000parse 巴彦县，哈尔滨市，黑龙江省 from google start
+ 木兰县230127000000parse 木兰县，哈尔滨市，黑龙江省 from google start
+ 通河县230128000000parse 通河县，哈尔滨市，黑龙江省 from google start
+ 延寿县230129000000parse 延寿县，哈尔滨市，黑龙江省 from google start
+ 阿城区230181000000parse 阿城区，哈尔滨市，黑龙江省 from google start
+ 双城市230182000000parse 双城市，哈尔滨市，黑龙江省 from google start
+ 尚志市230183000000parse 尚志市，哈尔滨市，黑龙江省 from google start
+ 五常市230184000000parse 五常市，哈尔滨市，黑龙江省 from google start
+ 齐齐哈尔市230200000000parse 齐齐哈尔市，黑龙江省 from google start
+ 龙沙区230202000000parse 龙沙区，齐齐哈尔市，黑龙江省 from google start
+ 建华区230203000000parse 建华区，齐齐哈尔市，黑龙江省 from google start
+ 铁锋区230204000000parse 铁锋区，齐齐哈尔市，黑龙江省 from google start
+ 昂昂溪区230205000000parse 昂昂溪区，齐齐哈尔市，黑龙江省 from google start
+ 富拉尔基区230206000000parse 富拉尔基区，齐齐哈尔市，黑龙江省 from google start
+ 碾子山区230207000000parse 碾子山区，齐齐哈尔市，黑龙江省 from google start
+ 梅里斯达斡尔族区230208000000parse 梅里斯达斡尔族区，齐齐哈尔市，黑龙江省 from google start
+ 龙江县230221000000parse 龙江县，齐齐哈尔市，黑龙江省 from google start
+ 依安县230223000000parse 依安县，齐齐哈尔市，黑龙江省 from google start
+ 泰来县230224000000parse 泰来县，齐齐哈尔市，黑龙江省 from google start
+ 甘南县230225000000parse 甘南县，齐齐哈尔市，黑龙江省 from google start
+ 富裕县230227000000parse 富裕县，齐齐哈尔市，黑龙江省 from google start
+ 克山县230229000000parse 克山县，齐齐哈尔市，黑龙江省 from google start
+ 克东县230230000000parse 克东县，齐齐哈尔市，黑龙江省 from google start
+ 拜泉县230231000000parse 拜泉县，齐齐哈尔市，黑龙江省 from google start
+ 讷河市230281000000parse 讷河市，齐齐哈尔市，黑龙江省 from google start
+ 鸡西市230300000000parse 鸡西市，黑龙江省 from google start
+ 鸡冠区230302000000parse 鸡冠区，鸡西市，黑龙江省 from google start
+ 恒山区230303000000parse 恒山区，鸡西市，黑龙江省 from google start
+ 梨树区230305000000parse 梨树区，鸡西市，黑龙江省 from google start
+ 麻山区230307000000parse 麻山区，鸡西市，黑龙江省 from google start
+ 虎林市230381000000parse 虎林市，鸡西市，黑龙江省 from google start
+ 密山市230382000000parse 密山市，鸡西市，黑龙江省 from google start
+ 鹤岗市230400000000parse 鹤岗市，黑龙江省 from google start
+ 向阳区230402000000parse 向阳区，鹤岗市，黑龙江省 from google start
+ 工农区230403000000parse 工农区，鹤岗市，黑龙江省 from google start
+ 南山区230404000000parse 南山区，鹤岗市，黑龙江省 from google start
+ 兴安区230405000000parse 兴安区，鹤岗市，黑龙江省 from google start
+ 东山区230406000000parse 东山区，鹤岗市，黑龙江省 from google start
+ 兴山区230407000000parse 兴山区，鹤岗市，黑龙江省 from google start
+ 萝北县230421000000parse 萝北县，鹤岗市，黑龙江省 from google start
+ 绥滨县230422000000parse 绥滨县，鹤岗市，黑龙江省 from google start
+ 双鸭山市230500000000parse 双鸭山市，黑龙江省 from google start
+ 尖山区230502000000parse 尖山区，双鸭山市，黑龙江省 from google start
+ 岭东区230503000000parse 岭东区，双鸭山市，黑龙江省 from google start
+ 四方台区230505000000parse 四方台区，双鸭山市，黑龙江省 from google start
+ 宝山区230506000000parse 宝山区，双鸭山市，黑龙江省 from google start
+ 集贤县230521000000parse 集贤县，双鸭山市，黑龙江省 from google start
+ 友谊县230522000000parse 友谊县，双鸭山市，黑龙江省 from google start
+ 宝清县230523000000parse 宝清县，双鸭山市，黑龙江省 from google start
+ 饶河县230524000000parse 饶河县，双鸭山市，黑龙江省 from google start
+ 大庆市230600000000parse 大庆市，黑龙江省 from google start
+ 萨尔图区230602000000parse 萨尔图区，大庆市，黑龙江省 from google start
+ 龙凤区230603000000parse 龙凤区，大庆市，黑龙江省 from google start
+ 让胡路区230604000000parse 让胡路区，大庆市，黑龙江省 from google start
+ 红岗区230605000000parse 红岗区，大庆市，黑龙江省 from google start
+ 大同区230606000000parse 大同区，大庆市，黑龙江省 from google start
+ 肇州县230621000000parse 肇州县，大庆市，黑龙江省 from google start
+ 肇源县230622000000parse 肇源县，大庆市，黑龙江省 from google start
+ 林甸县230623000000parse 林甸县，大庆市，黑龙江省 from google start
+ 杜尔伯特230624000000parse 杜尔伯特，大庆市，黑龙江省 from google start
+ 伊春市230700000000parse 伊春市，黑龙江省 from google start
+ 伊春区230702000000parse 伊春区，伊春市，黑龙江省 from google start
+ 南岔区230703000000parse 南岔区，伊春市，黑龙江省 from google start
+ 友好区230704000000parse 友好区，伊春市，黑龙江省 from google start
+ 西林区230705000000parse 西林区，伊春市，黑龙江省 from google start
+ 翠峦区230706000000parse 翠峦区，伊春市，黑龙江省 from google start
+ 新青区230707000000parse 新青区，伊春市，黑龙江省 from google start
+ 美溪区230708000000parse 美溪区，伊春市，黑龙江省 from google start
+ 金山屯区230709000000parse 金山屯区，伊春市，黑龙江省 from google start
+ 五营区230710000000parse 五营区，伊春市，黑龙江省 from google start
+ 乌马河区230711000000parse 乌马河区，伊春市，黑龙江省 from google start
+ 汤旺河区230712000000parse 汤旺河区，伊春市，黑龙江省 from google start
+ 带岭区230713000000parse 带岭区，伊春市，黑龙江省 from google start
+ 乌伊岭区230714000000parse 乌伊岭区，伊春市，黑龙江省 from google start
+ 红星区230715000000parse 红星区，伊春市，黑龙江省 from google start
+ 上甘岭区230716000000parse 上甘岭区，伊春市，黑龙江省 from google start
+ 嘉荫县230722000000parse 嘉荫县，伊春市，黑龙江省 from google start
+ 铁力市230781000000parse 铁力市，伊春市，黑龙江省 from google start
+ 佳木斯市230800000000parse 佳木斯市，黑龙江省 from google start
+ 向阳区230803000000parse 向阳区，佳木斯市，黑龙江省 from google start
+ 前进区230804000000parse 前进区，佳木斯市，黑龙江省 from google start
+ 东风区230805000000parse 东风区，佳木斯市，黑龙江省 from google start
+ 郊区230811000000parse 郊区，佳木斯市，黑龙江省 from google start
+ 桦南县230822000000parse 桦南县，佳木斯市，黑龙江省 from google start
+ 桦川县230826000000parse 桦川县，佳木斯市，黑龙江省 from google start
+ 汤原县230828000000parse 汤原县，佳木斯市，黑龙江省 from google start
+ 抚远县230833000000parse 抚远县，佳木斯市，黑龙江省 from google start
+ 同江市230881000000parse 同江市，佳木斯市，黑龙江省 from google start
+ 富锦市230882000000parse 富锦市，佳木斯市，黑龙江省 from google start
+ 七台河市230900000000parse 七台河市，黑龙江省 from google start
+ 新兴区230902000000parse 新兴区，七台河市，黑龙江省 from google start
+ 桃山区230903000000parse 桃山区，七台河市，黑龙江省 from google start
+ 茄子河区230904000000parse 茄子河区，七台河市，黑龙江省 from google start
+ 勃利县230921000000parse 勃利县，七台河市，黑龙江省 from google start
+ 牡丹江市231000000000parse 牡丹江市，黑龙江省 from google start
+ 东安区231002000000parse 东安区，牡丹江市，黑龙江省 from google start
+ 阳明区231003000000parse 阳明区，牡丹江市，黑龙江省 from google start
+ 爱民区231004000000parse 爱民区，牡丹江市，黑龙江省 from google start
+ 西安区231005000000parse 西安区，牡丹江市，黑龙江省 from google start
+ 东宁县231024000000parse 东宁县，牡丹江市，黑龙江省 from google start
+ 林口县231025000000parse 林口县，牡丹江市，黑龙江省 from google start
+ 绥芬河市231081000000parse 绥芬河市，牡丹江市，黑龙江省 from google start
+ 海林市231083000000parse 海林市，牡丹江市，黑龙江省 from google start
+ 宁安市231084000000parse 宁安市，牡丹江市，黑龙江省 from google start
+ 穆棱市231085000000parse 穆棱市，牡丹江市，黑龙江省 from google start
+ 黑河市231100000000parse 黑河市，黑龙江省 from google start
+ 爱辉区231102000000parse 爱辉区，黑河市，黑龙江省 from google start
+ 嫩江县231121000000parse 嫩江县，黑河市，黑龙江省 from google start
+ 逊克县231123000000parse 逊克县，黑河市，黑龙江省 from google start
+ 孙吴县231124000000parse 孙吴县，黑河市，黑龙江省 from google start
+ 北安市231181000000parse 北安市，黑河市，黑龙江省 from google start
+ 五大连池市231182000000parse 五大连池市，黑河市，黑龙江省 from google start
+ 绥化市231200000000parse 绥化市，黑龙江省 from google start
+ 北林区231202000000parse 北林区，绥化市，黑龙江省 from google start
+ 望奎县231221000000parse 望奎县，绥化市，黑龙江省 from google start
+ 兰西县231222000000parse 兰西县，绥化市，黑龙江省 from google start
+ 青冈县231223000000parse 青冈县，绥化市，黑龙江省 from google start
+ 庆安县231224000000parse 庆安县，绥化市，黑龙江省 from google start
+ 明水县231225000000parse 明水县，绥化市，黑龙江省 from google start
+ 绥棱县231226000000parse 绥棱县，绥化市，黑龙江省 from google start
+ 安达市231281000000parse 安达市，绥化市，黑龙江省 from google start
+ 肇东市231282000000parse 肇东市，绥化市，黑龙江省 from google start
+ 海伦市231283000000parse 海伦市，绥化市，黑龙江省 from google start
+ 大兴安岭地区232700000000parse 大兴安岭地区，黑龙江省 from google start
+ 加格达奇区232701000000parse 加格达奇区，大兴安岭地区，黑龙江省 from google start
+ 新林区232703000000parse 新林区，大兴安岭地区，黑龙江省 from google start
+ 呼中区232704000000parse 呼中区，大兴安岭地区，黑龙江省 from google start
+ 呼玛县232721000000parse 呼玛县，大兴安岭地区，黑龙江省 from google start
+ 塔河县232722000000parse 塔河县，大兴安岭地区，黑龙江省 from google start
+ 漠河县232723000000parse 漠河县，大兴安岭地区，黑龙江省 from google start
+ 直辖区1310100000000parse 直辖区1，上海省 from google start
+ 黄浦区310101000000parse 黄浦区，直辖区1，上海省 from google start
+ 卢湾区310103000000parse 卢湾区，直辖区1，上海省 from google start
+ 徐汇区310104000000parse 徐汇区，直辖区1，上海省 from google start
+ 长宁区310105000000parse 长宁区，直辖区1，上海省 from google start
+ 静安区310106000000parse 静安区，直辖区1，上海省 from google start
+ 普陀区310107000000parse 普陀区，直辖区1，上海省 from google start
+ 闸北区310108000000parse 闸北区，直辖区1，上海省 from google start
+ 虹口区310109000000parse 虹口区，直辖区1，上海省 from google start
+ 杨浦区310110000000parse 杨浦区，直辖区1，上海省 from google start
+ 闵行区310112000000parse 闵行区，直辖区1，上海省 from google start
+ 浦东新区310115000000parse 浦东新区，直辖区1，上海省 from google start
+ 直辖区2310200000000parse 直辖区2，上海省 from google start
+ 江苏320000000000parse 江苏省 from google start
+ 玄武区320102000000parse 玄武区，南京市，江苏省 from google start
+ 白下区320103000000parse 白下区，南京市，江苏省 from google start
+ 秦淮区320104000000parse 秦淮区，南京市，江苏省 from google start
+ 建邺区320105000000parse 建邺区，南京市，江苏省 from google start
+ 鼓楼区320106000000parse 鼓楼区，南京市，江苏省 from google start
+ 下关区320107000000parse 下关区，南京市，江苏省 from google start
+ 浦口区320111000000parse 浦口区，南京市，江苏省 from google start
+ 栖霞区320113000000parse 栖霞区，南京市，江苏省 from google start
+ 雨花台区320114000000parse 雨花台区，南京市，江苏省 from google start
+ 沿江开发区320117000000parse 沿江开发区，南京市，江苏省 from google start
+ 崇安区320202000000parse 崇安区，无锡市，江苏省 from google start
+ 南长区320203000000parse 南长区，无锡市，江苏省 from google start
+ 北塘区320204000000parse 北塘区，无锡市，江苏省 from google start
+ 锡山区320205000000parse 锡山区，无锡市，江苏省 from google start
+ 惠山区320206000000parse 惠山区，无锡市，江苏省 from google start
+ 滨湖区320211000000parse 滨湖区，无锡市，江苏省 from google start
+ 新区320283000000parse 新区，无锡市，江苏省 from google start
+ 鼓楼区320302000000parse 鼓楼区，徐州市，江苏省 from google start
+ 云龙区320303000000parse 云龙区，徐州市，江苏省 from google start
+ 九里区320304000000parse 九里区，徐州市，江苏省 from google start
+ 贾汪区320305000000parse 贾汪区，徐州市，江苏省 from google start
+ 泉山区320311000000parse 泉山区，徐州市，江苏省 from google start
+ 邳州市320382000000parse 邳州市，徐州市，江苏省 from google start
+ 金山桥开发区320390000000parse 金山桥开发区，徐州市，江苏省 from google start
+ 天宁区320402000000parse 天宁区，常州市，江苏省 from google start
+ 钟楼区320404000000parse 钟楼区，常州市，江苏省 from google start
+ 戚墅堰区320405000000parse 戚墅堰区，常州市，江苏省 from google start
+ 新北区320411000000parse 新北区，常州市，江苏省 from google start
+ 沧浪区320502000000parse 沧浪区，苏州市，江苏省 from google start
+ 平江区320503000000parse 平江区，苏州市，江苏省 from google start
+ 金阊区320504000000parse 金阊区，苏州市，江苏省 from google start
+ 虎丘区（高新区）320505000000parse 虎丘区（高新区），苏州市，江苏省 from google start
+ 吴中区320506000000parse 吴中区，苏州市，江苏省 from google start
+ 相城区320507000000parse 相城区，苏州市，江苏省 from google start
+ 张家港市320582000000parse 张家港市，苏州市，江苏省 from google start
+ 工业园区320586000000parse 工业园区，苏州市，江苏省 from google start
+ 崇川区320602000000parse 崇川区，南通市，江苏省 from google start
+ 港闸区320611000000parse 港闸区，南通市，江苏省 from google start
+ 通州市320683000000parse 通州市，南通市，江苏省 from google start
+ 开发区320690000000parse 开发区，南通市，江苏省 from google start
+ 连云区320703000000parse 连云区，连云港市，江苏省 from google start
+ 新浦区320705000000parse 新浦区，连云港市，江苏省 from google start
+ 海州区320706000000parse 海州区，连云港市，江苏省 from google start
+ 开发区320707000000parse 开发区，连云港市，江苏省 from google start
+ 清河区320802000000parse 清河区，淮安市，江苏省 from google start
+ 楚州区320803000000parse 楚州区，淮安市，江苏省 from google start
+ 清浦区320811000000parse 清浦区，淮安市，江苏省 from google start
+ 市辖区320901000000parse 市辖区，盐城市，江苏省 from google start
+ 亭湖区320902000000parse 亭湖区，盐城市，江苏省 from google start
+ 盐都县320928000000parse 盐都县，盐城市，江苏省 from google start
+ 市辖区321001000000parse 市辖区，扬州市，江苏省 from google start
+ 广陵区321002000000parse 广陵区，扬州市，江苏省 from google start
+ 维扬区321011000000parse 维扬区，扬州市，江苏省 from google start
+ 宝应县　321023000000parse 宝应县　，扬州市，江苏省 from google start
+ 市辖区321101000000parse 市辖区，镇江市，江苏省 from google start
+ 京口区321102000000parse 京口区，镇江市，江苏省 from google start
+ 润州区321111000000parse 润州区，镇江市，江苏省 from google start
+ 海陵区321202000000parse 海陵区，泰州市，江苏省 from google start
+ 高港区321203000000parse 高港区，泰州市，江苏省 from google start
+ 姜堰市321284000000parse 姜堰市，泰州市，江苏省 from google start
+ 市开发区321301000000parse 市开发区，宿迁市，江苏省 from google start
+ 宿城区321302000000parse 宿城区，宿迁市，江苏省 from google start
+ 宿豫区321311000000parse 宿豫区，宿迁市，江苏省 from google start
+ 浙江330000000000parse 浙江省 from google start
+ 上城区330102000000parse 上城区，杭州市，浙江省 from google start
+ 下城区330103000000parse 下城区，杭州市，浙江省 from google start
+ 江干区330104000000parse 江干区，杭州市，浙江省 from google start
+ 拱墅区330105000000parse 拱墅区，杭州市，浙江省 from google start
+ 西湖区330106000000parse 西湖区，杭州市，浙江省 from google start
+ 滨江区330108000000parse 滨江区，杭州市，浙江省 from google start
+ 海曙区330203000000parse 海曙区，宁波市，浙江省 from google start
+ 江东区330204000000parse 江东区，宁波市，浙江省 from google start
+ 江北区330205000000parse 江北区，宁波市，浙江省 from google start
+ 北仑区330206000000parse 北仑区，宁波市，浙江省 from google start
+ 鄞州区330212000000parse 鄞州区，宁波市，浙江省 from google start
+ 鹿城区330302000000parse 鹿城区，温州市，浙江省 from google start
+ 龙湾区330303000000parse 龙湾区，温州市，浙江省 from google start
+ 永嘉县330324000000parse 永嘉县，温州市，浙江省 from google start
+ 开发区330401000000parse 开发区，嘉兴市，浙江省 from google start
+ 秀城区330402000000parse 秀城区，嘉兴市，浙江省 from google start
+ 秀洲区330411000000parse 秀洲区，嘉兴市，浙江省 from google start
+ 吴兴区330502000000parse 吴兴区，湖州市，浙江省 from google start
+ 南浔区330503000000parse 南浔区，湖州市，浙江省 from google start
+ 越城区330602000000parse 越城区，绍兴市，浙江省 from google start
+ 绍兴县330621000000parse 绍兴县，绍兴市，浙江省 from google start
+ 嵊州市330683000000parse 嵊州市，绍兴市，浙江省 from google start
+ 婺城区330702000000parse 婺城区，金华市，浙江省 from google start
+ 金东区330703000000parse 金东区，金华市，浙江省 from google start
+ 磐安县330727000000parse 磐安县，金华市，浙江省 from google start
+ 柯城区330802000000parse 柯城区，衢州市，浙江省 from google start
+ 衢江区330803000000parse 衢江区，衢州市，浙江省 from google start
+ 龙游县330825000000parse 龙游县，衢州市，浙江省 from google start
+ 舟山市330900000000parse 舟山市，浙江省 from google start
+ 嵊泗县330922000000parse 嵊泗县，舟山市，浙江省 from google start
+ 台州市331000000000parse 台州市，浙江省 from google start
+ 路桥区331004000000parse 路桥区，台州市，浙江省 from google start
+ 市辖区331101000000parse 市辖区，丽水市，浙江省 from google start
+ 莲都区331102000000parse 莲都区，丽水市，浙江省 from google start
+ 庆元县331126000000parse 庆元县，丽水市，浙江省 from google start
+ 景宁县331127000000parse 景宁县，丽水市，浙江省 from google start
+ 安徽340000000000parse 安徽省 from google start
+ 瑶海区340102000000parse 瑶海区，合肥市，安徽省 from google start
+ 庐阳区340103000000parse 庐阳区，合肥市，安徽省 from google start
+ 蜀山区340104000000parse 蜀山区，合肥市，安徽省 from google start
+ 开发区340105000000parse 开发区，合肥市，安徽省 from google start
+ 高新区340106000000parse 高新区，合肥市，安徽省 from google start
+ 新站综合区340107000000parse 新站综合区，合肥市，安徽省 from google start
+ 包河区340111000000parse 包河区，合肥市，安徽省 from google start
+ 镜湖区340202000000parse 镜湖区，芜湖市，安徽省 from google start
+ 弋江区340203000000parse 弋江区，芜湖市，安徽省 from google start
+ 鸠江区340207000000parse 鸠江区，芜湖市，安徽省 from google start
+ 三山区340208000000parse 三山区，芜湖市，安徽省 from google start
+ 经济区340209000000parse 经济区，芜湖市，安徽省 from google start
+ 芜湖县340221000000parse 芜湖县，芜湖市，安徽省 from google start
+ 龙子湖区340302000000parse 龙子湖区，蚌埠市，安徽省 from google start
+ 蚌山区340303000000parse 蚌山区，蚌埠市，安徽省 from google start
+ 禹会区340304000000parse 禹会区，蚌埠市，安徽省 from google start
+ 蚌埠市区340305000000parse 蚌埠市区，蚌埠市，安徽省 from google start
+ 蚌埠市高新区340306000000parse 蚌埠市高新区，蚌埠市，安徽省 from google start
+ 淮上区340311000000parse 淮上区，蚌埠市，安徽省 from google start
+ 大通区340402000000parse 大通区，淮南市，安徽省 from google start
+ 田家庵区340403000000parse 田家庵区，淮南市，安徽省 from google start
+ 谢家集区340404000000parse 谢家集区，淮南市，安徽省 from google start
+ 八公山区340405000000parse 八公山区，淮南市，安徽省 from google start
+ 潘集区340406000000parse 潘集区，淮南市，安徽省 from google start
+ 毛集实验区340407000000parse 毛集实验区，淮南市，安徽省 from google start
+ 金家庄区340502000000parse 金家庄区，马鞍山市，安徽省 from google start
+ 花山区340503000000parse 花山区，马鞍山市，安徽省 from google start
+ 雨山区340504000000parse 雨山区，马鞍山市，安徽省 from google start
+ 杜集区340602000000parse 杜集区，淮北市，安徽省 from google start
+ 相山区340603000000parse 相山区，淮北市，安徽省 from google start
+ 烈山区340604000000parse 烈山区，淮北市，安徽省 from google start
+ 铜官山区340702000000parse 铜官山区，铜陵市，安徽省 from google start
+ 狮子山区340703000000parse 狮子山区，铜陵市，安徽省 from google start
+ 郊区340711000000parse 郊区，铜陵市，安徽省 from google start
+ 铜陵县340721000000parse 铜陵县，铜陵市，安徽省 from google start
+ 迎江区340802000000parse 迎江区，安庆市，安徽省 from google start
+ 大观区340803000000parse 大观区，安庆市，安徽省 from google start
+ 宜秀区340804000000parse 宜秀区，安庆市，安徽省 from google start
+ 开发区340805000000parse 开发区，安庆市，安徽省 from google start
+ 枞阳县340823000000parse 枞阳县，安庆市，安徽省 from google start
+ 黄山市341000000000parse 黄山市，安徽省 from google start
+ 黄山区341003000000parse 黄山区，黄山市，安徽省 from google start
+ 琅琊区341102000000parse 琅琊区，滁州市，安徽省 from google start
+ 南谯区341103000000parse 南谯区，滁州市，安徽省 from google start
+ 明光市341182000000parse 明光市，滁州市，安徽省 from google start
+ 开发区341183000000parse 开发区，滁州市，安徽省 from google start
+ 市辖区341201000000parse 市辖区，阜阳市，安徽省 from google start
+ 颍州区341202000000parse 颍州区，阜阳市，安徽省 from google start
+ 颍东区341203000000parse 颍东区，阜阳市，安徽省 from google start
+ 颍泉区341204000000parse 颍泉区，阜阳市，安徽省 from google start
+ 颍上县341226000000parse 颍上县，阜阳市，安徽省 from google start
+ 墉桥区341302000000parse 墉桥区，宿州市，安徽省 from google start
+ 灵璧县341323000000parse 灵璧县，宿州市，安徽省 from google start
+ 居巢区341402000000parse 居巢区，巢湖市，安徽省 from google start
+ 庐江县341421000000parse 庐江县，巢湖市，安徽省 from google start
+ 金安区341502000000parse 金安区，六安市，安徽省 from google start
+ 裕安区341503000000parse 裕安区，六安市，安徽省 from google start
+ 霍邱县341522000000parse 霍邱县，六安市，安徽省 from google start
+ 亳州市341600000000parse 亳州市，安徽省 from google start
+ 谯城区341602000000parse 谯城区，亳州市，安徽省 from google start
+ 池州市341700000000parse 池州市，安徽省 from google start
+ 宣州区341802000000parse 宣州区，宣城市，安徽省 from google start
+ 旌德县341825000000parse 旌德县，宣城市，安徽省 from google start
+ 福建350000000000parse 福建省 from google start
+ 鼓楼区350102000000parse 鼓楼区，福州市，福建省 from google start
+ 台江区350103000000parse 台江区，福州市，福建省 from google start
+ 仓山区350104000000parse 仓山区，福州市，福建省 from google start
+ 马尾区350105000000parse 马尾区，福州市，福建省 from google start
+ 晋安区350111000000parse 晋安区，福州市，福建省 from google start
+ 思明区350203000000parse 思明区，厦门市，福建省 from google start
+ 海沧区350205000000parse 海沧区，厦门市，福建省 from google start
+ 湖里区350206000000parse 湖里区，厦门市，福建省 from google start
+ 集美区350211000000parse 集美区，厦门市，福建省 from google start
+ 翔安区350213000000parse 翔安区，厦门市，福建省 from google start
+ 城厢区350302000000parse 城厢区，莆田市，福建省 from google start
+ 涵江区350303000000parse 涵江区，莆田市，福建省 from google start
+ 荔城区350304000000parse 荔城区，莆田市，福建省 from google start
+ 秀屿区350305000000parse 秀屿区，莆田市，福建省 from google start
+ 湄洲岛管委会350306000000parse 湄洲岛管委会，莆田市，福建省 from google start
+ 湄洲湾北岸开发区350307000000parse 湄洲湾北岸开发区，莆田市，福建省 from google start
+ 梅列区350402000000parse 梅列区，三明市，福建省 from google start
+ 三元区350403000000parse 三元区，三明市，福建省 from google start
+ 尤溪县350426000000parse 尤溪县，三明市，福建省 from google start
+ 鲤城区350502000000parse 鲤城区，泉州市，福建省 from google start
+ 丰泽区350503000000parse 丰泽区，泉州市，福建省 from google start
+ 洛江区350504000000parse 洛江区，泉州市，福建省 from google start
+ 泉港区350505000000parse 泉港区，泉州市，福建省 from google start
+ 石狮市350581000000parse 石狮市，泉州市，福建省 from google start
+ 芗城区350602000000parse 芗城区，漳州市，福建省 from google start
+ 龙文区350603000000parse 龙文区，漳州市，福建省 from google start
+ 常山开发区350604000000parse 常山开发区，漳州市，福建省 from google start
+ 延平区350702000000parse 延平区，南平市，福建省 from google start
+ 武夷山市350782000000parse 武夷山市，南平市，福建省 from google start
+ 建阳市350784000000parse 建阳市，南平市，福建省 from google start
+ 新罗区350802000000parse 新罗区，龙岩市，福建省 from google start
+ 宁德市　350900000000parse 宁德市　，福建省 from google start
+ 蕉城区350902000000parse 蕉城区，宁德市　，福建省 from google start
+ 古田县350922000000parse 古田县，宁德市　，福建省 from google start
+ 江西360000000000parse 江西省 from google start
+ 东湖区360102000000parse 东湖区，南昌市，江西省 from google start
+ 西湖区360103000000parse 西湖区，南昌市，江西省 from google start
+ 青云谱区360104000000parse 青云谱区，南昌市，江西省 from google start
+ 湾里区360105000000parse 湾里区，南昌市，江西省 from google start
+ 青山湖区360111000000parse 青山湖区，南昌市，江西省 from google start
+ 南昌开发区360112000000parse 南昌开发区，南昌市，江西省 from google start
+ 南昌高新区360113000000parse 南昌高新区，南昌市，江西省 from google start
+ 红谷滩区360114000000parse 红谷滩区，南昌市，江西省 from google start
+ 南昌县360121000000parse 南昌县，南昌市，江西省 from google start
+ 昌江区360202000000parse 昌江区，景德镇市，江西省 from google start
+ 珠山区360203000000parse 珠山区，景德镇市，江西省 from google start
+ 浮梁县360222000000parse 浮梁县，景德镇市，江西省 from google start
+ 安源区360302000000parse 安源区，萍乡市，江西省 from google start
+ 湘东区360313000000parse 湘东区，萍乡市，江西省 from google start
+ 上栗县360322000000parse 上栗县，萍乡市，江西省 from google start
+ 芦溪县360323000000parse 芦溪县，萍乡市，江西省 from google start
+ 庐山区360402000000parse 庐山区，九江市，江西省 from google start
+ 浔阳区360403000000parse 浔阳区，九江市，江西省 from google start
+ 开发区360409000000parse 开发区，九江市，江西省 from google start
+ 九江县360421000000parse 九江县，九江市，江西省 from google start
+ 修水县360424000000parse 修水县，九江市，江西省 from google start
+ 共青城360431000000parse 共青城，九江市，江西省 from google start
+ 渝水区360502000000parse 渝水区，新余市，江西省 from google start
+ 仙女湖区360503000000parse 仙女湖区，新余市，江西省 from google start
+ 高新开发区360504000000parse 高新开发区，新余市，江西省 from google start
+ 龙虎山360601000000parse 龙虎山，鹰潭市，江西省 from google start
+ 月湖区360602000000parse 月湖区，鹰潭市，江西省 from google start
+ 章贡区360702000000parse 章贡区，赣州市，江西省 from google start
+ 赣州开发区360703000000parse 赣州开发区，赣州市，江西省 from google start
+ 吉州区360802000000parse 吉州区，吉安市，江西省 from google start
+ 青原区360803000000parse 青原区，吉安市，江西省 from google start
+ 吉安县360821000000parse 吉安县，吉安市，江西省 from google start
+ 袁州区360902000000parse 袁州区，宜春市，江西省 from google start
+ 樟树市360982000000parse 樟树市，宜春市，江西省 from google start
+ 东乡县361029000000parse 东乡县，抚州市，江西省 from google start
+ 信州区361102000000parse 信州区，上饶市，江西省 from google start
+ 上饶县361121000000parse 上饶县，上饶市，江西省 from google start
+ 余干县361127000000parse 余干县，上饶市，江西省 from google start
+ 鄱阳县361128000000parse 鄱阳县，上饶市，江西省 from google start
+ 山东370000000000parse 山东省 from google start
+ 历下区370102000000parse 历下区，济南市，山东省 from google start
+ 市中区370103000000parse 市中区，济南市，山东省 from google start
+ 槐荫区370104000000parse 槐荫区，济南市，山东省 from google start
+ 天桥区370105000000parse 天桥区，济南市，山东省 from google start
+ 济南市开发区370190000000parse 济南市开发区，济南市，山东省 from google start
+ 市南区370202000000parse 市南区，青岛市，山东省 from google start
+ 市北区370203000000parse 市北区，青岛市，山东省 from google start
+ 四方区370205000000parse 四方区，青岛市，山东省 from google start
+ 黄岛区370211000000parse 黄岛区，青岛市，山东省 from google start
+ 李沧区370213000000parse 李沧区，青岛市，山东省 from google start
+ 城阳区370214000000parse 城阳区，青岛市，山东省 from google start
+ 胶州市370281000000parse 胶州市，青岛市，山东省 from google start
+ 淄川区370302000000parse 淄川区，淄博市，山东省 from google start
+ 张店区370303000000parse 张店区，淄博市，山东省 from google start
+ 博山区370304000000parse 博山区，淄博市，山东省 from google start
+ 临淄区370305000000parse 临淄区，淄博市，山东省 from google start
+ 周村区370306000000parse 周村区，淄博市，山东省 from google start
+ 高新区370390000000parse 高新区，淄博市，山东省 from google start
+ 市中区370402000000parse 市中区，枣庄市，山东省 from google start
+ 薛城区370403000000parse 薛城区，枣庄市，山东省 from google start
+ 峄城区370404000000parse 峄城区，枣庄市，山东省 from google start
+ 台儿庄区370405000000parse 台儿庄区，枣庄市，山东省 from google start
+ 山亭区370406000000parse 山亭区，枣庄市，山东省 from google start
+ 滕州市370481000000parse 滕州市，枣庄市，山东省 from google start
+ 东营区370502000000parse 东营区，东营市，山东省 from google start
+ 河口区370503000000parse 河口区，东营市，山东省 from google start
+ 芝罘区370602000000parse 芝罘区，烟台市，山东省 from google start
+ 莱山区370613000000parse 莱山区，烟台市，山东省 from google start
+ 龙口市370681000000parse 龙口市，烟台市，山东省 from google start
+ 莱州市370683000000parse 莱州市，烟台市，山东省 from google start
+ 开发区370690000000parse 开发区，烟台市，山东省 from google start
+ 潍城区370702000000parse 潍城区，潍坊市，山东省 from google start
+ 寒亭区370703000000parse 寒亭区，潍坊市，山东省 from google start
+ 坊子区370704000000parse 坊子区，潍坊市，山东省 from google start
+ 奎文区370705000000parse 奎文区，潍坊市，山东省 from google start
+ 青州市370781000000parse 青州市，潍坊市，山东省 from google start
+ 市高新区370790000000parse 市高新区，潍坊市，山东省 from google start
+ 滨海区370791000000parse 滨海区，潍坊市，山东省 from google start
+ 开发区370792000000parse 开发区，潍坊市，山东省 from google start
+ 峡山生态区370793000000parse 峡山生态区，潍坊市，山东省 from google start
+ 市中区370802000000parse 市中区，济宁市，山东省 from google start
+ 任城区370811000000parse 任城区，济宁市，山东省 from google start
+ 邹城市370883000000parse 邹城市，济宁市，山东省 from google start
+ 济宁市高新区370890000000parse 济宁市高新区，济宁市，山东省 from google start
+ 北湖度假区370891000000parse 北湖度假区，济宁市，山东省 from google start
+ 泰山区370902000000parse 泰山区，泰安市，山东省 from google start
+ 岱岳区370903000000parse 岱岳区，泰安市，山东省 from google start
+ 泰安市高新区370990000000parse 泰安市高新区，泰安市，山东省 from google start
+ 环翠区371002000000parse 环翠区，威海市，山东省 from google start
+ 威海市开发区371090000000parse 威海市开发区，威海市，山东省 from google start
+ 威海市高新区371091000000parse 威海市高新区，威海市，山东省 from google start
+ 岚山区371103000000parse 岚山区，日照市，山东省 from google start
+ 莒县371122000000parse 莒县，日照市，山东省 from google start
+ 莱城区371202000000parse 莱城区，莱芜市，山东省 from google start
+ 钢城区371203000000parse 钢城区，莱芜市，山东省 from google start
+ 开发区371290000000parse 开发区，莱芜市，山东省 from google start
+ 兰山区371302000000parse 兰山区，临沂市，山东省 from google start
+ 罗庄区371311000000parse 罗庄区，临沂市，山东省 from google start
+ 河东区371312000000parse 河东区，临沂市，山东省 from google start
+ 苍山县371324000000parse 苍山县，临沂市，山东省 from google start
+ 临沂市高新区371330000000parse 临沂市高新区，临沂市，山东省 from google start
+ 临沂市开发区371398000000parse 临沂市开发区，临沂市，山东省 from google start
+ 德城区371402000000parse 德城区，德州市，山东省 from google start
+ 德州市商贸区371498000000parse 德州市商贸区，德州市，山东省 from google start
+ 东昌府区371502000000parse 东昌府区，聊城市，山东省 from google start
+ 滨城区371602000000parse 滨城区，滨州市，山东省 from google start
+ 菏泽市371700000000parse 菏泽市，山东省 from google start
+ 牡丹区371702000000parse 牡丹区，菏泽市，山东省 from google start
+ 菏泽市开发区371790000000parse 菏泽市开发区，菏泽市，山东省 from google start
+ 河南410000000000parse 河南省 from google start
+ 中原区410102000000parse 中原区，郑州市，河南省 from google start
+ 二七区410103000000parse 二七区，郑州市，河南省 from google start
+ 管城回族区410104000000parse 管城回族区，郑州市，河南省 from google start
+ 金水区410105000000parse 金水区，郑州市，河南省 from google start
+ 上街区410106000000parse 上街区，郑州市，河南省 from google start
+ 惠济区410108000000parse 惠济区，郑州市，河南省 from google start
+ 巩义市410181000000parse 巩义市，郑州市，河南省 from google start
+ 新密市410183000000parse 新密市，郑州市，河南省 from google start
+ 开发区410190000000parse 开发区，郑州市，河南省 from google start
+ 高新区410191000000parse 高新区，郑州市，河南省 from google start
+ 龙亭区410202000000parse 龙亭区，开封市，河南省 from google start
+ 顺河回族区410203000000parse 顺河回族区，开封市，河南省 from google start
+ 鼓楼区410204000000parse 鼓楼区，开封市，河南省 from google start
+ 禹王台区410205000000parse 禹王台区，开封市，河南省 from google start
+ 金明区410211000000parse 金明区，开封市，河南省 from google start
+ 开封县410224000000parse 开封县，开封市，河南省 from google start
+ 老城区410302000000parse 老城区，洛阳市，河南省 from google start
+ 西工区410303000000parse 西工区，洛阳市，河南省 from google start
+ 廛河回族区410304000000parse 廛河回族区，洛阳市，河南省 from google start
+ 涧西区410305000000parse 涧西区，洛阳市，河南省 from google start
+ 吉利区410306000000parse 吉利区，洛阳市，河南省 from google start
+ 洛龙区410307000000parse 洛龙区，洛阳市，河南省 from google start
+ 高新区410390000000parse 高新区，洛阳市，河南省 from google start
+ 新华区410402000000parse 新华区，平顶山市，河南省 from google start
+ 卫东区410403000000parse 卫东区，平顶山市，河南省 from google start
+ 石龙区410404000000parse 石龙区，平顶山市，河南省 from google start
+ 湛河区410411000000parse 湛河区，平顶山市，河南省 from google start
+ 舞钢市410481000000parse 舞钢市，平顶山市，河南省 from google start
+ 汝州市410482000000parse 汝州市，平顶山市，河南省 from google start
+ 文峰区410502000000parse 文峰区，安阳市，河南省 from google start
+ 北关区410503000000parse 北关区，安阳市，河南省 from google start
+ 殷都区410505000000parse 殷都区，安阳市，河南省 from google start
+ 龙安区410506000000parse 龙安区，安阳市，河南省 from google start
+ 安阳县410522000000parse 安阳县，安阳市，河南省 from google start
+ 林州市410581000000parse 林州市，安阳市，河南省 from google start
+ 开发区410590000000parse 开发区，安阳市，河南省 from google start
+ 鹤山区410602000000parse 鹤山区，鹤壁市，河南省 from google start
+ 山城区410603000000parse 山城区，鹤壁市，河南省 from google start
+ 开发区410604000000parse 开发区，鹤壁市，河南省 from google start
+ 淇滨区410611000000parse 淇滨区，鹤壁市，河南省 from google start
+ 开发区410690000000parse 开发区，鹤壁市，河南省 from google start
+ 开发区410690000000parse error!!!
+ 红旗区410702000000parse 红旗区，新乡市，河南省 from google start
+ 卫滨区410703000000parse 卫滨区，新乡市，河南省 from google start
+ 凤泉区410704000000parse 凤泉区，新乡市，河南省 from google start
+ 牧野区410711000000parse 牧野区，新乡市，河南省 from google start
+ 新乡县410721000000parse 新乡县，新乡市，河南省 from google start
+ 卫辉市410781000000parse 卫辉市，新乡市，河南省 from google start
+ 解放区410802000000parse 解放区，焦作市，河南省 from google start
+ 中站区410803000000parse 中站区，焦作市，河南省 from google start
+ 马村区410804000000parse 马村区，焦作市，河南省 from google start
+ 山阳区410811000000parse 山阳区，焦作市，河南省 from google start
+ 孟州市410883000000parse 孟州市，焦作市，河南省 from google start
+ 华龙区410902000000parse 华龙区，濮阳市，河南省 from google start
+ 濮阳县410928000000parse 濮阳县，濮阳市，河南省 from google start
+ 濮阳高新区410990000000parse 濮阳高新区，濮阳市，河南省 from google start
+ 魏都区411002000000parse 魏都区，许昌市，河南省 from google start
+ 许昌县411023000000parse 许昌县，许昌市，河南省 from google start
+ 鄢陵县411024000000parse 鄢陵县，许昌市，河南省 from google start
+ 禹州市411081000000parse 禹州市，许昌市，河南省 from google start
+ 东城区411090000000parse 东城区，许昌市，河南省 from google start
+ 开发区411091000000parse 开发区，许昌市，河南省 from google start
+ 源汇区411102000000parse 源汇区，漯河市，河南省 from google start
+ 召陵区411104000000parse 召陵区，漯河市，河南省 from google start
+ 湖滨区411202000000parse 湖滨区，三门峡市，河南省 from google start
+ 开发区411290000000parse 开发区，三门峡市，河南省 from google start
+ 工业园411291000000parse 工业园，三门峡市，河南省 from google start
+ 宛城区411302000000parse 宛城区，南阳市，河南省 from google start
+ 卧龙区411303000000parse 卧龙区，南阳市，河南省 from google start
+ 邓州市411381000000parse 邓州市，南阳市，河南省 from google start
+ 梁园区411402000000parse 梁园区，商丘市，河南省 from google start
+ 睢阳区411403000000parse 睢阳区，商丘市，河南省 from google start
+ 开发区411490000000parse 开发区，商丘市，河南省 from google start
+ 狮河区411502000000parse 狮河区，信阳市，河南省 from google start
+ 平桥区411503000000parse 平桥区，信阳市，河南省 from google start
+ 川汇区411602000000parse 川汇区，周口市，河南省 from google start
+ 驿城区411702000000parse 驿城区，驻马店市，河南省 from google start
+ 高新区411790000000parse 高新区，驻马店市，河南省 from google start
+ 市直辖乡419001000000parse 市直辖乡，济源市，河南省 from google start
+ 湖北420000000000parse 湖北省 from google start
+ 江岸区420102000000parse 江岸区，武汉市，湖北省 from google start
+ 江汉区420103000000parse 江汉区，武汉市，湖北省 from google start
+ 桥口区420104000000parse 桥口区，武汉市，湖北省 from google start
+ 青山区420107000000parse 青山区，武汉市，湖北省 from google start
+ 洪山区420111000000parse 洪山区，武汉市，湖北省 from google start
+ 东西湖区420112000000parse 东西湖区，武汉市，湖北省 from google start
+ 汉南区420113000000parse 汉南区，武汉市，湖北省 from google start
+ 蔡甸区420114000000parse 蔡甸区，武汉市，湖北省 from google start
+ 江夏区420115000000parse 江夏区，武汉市，湖北省 from google start
+ 黄石港区420202000000parse 黄石港区，黄石市，湖北省 from google start
+ 西塞山区420203000000parse 西塞山区，黄石市，湖北省 from google start
+ 下陆区420204000000parse 下陆区，黄石市，湖北省 from google start
+ 铁山区420205000000parse 铁山区，黄石市，湖北省 from google start
+ 大冶市420281000000parse 大冶市，黄石市，湖北省 from google start
+ 茅箭区420302000000parse 茅箭区，十堰市，湖北省 from google start
+ 张湾区420303000000parse 张湾区，十堰市，湖北省 from google start
+ 郧县420321000000parse 郧县，十堰市，湖北省 from google start
+ 郧西县420322000000parse 郧西县，十堰市，湖北省 from google start
+ 竹山县420323000000parse 竹山县，十堰市，湖北省 from google start
+ 竹溪县420324000000parse 竹溪县，十堰市，湖北省 from google start
+ 房县420325000000parse 房县，十堰市，湖北省 from google start
+ 丹江口市420381000000parse 丹江口市，十堰市，湖北省 from google start
+ 西陵区420502000000parse 西陵区，宜昌市，湖北省 from google start
+ 伍家岗区420503000000parse 伍家岗区，宜昌市，湖北省 from google start
+ 点军区420504000000parse 点军区，宜昌市，湖北省 from google start
+ 虎亭区420505000000parse 虎亭区，宜昌市，湖北省 from google start
+ 夷陵区420506000000parse 夷陵区，宜昌市，湖北省 from google start
+ 远安县420525000000parse 远安县，宜昌市，湖北省 from google start
+ 兴山县420526000000parse 兴山县，宜昌市，湖北省 from google start
+ 秭归县420527000000parse 秭归县，宜昌市，湖北省 from google start
+ 长阳420528000000parse 长阳，宜昌市，湖北省 from google start
+ 五峰420529000000parse 五峰，宜昌市，湖北省 from google start
+ 宜都市420581000000parse 宜都市，宜昌市，湖北省 from google start
+ 当阳市420582000000parse 当阳市，宜昌市，湖北省 from google start
+ 枝江市420583000000parse 枝江市，宜昌市，湖北省 from google start
+ 襄城区420602000000parse 襄城区，襄樊市，湖北省 from google start
+ 樊城区420606000000parse 樊城区，襄樊市，湖北省 from google start
+ 襄阳区420607000000parse 襄阳区，襄樊市，湖北省 from google start
+ 谷城县420625000000parse 谷城县，襄樊市，湖北省 from google start
+ 保康县420626000000parse 保康县，襄樊市，湖北省 from google start
+ 老河口市420682000000parse 老河口市，襄樊市，湖北省 from google start
+ 枣阳市420683000000parse 枣阳市，襄樊市，湖北省 from google start
+ 宜城市420684000000parse 宜城市，襄樊市，湖北省 from google start
+ 鄂州市420700000000parse 鄂州市，湖北省 from google start
+ 粱子湖区420702000000parse 粱子湖区，鄂州市，湖北省 from google start
+ 华容区420703000000parse 华容区，鄂州市，湖北省 from google start
+ 东宝区420802000000parse 东宝区，荆门市，湖北省 from google start
+ 掇刀区420804000000parse 掇刀区，荆门市，湖北省 from google start
+ 沙洋县420822000000parse 沙洋县，荆门市，湖北省 from google start
+ 孝南区420902000000parse 孝南区，孝感市，湖北省 from google start
+ 孝昌县420921000000parse 孝昌县，孝感市，湖北省 from google start
+ 荆州市421000000000parse 荆州市，湖北省 from google start
+ 荆州区421003000000parse 荆州区，荆州市，湖北省 from google start
+ 公安县421022000000parse 公安县，荆州市，湖北省 from google start
+ 洪湖市421083000000parse 洪湖市，荆州市，湖北省 from google start
+ 松滋市421087000000parse 松滋市，荆州市，湖北省 from google start
+ 黄州区421102000000parse 黄州区，黄冈市，湖北省 from google start
+ 团风县421121000000parse 团风县，黄冈市，湖北省 from google start
+ 黄冈市罗田县421123000000parse 黄冈市罗田县，黄冈市，湖北省 from google start
+ 黄冈市蕲春县421126000000parse 黄冈市蕲春县，黄冈市，湖北省 from google start
+ 武穴市421182000000parse 武穴市，黄冈市，湖北省 from google start
+ 赤壁市421281000000parse 赤壁市，咸宁市，湖北省 from google start
+ 随州市421300000000parse 随州市，湖北省 from google start
+ 曾都区421302000000parse 曾都区，随州市，湖北省 from google start
+ 广水市421381000000parse 广水市，随州市，湖北省 from google start
+ 恩施422800000000parse 恩施，湖北省 from google start
+ 恩施市422801000000parse 恩施市，恩施，湖北省 from google start
+ 利川市422802000000parse 利川市，恩施，湖北省 from google start
+ 建始县422822000000parse 建始县，恩施，湖北省 from google start
+ 巴东县422823000000parse 巴东县，恩施，湖北省 from google start
+ 宣恩县422825000000parse 宣恩县，恩施，湖北省 from google start
+ 咸丰县422826000000parse 咸丰县，恩施，湖北省 from google start
+ 来凤县422827000000parse 来凤县，恩施，湖北省 from google start
+ 鹤峰县422828000000parse 鹤峰县，恩施，湖北省 from google start
+ 直辖区429000000000parse 直辖区，湖北省 from google start
+ 仙桃市429004000000parse 仙桃市，直辖区，湖北省 from google start
+ 潜江市429005000000parse 潜江市，直辖区，湖北省 from google start
+ 天门市429006000000parse 天门市，直辖区，湖北省 from google start
+ 神农架林区429021000000parse 神农架林区，直辖区，湖北省 from google start
+ 湖南430000000000parse 湖南省 from google start
+ 芙蓉区430102000000parse 芙蓉区，长沙市，湖南省 from google start
+ 天心区430103000000parse 天心区，长沙市，湖南省 from google start
+ 岳麓区430104000000parse 岳麓区，长沙市，湖南省 from google start
+ 开福区430105000000parse 开福区，长沙市，湖南省 from google start
+ 雨花区430111000000parse 雨花区，长沙市，湖南省 from google start
+ 长沙县430121000000parse 长沙县，长沙市，湖南省 from google start
+ 荷塘区430202000000parse 荷塘区，株洲市，湖南省 from google start
+ 石峰区430204000000parse 石峰区，株洲市，湖南省 from google start
+ 天元区430211000000parse 天元区，株洲市，湖南省 from google start
+ 株洲县430221000000parse 株洲县，株洲市，湖南省 from google start
+ 炎陵县430225000000parse 炎陵县，株洲市，湖南省 from google start
+ 雨湖区430302000000parse 雨湖区，湘潭市，湖南省 from google start
+ 岳塘区430304000000parse 岳塘区，湘潭市，湖南省 from google start
+ 高新区430305000000parse 高新区，湘潭市，湖南省 from google start
+ 湘潭县430321000000parse 湘潭县，湘潭市，湖南省 from google start
+ 韶山市430382000000parse 韶山市，湘潭市，湖南省 from google start
+ 珠晖区430405000000parse 珠晖区，衡阳市，湖南省 from google start
+ 雁峰区430406000000parse 雁峰区，衡阳市，湖南省 from google start
+ 石鼓区430407000000parse 石鼓区，衡阳市，湖南省 from google start
+ 蒸湘区430408000000parse 蒸湘区，衡阳市，湖南省 from google start
+ 南岳区430412000000parse 南岳区，衡阳市，湖南省 from google start
+ 衡阳县430421000000parse 衡阳县，衡阳市，湖南省 from google start
+ 耒阳市430481000000parse 耒阳市，衡阳市，湖南省 from google start
+ 双清区430502000000parse 双清区，邵阳市，湖南省 from google start
+ 大祥区430503000000parse 大祥区，邵阳市，湖南省 from google start
+ 北塔区430511000000parse 北塔区，邵阳市，湖南省 from google start
+ 岳阳楼区430602000000parse 岳阳楼区，岳阳市，湖南省 from google start
+ 云溪区430603000000parse 云溪区，岳阳市，湖南省 from google start
+ 屈原管理区430604000000parse 屈原管理区，岳阳市，湖南省 from google start
+ 岳阳开发区430605000000parse 岳阳开发区，岳阳市，湖南省 from google start
+ 南湖风景区430606000000parse 南湖风景区，岳阳市，湖南省 from google start
+ 君山区430611000000parse 君山区，岳阳市，湖南省 from google start
+ 岳阳县430621000000parse 岳阳县，岳阳市，湖南省 from google start
+ 汩罗市430681000000parse 汩罗市，岳阳市，湖南省 from google start
+ 武陵区430702000000parse 武陵区，常德市，湖南省 from google start
+ 鼎城430703000000parse 鼎城，常德市，湖南省 from google start
+ 张家界市430800000000parse 张家界市，湖南省 from google start
+ 永定区430802000000parse 永定区，张家界市，湖南省 from google start
+ 武陵源区430811000000parse 武陵源区，张家界市，湖南省 from google start
+ 资阳区430902000000parse 资阳区，益阳市，湖南省 from google start
+ 赫山区430903000000parse 赫山区，益阳市，湖南省 from google start
+ 北湖区431002000000parse 北湖区，郴州市，湖南省 from google start
+ 苏仙区431003000000parse 苏仙区，郴州市，湖南省 from google start
+ 冷水滩区431103000000parse 冷水滩区，永州市，湖南省 from google start
+ 鹤城区431202000000parse 鹤城区，怀化市，湖南省 from google start
+ 中方县431221000000parse 中方县，怀化市，湖南省 from google start
+ 靖州431229000000parse 靖州，怀化市，湖南省 from google start
+ 娄星区431302000000parse 娄星区，娄底市，湖南省 from google start
+ 市经济区431383000000parse 市经济区，娄底市，湖南省 from google start
+ 湘西433100000000parse 湘西，湖南省 from google start
+ 广东440000000000parse 广东省 from google start
+ 荔湾区440103000000parse 荔湾区，广州市，广东省 from google start
+ 越秀区440104000000parse 越秀区，广州市，广东省 from google start
+ 海珠区440105000000parse 海珠区，广州市，广东省 from google start
+ 天河区440106000000parse 天河区，广州市，广东省 from google start
+ 白云区440111000000parse 白云区，广州市，广东省 from google start
+ 黄埔区440112000000parse 黄埔区，广州市，广东省 from google start
+ 花都区440114000000parse 花都区，广州市，广东省 from google start
+ 南沙区440115000000parse 南沙区，广州市，广东省 from google start
+ 萝岗区440116000000parse 萝岗区，广州市，广东省 from google start
+ 武江区440203000000parse 武江区，韶关市，广东省 from google start
+ 浈江区440204000000parse 浈江区，韶关市，广东省 from google start
+ 新丰县440233000000parse 新丰县，韶关市，广东省 from google start
+ 罗湖区440303000000parse 罗湖区，深圳市，广东省 from google start
+ 福田区440304000000parse 福田区，深圳市，广东省 from google start
+ 南山区440305000000parse 南山区，深圳市，广东省 from google start
+ 龙岗区440307000000parse 龙岗区，深圳市，广东省 from google start
+ 盐田区440308000000parse 盐田区，深圳市，广东省 from google start
+ 光明新区440309000000parse 光明新区，深圳市，广东省 from google start
+ 香洲区440402000000parse 香洲区，珠海市，广东省 from google start
+ 金湾区440404000000parse 金湾区，珠海市，广东省 from google start
+ 濠江区440502000000parse 濠江区，汕头市，广东省 from google start
+ 龙湖区440503000000parse 龙湖区，汕头市，广东省 from google start
+ 金平区440511000000parse 金平区，汕头市，广东省 from google start
+ 潮南区440514000000parse 潮南区，汕头市，广东省 from google start
+ 禅城区440602000000parse 禅城区，佛山市，广东省 from google start
+ 蓬江区440703000000parse 蓬江区，江门市，广东省 from google start
+ 江海区440704000000parse 江海区，江门市，广东省 from google start
+ 湛江市440800000000parse 湛江市，广东省 from google start
+ 赤坎区440802000000parse 赤坎区，湛江市，广东省 from google start
+ 霞山区440803000000parse 霞山区，湛江市，广东省 from google start
+ 坡头区440804000000parse 坡头区，湛江市，广东省 from google start
+ 麻章区440811000000parse 麻章区，湛江市，广东省 from google start
+ 雷州市440882000000parse 雷州市，湛江市，广东省 from google start
+ 茂南区440902000000parse 茂南区，茂名市，广东省 from google start
+ 茂港区440903000000parse 茂港区，茂名市，广东省 from google start
+ 端州区441202000000parse 端州区，肇庆市，广东省 from google start
+ 鼎湖区441203000000parse 鼎湖区，肇庆市，广东省 from google start
+ 惠城区441302000000parse 惠城区，惠州市，广东省 from google start
+ 梅江区441402000000parse 梅江区，梅州市，广东省 from google start
+ 汕尾市441500000000parse 汕尾市，广东省 from google start
+ 城区441502000000parse 城区，汕尾市，广东省 from google start
+ 陆河县441523000000parse 陆河县，汕尾市，广东省 from google start
+ 源城441602000000parse 源城，河源市，广东省 from google start
+ 东源县441625000000parse 东源县，河源市，广东省 from google start
+ 江城区441702000000parse 江城区，阳江市，广东省 from google start
+ 阳西县441721000000parse 阳西县，阳江市，广东省 from google start
+ 阳东县441723000000parse 阳东县，阳江市，广东省 from google start
+ 清城区441802000000parse 清城区，清远市，广东省 from google start
+ 佛冈县441821000000parse 佛冈县，清远市，广东省 from google start
+ 连山壮族441825000000parse 连山壮族，清远市，广东省 from google start
+ 清新县441827000000parse 清新县，清远市，广东省 from google start
+ 连州市441882000000parse 连州市，清远市，广东省 from google start
+ 湘桥区445102000000parse 湘桥区，潮州市，广东省 from google start
+ 榕城区445202000000parse 榕城区，揭阳市，广东省 from google start
+ 揭东县445221000000parse 揭东县，揭阳市，广东省 from google start
+ 云城区445302000000parse 云城区，云浮市，广东省 from google start
+ 广西450000000000parse 广西省 from google start
+ 兴宁区450102000000parse 兴宁区，南宁市，广西省 from google start
+ 青秀区450103000000parse 青秀区，南宁市，广西省 from google start
+ 江南区450105000000parse 江南区，南宁市，广西省 from google start
+ 西乡塘区450107000000parse 西乡塘区，南宁市，广西省 from google start
+ 良庆区450108000000parse 良庆区，南宁市，广西省 from google start
+ 城中区450202000000parse 城中区，柳州市，广西省 from google start
+ 鱼峰区450203000000parse 鱼峰区，柳州市，广西省 from google start
+ 柳南区450204000000parse 柳南区，柳州市，广西省 from google start
+ 柳北区450205000000parse 柳北区，柳州市，广西省 from google start
+ 秀峰区450302000000parse 秀峰区，桂林市，广西省 from google start
+ 叠彩区450303000000parse 叠彩区，桂林市，广西省 from google start
+ 象山区450304000000parse 象山区，桂林市，广西省 from google start
+ 七星区450305000000parse 七星区，桂林市，广西省 from google start
+ 雁山区450311000000parse 雁山区，桂林市，广西省 from google start
+ 阳朔县450321000000parse 阳朔县，桂林市，广西省 from google start
+ 万秀区450403000000parse 万秀区，梧州市，广西省 from google start
+ 蝶山区450404000000parse 蝶山区，梧州市，广西省 from google start
+ 长洲区450405000000parse 长洲区，梧州市，广西省 from google start
+ 苍梧县450421000000parse 苍梧县，梧州市，广西省 from google start
+ 海城区450502000000parse 海城区，北海市，广西省 from google start
+ 银海区450503000000parse 银海区，北海市，广西省 from google start
+ 铁山港区450512000000parse 铁山港区，北海市，广西省 from google start
+ 防城港市450600000000parse 防城港市，广西省 from google start
+ 港口区450602000000parse 港口区，防城港市，广西省 from google start
+ 东兴市450681000000parse 东兴市，防城港市，广西省 from google start
+ 钦南区450702000000parse 钦南区，钦州市，广西省 from google start
+ 钦北区450703000000parse 钦北区，钦州市，广西省 from google start
+ 贵港市450800000000parse 贵港市，广西省 from google start
+ 港北区450802000000parse 港北区，贵港市，广西省 from google start
+ 港南区450803000000parse 港南区，贵港市，广西省 from google start
+ 覃塘区450804000000parse 覃塘区，贵港市，广西省 from google start
+ 玉州区450902000000parse 玉州区，玉林市，广西省 from google start
+ 兴业县450924000000parse 兴业县，玉林市，广西省 from google start
+ 右江区451002000000parse 右江区，百色市，广西省 from google start
+ 贺州市451100000000parse 贺州市，广西省 from google start
+ 八步区451102000000parse 八步区，贺州市，广西省 from google start
+ 平桂区451124000000parse 平桂区，贺州市，广西省 from google start
+ 金城江区451202000000parse 金城江区，河池市，广西省 from google start
+ 环江毛451226000000parse 环江毛，河池市，广西省 from google start
+ 大化451229000000parse 大化，河池市，广西省 from google start
+ 宜州市451281000000parse 宜州市，河池市，广西省 from google start
+ 兴宾区451302000000parse 兴宾区，来宾市，广西省 from google start
+ 武宣县451323000000parse 武宣县，来宾市，广西省 from google start
+ 江州区451402000000parse 江州区，崇左市，广西省 from google start
+ 海南460000000000parse 海南省 from google start
+ 市辖区460101000000parse 市辖区，海口市，海南省 from google start
+ 秀英区460105000000parse 秀英区，海口市，海南省 from google start
+ 龙华区460106000000parse 龙华区，海口市，海南省 from google start
+ 美兰区460108000000parse 美兰区，海口市，海南省 from google start
+ 三亚市460200000000parse 三亚市，海南省 from google start
+ 市辖区460201000000parse 市辖区，三亚市，海南省 from google start
+ 直辖区469000000000parse 直辖区，海南省 from google start
+ 五指山市469001000000parse 五指山市，直辖区，海南省 from google start
+ 儋州市469003000000parse 儋州市，直辖区，海南省 from google start
+ 保亭黎族469035000000parse 保亭黎族，直辖区，海南省 from google start
+ 琼中黎族469036000000parse 琼中黎族，直辖区，海南省 from google start
+ 西沙群岛469037000000parse 西沙群岛，直辖区，海南省 from google start
+ 南沙群岛469038000000parse 南沙群岛，直辖区，海南省 from google start
+ 中沙群岛469039000000parse 中沙群岛，直辖区，海南省 from google start
+ 直辖区500100000000parse 直辖区，重庆市 from google start
+ 万州区500101000000parse 万州区，直辖区，重庆市 from google start
+ 涪陵区500102000000parse 涪陵区，直辖区，重庆市 from google start
+ 渝中区500103000000parse 渝中区，直辖区，重庆市 from google start
+ 大渡口区500104000000parse 大渡口区，直辖区，重庆市 from google start
+ 江北区500105000000parse 江北区，直辖区，重庆市 from google start
+ 沙坪坝区500106000000parse 沙坪坝区，直辖区，重庆市 from google start
+ 九龙坡区500107000000parse 九龙坡区，直辖区，重庆市 from google start
+ 南岸区500108000000parse 南岸区，直辖区，重庆市 from google start
+ 北碚区500109000000parse 北碚区，直辖区，重庆市 from google start
+ 双桥区500111000000parse 双桥区，直辖区，重庆市 from google start
+ 渝北区500112000000parse 渝北区，直辖区，重庆市 from google start
+ 巴南区500113000000parse 巴南区，直辖区，重庆市 from google start
+ 黔江区500114000000parse 黔江区，直辖区，重庆市 from google start
+ 江津区500116000000parse 江津区，直辖区，重庆市 from google start
+ 南川区500119000000parse 南川区，直辖区，重庆市 from google start
+ 北部新区500122000000parse 北部新区，直辖区，重庆市 from google start
+ 直辖区500200000000parse 直辖区，重庆市 from google start
+ 直辖区500200000000parse error!!!
+ 璧山县500227000000parse 璧山县，直辖区，重庆市 from google start
+ 梁平县500228000000parse 梁平县，直辖区，重庆市 from google start
+ 城口县500229000000parse 城口县，直辖区，重庆市 from google start
+ 丰都县500230000000parse 丰都县，直辖区，重庆市 from google start
+ 垫江县500231000000parse 垫江县，直辖区，重庆市 from google start
+ 武隆县500232000000parse 武隆县，直辖区，重庆市 from google start
+ 忠县500233000000parse 忠县，直辖区，重庆市 from google start
+ 开县500234000000parse 开县，直辖区，重庆市 from google start
+ 云阳县500235000000parse 云阳县，直辖区，重庆市 from google start
+ 奉节县500236000000parse 奉节县，直辖区，重庆市 from google start
+ 巫山县500237000000parse 巫山县，直辖区，重庆市 from google start
+ 巫溪县500238000000parse 巫溪县，直辖区，重庆市 from google start
+ 石柱500240000000parse 石柱，直辖区，重庆市 from google start
+ 秀山500241000000parse 秀山，直辖区，重庆市 from google start
+ 酉阳500242000000parse 酉阳，直辖区，重庆市 from google start
+ 彭水苗族500243000000parse 彭水苗族，直辖区，重庆市 from google start
+ 四川510000000000parse 四川省 from google start
+ 锦江区510104000000parse 锦江区，成都市，四川省 from google start
+ 青羊区510105000000parse 青羊区，成都市，四川省 from google start
+ 金牛区510106000000parse 金牛区，成都市，四川省 from google start
+ 武侯区510107000000parse 武侯区，成都市，四川省 from google start
+ 成华区510108000000parse 成华区，成都市，四川省 from google start
+ 龙泉驿区510112000000parse 龙泉驿区，成都市，四川省 from google start
+ 青白江区510113000000parse 青白江区，成都市，四川省 from google start
+ 都江堰市510181000000parse 都江堰市，成都市，四川省 from google start
+ 彭州市510182000000parse 彭州市，成都市，四川省 from google start
+ 崇州市510184000000parse 崇州市，成都市，四川省 from google start
+ 自贡市510300000000parse 自贡市，四川省 from google start
+ 高新区510301000000parse 高新区，自贡市，四川省 from google start
+ 自流井区510302000000parse 自流井区，自贡市，四川省 from google start
+ 贡井区510303000000parse 贡井区，自贡市，四川省 from google start
+ 大安区510304000000parse 大安区，自贡市，四川省 from google start
+ 沿滩区510311000000parse 沿滩区，自贡市，四川省 from google start
+ 攀枝花市510400000000parse 攀枝花市，四川省 from google start
+ 东区510402000000parse 东区，攀枝花市，四川省 from google start
+ 仁和区510411000000parse 仁和区，攀枝花市，四川省 from google start
+ 米易县510421000000parse 米易县，攀枝花市，四川省 from google start
+ 江阳区510502000000parse 江阳区，泸州市，四川省 from google start
+ 龙马潭区510504000000parse 龙马潭区，泸州市，四川省 from google start
+ 叙永县510524000000parse 叙永县，泸州市，四川省 from google start
+ 旌阳区510603000000parse 旌阳区，德阳市，四川省 from google start
+ 罗江县510626000000parse 罗江县，德阳市，四川省 from google start
+ 涪城区510703000000parse 涪城区，绵阳市，四川省 from google start
+ 游仙区510704000000parse 游仙区，绵阳市，四川省 from google start
+ 广元市510800000000parse 广元市，四川省 from google start
+ 利州区510802000000parse 利州区，广元市，四川省 from google start
+ 广元开发区510803000000parse 广元开发区，广元市，四川省 from google start
+ 元坝区510811000000parse 元坝区，广元市，四川省 from google start
+ 朝天区510812000000parse 朝天区，广元市，四川省 from google start
+ 船山区510903000000parse 船山区，遂宁市，四川省 from google start
+ 安居区510904000000parse 安居区，遂宁市，四川省 from google start
+ 大英县510923000000parse 大英县，遂宁市，四川省 from google start
+ 市中区511002000000parse 市中区，内江市，四川省 from google start
+ 东兴区511011000000parse 东兴区，内江市，四川省 from google start
+ 乐山市511100000000parse 乐山市，四川省 from google start
+ 市中区511102000000parse 市中区，乐山市，四川省 from google start
+ 沙湾区511111000000parse 沙湾区，乐山市，四川省 from google start
+ 五通桥区511112000000parse 五通桥区，乐山市，四川省 from google start
+ 金口河区511113000000parse 金口河区，乐山市，四川省 from google start
+ 峨眉山市511181000000parse 峨眉山市，乐山市，四川省 from google start
+ 南充市511300000000parse 南充市，四川省 from google start
+ 顺庆区511302000000parse 顺庆区，南充市，四川省 from google start
+ 高坪区511303000000parse 高坪区，南充市，四川省 from google start
+ 嘉陵区511304000000parse 嘉陵区，南充市，四川省 from google start
+ 西充县511325000000parse 西充县，南充市，四川省 from google start
+ 眉山市511400000000parse 眉山市，四川省 from google start
+ 东坡区511402000000parse 东坡区，眉山市，四川省 from google start
+ 彭山县511422000000parse 彭山县，眉山市，四川省 from google start
+ 翠屏区511502000000parse 翠屏区，宜宾市，四川省 from google start
+ 宜宾县511521000000parse 宜宾县，宜宾市，四川省 from google start
+ 珙县511526000000parse 珙县，宜宾市，四川省 from google start
+ 屏山县511529000000parse 屏山县，宜宾市，四川省 from google start
+ 广安区511602000000parse 广安区，广安市，四川省 from google start
+ 华蓥市511681000000parse 华蓥市，广安市，四川省 from google start
+ 达州市511700000000parse 达州市，四川省 from google start
+ 通川区511702000000parse 通川区，达州市，四川省 from google start
+ 宣汉县511722000000parse 宣汉县，达州市，四川省 from google start
+ 雨城区511802000000parse 雨城区，雅安市，四川省 from google start
+ 荥经县511822000000parse 荥经县，雅安市，四川省 from google start
+ 巴州区511902000000parse 巴州区，巴中市，四川省 from google start
+ 巴中市经济区511907000000parse 巴中市经济区，巴中市，四川省 from google start
+ 雁江区512002000000parse 雁江区，资阳市，四川省 from google start
+ 九寨沟县513225000000parse 九寨沟县，阿坝，四川省 from google start
+ 阿坝县513231000000parse 阿坝县，阿坝，四川省 from google start
+ 甘孜县513328000000parse 甘孜县，甘孜，四川省 from google start
+ 海螺沟513339000000parse 海螺沟，甘孜，四川省 from google start
+ 凉山513400000000parse 凉山，四川省 from google start
+ 贵州520000000000parse 贵州省 from google start
+ 南明区520102000000parse 南明区，贵阳市，贵州省 from google start
+ 云岩区520103000000parse 云岩区，贵阳市，贵州省 from google start
+ 花溪区520111000000parse 花溪区，贵阳市，贵州省 from google start
+ 乌当区520112000000parse 乌当区，贵阳市，贵州省 from google start
+ 白云区520113000000parse 白云区，贵阳市，贵州省 from google start
+ 小河区520114000000parse 小河区，贵阳市，贵州省 from google start
+ 钟山区520201000000parse 钟山区，六盘水市，贵州省 from google start
+ 六枝特区520203000000parse 六枝特区，六盘水市，贵州省 from google start
+ 红花岗区520302000000parse 红花岗区，遵义市，贵州省 from google start
+ 汇川区520303000000parse 汇川区，遵义市，贵州省 from google start
+ 遵义县520321000000parse 遵义县，遵义市，贵州省 from google start
+ 西秀区520402000000parse 西秀区，安顺市，贵州省 from google start
+ 铜仁地区522200000000parse 铜仁地区，贵州省 from google start
+ 石阡县522224000000parse 石阡县，铜仁地区，贵州省 from google start
+ 黔西南522300000000parse 黔西南，贵州省 from google start
+ 晴隆县522324000000parse 晴隆县，黔西南，贵州省 from google start
+ 册亨县522327000000parse 册亨县，黔西南，贵州省 from google start
+ 毕节地区522400000000parse 毕节地区，贵州省 from google start
+ 纳雍县522426000000parse 纳雍县，毕节地区，贵州省 from google start
+ 黔东南522600000000parse 黔东南，贵州省 from google start
+ 黔南522700000000parse 黔南，贵州省 from google start
+ 云南530000000000parse 云南省 from google start
+ 五华区530102000000parse 五华区，昆明市，云南省 from google start
+ 盘龙区530103000000parse 盘龙区，昆明市，云南省 from google start
+ 官渡区530111000000parse 官渡区，昆明市，云南省 from google start
+ 西山区530112000000parse 西山区，昆明市，云南省 from google start
+ 东川区530113000000parse 东川区，昆明市，云南省 from google start
+ 石林530126000000parse 石林，昆明市，云南省 from google start
+ 禄劝彝族530128000000parse 禄劝彝族，昆明市，云南省 from google start
+ 寻甸回族530129000000parse 寻甸回族，昆明市，云南省 from google start
+ 麒麟区530302000000parse 麒麟区，曲靖市，云南省 from google start
+ 沾益县530328000000parse 沾益县，曲靖市，云南省 from google start
+ 红塔区530402000000parse 红塔区，玉溪市，云南省 from google start
+ 保山市530500000000parse 保山市，云南省 from google start
+ 隆阳区530502000000parse 隆阳区，保山市，云南省 from google start
+ 昭阳区530602000000parse 昭阳区，昭通市，云南省 from google start
+ 水富县530630000000parse 水富县，昭通市，云南省 from google start
+ 玉龙纳西族自治县530721000000parse 玉龙纳西族自治县，丽江市，云南省 from google start
+ 翠云区530802000000parse 翠云区，思茅市，云南省 from google start
+ 墨江530822000000parse 墨江，思茅市，云南省 from google start
+ 澜沧530828000000parse 澜沧，思茅市，云南省 from google start
+ 临沧市530900000000parse 临沧市，云南省 from google start
+ 临翔区530902000000parse 临翔区，临沧市，云南省 from google start
+ 楚雄市532301000000parse 楚雄市，楚雄，云南省 from google start
+ 红河哈尼族532500000000parse 红河哈尼族，云南省 from google start
+ 文山壮族532600000000parse 文山壮族，云南省 from google start
+ 西双版纳532800000000parse 西双版纳，云南省 from google start
+ 景洪市532801000000parse 景洪市，西双版纳，云南省 from google start
+ 大理市532901000000parse 大理市，大理，云南省 from google start
+ 德宏533100000000parse 德宏，云南省 from google start
+ 怒江533300000000parse 怒江，云南省 from google start
+ 迪庆533400000000parse 迪庆，云南省 from google start
+ 香格里拉县533421000000parse 香格里拉县，迪庆，云南省 from google start
+ 西藏540000000000parse 西藏省 from google start
+ 城关区540102000000parse 城关区，拉萨市，西藏省 from google start
+ 昌都地区542100000000parse 昌都地区，西藏省 from google start
+ 昌都县542121000000parse 昌都县，昌都地区，西藏省 from google start
+ 山南地区542200000000parse 山南地区，西藏省 from google start
+ 琼结县542225000000parse 琼结县，山南地区，西藏省 from google start
+ 日喀则地区542300000000parse 日喀则地区，西藏省 from google start
+ 那曲地区542400000000parse 那曲地区，西藏省 from google start
+ 尼玛县542430000000parse 尼玛县，那曲地区，西藏省 from google start
+ 县直辖村542431000000parse 县直辖村，那曲地区，西藏省 from google start
+ 阿里地区542500000000parse 阿里地区，西藏省 from google start
+ 札达县542522000000parse 札达县，阿里地区，西藏省 from google start
+ 日土县542524000000parse 日土县，阿里地区，西藏省 from google start
+ 林芝地区542600000000parse 林芝地区，西藏省 from google start
+ 陕西610000000000parse 陕西省 from google start
+ 新城区610102000000parse 新城区，西安市，陕西省 from google start
+ 碑林区610103000000parse 碑林区，西安市，陕西省 from google start
+ 莲湖区610104000000parse 莲湖区，西安市，陕西省 from google start
+ 灞桥区610111000000parse 灞桥区，西安市，陕西省 from google start
+ 未央区610112000000parse 未央区，西安市，陕西省 from google start
+ 雁塔区610113000000parse 雁塔区，西安市，陕西省 from google start
+ 阎良区610114000000parse 阎良区，西安市，陕西省 from google start
+ 王益区610202000000parse 王益区，铜川市，陕西省 from google start
+ 印台区610203000000parse 印台区，铜川市，陕西省 from google start
+ 耀州区610204000000parse 耀州区，铜川市，陕西省 from google start
+ 渭滨区610302000000parse 渭滨区，宝鸡市，陕西省 from google start
+ 金台区610303000000parse 金台区，宝鸡市，陕西省 from google start
+ 扶风县610324000000parse 扶风县，宝鸡市，陕西省 from google start
+ 秦都区610402000000parse 秦都区，咸阳市，陕西省 from google start
+ 渭城区610404000000parse 渭城区，咸阳市，陕西省 from google start
+ 临渭区610502000000parse 临渭区，渭南市，陕西省 from google start
+ 大荔县610523000000parse 大荔县，渭南市，陕西省 from google start
+ 澄城县610525000000parse 澄城县，渭南市，陕西省 from google start
+ 宝塔区610602000000parse 宝塔区，延安市，陕西省 from google start
+ 安塞县610624000000parse 安塞县，延安市，陕西省 from google start
+ 汉台区610702000000parse 汉台区，汉中市，陕西省 from google start
+ 汉中开发区610790000000parse 汉中开发区，汉中市，陕西省 from google start
+ 榆阳区610802000000parse 榆阳区，榆林市，陕西省 from google start
+ 汉滨区610902000000parse 汉滨区，安康市，陕西省 from google start
+ 商洛市611000000000parse 商洛市，陕西省 from google start
+ 商州区611002000000parse 商州区，商洛市，陕西省 from google start
+ 直辖区611100000000parse 直辖区，陕西省 from google start
+ 杨陵区611101000000parse 杨陵区，直辖区，陕西省 from google start
+ 甘肃620000000000parse 甘肃省 from google start
+ 城关区620102000000parse 城关区，兰州市，甘肃省 from google start
+ 七里河区620103000000parse 七里河区，兰州市，甘肃省 from google start
+ 西固区620104000000parse 西固区，兰州市，甘肃省 from google start
+ 安宁区620105000000parse 安宁区，兰州市，甘肃省 from google start
+ 红古区620111000000parse 红古区，兰州市，甘肃省 from google start
+ 嘉峪关市620200000000parse 嘉峪关市，甘肃省 from google start
+ 市辖区620201000000parse 市辖区，嘉峪关市，甘肃省 from google start
+ 金昌市620300000000parse 金昌市，甘肃省 from google start
+ 金川区620302000000parse 金川区，金昌市，甘肃省 from google start
+ 白银市620400000000parse 白银市，甘肃省 from google start
+ 白银区620402000000parse 白银区，白银市，甘肃省 from google start
+ 平川区620403000000parse 平川区，白银市，甘肃省 from google start
+ 秦州区620502000000parse 秦州区，天水市，甘肃省 from google start
+ 麦积区620503000000parse 麦积区，天水市，甘肃省 from google start
+ 张家川回族自治县620525000000parse 张家川回族自治县，天水市，甘肃省 from google start
+ 凉州区620602000000parse 凉州区，武威市，甘肃省 from google start
+ 甘州区620702000000parse 甘州区，张掖市，甘肃省 from google start
+ 肃南裕620721000000parse 肃南裕，张掖市，甘肃省 from google start
+ 崆峒区620802000000parse 崆峒区，平凉市，甘肃省 from google start
+ 肃州区620902000000parse 肃州区，酒泉市，甘肃省 from google start
+ 瓜州县620922000000parse 瓜州县，酒泉市，甘肃省 from google start
+ 西峰区621002000000parse 西峰区，庆阳市，甘肃省 from google start
+ 庆城县621021000000parse 庆城县，庆阳市，甘肃省 from google start
+ 正宁县621025000000parse 正宁县，庆阳市，甘肃省 from google start
+ 镇原县621027000000parse 镇原县，庆阳市，甘肃省 from google start
+ 安定区621102000000parse 安定区，定西市，甘肃省 from google start
+ 陇南市621200000000parse 陇南市，甘肃省 from google start
+ 临夏市622901000000parse 临夏市，临夏，甘肃省 from google start
+ 临夏县622921000000parse 临夏县，临夏，甘肃省 from google start
+ 甘南623000000000parse 甘南，甘肃省 from google start
+ 合作市623001000000parse 合作市，甘南，甘肃省 from google start
+ 夏河县623027000000parse 夏河县，甘南，甘肃省 from google start
+ 青海630000000000parse 青海省 from google start
+ 城东区630102000000parse 城东区，西宁市，青海省 from google start
+ 城中区630103000000parse 城中区，西宁市，青海省 from google start
+ 城西区630104000000parse 城西区，西宁市，青海省 from google start
+ 城北区630105000000parse 城北区，西宁市，青海省 from google start
+ 海东地区632100000000parse 海东地区，青海省 from google start
+ 海北州632200000000parse 海北州，青海省 from google start
+ 黄南州632300000000parse 黄南州，青海省 from google start
+ 河南县632324000000parse 河南县，黄南州，青海省 from google start
+ 海南州632500000000parse 海南州，青海省 from google start
+ 果洛州632600000000parse 果洛州，青海省 from google start
+ 玉树州632700000000parse 玉树州，青海省 from google start
+ 曲麻莱县632726000000parse 曲麻莱县，玉树州，青海省 from google start
+ 海西州632800000000parse 海西州，青海省 from google start
+ 德令哈市632802000000parse 德令哈市，海西州，青海省 from google start
+ 茫崖行委632824000000parse 茫崖行委，海西州，青海省 from google start
+ 大柴旦行委632825000000parse 大柴旦行委，海西州，青海省 from google start
+ 冷湖行委632827000000parse 冷湖行委，海西州，青海省 from google start
+ 青海油田632828000000parse 青海油田，海西州，青海省 from google start
+ 宁夏640000000000parse 宁夏省 from google start
+ 西夏区640105000000parse 西夏区，银川市，宁夏省 from google start
+ 金凤区640106000000parse 金凤区，银川市，宁夏省 from google start
+ 大武口区640202000000parse 大武口区，石嘴山市，宁夏省 from google start
+ 惠农区640205000000parse 惠农区，石嘴山市，宁夏省 from google start
+ 利通区640302000000parse 利通区，吴忠市，宁夏省 from google start
+ 红寺堡开发区640382000000parse 红寺堡开发区，吴忠市，宁夏省 from google start
+ 原州区640402000000parse 原州区，固原市，宁夏省 from google start
+ 彭阳县640425000000parse 彭阳县，固原市，宁夏省 from google start
+ 沙坡头区640502000000parse 沙坡头区，中卫市，宁夏省 from google start
+ 新疆650000000000parse 新疆省 from google start
+ 天山区650102000000parse 天山区，乌鲁木齐市，新疆省 from google start
+ 沙依巴克区650103000000parse 沙依巴克区，乌鲁木齐市，新疆省 from google start
+ 新市区650104000000parse 新市区，乌鲁木齐市，新疆省 from google start
+ 水磨沟区650105000000parse 水磨沟区，乌鲁木齐市，新疆省 from google start
+ 头屯河区650106000000parse 头屯河区，乌鲁木齐市，新疆省 from google start
+ 达板城区650107000000parse 达板城区，乌鲁木齐市，新疆省 from google start
+ 东山区650108000000parse 东山区，乌鲁木齐市，新疆省 from google start
+ 米东区650109000000parse 米东区，乌鲁木齐市，新疆省 from google start
+ 高新区650111000000parse 高新区，乌鲁木齐市，新疆省 from google start
+ 开发区650112000000parse 开发区，乌鲁木齐市，新疆省 from google start
+ 乌鲁木齐县650121000000parse 乌鲁木齐县，乌鲁木齐市，新疆省 from google start
+ 独山子区650202000000parse 独山子区，克拉玛依市，新疆省 from google start
+ 克拉玛依区650203000000parse 克拉玛依区，克拉玛依市，新疆省 from google start
+ 白碱滩区650204000000parse 白碱滩区，克拉玛依市，新疆省 from google start
+ 乌尔禾区650205000000parse 乌尔禾区，克拉玛依市，新疆省 from google start
+ 新疆兵团650900000000parse 新疆兵团，新疆省 from google start
+ 农一师650901000000parse 农一师，新疆兵团，新疆省 from google start
+ 农二师650902000000parse 农二师，新疆兵团，新疆省 from google start
+ 农三师650903000000parse 农三师，新疆兵团，新疆省 from google start
+ 农四师650904000000parse 农四师，新疆兵团，新疆省 from google start
+ 农五师650905000000parse 农五师，新疆兵团，新疆省 from google start
+ 农六师650906000000parse 农六师，新疆兵团，新疆省 from google start
+ 农七师650907000000parse 农七师，新疆兵团，新疆省 from google start
+ 农八师650908000000parse 农八师，新疆兵团，新疆省 from google start
+ 农九师650909000000parse 农九师，新疆兵团，新疆省 from google start
+ 农十师650910000000parse 农十师，新疆兵团，新疆省 from google start
+ 建工师650911000000parse 建工师，新疆兵团，新疆省 from google start
+ 农十二师650912000000parse 农十二师，新疆兵团，新疆省 from google start
+ 农十三师650913000000parse 农十三师，新疆兵团，新疆省 from google start
+ 农十四师650914000000parse 农十四师，新疆兵团，新疆省 from google start
+ 兵团直属650920000000parse 兵团直属，新疆兵团，新疆省 from google start
+ 吐鲁番地区652100000000parse 吐鲁番地区，新疆省 from google start
+ 哈密地区652200000000parse 哈密地区，新疆省 from google start
+ 昌吉州652300000000parse 昌吉州，新疆省 from google start
+ 博尔塔652700000000parse 博尔塔，新疆省 from google start
+ 巴州652800000000parse 巴州，新疆省 from google start
+ 尉犁县652823000000parse 尉犁县，巴州，新疆省 from google start
+ 若羌县652824000000parse 若羌县，巴州，新疆省 from google start
+ 且末县652825000000parse 且末县，巴州，新疆省 from google start
+ 阿克苏地区652900000000parse 阿克苏地区，新疆省 from google start
+ 柯坪县652929000000parse 柯坪县，阿克苏地区，新疆省 from google start
+ 克州653000000000parse 克州，新疆省 from google start
+ 喀什地区653100000000parse 喀什地区，新疆省 from google start
+ 喀什市653101000000parse 喀什市，喀什地区，新疆省 from google start
+ 岳普湖县653128000000parse 岳普湖县，喀什地区，新疆省 from google start
+ 伽师县653129000000parse 伽师县，喀什地区，新疆省 from google start
+ 和田地区653200000000parse 和田地区，新疆省 from google start
+ 和田县653221000000parse 和田县，和田地区，新疆省 from google start
+ 伊犁州654000000000parse 伊犁州，新疆省 from google start
+ 伊宁县654021000000parse 伊宁县，伊犁州，新疆省 from google start
+ 察布查尔县654022000000parse 察布查尔县，伊犁州，新疆省 from google start
+ 塔城地区654200000000parse 塔城地区，新疆省 from google start
+ 阿勒泰地区654300000000parse 阿勒泰地区，新疆省 from google start
+ 直辖区659000000000parse 直辖区，新疆省 from google start
+ 阿拉尔市659002000000parse 阿拉尔市，直辖区，新疆省 from google start
+ 图木舒克市659003000000parse 图木舒克市，直辖区，新疆省 from google start
+ 五家渠市659004000000parse 五家渠市，直辖区，新疆省 from google start
+left counter=1405
