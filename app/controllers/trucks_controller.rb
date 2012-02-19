@@ -7,7 +7,7 @@ class TrucksController < ApplicationController
   include CargosHelper
   # before_filter:authorize, :except => [:search,:show,:baojiatruck]
   before_filter:authorize, :only => [:new,:create,:update,:destroy,:edit,:quoteinquery,:request_chenjiao]
-  protect_from_forgery :except => [:tip,:login]
+  protect_from_forgery :except => [:tip,:login,:post_truck]
   # layout "public"
   # caches_page :search,:show
   #  caches_page :show

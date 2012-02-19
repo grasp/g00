@@ -2,12 +2,11 @@
 require 'pathname'
 require 'forever'
 pn = Pathname.new(File.dirname(__FILE__))
-project_root=pn.parent #do we have one line solution?
+project_root=pn.parent.parent #do we have one line solution?
 require File.join(project_root,"lib","tasks","grasp_init.rb")
 
 Forever.run do
   dir File.expand_path('../', __FILE__) # Default is ../../__FILE__
-
   #before :all do
   #  puts "All jobs will will wait me for 1 second"; sleep 1
   #end
