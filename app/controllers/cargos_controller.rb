@@ -366,7 +366,10 @@ end
 
 
   def allcity
-
+  if params[:from]=="mail"
+    Sitedatum.first.inc(:from_mail,1)
+    redirect_to(root_path)
+  end
 
   end
   

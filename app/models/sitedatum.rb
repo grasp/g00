@@ -11,5 +11,5 @@ class Sitedatum
    field :spider, :type => Integer
    field :msent, :type => Integer
    field :msent_today, :type => Integer
-  
+   field :from_mail, :type => Integer
 end

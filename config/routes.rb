@@ -51,7 +51,7 @@ G0::Application.routes.draw do
   match 'admin/hourly_trends/day/:day/table/:table(/field/:field/condition/:condition/value/:value)' =>'admin#hourly_trends' ,:as=>:admin_daily_trends
   match '/admin/request_log_analysis((/all/:all)(/logfile/:logfile))' =>'admin#request_log_analysis' ,:as=>:admin_request_log_analysis
   match '/admin/show_log(/logfile/:logfile)' =>'admin#show_log' ,:as=>:admin_show_log
-  match '/admin/backup_db' =>'admin#backup_db' ,:as=>:admin_backup_db
+  match '/admin/backup_db/:code' =>'admin#backup_db' ,:as=>:admin_backup_db
   match '/admin/deploy_test' =>'admin#deploy_test' ,:as=>:admin_deploy_test
   match '/admin/deploy' =>'admin#deploy' ,:as=>:admin_deploy
   match '/admin/send_site_update_to_register(/:test)' =>'admin#send_site_update_to_register' ,:as=>:admin_send_site_update_to_register
@@ -190,7 +190,7 @@ G0::Application.routes.draw do
   match '/cargos/cityto/:city_id'=>"cargos#cityto" ,:as=>:cargocityto
   match '/cargos/cityfrom/:city_id'=>"cargos#cityfrom" ,:as=>:cargocityfrom
   match '/cargos/allcity'=>"cargos#allcity" ,:as=>:cargoallcity
-
+  match '/cargos/allcity/:from'=>"cargos#allcity" ,:as=>:cargoallcity
   match 'cargos/request_chenjiao/:id'=>"cargos#request_chenjiao" ,:as=>:cargorequest_chenjiao
   match '/cargos/index/:status' =>"cargos#index" ,:as=>:cargoindexstatus
   match '/cargos/search' =>'cargos#search', :as=>:cargosrootsearch

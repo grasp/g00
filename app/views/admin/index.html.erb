@@ -63,6 +63,7 @@
       <th>truckshow</th>
      <th>msent</th>
        <th>all_msent</th>
+       <th>from_email</th>
     </tr>
 
     <% @sitedata.each do |sitedatum| %>
@@ -77,6 +78,7 @@
         <td><%= sitedatum.truckshow %></td>
          <td><%= sitedatum.msent_today %></td>
          <td><%= sitedatum.msent %></td>
+         <td><%= sitedatum.from_mail %></td>
       </tr>
     <% end %>
   </table>

@@ -6,11 +6,8 @@ class AdminController < ApplicationController
   include ScansHelper
   include AdminHelper
   #   before_filter:admin_authorize,:except=>[:index] #for debug purpose
-  before_filter:admin_authorize, :except=>[:grasp_tf56,:grasp_quzhou,:scan,:move,:dev_expire] #for debug purpose
- 
-  
-
-  
+  before_filter:admin_authorize, :except=>[:grasp_tf56,:grasp_quzhou,:scan,:move,:dev_expire,:backup_db] #for debug purpose
+     
   def index
     @today=Hash.new
     @today["huo"]=Cargo.where(:created_at.lte=>Time.now,:created_at.gte=>Time.now-86400).count
@@ -190,10 +187,14 @@ class AdminController < ApplicationController
   end
 
   def backup_db
-    `cd`
-    `mongodump -o /home/hunter/dump`
-    `tar -zcf /home/hunter/dump_#{Time.now.to_s.slice(0,10)}.tgz /home/hunter/dump`
-    send_file "/home/hunter/dump_#{Time.now.to_s.slice(0,10)}.tgz", :type=>"application/tgz"
+    
+    if params[:code]=="8978493982471" #for hard code link
+  #  `cd`
+  #   `rm -rf /home/hunter/dump`
+  #  `mongodump -o /home/hunter/dump`
+  #  `tar -zcf /home/hunter/dump_#{Time.now.to_s.slice(0,10)}.tgz /home/hunter/dump`
+    send_file "/home/hunter/daily_backup.tgz", :type=>"application/tgz"
+    end
   end
   
   def expire_city_navi
