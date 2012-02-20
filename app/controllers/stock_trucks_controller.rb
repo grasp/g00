@@ -19,7 +19,8 @@ class StockTrucksController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @stock_trucks }
     end
-  end
+  end  
+
 
   # GET /stock_trucks/1
   # GET /stock_trucks/1.xml

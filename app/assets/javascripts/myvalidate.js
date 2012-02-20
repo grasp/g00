@@ -976,8 +976,7 @@ function submit_jubao(){
 
 function submit_userlines(){
     $("#new_userline").validate(
-    {
-    
+    {    
         rules: {
             "userline[fcityid]":{
                 required: true,

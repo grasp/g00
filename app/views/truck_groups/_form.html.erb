@@ -1,0 +1,25 @@
+<%= form_for(@truck_group) do |f| %>
+  <% if @truck_group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@truck_group.errors.count, "error") %> prohibited this truck_group from being saved:</h2>
+
+      <ul>
+      <% @truck_group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @truck_group.user_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @truck_group.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_truck_group_path(@truck_group) %> |
+<%= link_to 'Back', truck_groups_path %>

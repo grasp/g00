@@ -1,10 +1,15 @@
 G0::Application.routes.draw do
+  resources :truck_groups
+
+  match "/dingwei/userannounce"=>"dingwei#userannounce" ,:as=>:dingweiuserannounce
+  match "/dingwei/index"=>"dingwei#index" ,:as=>:dingweiindex
+  ##
   match '/concerncargos/userconcern'=>"concerncargos#userconcern" ,:as=>:concerncargosuserconcern
   match '/concerncargos/new(/:concern_type)'=>"concerncargos#new" ,:as=>:concerncargosnew
   match '/concerncargos/edit/:id(/:concern_type)'=>"concerncargos#edit" ,:as=>:concerncargosedit
   match '/concerncargos/show/:id(/:concern_type)'=>"concerncargos#show" ,:as=>:concerncargosshow
   resources :concerncargos
-
+##
   match '/wmails/send_cargo_myself/:id'=>"wmails#send_cargo_myself" ,:as=>:wmailssend_cargo_myself
   match '/wmails/invite_new'=>"wmails#invite_new" ,:as=>:wmailsinvitenew
   resources :wmails

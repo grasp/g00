@@ -10,6 +10,11 @@
         <li><a   href="/userlines">物流专线</a></li>  
         <li><a   href="/users/center">用户中心</a></li> 
         <li><a   href="/concerncargos/userconcern">我的关注</a></li> 
+       <%if session[:user_name]=="admin"%>
+         <li><a   href="/dingwei/index">车辆定位</a></li> 
+         <%else%>
+            <li><a   href="/dingwei/userannounce">车辆定位</a></li> 
+         <%end%>
       </ul>
 
       <p class="pull-right">
