@@ -1,0 +1,15 @@
+<h1>全部车队</h1>
+<table>
+  <tr>   
+
+  <th> 车队名字  </th> 
+  <th> 解散该车队  </th> 
+    </tr>
+    
+    <%@truck_groups.each do |truck_group|%>
+    <tr>
+      <td><%=truck_group.name%></td>
+    </tr>
+    
+    <%end%>
+</table>

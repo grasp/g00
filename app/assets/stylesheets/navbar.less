@@ -10,6 +10,77 @@
   margin-bottom: @baseLineHeight;
 }
 
+
+
+.navbar-inner {
+height:@navbarHeight;
+  background-color: @navbarBackground;
+  #gradient > .vertical(@navbarBackgroundstart, @navbarBackgroundend);
+  @shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+  .box-shadow(@shadow);
+  zoom:1;//must have for IE6
+}
+
+
+
+// Text and links
+.navbar {
+  // Hover and active states
+
+  .brand a:hover,
+  ul .active > a {
+   display:inline-block;
+   padding-top:20px;
+    color: @white;
+    text-decoration: none;
+  //  background-color: @navbarBackgroundstart;
+   // background-color: rgba(255,255,255,.05);
+  }
+
+li {
+display:inline;
+a{
+display:inline-block;
+   padding-top:20px;
+   padding-left:10px;//for ie6
+   color: @grayLighter;
+}
+
+}
+
+  // Website or project name
+  .brand {
+    float: left;
+   // display: block;
+    display:inline-block;
+    padding: 8px 20px 12px;
+    margin-left: -20px; // negative indent to left-align the text down the page
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 1;
+    color: @white;
+  }
+  // Plain text in topbar
+  p {
+    margin: 0;
+    line-height: 40px;
+color:white;
+    a:hover {
+      color: @white;
+      background-color: transparent;
+    }
+a{
+color:white;
+}
+  }
+  // Buttons in navbar
+  .btn {
+    margin-top: 5px; // make buttons vertically centered in navbar
+  }
+}
+//end of import from original
+
+
 // Gradient is applied to it's own element because overflow visible is not honored by IE when filter is present
 .navbar-inner {
   padding-left:  20px;

@@ -915,19 +915,26 @@ function stock_truck_update_validation(){
                 required: true
             },
             "stocktruck[owner_phone]":{
-                required: true
+                required: true,
+                  minlength:11,
+                  maxlength:11
             },
             "stocktruck[driver_name]":{
                 required: true
             },
             "stocktruck[driver_phone]":{
-                required: true
+                required: true,
+                  minlength:11,
+                  maxlength:11
             },
             "stocktruck[bis_name]":{
                 required: true
             },
             "stocktruck[bis_phone]":{
-                required: true
+                required: true,
+                  minlength:7,
+                  maxlength:12
+             
             }
         },
         messages:
@@ -936,19 +943,25 @@ function stock_truck_update_validation(){
                 required: "不能为空"
             },
             "stocktruck[owner_phone]":{
-                required: "不能为空"
+                required: "不能为空",
+                   minlength:"手机号码长度不对",
+                  maxlength:"手机号码长度不对"
             },
             "stocktruck[driver_name]":{
                 required: "不能为空"
             },
             "stocktruck[driver_phone]":{
-                required: "不能为空"
+                required: "不能为空",
+                   minlength:"手机号码长度不对",
+                  maxlength:"手机号码长度不对"
             },
             "stocktruck[bis_name]":{
                 required: "不能为空"
             },
             "stocktruck[bis_phone]":{
-                required: "不能为空"
+                required: "不能为空",
+                   minlength:"号码不对",
+                  maxlength:"号码不对"
             }
         }
     }

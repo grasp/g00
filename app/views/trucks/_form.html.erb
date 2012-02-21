@@ -1,11 +1,10 @@
 <%unless @stock_truck.blank? %>
  <h3>发布车源：<%=@stock_truck.paizhao%>,<%=$truck_pinpai[@stock_truck.truck_pinpai]%>,<%=@stock_truck.truck_xinghao%>,<%=@stock_truck.dun_wei%>吨,<%=@stock_truck.che_length%>米</h3>
-<%= form_for(@truck,@stock_truck,:as=>:truck,:html => {:class => "show_form"}) do |f| %>
+<%= form_for(@truck,:as=>:truck,:html => {:class => "show_form"}) do |f| %>
   <fieldset>
     <% if @truck.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@truck.errors.count, "错误") %> </h2>
-
       <ul>
       <% @truck.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

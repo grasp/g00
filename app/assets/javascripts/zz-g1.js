@@ -49,8 +49,8 @@ function city_load(){
             $("form select").css("display","none");
             if($(this).attr("class")=="company_city")
             {
-                $("#float_show2").css("top",coordinate.top-400);
-                $("#float_show2").css("left",coordinate.left-400);
+                $("#float_show2").css("top",coordinate.top-630);
+                $("#float_show2").css("left",coordinate.left-200);
             }
             else{
                 $("#float_show2").css("top",coordinate.top-30);

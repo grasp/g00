@@ -19,7 +19,8 @@ class StockTrucksController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @stock_trucks }
     end
-  end  
+  end    
+
 
 
   # GET /stock_trucks/1
@@ -66,8 +67,8 @@ class StockTrucksController < ApplicationController
     @user=User.find(session[:user_id])
     stocktruck=params[:stocktruck]
     
-    logger.info(params[:stocktruck])
-     logger.info(params[:stocktruck][:favo_city])
+   # logger.info(params[:stocktruck])
+   #  logger.info(params[:stocktruck][:favo_city])
     stocktruck[:truckcount]=0 #clear the counter
     stocktruck[:status]="车辆闲置" #clear the counter
     
@@ -82,14 +83,17 @@ class StockTrucksController < ApplicationController
         flash[:notice] = '成功创建车辆'
         Ustatistic.collection.update({'user_id'=>session[:user_id]},
         {'$inc' => {"total_stock_truck" => 1}},{:upsert =>true})
-        format.html { redirect_to :action=>"index"}
-        format.xml  { render :xml => @stock_truck, :status => :created, :location => @stock_truck }
+     #   format.html { redirect_to :action=>"index"}
+       format.html {redirect_to :controller=>"dingwei",:action=>"list_all_truck",:notice=>flash[:notice]}
+      #  format.xml  { render :xml => @stock_truck, :status => :created, :location => @stock_truck }
       else
         flash[:notice] = '创建车辆失败,该牌照已经存在'
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @stock_truck.errors, :status => :unprocessable_entity }
+      #  format.html { render :action => "new" }
+          format.html {redirect_to :controller=>"dingwei",:action=>"newtruck",:notice=>flash[:notice]}
+      #  format.xml  { render :xml => @stock_truck.errors, :status => :unprocessable_entity }
       end
     end
+   
   end
 
   # PUT /stock_trucks/1
@@ -113,8 +117,7 @@ class StockTrucksController < ApplicationController
 
   # DELETE /stock_trucks/1
   # DELETE /stock_trucks/1.xml
-  def destroy
-    
+  def destroy    
     @stock_truck = StockTruck.find(params[:id])
     @stock_truck.destroy
 

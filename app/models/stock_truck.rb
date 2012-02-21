@@ -20,7 +20,6 @@ class StockTruck
       field :truck_xinghao,:type=>String
       field :truck_year,:type=>String
 
-
       #driver info
       field :driver_name,:type=>String
       field :driver_phone,:type=>String
@@ -34,7 +33,6 @@ class StockTruck
       field :bis_phone,:type=>String
 
       # contact inforamtion
-
       field :car_phone,:type=>String
       field :company_id
       field :user_id
@@ -46,10 +44,14 @@ class StockTruck
 
       #status
       field :status,:type=>String
-
       # for feature usage
       field :truck_license_id
       field :truck_owner_id
+      
+      field :bind , :type=>Boolean
+      field :lat, :type=>Float
+      field :lng, :type=>Float
+      field :report_at
       
       validates_uniqueness_of :paizhao ,:message=>"该牌照车子已经存在."
 

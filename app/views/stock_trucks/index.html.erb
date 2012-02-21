@@ -6,16 +6,17 @@
 <table class="table table-striped">
 
   <tr>
-        <th>发布车源</th>
+  
     <th>车子</th>
+    <th>司机</th>
     <th>状态</th>
     <th>叫车联系</th>
     <th>叫车电话</th>
-    <th>司机</th>
+    
     <th>司机电话</th>
     <th>车主</th>
     <th>车主电话</th>
-
+    <th>发布车源</th>
     <th>更新联系</th>
   </tr>
   <% @stock_trucks.each do |stock_truck| %>
@@ -43,7 +44,7 @@
   <% end %>
     </table>
     <%else%>
-    <p>请先添加车子，然后发布车源信息.</p>
+      <p>你还没有添加任何车辆,想要管理你的车辆，请先<a class=" btn primary page_navi_link" href="/stock_trucks/new">新增车辆</a></p>
     <%end%>
 
 <%= will_paginate @stock_trucks ,:class=>"page_navi_link"%>

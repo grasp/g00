@@ -1,6 +1,8 @@
 class TruckGroupsController < ApplicationController
   # GET /truck_groups
   # GET /truck_groups.json
+  
+  layout "dingwei"
   def index
     @truck_groups = TruckGroup.all
 
