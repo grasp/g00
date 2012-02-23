@@ -1,9 +1,19 @@
 <%#coding:utf-8%>
 <h1> <%=@city_name%> 地图显示</h1>
+<p>
+  
+lat:
+<%= @stock_truck.lat%>
+<br></br>
+lng:
+<%= @stock_truck.lng%>
+<br></br>
+speed:
+<%= @stock_truck.speed%>
 
+</p>
 <%#= gmaps4rails(@json) %>
 <%if @lng%>
-
 <%=gmaps("map_options" => { "type" => "ROADMAP", "center_longitude" => @lng, "center_latitude" => @lat, "zoom" => 8, "auto_adjust" => false},
   "markers" => { "data" => @markers }) %>
 

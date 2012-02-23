@@ -1,8 +1,10 @@
+#coding:utf-8
 class TruckGroupsController < ApplicationController
   # GET /truck_groups
   # GET /truck_groups.json
   
   layout "dingwei"
+  
   def index
     @truck_groups = TruckGroup.all
 
@@ -45,7 +47,7 @@ class TruckGroupsController < ApplicationController
 
     respond_to do |format|
       if @truck_group.save
-        format.html { redirect_to @truck_group, notice: 'Truck group was successfully created.' }
+        format.html { redirect_to @truck_group, notice: '车队创建成功' }
         format.json { render json: @truck_group, status: :created, location: @truck_group }
       else
         format.html { render action: "new" }

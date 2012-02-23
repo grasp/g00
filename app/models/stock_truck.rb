@@ -51,6 +51,7 @@ class StockTruck
       field :bind , :type=>Boolean
       field :lat, :type=>Float
       field :lng, :type=>Float
+       field :speed, :type=>Float
       field :report_at
       
       validates_uniqueness_of :paizhao ,:message=>"该牌照车子已经存在."

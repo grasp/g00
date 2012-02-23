@@ -1,7 +1,7 @@
 <%#coding:utf-8%>
 <h1> 地图显示</h1>
 <%= gmaps(
-  "map_options" => { "type" => "ROADMAP", "center_longitude" => 116.407413, "center_latitude" => 39.904214, "auto_adjust" => true},
+  "map_options" => { "type" => "ROADMAP", "center_longitude" => @center_longitude, "center_latitude" => @center_latitude, "auto_adjust" => true},
    "markers" => { "data" => @markers },
    "polylines"    => { "data" => @polylines    , "options" => { "strokeColor" => "#000" } }    
 )

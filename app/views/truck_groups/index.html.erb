@@ -1,9 +1,9 @@
-<h1>Listing truck_groups</h1>
+<h1>全部车队</h1>
 
 <table>
   <tr>
-    <th>User</th>
-    <th>Name</th>
+   <!-- <th>User</th> -->
+    <th>车队名字</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,10 +11,10 @@
 
 <% @truck_groups.each do |truck_group| %>
   <tr>
-    <td><%= truck_group.user_id %></td>
-    <td><%= truck_group.name %></td>
-    <td><%= link_to 'Show', truck_group %></td>
-    <td><%= link_to 'Edit', edit_truck_group_path(truck_group) %></td>
+  <!--    <td><%= truck_group.user_id %></td> -->
+          <td><%= truck_group.name %></td>
+  <!--   <td><%= link_to 'Show', truck_group %></td>
+    <td><%= link_to 'Edit', edit_truck_group_path(truck_group) %></td> -->
     <td><%= link_to 'Destroy', truck_group, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
@@ -22,4 +22,4 @@
 
 <br />
 
-<%= link_to 'New Truck group', new_truck_group_path %>
+<%= link_to '新建车队', new_truck_group_path %>

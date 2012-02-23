@@ -124,9 +124,9 @@ class CitiesController < ApplicationController
     @fcity=City.where(:code=> @fcity_code).first
     @tcity=City.where(:code=> @tcity_code).first
     #@lat=((@fcity.lat+@tcity.lat)/2).round(2)
-   # @lng=((@fcity.lng+@tcity.lng)/2).round(2)
-@fcity_full_name=get_city_full_name(params[:fcode])
-@tcity_full_name=get_city_full_name(params[:tcode])
+    # @lng=((@fcity.lng+@tcity.lng)/2).round(2)
+    @fcity_full_name=get_city_full_name(params[:fcode])
+    @tcity_full_name=get_city_full_name(params[:tcode])
   end
   # DELETE /cities/1
   # DELETE /cities/1.xml
