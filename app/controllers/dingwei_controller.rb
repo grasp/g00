@@ -39,8 +39,8 @@ class DingweiController < ApplicationController
   def weizhi
     @stock_truck=StockTruck.find(params[:id])   
     unless @stock_truck.nil?
-      @lng=@stock_truck.lat
-      @lat=@stock_truck.lng
+      @lng=@stock_truck.lng
+      @lat=@stock_truck.lat
       @markers = "[
              {'description': 'Hi', 'title': 'test', 'sidebar': '', 'lng': #{@lng}, 'lat': #{@lat}, 'picture': '', 'width': '940', 'height': '800'},
              {'lng': #{@lng}, 'lat': #{@lat} }
@@ -56,20 +56,26 @@ class DingweiController < ApplicationController
     #@truck_location=TruckLocation.new(:paizhao=>@stock_truck.paizhao,:mphone=>@stock_truck.driver_phone)
     #   @truck_location.update_attribute(:history, [])
     @truck_location=TruckLocation.where(:mphone=>@stock_truck.driver_phone).first
+  #  @truck_location.update_attribute(:history,[])
     @truck_location.history.each do |location|
       location_array<<location
-     # puts location_array
+
     end
-    markers_array<<{'description'=>'Hi', 'title'=>'test', 'sidebar'=>'',"lng" =>@truck_location.history.first[:lng], "lat"=>@truck_location.history.first[:lat] ,'width'=>'', 'height'=>''}
-    markers_array<<{"lng"=>@truck_location.history.last[:lng], "lat"=>@truck_location.history.last[:lat]}
-    @markers= markers_array.to_json
-    puts "first location=#{@truck_location.history.first}"
+
+     puts "first location=#{@truck_location.history.first}"
       puts "lase location=#{@truck_location.history.last}"
     @center_longitude=(@truck_location.history.first["lng"]+@truck_location.history.last["lng"])/2
     @center_latitude=(@truck_location.history.first["lat"]+@truck_location.history.last["lat"])/2
-    puts @markers
+         markers_array<<{"lng"=>@truck_location.history.first["lng"], "lat"=>@truck_location.history.first["lat"]}
+          markers_array<<{"lng"=>@truck_location.history.last["lng"], "lat"=>@truck_location.history.last["lat"]}
+         @markers= markers_array.to_json        
+
+    
+    puts "@center_latitude=#{@center_latitude},@center_longitude=#{@center_longitude}"
+    
+   # puts @markers
     location_array_array<<location_array
-    puts location_array_array
+   # puts location_array_array
     @polylines= location_array_array.to_json
     puts @polylines
   end

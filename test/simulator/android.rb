@@ -3,8 +3,8 @@ require "mechanize"
 
 	def background_every_n_seconds(n)
 	  mechanize=Mechanize.new
-      lat=116.46
-      lng=39.92
+      lng=116.46
+      lat=39.92
       speed=60
 	    loop do
 	      before = Time.now
