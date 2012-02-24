@@ -6,5 +6,5 @@ class Concernlinec
      field :line, :type=>String
      field :emaillist, :type=>Array
      field :smslist, :type=>Array
-     index :line, unique: true
+     index :line, unique: true#, drop_dups: true
 end

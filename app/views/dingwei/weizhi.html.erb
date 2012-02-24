@@ -3,14 +3,15 @@
 <p>
   
 lat:
-<%= @stock_truck.lat%>
+<%= @lat%>
 <br></br>
 lng:
-<%= @stock_truck.lng%>
+<%= @lng%>
 <br></br>
 speed:
 <%= @stock_truck.speed%>
-
+<br></br>
+<%= @stock_truck.loc.to_s%>
 </p>
 <%#= gmaps4rails(@json) %>
 <%if @lng%>

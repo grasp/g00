@@ -1,4 +1,4 @@
-class QQ56
+class Qq56
     include Mongoid::Document
     include Mongoid::Timestamps
      cattr_reader :per_page

@@ -1,6 +1,9 @@
 G0::Application.routes.draw do
   resources :truck_groups
- match '/dingwei/post_gps/:location' =>"dingwei#post_gps" ,:as=>:dingweipost_gps,  :via => :post
+  
+  
+  match '/dingwei/neartruck/:distance/:citycode' =>"dingwei#neartruck" ,:as=>:dingweineartruck
+  match '/dingwei/post_gps/:location' =>"dingwei#post_gps" ,:as=>:dingweipost_gps,  :via => :post
  
   match "/dingwei/userannounce"=>"dingwei#userannounce" ,:as=>:dingweiuserannounce
   match "/dingwei/index"=>"dingwei#index" ,:as=>:dingweiindex

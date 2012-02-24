@@ -12,6 +12,7 @@ class CitiesController < ApplicationController
     return "cargo"  if action_name =='mapcity'   ||    action_name =='mapline'
     return nil     
   end
+  
   def index
     #  puts "city action index happen dir=#{params[:dir]}"
     #get the original value
@@ -108,8 +109,8 @@ class CitiesController < ApplicationController
     city=City.where(:code=> @city_code).first
     @city_name=city.name
     unless city.nil?
-      @lng=city.lat
-      @lat=city.lng
+      @lng=city.loc[0]
+      @lat=city.loc[1]
       @markers = "[
              {'description': 'Hi', 'title': 'test', 'sidebar': '', 'lng': #{@lng}, 'lat': #{@lat}, 'picture': '', 'width': '940', 'height': '800'},
              {'lng': #{@lng}, 'lat': #{@lat} }
@@ -123,11 +124,12 @@ class CitiesController < ApplicationController
     @tcity_code=params[:tcode]
     @fcity=City.where(:code=> @fcity_code).first
     @tcity=City.where(:code=> @tcity_code).first
-    #@lat=((@fcity.lat+@tcity.lat)/2).round(2)
-    # @lng=((@fcity.lng+@tcity.lng)/2).round(2)
     @fcity_full_name=get_city_full_name(params[:fcode])
     @tcity_full_name=get_city_full_name(params[:tcode])
   end
+  
+ 
+  
   # DELETE /cities/1
   # DELETE /cities/1.xml
   def destroy

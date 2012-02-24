@@ -30,7 +30,7 @@ gem 'bson' , "~>1.5.2"
 gem 'redis-store', "~>1.0.0.rc1"
 
 gem 'mongo', '1.5.2'
-gem "mongoid", "~>2.3.0"
+gem "mongoid", "~>2.4.5"
 #gem 'memcache-client'
 #gem 'unicorn'
 gem "webrobots", "~> 0.0.10", :git => 'http://github.com/knu/webrobots.git'

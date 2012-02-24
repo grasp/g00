@@ -7,6 +7,7 @@
     <th>code</th>
     <th>lat</th>
     <th>lng</th>
+    <th>loc</th>
   </tr>
 
   <%@cities.each do |city|%>
@@ -15,7 +16,7 @@
       <td><%=city.code%></td>
       <td><%=city.lat%></td>
       <td><%=city.lng%></td>
-
+ <td><%=city.loc.to_s%></td>
     </tr>
   <%end%>
 

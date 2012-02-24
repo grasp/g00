@@ -1,6 +1,6 @@
 # coding: utf-8
 class AdminController < ApplicationController
-   layout "admin"
+  layout "admin"
   include Tf56graspHelper
   include QuzhougraspHelper
   include ScansHelper
@@ -67,7 +67,7 @@ class AdminController < ApplicationController
     puts "run cargo manager"
     @cargos = Cargo.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>20)
     #@cargos = Cargo.all.limit(100).paginate(:page=>params[:page]||1,:per_page=>20)
- #   @cargos = Cargo.where(:user_id =>session[:user_id]).desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
+    #   @cargos = Cargo.where(:user_id =>session[:user_id]).desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
   end
 
   def stockcargo_manage
@@ -151,15 +151,15 @@ class AdminController < ApplicationController
     @thin_exception=String.new
     @thin_notfound_exception=String.new
     if  Object::RUBY_PLATFORM.match("linux") 
-     @thin_fail_exception <<`cat /opt/vob/g00/log/thin.3000.log |grep fail`
-     @thin_fail_exception <<`cat /opt/vob/g00/log/thin.3001.log |grep fail`
-     @thin_fail_exception <<`cat /opt/vob/g00/log/thin.3002.log |grep fail`
-       @thin_exception <<`cat /opt/vob/g00/log/thin.3000.log |grep xception`
+      @thin_fail_exception <<`cat /opt/vob/g00/log/thin.3000.log |grep fail`
+      @thin_fail_exception <<`cat /opt/vob/g00/log/thin.3001.log |grep fail`
+      @thin_fail_exception <<`cat /opt/vob/g00/log/thin.3002.log |grep fail`
+      @thin_exception <<`cat /opt/vob/g00/log/thin.3000.log |grep xception`
       @thin_exception <<`cat /opt/vob/g00/log/thin.3001.log |grep xception`
-     @thin_exception <<`cat /opt/vob/g00/log/thin.3002.log |grep xception`
+      @thin_exception <<`cat /opt/vob/g00/log/thin.3002.log |grep xception`
       @thin_notfound_exception <<`cat /opt/vob/g00/log/thin.3000.log |grep NotFound`
-    @thin_notfound_exception <<`cat /opt/vob/g00/log/thin.3001.log |grep NotFound`
-   @thin_notfound_exception <<`cat /opt/vob/g00/log/thin.3002.log |grep NotFound`      
+      @thin_notfound_exception <<`cat /opt/vob/g00/log/thin.3001.log |grep NotFound`
+      @thin_notfound_exception <<`cat /opt/vob/g00/log/thin.3002.log |grep NotFound`      
     end
     if params[:logfile]=="access"
       send_file "/var/log/rails/access.log", :type=>"application/log"
@@ -167,9 +167,9 @@ class AdminController < ApplicationController
       send_file "/var/log/mongodb/mongodb.log", :type=>"application/log"  
     elsif params[:logfile]=="thin3000"
       send_file "/opt/vob/g00/log/thin.3000.log", :type=>"application/log"  
-          elsif params[:logfile]=="thin3001"
+    elsif params[:logfile]=="thin3001"
       send_file "/opt/vob/g00/log/thin.3001.log", :type=>"application/log" 
-          elsif params[:logfile]=="thin3002"
+    elsif params[:logfile]=="thin3002"
       send_file "/opt/vob/g00/log/thin.3002.log", :type=>"application/log" 
     elsif params[:logfile]=="production"
       send_file "/var/log/rails/production.log", :type=>"application/log"  
@@ -177,9 +177,9 @@ class AdminController < ApplicationController
       send_file "/var/mail/hunter", :type=>"application/log"  
     elsif params[:logfile]=="development"
       send_file "/opt/vob/tmp/g00/log/development.log", :type=>"application/log"  
-          elsif params[:logfile]=="grasp"
+    elsif params[:logfile]=="grasp"
       send_file "/opt/vob/g00/bin/log/grasp.log", :type=>"application/log" 
-          elsif params[:logfile]=="mail"
+    elsif params[:logfile]=="mail"
       send_file "/opt/vob/g00/bin/log/mail.log", :type=>"application/log" 
     else      
       puts "show all file"
@@ -189,11 +189,11 @@ class AdminController < ApplicationController
   def backup_db
     
     if params[:code]=="8978493982471" #for hard code link
-  #  `cd`
-  #   `rm -rf /home/hunter/dump`
-  #  `mongodump -o /home/hunter/dump`
-  #  `tar -zcf /home/hunter/dump_#{Time.now.to_s.slice(0,10)}.tgz /home/hunter/dump`
-    send_file "/home/hunter/daily_backup.tgz", :type=>"application/tgz"
+      #  `cd`
+      #   `rm -rf /home/hunter/dump`
+      #  `mongodump -o /home/hunter/dump`
+      #  `tar -zcf /home/hunter/dump_#{Time.now.to_s.slice(0,10)}.tgz /home/hunter/dump`
+      send_file "/home/hunter/daily_backup.tgz", :type=>"application/tgz"
     end
   end
   
@@ -215,7 +215,7 @@ class AdminController < ApplicationController
     expire_fragment "userlines_all"
     expire_fragment "yellowpage"
     expire_fragment  "users_center_#{session[:user_id]}"
-  expire_fragment "userlines_city_navi"
+    expire_fragment "userlines_city_navi"
     expire_fragment "provinceuserlines"
  
     # $city_code_name.each do |code,name| 
@@ -300,93 +300,93 @@ class AdminController < ApplicationController
   end
   
   def total_truck
-        yidong=[134,135,136,137,138,139,150,151,152,157,158,159,187,188,147]
+    yidong=[134,135,136,137,138,139,150,151,152,157,158,159,187,188,147]
     liantong=[130,131,132,155,156,186,145]
     dianxin=[133,153,189]
     @yidong_count=0
     @liantong_count=0
     @dianxin_count=0
- #   puts "start total_truck #{Time.now}"
+    #   puts "start total_truck #{Time.now}"
     total_truck=Array.new
-   ExpiredTruck.where(:paizhao.ne=>nil).each do |truck|
+    ExpiredTruck.where(:paizhao.ne=>nil).each do |truck|
       total_truck<<truck.paizhao
-     unless truck.driver_phone.blank?    
-       yidong.each do |hao|
-        if truck.driver_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
-             @yidong_count+=1
-           end
-         end
-                liantong.each do |hao|
-        if truck.driver_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
-             @liantong_count+=1
-           end
-         end
-                dianxin.each do |hao|
-        if truck.driver_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
-             @dianxin_count+=1
-           end
-         end
+      unless truck.driver_phone.blank?    
+        yidong.each do |hao|
+          if truck.driver_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+            @yidong_count+=1
+          end
+        end
+        liantong.each do |hao|
+          if truck.driver_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+            @liantong_count+=1
+          end
+        end
+        dianxin.each do |hao|
+          if truck.driver_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+            @dianxin_count+=1
+          end
+        end
       end
       unless truck.car_phone.blank?
        
-           yidong.each do |hao|
-        if truck.car_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
-             @yidong_count+=1
-           end
-         end
-                liantong.each do |hao|
-        if truck.car_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
-             @liantong_count+=1
-           end
-         end
-                dianxin.each do |hao|
-        if truck.car_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
-             @dianxin_count+=1
-           end
-         end
+        yidong.each do |hao|
+          if truck.car_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+            @yidong_count+=1
+          end
         end
+        liantong.each do |hao|
+          if truck.car_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+            @liantong_count+=1
+          end
+        end
+        dianxin.each do |hao|
+          if truck.car_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+            @dianxin_count+=1
+          end
+        end
+      end
     end
     
     Truck.where(:paizhao.ne=>nil).each do |truck|
       total_truck<<truck.paizhao
-           unless truck.driver_phone.blank?    
-       yidong.each do |hao|
-        if truck.driver_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
-             @yidong_count+=1
-           end
-         end
-                liantong.each do |hao|
-        if truck.driver_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
-             @liantong_count+=1
-           end
-         end
-                dianxin.each do |hao|
-        if truck.driver_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
-             @dianxin_count+=1
-           end
-         end
+      unless truck.driver_phone.blank?    
+        yidong.each do |hao|
+          if truck.driver_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+            @yidong_count+=1
+          end
+        end
+        liantong.each do |hao|
+          if truck.driver_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+            @liantong_count+=1
+          end
+        end
+        dianxin.each do |hao|
+          if truck.driver_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+            @dianxin_count+=1
+          end
+        end
       end
       unless truck.car_phone.blank?
        
-           yidong.each do |hao|
-        if truck.car_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
-             @yidong_count+=1
-           end
-         end
-                liantong.each do |hao|
-        if truck.car_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
-             @liantong_count+=1
-           end
-         end
-                dianxin.each do |hao|
-        if truck.car_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
-             @dianxin_count+=1
-           end
-         end
+        yidong.each do |hao|
+          if truck.car_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+            @yidong_count+=1
+          end
         end
+        liantong.each do |hao|
+          if truck.car_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+            @liantong_count+=1
+          end
+        end
+        dianxin.each do |hao|
+          if truck.car_phone.match(/#{hao}\d\d\d\d\d\d\d\d/)
+            @dianxin_count+=1
+          end
+        end
+      end
     end
     
-   # puts "@yidong_count=#{@yidong_count},@liantong_count=#{@liantong_count},@yidong_count=#{@dianxin_count}"
+    # puts "@yidong_count=#{@yidong_count},@liantong_count=#{@liantong_count},@yidong_count=#{@dianxin_count}"
 
   
 
@@ -400,24 +400,24 @@ class AdminController < ApplicationController
   
   def concerncargo
     if params[:concern_type]=="city"
-     @subscribe_lists=Concerncityc.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
+      @subscribe_lists=Concerncityc.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
     end
     
-        if params[:concern_type]=="line"
-#Concernlinec.destroy_all
-     @subscribe_lists=Concernlinec.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
+    if params[:concern_type]=="line"
+      #Concernlinec.destroy_all
+      @subscribe_lists=Concernlinec.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
     end
-            if params[:concern_type]=="user"
-  #Concernuserc.destroy_all
-   @subscribe_lists=Concernuserc.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
+    if params[:concern_type]=="user"
+      #Concernuserc.destroy_all
+      @subscribe_lists=Concernuserc.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
     end
-            if params[:concern_type]=="phone"
- # Concernphonec.destroy_all
-   @subscribe_lists=Concernphonec.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
+    if params[:concern_type]=="phone"
+      # Concernphonec.destroy_all
+      @subscribe_lists=Concernphonec.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
     end
     
     if params[:concern_type]=="concerncargo"
-       @concerncargo_lists=Concerncargo.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>20)
+      @concerncargo_lists=Concerncargo.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>20)
     end
   end
   
@@ -425,20 +425,27 @@ class AdminController < ApplicationController
     @email_lists=Emaillistc.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>20)
   end
   
-    def sms_list
+  def sms_list
     @sms_lists=Smslistc.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>20)
   end
   
   def temp_task
-    Cargo.where(:status=>"正在配车").each do |cargo|
-      cargo.update_attribute(:line,cargo.fcity_code+"#"+cargo.tcity_code)
-    end
-    
-    def show_mail
-      #not do yet
-    end
+    #  Cargo.where(:status=>"正在配车").each do |cargo|
+    #  cargo.update_attribute(:line,cargo.fcity_code+"#"+cargo.tcity_code)
+    # end
+   
+    City.all.each do |city|
+      begin
+      city.update_attribute(:loc,[city.lat.to_f,city.lng.to_f])
+      rescue
+      end
+    end    
+
   end
   
+  def show_mail
+    #not do yet
+  end
   def allcity
     @cities=City.all.paginate(:page=>params[:page]||1,:per_page=>20)
   end

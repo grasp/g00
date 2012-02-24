@@ -2,16 +2,15 @@
 class City
   include Mongoid::Document
   include Mongoid::Timestamps 
- # include Gmaps4rails::ActsAsGmappable
   #include Mongoid::Geo
  # include Mongoid::Spacial::Document
-  #acts_as_gmappable :process_geocoding => false,:lat => "lat", :lng => "lng"
   
   field :name, :type=>String
   field :code, :type=>String
   field :lat, :type=>Float
   field :lng, :type=>Float
   field :coordinates, :type => Array
+  field :loc, :type => Array
   field :address
  # field :source,            type: Array,    spacial: true
   # set return_array to true if you do not want a hash returned all the time

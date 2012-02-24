@@ -6,5 +6,5 @@ class Concernphonec
   field :phone, :type=>String
   field :emaillist, :type=>Array
   field :smslist, :type=>Array
-  index :phone, unique: true
+  index :phone, unique: true#, drop_dups: true
 end

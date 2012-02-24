@@ -2,6 +2,7 @@
 class StockTruck 
    include Mongoid::Document
    include Mongoid::Timestamps
+   include Mongoid::Spacial::Document
   #  belongs_to :users
    # has_many :trucks
     #stock truck basic info
@@ -51,9 +52,11 @@ class StockTruck
       field :bind , :type=>Boolean
       field :lat, :type=>Float
       field :lng, :type=>Float
-       field :speed, :type=>Float
+      field :speed, :type=>Float
+      field :timgtag
+      field :loc,:type=>Array,  spacial: true
       field :report_at
-      
+      spacial_index :loc
       validates_uniqueness_of :paizhao ,:message=>"该牌照车子已经存在."
 
 end
