@@ -1,0 +1,52 @@
+
+
+<table class="table table-striped">
+  <tr>
+    <th>User</th>
+    <th>System</th>
+    <th>Branch</th>
+    <th>fa</th>
+    <th>Title</th>
+    <th>Plan</th>
+    <th>Do</th> 
+    <th>Summary</th>   
+       <th>Comments</th>
+    <th>Deliver</th>
+ 
+    <th>Status</th>
+    <!-- <th>Review</th>
+     <th>Check</th>-->
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @plans.each do |plan| %>
+    <tr>
+      <td><%= plan.user %></td>
+      <td><%= plan.system %></td>
+      <td><%= plan.branch %></td>
+      <td><%= plan.fa %></td>
+      <td><%= plan.title %></td>
+      
+      <td>
+        <a href="/plans/edit/<%=plan.id%>/content/plan" >Plan</a>
+      </td>
+      
+      <td>
+        <a href="/plans/edit/<%=plan.id%>/content/do" >Do</a>  </td>
+      <td> <a href="/plans/edit/<%=plan.id%>/content/summary" >Summary</a>  </td></td>
+
+      <td><a href="/plans/edit/<%=plan.id%>/content/comments" >Comments</a> </td>
+            <td><%= plan.deliver %></td>
+      <td><%= plan.status %></td>
+      <!--
+      <td><%= plan.review %></td>
+      <td><%= plan.check %></td>-->
+      <td><%= link_to 'Show', plan %></td>
+      <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
+      <td><%=  button_to 'Destroy', plan, confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @plans ,:previous_label=>"上一页",:next_label=>"下一页"%>

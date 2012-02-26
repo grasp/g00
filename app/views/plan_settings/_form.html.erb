@@ -1,0 +1,47 @@
+<%= form_for(@plan_setting) do |f| %>
+  <% if @plan_setting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@plan_setting.errors.count, "error") %> prohibited this plan_setting from being saved:</h2>
+
+      <ul>
+      <% @plan_setting.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :system %><br />
+    <%= f.text_field :system %>
+  </div>
+
+  <div class="field">
+    <%= f.label :branch %><br />
+    <%= f.text_field :branch %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fa %><br />
+    <%= f.text_field :fa %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fapriority %><br />
+    <%= f.text_field :fapriority %>
+  </div>
+
+  <div class="field">
+    <%= f.label :creater %><br />
+    <%= f.select(:creater,options_for_select([["hunter","hunter"],["steven","steven"]],@plan_setting.creater))%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

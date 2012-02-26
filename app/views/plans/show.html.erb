@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @plan.user %>
+</p>
+
+<p>
+  <b>Fa1 fa2 fa3 fa4:</b>
+  <%= @plan.fa %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @plan.title %>
+</p>
+
+<p>
+  <b>Plan:</b>
+  <%= raw(@plan.plan) %>
+</p>
+
+<p>
+  <p>
+  <b>procedure</b>
+  <%= @plan.procedure %>
+</p>
+<p>
+  <b>summary:</b>
+  <%= @plan.summary %>
+</p>
+
+<p>
+
+  <b>Deliver:</b>
+  <%= @plan.deliver %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @plan.comments %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @plan.status %>
+</p>
+
+<p>
+  <b>Review:</b>
+  <%= @plan.review %>
+</p>
+
+
+
+
+<%= link_to 'Edit', edit_plan_path(@plan) %> |
+<%= link_to 'Back', plans_path %>

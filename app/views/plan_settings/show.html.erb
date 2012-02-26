@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>System</b>
+  <%= @plan_setting.system %>
+</p>
+
+<p>
+  <b>Branch</b>
+  <%= @plan_setting.branch %>
+</p>
+
+<p>
+  <b>FA:</b>
+  <%= @plan_setting.fa %>
+</p>
+
+<p>
+  <b>Contributor:</b>
+  <%= @plan_setting.contributor %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @plan_setting.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_plan_setting_path(@plan_setting) %> |
+<%= link_to 'Back', plan_settings_path %>

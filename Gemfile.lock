@@ -37,6 +37,8 @@ GEM
     arel (3.0.0)
     bson (1.5.2)
     builder (3.0.0)
+    carrierwave (0.5.8)
+      activesupport (~> 3.0)
     closure-compiler (1.1.5)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -109,6 +111,8 @@ GEM
       activesupport (= 3.2.1)
       bundler (~> 1.0)
       railties (= 3.2.1)
+    rails_kindeditor (0.2.6)
+      carrierwave
     railties (3.2.1)
       actionpack (= 3.2.1)
       activesupport (= 3.2.1)
@@ -178,6 +182,7 @@ PLATFORMS
 DEPENDENCIES
   bson (~> 1.5.2)
   builder (= 3.0.0)
+  carrierwave
   closure-compiler
   coffee-rails (~> 3.2.1)
   ffi (= 1.0.9)
@@ -189,6 +194,7 @@ DEPENDENCIES
   mongoid (~> 2.4.5)
   mongoid_spacial (~> 0.2.16)
   rails (= 3.2.1)
+  rails_kindeditor
   railties (~> 3.2.1)
   redis (= 2.2.1)
   redis-store (~> 1.0.0.rc1)

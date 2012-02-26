@@ -41,8 +41,8 @@ class DingweiController < ApplicationController
     unless @stock_truck.nil?
      # @lng=@stock_truck.loc[0]
     #  @lat=@stock_truck.loc[1]
-        @lng=@stock_truck.source[:lng]  #why is hash ,we store it as array !
-      @lat=@stock_truck.source[:lat]
+      @lng=@stock_truck.loc[:lng]  #why is hash ,we store it as array !
+      @lat=@stock_truck.loc[:lat]
       @markers = "[
              {'description': 'Hi', 'title': 'test', 'sidebar': '', 'lng': #{@lng}, 'lat': #{@lat}, 'picture': '', 'width': '940', 'height': '800'},
              {'lng': #{@lng}, 'lat': #{@lat} }

@@ -763,6 +763,10 @@ select:focus {
 .input-xxlarge {
   width: 530px;
 }
+.input-plantext {
+  width: 530px;
+  height: 100px;
+}
 input[class*="span"],
 select[class*="span"],
 textarea[class*="span"],

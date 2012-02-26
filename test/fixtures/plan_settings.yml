@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  users: 
+  FA1_FA2_FA3_FA4: 
+  action: 
+  status: 
+  deliver: 
+
+two:
+  users: 
+  FA1_FA2_FA3_FA4: 
+  action: 
+  status: 
+  deliver: 

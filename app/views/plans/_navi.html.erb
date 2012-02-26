@@ -1,0 +1,29 @@
+<h2>按产品</h2>
+
+<table >
+  <tr>
+  <%["W090","Android","Caiji","KD090"] .each do |system|%>
+  <td > <a target="_blank" href="/plans/index/system/<%=system%>"><%=system%>(<%=Plan.where(:system=>system).count%>)</a></td>
+  <%end%>
+  </tr>
+</table>
+
+
+<h2>个人计划区</h2>
+<table>
+  <%@plan_users.each do |user|%>
+    <tr>
+      <td><strong>
+      <%=user[0]%>区:</strong></td>      
+      <td> <a target="_blank" href="/plans/index/user/<%=user[0]%>/week/1">本周计划(<%=Plan.where(:user=>user[0],:created_at.gte=>Time.now.ago(86400*7)).count%>)</a></td>
+      <td>  <a target="_blank" href="/plans/index/user/<%=user[0]%>/week/1">两周计划(<%=Plan.where(:user=>user[0],:created_at.gte=>Time.now.ago(86400*14)).count%>)</a></td>
+      <td>  <a target="_blank" href="/plans/index/user/<%=user[0]%>/week/4">一月计划(<%=Plan.where(:user=>user[0],:created_at.gte=>Time.now.ago(86400*30)).count%>)</a></td>
+       <td><a target="_blank" href="/plans/index/user/<%=user[0]%>">全部计划(<%=Plan.where(:user=>user[0]).count%>)</a></td>
+    </tr>
+  <%end%>
+</table>
+
+
+<br />
+
+<%#= link_to 'New Plan', new_plan_path %>

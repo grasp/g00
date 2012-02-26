@@ -1,6 +1,14 @@
 G0::Application.routes.draw do
-  resources :truck_groups
   
+ match '/plans/edit/:id/content/:content' =>"plans#edit" ,:as=>:plans_edit
+   match '/plans/new/plansetting/:id' =>"plans#new" ,:as=>:plans_new_setting
+   match '/plans/new/user/:user' =>"plans#new" ,:as=>:plans_new_user
+     match '/plans/index((/system/:system)(/user/:user)(/week/:week))' =>"plans#index" ,:as=>:plans_index_fa
+ # match '/plans/index/user/:user/week/:week' =>"plans#index" ,:as=>:plans_user_week
+  resources :plans
+  resources :plan_settings
+  resources :plan_settings
+  resources :truck_groups
   
   match '/dingwei/neartruck/:distance/:citycode' =>"dingwei#neartruck" ,:as=>:dingweineartruck
   match '/dingwei/post_gps/:location' =>"dingwei#post_gps" ,:as=>:dingweipost_gps,  :via => :post
@@ -13,7 +21,7 @@ G0::Application.routes.draw do
   match '/concerncargos/edit/:id(/:concern_type)'=>"concerncargos#edit" ,:as=>:concerncargosedit
   match '/concerncargos/show/:id(/:concern_type)'=>"concerncargos#show" ,:as=>:concerncargosshow
   resources :concerncargos
-##
+  ##
   match '/wmails/send_cargo_myself/:id'=>"wmails#send_cargo_myself" ,:as=>:wmailssend_cargo_myself
   match '/wmails/invite_new'=>"wmails#invite_new" ,:as=>:wmailsinvitenew
   resources :wmails
