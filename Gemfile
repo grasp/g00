@@ -63,6 +63,6 @@ gem 'mongoid_spacial',"~>0.2.16"
 #gem "mini_magick"
 gem "carrierwave"
 gem "rails_kindeditor"
-
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
 
