@@ -11,6 +11,7 @@ class PlansController < ApplicationController
     search_critial= Hash.new
     search_critial[:user]=params[:user] if  params[:user]
     search_critial[:system]=params[:system] if  params[:system]
+     search_critial[:plansetting]=params[:plansetting] if  params[:plansetting]
     search_critial[:created_at.gte]=Time.now.ago(86400*params[:week].to_i) if  params[:week]   
     if search_critial.size>0      
      # puts "search critial=#{search_critial}"
@@ -21,7 +22,12 @@ class PlansController < ApplicationController
     end
 
     respond_to do |format|
-      format.html # index.html.erb
+      if params[:layout]
+          format.html {render :layout=>nil}# index.html.erb
+      else
+           format.html # index.html.erb
+      end
+   
       format.json { render json: @plans }
     end
   end
@@ -32,7 +38,12 @@ class PlansController < ApplicationController
     @plan = Plan.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      if params[:layout]
+            format.html{ render :layout=>nil} # show.html.erb
+      else
+         format.html # show.html.erb
+   
+      end
       format.json { render json: @plan }
     end
   end
@@ -45,7 +56,9 @@ class PlansController < ApplicationController
     end
 
     @plan = Plan.new
-    @plan.update_attributes(:system=>@plan_setting.system,:branch=>@plan_setting.branch,:fa=>@plan_setting.fa)
+    puts "@plan_setting.id=#{@plan_setting.id}"
+    @plan.update_attributes(:system=>@plan_setting.system,:branch=>@plan_setting.branch,:fa=>@plan_setting.fa,:plansetting=>@plan_setting.id)
+    
     respond_to do |format|
       format.html { redirect_to :action=>"edit",:id=>@plan.id,notice: 'Plan was successfully created.' }
       format.json { render json: @plan }

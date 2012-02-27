@@ -45,7 +45,7 @@
       <!--
       <td><%= plan.review %></td>
       <td><%= plan.check %></td>-->
-      <td><%= link_to 'Show', plan %></td>
+      <td><%= link_to 'Show', plan,:class =>"plan_show"  %></td>
       <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
       <td><%=  button_to 'Destroy', plan, confirm: 'Are you sure?', method: :delete %></td>
     </tr>

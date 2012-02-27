@@ -385,7 +385,50 @@ function  cargo_myself_click()
     });
 }
 
-                
+function plan_float_show_on_hover()
+{
+    $('.plan_list,.plan_show').live("mouseover",function() {
+        var corordiate= $(this).offset();
+        var this_link=$(this).attr("href");
+        var this_class=$(this).attr("class");
+        var cord_left=corordiate.left;
+        var cord_top=corordiate.top;
+        myTimeout = setTimeout(function() {
+
+            if (this_class=="plan_list"){
+                selected=$('#float_show');
+            }
+            else
+            {
+                selected=$('#float_show2');
+            }
+             
+            if(selected.css("display")=="none")
+            {
+                selected.css("display","inline");
+                new_link=this_link+"/layout/true"
+                 if (this_class=="plan_list"){
+                $('#float_load').empty();           
+                $('#float_load').load(new_link,function(){
+                    }); }
+            else{
+                  $('#float_load2').empty();           
+                  $('#float_load2').load(new_link,function(){
+                    }); 
+            }
+                    
+                selected.css("top",corordiate.top);
+            }
+            else
+            {       
+                selected.css("display","none");      
+            }
+        },1000);
+    }).live("mouseout",function() {
+        clearTimeout(myTimeout);
+    });
+    return false;
+}
 
 $(document).ready(function() {
     var isfrom=true;
@@ -421,7 +464,7 @@ $(document).ready(function() {
     submit_userlines();
     general_data_load();
     city_load();
-    
+    plan_float_show_on_hover();
     cargo_myself_click();
     submit_multiple_emails();
     new_concerncargocity();

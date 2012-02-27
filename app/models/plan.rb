@@ -1,7 +1,7 @@
 class Plan
   include Mongoid::Document
   include Mongoid::Timestamps
-  field :plansetting
+  field :plansetting, :type => String
   field :user, :type => String
   field :system, :type => String
   field :branch, :type => String

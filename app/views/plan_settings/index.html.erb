@@ -12,12 +12,11 @@
     <tr>
       <td><%= plan_setting.fa %></td>
       <td><a href="/plans/new/plansetting/<%=plan_setting.id%>" >新建计划</a></td>     
-      <td><a href="" >全部计划(<%=Plan.where(:plansetting=>plan_setting.id).count%>)</a></td>   
-
+      <td><a class="plan_list" href="/plans/index/plansetting/<%=plan_setting.id%>" >全部计划(<%=Plan.where(:plansetting=>plan_setting.id).count%>)</a></td>   
       <td>
         <%unless plan_setting.contributor.nil?%>
        <%plan_setting.contributor.each do |contributor| %>
-        <a href="/plans/plansetting/<%=plan_setting.id%>/user/<%=contributor%>"><%=contributor%>(<%=Plan.where(:plansetting=>plan_setting.id,:user=>contributor).count%>)</a>
+        <a class="plan_list" href="/plans/index/plansetting/<%=plan_setting.id%>/user/<%=contributor%>"><%=contributor%>(<%=Plan.where(:plansetting=>plan_setting.id,:user=>contributor).count%>)</a>
         <%end%>
       <%end%>
       </td>
