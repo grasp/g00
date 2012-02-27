@@ -4,7 +4,7 @@ G0::Application.routes.draw do
    match '/plans/new/plansetting/:id' =>"plans#new" ,:as=>:plans_new_setting
    match '/plans/new/user/:user' =>"plans#new" ,:as=>:plans_new_user
    match '/plans/index(/plansetting/:plansetting)(/user/:user)(/system/:system)(/week/:week)(/layout/:layout)' =>"plans#index" ,:as=>:plans_index_fa  #add debug  for delete all
- match '/plans/:id(/layout/:layout)'  =>"plans#show" ,:as=>:plans_show
+ match '/plans/:id(/layout/:layout)'  =>"plans#show" ,:as=>:plans_show,:via=>:get
   resources :plans
   
  

@@ -6,7 +6,6 @@ class PlansController < ApplicationController
   before_filter:admin_authorize
   layout "admin"
   def index
-    Plan.delete_all if params[:delete]==true
     init_plan
     search_critial= Hash.new
     search_critial[:user]=params[:user] if  params[:user]
