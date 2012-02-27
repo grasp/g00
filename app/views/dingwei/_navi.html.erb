@@ -1,19 +1,24 @@
-<div class="span3">
-  <div class="sidebar-nav">
-<%unless @user_annouce%>
 
-  <ul class="nav nav-list">
-     <li><a href="/dingwei/list_all_truck">全部车辆</a></li>
-     <li><a href="/dingwei/newtruck">添加车辆</a></li>
-     <li><a href="/truck_groups">车队管理</a></li>
-  </ul>
+<div class="sidebar-nav">
+  <%unless @user_annouce%>
 
-<%else%>
 
-  <ul>
-    <p>.</p>
-  </ul>
+  <h4>车辆</h4>
+    <ul> <li><a href="/dingwei/list_all_truck">全部车辆</a></li></ul>
+    <ul> <li><a href="/dingwei/newtruck">新增车辆</a></li></ul>
+ <h4>车队</h4>
+    <ul> <li><a href="/truck_groups">全部车队</a></li></ul>
+    <ul> <li><a href="/truck_groups/new">新增车队</a></li></ul>
+ <h4>位置</h4>
+    <ul> <li><a href="/dingwei/list_all_truck">全部位置</a></li></ul>
 
-<%end%>
- </div>
+
+  <%else%>
+
+    <ul>
+      <p>.</p>
+    </ul>
+
+  <%end%>
 </div>
+

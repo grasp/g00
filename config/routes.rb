@@ -1,12 +1,13 @@
 G0::Application.routes.draw do
   
- match '/plans/edit/:id/content/:content' =>"plans#edit" ,:as=>:plans_edit
+   match '/plans/edit/:id/content/:content' =>"plans#edit" ,:as=>:plans_edit
    match '/plans/new/plansetting/:id' =>"plans#new" ,:as=>:plans_new_setting
    match '/plans/new/user/:user' =>"plans#new" ,:as=>:plans_new_user
-     match '/plans/index((/system/:system)(/user/:user)(/week/:week))' =>"plans#index" ,:as=>:plans_index_fa
+   match '/plans/index((/system/:system)(/user/:user)(/week/:week)(/delete/true))' =>"plans#index" ,:as=>:plans_index_fa  #add debug  for delete all
  # match '/plans/index/user/:user/week/:week' =>"plans#index" ,:as=>:plans_user_week
   resources :plans
-  resources :plan_settings
+  
+  match '/plan_settings/index((/delete/true))' =>"plan_settings#index" ,:as=>:plan_settings_index #add debug  for delete all 
   resources :plan_settings
   resources :truck_groups
   

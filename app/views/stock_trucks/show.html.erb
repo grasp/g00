@@ -2,25 +2,46 @@
 <div class="stock_truck_show">
   <table class="table table-striped">
     <tr>
-      <th>用途</th>
-      <th>有无gps</th>
-      <th>随车电话</th>
+ 
+      <th>业务</th>
+      <th>业务电话</th>
+      <th>司机</th>
+      <th>司机电话</th>
+      <th>车主</th>
+      <th>车主电话</th>      
       <th>车辆品牌</th>
       <th>卡车型号:</th>
-      <th>购买年份:</th>      
+      <th>购买年份:</th>
+            <th>用途</th>  
+      <th>有无gps</th>   
+      <th>备注</th>
     </tr>
 
+
+
+
+
 <td>
-  <%= $truck_usage[@stock_truck.truck_usage] %>
+  <%= @stock_truck.bis_name %>
 </td>
 
-
 <td>
-  <%= @stock_truck.truck_gps %>
+  <%= @stock_truck.bis_phone %>
 </td>
 
 <td>
-  <%= @stock_truck.car_phone %>
+  <%= @stock_truck.driver_name %>
+</td>
+
+<td>
+  <%= @stock_truck.driver_phone %>
+</td>
+<td>
+  <%= @stock_truck.owner_name %>
+</td>
+
+<td>
+  <%= @stock_truck.owner_phone %>
 </td>
 
 
@@ -35,6 +56,15 @@
 
 <td>
   <%= @stock_truck.truck_year %>
+</td>
+<td>
+  <%= @stock_truck.truck_gps %>
+</td>
+<td>
+  <%= $truck_usage[@stock_truck.truck_usage] %>
+</td>
+<td>
+  <%= @stock_truck.comments %>
 </td>
 </table>
 </div>

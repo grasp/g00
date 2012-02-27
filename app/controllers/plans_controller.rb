@@ -6,17 +6,18 @@ class PlansController < ApplicationController
   before_filter:admin_authorize
   layout "admin"
   def index
+    Plan.delete_all if params[:delete]==true
     init_plan
     search_critial= Hash.new
     search_critial[:user]=params[:user] if  params[:user]
     search_critial[:system]=params[:system] if  params[:system]
     search_critial[:created_at.gte]=Time.now.ago(86400*params[:week].to_i) if  params[:week]   
     if search_critial.size>0      
-      puts "search critial=#{search_critial}"
-      @plans = Plan.where(search_critial).paginate(:page=>params[:page]||1,:per_page=>25)
+     # puts "search critial=#{search_critial}"
+      @plans = Plan.where(search_critial).desc(:updated_at).paginate(:page=>params[:page]||1,:per_page=>50)
     else
-      puts "no      search critial"
-      @plans = Plan.all.paginate(:page=>params[:page]||1,:per_page=>25)
+    #  puts "no      search critial"
+      @plans = Plan.all.desc(:updated_at).paginate(:page=>params[:page]||1,:per_page=>50)
     end
 
     respond_to do |format|

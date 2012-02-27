@@ -7,10 +7,11 @@
 <p>
   <a target="_blank" href="/cities/map/show/line/<%=@fcity_code%>/<%=@tcity_code%>">查看参考行驶线路(高速)</a>
 </p>
-
+<%if session[:user_name]=="admin"%>
 <p>
   <a target="_blank" href="/dingwei/neartruck/50/<%=@city_code%>">查看周边50公里车辆()</a>
 </p>
+<%end%>
 
 </div>
 <br></br>

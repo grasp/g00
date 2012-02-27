@@ -5,12 +5,10 @@ class PlanSettingsController < ApplicationController
   before_filter:admin_authorize
   include PlanSettingsHelper
   def index
-    PlanSetting.delete_all
-    init_plan_setting #if PlanSetting.count<3 #first init    
+    PlanSetting.delete_all if params[:delete]==true
+    init_plan_setting if PlanSetting.count<3 #first init    
     @system=get_all_system 
-
-
-@plan_settings = PlanSetting.all
+     @plan_settings = PlanSetting.all.desc(:updated_at)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @plan_settings }

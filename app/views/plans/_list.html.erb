@@ -12,8 +12,9 @@
     <th>Summary</th>   
        <th>Comments</th>
     <th>Deliver</th>
- 
+
     <th>Status</th>
+      <th>更新于</th>
     <!-- <th>Review</th>
      <th>Check</th>-->
     <th></th>
@@ -40,6 +41,7 @@
       <td><a href="/plans/edit/<%=plan.id%>/content/comments" >Comments</a> </td>
             <td><%= plan.deliver %></td>
       <td><%= plan.status %></td>
+           <td>更新于<%=((Time.now-plan.updated_at)/86400).to_i%>天前</td>
       <!--
       <td><%= plan.review %></td>
       <td><%= plan.check %></td>-->

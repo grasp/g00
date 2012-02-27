@@ -5,15 +5,14 @@
 
   <h1><%=system%>产品区</h1>
     <% get_all_branch(system).each do |branch|%>
-      <h2><%=system%>-<%=branch%>分支区</h2>
-      <%plan_settings=PlanSetting.where(:system=>system,:branch=>branch,:status=>"enabled").desc(:priority)%>
-      <table class="table">
+     <h2><%=system%>-<%=branch%>分支区</h2>
+     <%plan_settings=PlanSetting.where(:system=>system,:branch=>branch,:status=>"enabled").desc(:priority)%>
+    <table class="table">
      <% plan_settings.each do |plan_setting| %>
     <tr>
       <td><%= plan_setting.fa %></td>
       <td><a href="/plans/new/plansetting/<%=plan_setting.id%>" >新建计划</a></td>     
-      <td><a href="" >全部计划(<%=Plan.where(:plansetting=>plan_setting.id).count%>)</a></td>
-      
+      <td><a href="" >全部计划(<%=Plan.where(:plansetting=>plan_setting.id).count%>)</a></td>   
 
       <td>
         <%unless plan_setting.contributor.nil?%>
@@ -23,6 +22,7 @@
       <%end%>
       </td>
       <td><%= plan_setting.status %></td>
+      <td>更新于<%=((Time.now-plan_setting.updated_at)/86400).to_i%>天前</td>
       <td><%= link_to 'Show', plan_setting %></td>
       <td><%= link_to 'Edit', edit_plan_setting_path(plan_setting) %></td>
       <td><%= link_to 'Destroy', plan_setting, confirm: 'Are you sure?', method: :delete %></td>

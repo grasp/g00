@@ -22,30 +22,28 @@
 
 <p>
   <p>
-  <b>procedure</b>
-  <%= @plan.procedure %>
+  <b>procedure:</b>
+  <%=raw(@plan.procedure)%>
 </p>
 <p>
   <b>summary:</b>
-  <%= @plan.summary %>
-</p>
-
-<p>
-
-  <b>Deliver:</b>
-  <%= @plan.deliver %>
+  <%= raw(@plan.summary) %>
 </p>
 
 <p>
   <b>Comments:</b>
-  <%= @plan.comments %>
+  <%= raw(@plan.comments) %>
 </p>
 
 <p>
   <b>Status:</b>
   <%= @plan.status %>
 </p>
+<p>
 
+  <b>Deliver:</b>
+  <%= @plan.deliver %>
+</p>
 <p>
   <b>Review:</b>
   <%= @plan.review %>
