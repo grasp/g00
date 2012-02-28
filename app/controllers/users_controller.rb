@@ -75,15 +75,16 @@ class UsersController < ApplicationController
         
         #update statistic for user
         @user.update_attribute("ustatistic_id",@ustatistic.id) #it is not attributesSS
+if Rails.env.production?
 
-        begin                                
+         begin                                
          Notifier.send_signup_email(@user).deliver!
           flash[:notice] = "恭喜您,#{@user.name} 注册成功了！请到你的邮箱点击确认链接，以便我们知道你的邮箱是存在的。邮箱是手机物流信息和及时物流信息通知的基础设施，我们不会发任何垃圾信息和骚扰信息给您"
         rescue
           flash[:notice] = '注册确认邮件发送失败了，如果您使用的是正确的邮箱，我们会马上解决的，现在您可以先使用网站的功能。'
           #record to admin for observe
         end
-        
+end
         session[:user_id]=@user.id  #BSon to string??,no
         session[:user_name]=@user.name
         session[:user_email]=@user.email

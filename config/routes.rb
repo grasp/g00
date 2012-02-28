@@ -3,11 +3,11 @@ G0::Application.routes.draw do
    match '/plans/edit/:id/content/:content' =>"plans#edit" ,:as=>:plans_edit
    match '/plans/new/plansetting/:id' =>"plans#new" ,:as=>:plans_new_setting
    match '/plans/new/user/:user' =>"plans#new" ,:as=>:plans_new_user
-   match '/plans/index(/plansetting/:plansetting)(/user/:user)(/system/:system)(/week/:week)(/layout/:layout)' =>"plans#index" ,:as=>:plans_index_fa  #add debug  for delete all
- match '/plans/:id(/layout/:layout)'  =>"plans#show" ,:as=>:plans_show,:via=>:get
+   match '/plans/index(/plansetting/:plansetting)(/user/:user)(/system/:system)(/week/:week)(/layout/:layout)(/delete/:delete)' =>"plans#index" ,:as=>:plans_index_fa  #add debug  for delete all
+   match '/plans/:id(/layout/:layout)'  =>"plans#show" ,:as=>:plans_show,:via=>:get
   resources :plans
   
- 
+  match '/plan_settings/index(/user/:user)(/system/:system)(/week/:week)(/layout/:layout)(/delete/:delete)' =>"plan_settings#index" ,:as=>:plan_settings_index  #add debug  for delete all
   resources :plan_settings
   resources :truck_groups
   

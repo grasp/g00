@@ -1,3 +1,4 @@
+#coding:utf-8
 class PlansController < ApplicationController
   # GET /plans
   # GET /plans.json
@@ -66,27 +67,16 @@ class PlansController < ApplicationController
   # GET /plans/1/edit
   def edit
     init_plan    
-    @plan = Plan.find(params[:id])
+    @plan = Plan.find(params[:id]) 
+
+    puts "flash notice=#{flash[:notice]}"
   end
   
-  def plan_edit
-    init_plan
-    @plan = Plan.find(params[:id])
-  end
-  def do_edit
-    init_plan
-    @plan = Plan.find(params[:id])
-  end
-  def summary_edit
-    init_plan
-    @plan = Plan.find(params[:id])
-  end
 
   # POST /plans
   # POST /plans.json
   def create
     @plan = Plan.new(params[:plan])
-
     respond_to do |format|
       if @plan.save
         format.html { redirect_to @plan, notice: 'Plan was successfully created.' }
@@ -102,12 +92,23 @@ class PlansController < ApplicationController
   # PUT /plans/1.json
   def update
     @plan = Plan.find(params[:id])
-
+    @plan_setting=PlanSetting.find(@plan.plansetting)
+   init_plan   
     respond_to do |format|
       if @plan.update_attributes(params[:plan])
-        format.html { redirect_to @plan, notice: 'Plan was successfully updated.' }
+     unless @plan_setting.contributor.include?(@plan.user)
+       @plan_setting.add_to_set(:contributor,@plan.user)
+     end
+      #  format.html { redirect_to @plan, notice: 'Plan was successfully updated.' }
+      flash[:notice]="Plan更新成功在-#{Time.now.to_s.slice(0,19)}"
+      if params[:content].size>0
+      format.html { redirect_to action: "edit" ,:content=>params[:content],:flash=>{:notice=>flash[:notice]}}
+      else
+        format.html { redirect_to action: "edit" ,:flash=>{:notice=>flash[:notice]}}
+      end
         format.json { head :no_content }
       else
+         flash[:notice]="Plan更新失败"
         format.html { render action: "edit" }
         format.json { render json: @plan.errors, status: :unprocessable_entity }
       end

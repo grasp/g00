@@ -11,16 +11,13 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title ,:class => 'input-xxlarge' %>
-  </div>
-<p>
-  planseeting
-<%=@plan.plansetting%>
-</p>
-  <div class="field">
-    <%= f.label :user %><br />
-  <%#= f.text_field :user %>    
+    <%#= f.label :title %><br />
+    
+    <%= f.text_field :title ,:class => 'input-xxlarge' ,:input_html => { :value => "请输入计划标题" }%>
+
+    <%#= f.label :user %><br />
+  <%#= f.text_field :user %>   
+
     <%= f.select(:user,options_for_select(@plan_users,(@plan.user.nil? ? @plan_users.first.first : @plan.user)))%>
     <%= f.select(:phase,options_for_select(@phase,(@plan.phase.nil? ? @phase.first.first : @plan.phase)) )%>
     <%= f.select(:deliver,options_for_select(@delivers,(@plan.deliver.nil? ? @delivers.first.first : @plan.deliver)) )%>
@@ -31,17 +28,18 @@
   <%#= f.label :action %><br />
 
   </div>
-<p>  
- <a href="/plans/edit/<%=@plan.id%>/content/plan" >Plan</a>
-  <a href="/plans/edit/<%=@plan.id%>/content/do" >Do</a>
-  <a href="/plans/edit/<%=@plan.id%>/content/summary" >Summary</a>  
-  <a href="/plans/edit/<%=@plan.id%>/content/comments" >Comments</a>
-</p>
+<%=render "edit_navi"%>
 <%if params[:content]=="plan"%>
   <div class="field">
-    <%= f.label :Plan %><br />
+    <%#= f.label :Plan %><br />
     <%= f.text_area :plan,:id => "kindeditor_id",:class => 'input-xxlarge', :input_html => { :value => "Default value" }  %>
   </div>
+<br></br>
+  <div class="actions">
+    <%= f.submit :class=>"btn btn-info"%>
+  </div>
+<br></br>
+<%=render "edit_navi"%>
 <h2>Plan</h2>  
 <%=raw(@plan.plan)%>
 <h2>Do</h2>  
@@ -50,12 +48,17 @@
 <%=raw(@plan.summary)%>
 <h2>Comments</h2>
 <%=raw(@plan.comments)%>
-<%end%>
-<%if params[:content]=="do"%>
+<%elsif params[:content]=="do"%>
   <div class="field">
-    <%= f.label :procedure %><br />
+    <%#= f.label :procedure %><br />
     <%= f.text_area :procedure,:id => "kindeditor_id",:class => 'input-xxlarge', :input_html => { :value => "Default value" }  %>
   </div>
+<br></br>
+  <div class="actions">
+    <%= f.submit :class=>"btn btn-info"%>
+  </div>
+<br></br>
+<%=render "edit_navi"%>
 <h2>Plan</h2>  
 <%=raw(@plan.plan)%>
 <h2>Do</h2>  
@@ -64,27 +67,36 @@
 <%=raw(@plan.summary)%>
 <h2>Comments</h2>
 <%=raw(@plan.comments)%>
-<%end%>
-<%if params[:content]=="summary"%>
+<%elsif params[:content]=="summary"%>
   <div class="field">
-    <%= f.label :summary %><br />
+    <%#= f.label :summary %><br />
     <%= f.text_area :summary,:id => "kindeditor_id",:class => 'input-xxlarge', :input_html => { :value => "Default value" }  %>
   </div>
+<br></br>
+  <div class="actions">
+    <%= f.submit :class=>"btn btn-info"%>
+  </div>
+<br></br>
+<%=render "edit_navi"%>
 <h2>Summary</h2>
 <%=raw(@plan.summary)%>
 <h2>Plan</h2>  
 <%=raw(@plan.plan)%>
 <h2>Do</h2>  
 <%=raw(@plan.procedure)%>
-
 <h2>Comments</h2>
 <%=raw(@plan.comments)%>
-<%end%>
-<%if params[:content]=="comments"%>
+<%elsif params[:content]=="comments"%>
   <div class="field">
-    <%= f.label :comments %><br />
+    <%#= f.label :comments %><br />
     <%= f.text_area :comments ,:id => "kindeditor_id",:class => 'input-xxlarge'%>
   </div>
+<br></br>
+  <div class="actions">
+    <%= f.submit :class=>"btn btn-info"%>
+  </div>
+<br></br>
+<%=render "edit_navi"%>
 <h2>Comments</h2>
 <%=raw(@plan.comments)%>
 <h2>Plan</h2>  
@@ -93,7 +105,12 @@
 <%=raw(@plan.procedure)%>
 <h2>Summary</h2>
 <%=raw(@plan.summary)%>
-
+<%else%>
+<br></br>
+  <div class="actions">
+    <%= f.submit :class=>"btn btn-info"%>
+  </div>
+<br></br>
 <%end%>
   <!--
     <div class="field">
@@ -111,7 +128,8 @@
     </div>
 
   -->
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+<input  name="content" size="30" type="hidden" value=<%=params[:content]%>></input>
+  <br></br>
+<%=render "edit_navi"%>
 <% end %>

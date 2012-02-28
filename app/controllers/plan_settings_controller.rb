@@ -5,10 +5,24 @@ class PlanSettingsController < ApplicationController
   before_filter:admin_authorize
   include PlanSettingsHelper
   def index
-    PlanSetting.delete_all if params[:delete]==true
     init_plan_setting if PlanSetting.count<3 #first init    
-    @system=get_all_system 
-     @plan_settings = PlanSetting.all.desc(:updated_at)
+   
+     search_critial= Hash.new
+    search_critial[:user]=params[:user] if  params[:user]
+    if  params[:system]
+      @system=[params[:system]]
+     search_critial[:system]=params[:system]
+    else
+       @system=get_all_system 
+    end
+    
+puts  search_critial
+    if search_critial.size>0
+        @plan_settings = PlanSetting.where(search_critial).desc(:updated_at)
+    else
+        @plan_settings = PlanSetting.all.desc(:updated_at)
+    end
+   
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @plan_settings }
@@ -50,6 +64,7 @@ class PlanSettingsController < ApplicationController
 
     respond_to do |format|
       if @plan_setting.save
+        @plan_setting.add_to_set(:contributor,params[:plan_setting][:creater])
         format.html { redirect_to @plan_setting, notice: 'Plan setting was successfully created.' }
         format.json { render json: @plan_setting, status: :created, location: @plan_setting }
       else
