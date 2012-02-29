@@ -3,6 +3,7 @@
   <a <%="style= display:inline-block;width:100px;background:#fad2b5;" if params[:content]=="do"%> href="/plans/edit/<%=@plan.id%>/content/do" >Do</a>
   <a <%="style= display:inline-block;width:100px;background:#fad2b5;" if params[:content]=="summary"%> href="/plans/edit/<%=@plan.id%>/content/summary" >Summary</a>  
   <a <%="style= display:inline-block;width:100px;background:#fad2b5;" if params[:content]=="comments"%> href="/plans/edit/<%=@plan.id%>/content/comments" >Comments</a>
-  <a href="/plan_settings">返回计划设置</a>
-   <a href="/plans">返回计划管理</a>
+  <a href="/plan_settings">返回全部计划设置</a>
+  <a href="/plans">返回全部计划管理</a>
+  <a href="/plans/index/system/<%=@plan.system%>/fa/<%=@plan.fa%>">返回该FA的计划管理</a>
 </p>

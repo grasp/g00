@@ -11,21 +11,25 @@ class PlansController < ApplicationController
     search_critial= Hash.new
     search_critial[:user]=params[:user] if  params[:user]
     search_critial[:system]=params[:system] if  params[:system]
-     search_critial[:plansetting]=params[:plansetting] if  params[:plansetting]
+    search_critial[:plansetting]=params[:plansetting] if  params[:plansetting]
+        search_critial[:branch]=params[:branch] if  params[:branch]
+    search_critial[:fa]=params[:fa] if  params[:fa]
     search_critial[:created_at.gte]=Time.now.ago(86400*params[:week].to_i) if  params[:week]   
     if search_critial.size>0      
-     # puts "search critial=#{search_critial}"
-      @plans = Plan.where(search_critial).desc(:updated_at).paginate(:page=>params[:page]||1,:per_page=>50)
+      # puts "search critial=#{search_critial}"
+      #  @plans = Plan.where(search_critial).desc(:updated_at).paginate(:page=>params[:page]||1,:per_page=>50)
+      @plans = Plan.where(search_critial).desc(:priority).paginate(:page=>params[:page]||1,:per_page=>50)
     else
-    #  puts "no      search critial"
-      @plans = Plan.all.desc(:updated_at).paginate(:page=>params[:page]||1,:per_page=>50)
+      #  puts "no      search critial"
+      #  @plans = Plan.all.desc(:updated_at).paginate(:page=>params[:page]||1,:per_page=>50)
+      @plans = Plan.all.desc(:priority).paginate(:page=>params[:page]||1,:per_page=>50)
     end
 
     respond_to do |format|
       if params[:layout]
-          format.html {render :layout=>nil}# index.html.erb
+        format.html {render :layout=>nil}# index.html.erb
       else
-           format.html # index.html.erb
+        format.html # index.html.erb
       end
    
       format.json { render json: @plans }
@@ -39,9 +43,9 @@ class PlansController < ApplicationController
 
     respond_to do |format|
       if params[:layout]
-            format.html{ render :layout=>nil} # show.html.erb
+        format.html{ render :layout=>nil} # show.html.erb
       else
-         format.html # show.html.erb
+        format.html # show.html.erb
    
       end
       format.json { render json: @plan }
@@ -93,22 +97,22 @@ class PlansController < ApplicationController
   def update
     @plan = Plan.find(params[:id])
     @plan_setting=PlanSetting.find(@plan.plansetting)
-   init_plan   
+    init_plan   
     respond_to do |format|
       if @plan.update_attributes(params[:plan])
-     unless @plan_setting.contributor.include?(@plan.user)
-       @plan_setting.add_to_set(:contributor,@plan.user)
-     end
-      #  format.html { redirect_to @plan, notice: 'Plan was successfully updated.' }
-      flash[:notice]="Plan更新成功在-#{Time.now.to_s.slice(0,19)}"
-      if params[:content].size>0
-      format.html { redirect_to action: "edit" ,:content=>params[:content],:flash=>{:notice=>flash[:notice]}}
-      else
-        format.html { redirect_to action: "edit" ,:flash=>{:notice=>flash[:notice]}}
-      end
+        unless @plan_setting.contributor.include?(@plan.user)
+          @plan_setting.add_to_set(:contributor,@plan.user)
+        end
+        #  format.html { redirect_to @plan, notice: 'Plan was successfully updated.' }
+        flash[:notice]="Plan更新成功在-#{Time.now.to_s.slice(0,19)}"
+        if params[:content].size>0
+          format.html { redirect_to action: "edit" ,:content=>params[:content],:flash=>{:notice=>flash[:notice]}}
+        else
+          format.html { redirect_to action: "edit" ,:flash=>{:notice=>flash[:notice]}}
+        end
         format.json { head :no_content }
       else
-         flash[:notice]="Plan更新失败"
+        flash[:notice]="Plan更新失败"
         format.html { render action: "edit" }
         format.json { render json: @plan.errors, status: :unprocessable_entity }
       end

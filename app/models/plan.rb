@@ -18,4 +18,5 @@ class Plan
   field :review, :type => String
   field :check, :type => Boolean
   field :plantype, :type => String
+  field :priority,:type=>Integer
 end

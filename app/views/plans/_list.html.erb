@@ -3,11 +3,10 @@
 <table class="table table-striped">
   <tr>
     <th>User</th>
-        <th>fa</th>
-
-
+    <th>fa</th>
     <th>Title</th>
-        <th>SystemB</th>
+    <th>SystemB</th>
+    <th>Priority</th>
     <th>Plan</th>
     <th>Do</th> 
     <th>Summary</th>   
@@ -25,13 +24,11 @@
 
   <% @plans.each do |plan| %>
     <tr>
-      <td><%= plan.user %></td>
-           <td><%= plan.fa %></td>
-             <td><%= plan.title %></td>
-      <td><%= plan.system %>-<%= plan.branch %></td>
- 
-    
-
+      <td><a href="/plans/index/user/<%=plan.user%>"><%= plan.user %></a></td>
+      <td><a href="/plans/index/system/<%=plan.system%>/fa/<%=plan.fa%>"><%= plan.fa %></a></td>
+      <td><%= plan.title %></td>
+      <td><a href="/plans/index/system/<%=plan.system%>"><%= plan.system %></a>-<a href="/plans/index/system/<%=plan.system%>/branch/<%=plan.branch%>"><%= plan.branch %></a></td>
+      <td><%= plan.priority %></td></td>
       <td>
         <a href="/plans/edit/<%=plan.id%>/content/plan" >Plan</a>
       </td>
@@ -58,7 +55,7 @@
       <td><%= link_to '查看', plan,:class =>"plan_show"  %></td>
       <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
       <%if params[:delete]%>
-      <td><%=  button_to 'Destroy', plan, confirm: 'Are you sure?', method: :delete %></td>
+        <td><%=  button_to 'Destroy', plan, confirm: 'Are you sure?', method: :delete %></td>
       <%end%>
     </tr>
   <% end %>

@@ -13,8 +13,8 @@
   <div class="field">
     <%#= f.label :title %><br />
     
-    <%= f.text_field :title ,:class => 'input-xxlarge' ,:input_html => { :value => "请输入计划标题" }%>
-
+    <%= f.text_field :title ,:class => 'input-xxlarge'%>
+   <span class="help_inline">请输入计划标题,尽量准确，画龙点睛的作用</span>
     <%#= f.label :user %><br />
   <%#= f.text_field :user %>   
 
@@ -25,8 +25,9 @@
   </div>
 
   <div class="field">
-  <%#= f.label :action %><br />
-
+ <%= f.text_field :priority, :input_html => { :value => 100 }  %>
+  <span class="help_inline">输入一个数字，百类，千类，万类优先级设置（低中高)</span>
+    
   </div>
 <%=render "edit_navi"%>
 <%if params[:content]=="plan"%>
