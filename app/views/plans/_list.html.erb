@@ -5,8 +5,10 @@
     <th>User</th>
     <th>fa</th>
     <th>Title</th>
+    <th>浮动查看</th>
     <th>SystemB</th>
     <th>Priority</th>
+    <th>Size</th>
     <th>Plan</th>
     <th>Do</th> 
     <th>Summary</th>   
@@ -17,7 +19,7 @@
     <th>更新于</th>
     <!-- <th>Review</th>
      <th>Check</th>-->
-    <th></th>
+
     <th></th>
     <th></th>
   </tr>
@@ -27,8 +29,10 @@
       <td><a href="/plans/index/user/<%=plan.user%>"><%= plan.user %></a></td>
       <td><a href="/plans/index/system/<%=plan.system%>/fa/<%=plan.fa%>"><%= plan.fa %></a></td>
       <td><%= plan.title %></td>
+         <td><%= link_to '查看', plan,:class =>"plan_show"  %></td>
       <td><a href="/plans/index/system/<%=plan.system%>"><%= plan.system %></a>-<a href="/plans/index/system/<%=plan.system%>/branch/<%=plan.branch%>"><%= plan.branch %></a></td>
       <td><%= plan.priority %></td></td>
+      <td><%= (plan.plan||"").size+(plan.procedure||"").size+(plan.summary||"").size+(plan.comments||"").size %></td></td>
       <td>
         <a href="/plans/edit/<%=plan.id%>/content/plan" >Plan</a>
       </td>
@@ -52,7 +56,7 @@
       <!--
       <td><%= plan.review %></td>
       <td><%= plan.check %></td>-->
-      <td><%= link_to '查看', plan,:class =>"plan_show"  %></td>
+   
       <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
       <%if params[:delete]%>
         <td><%=  button_to 'Destroy', plan, confirm: 'Are you sure?', method: :delete %></td>

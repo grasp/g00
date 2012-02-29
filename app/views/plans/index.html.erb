@@ -5,5 +5,8 @@
 <br />
 
 <a  class="btn btn-dark" href="/plans/index/delete/true">Delete Manage</a>
-
+<%planhelp=Plan.where(:user=>"hunter","fa"=>"计划管理").first%>
+<%if planhelp %>
+<a href="/plans/<%=planhelp.id%>">计划管理使用帮助</a>
+<%end%>
 <%#= link_to 'New Plan', new_plan_path %>

@@ -1,37 +1,32 @@
 <p id="notice"><%= notice %></p>
-
+<div style="min-width: 600px;">
 <p>
-  <b>User:</b>
-  <%= @plan.user %>
+   <%= @plan.fa %>
+  作者：<%= @plan.user %> 
+
+
 </p>
 
-<p>
-  <b>Fa1 fa2 fa3 fa4:</b>
-  <%= @plan.fa %>
-</p>
+<h2>  <%= @plan.title %></h2>
+ 
 
 <p>
-  <b>Title:</b>
-  <%= @plan.title %>
-</p>
-
-<p>
-  <b>Plan:</b>
+  <h3>Plan:</h3>
   <%= raw(@plan.plan) %>
 </p>
 
 <p>
   <p>
-  <b>procedure:</b>
+  <h3>procedure:</h3>
   <%=raw(@plan.procedure)%>
 </p>
 <p>
-  <b>summary:</b>
+  <h3>summary:</h3>
   <%= raw(@plan.summary) %>
 </p>
 
 <p>
-  <b>Comments:</b>
+  <h3>Comments:</h3>
   <%= raw(@plan.comments) %>
 </p>
 
@@ -54,3 +49,4 @@
 
 <%= link_to 'Edit', edit_plan_path(@plan) %> |
 <%= link_to 'Back', plans_path %>
+</div>

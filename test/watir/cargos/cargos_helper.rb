@@ -16,7 +16,7 @@ def create_stock_cargo(browser,site_root)
   browser.link(:href, "#{site_root}/package_categories/show/9993").click;sleep 1
   browser.link(:id, "list_closep").click;sleep 0.5    
   browser.button(:name, "commit").click;sleep 0.5; ["货物创建成功","货物闲置","大件货物"].each { |text| assert browser.text.include?(text),"#{text} 不存在 !!"}
-     
+     return true  
 end
   
 
@@ -26,6 +26,7 @@ def create_cargo(browser,from_province,from_city,to_province,to_city,weight,bulk
   browser.text_field(:id,"cargo_cargo_bulk").set(bulk)
   browser.select_list(:id,"cargo_send_date").set(day)
   browser.select_list(:id,"cargo_cargo_zuhuo").set(zuhuo)
-  browser.button(:id,"cargo_submit").click;sleep 0.6
+  browser.button(:name,"commit").click;sleep 0.6
   ["货物","出发","到达","继续发布货源",].each { |text| assert $browser.text.include?(text),"#{text} 不存在 !!"}
+  return true
 end

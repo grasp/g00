@@ -37,7 +37,7 @@
     <%end%>
     <td><%= user.activate %></td>
     <td><%=ustatistic.id unless user.ustatistic_id.blank? %></td>
-        <td><%= user.created_at.localtime.to_s.slice(0,11) %></td>
+        <td><%= user.created_at.localtime.to_s.slice(0,16) %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td> <a  href="/users/destroy/<%=user.id%>" onclick="return confirm('do you want to delete the data?')">删除</a></td>

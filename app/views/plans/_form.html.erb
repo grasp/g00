@@ -18,17 +18,15 @@
     <%#= f.label :user %><br />
   <%#= f.text_field :user %>   
 
-    <%= f.select(:user,options_for_select(@plan_users,(@plan.user.nil? ? @plan_users.first.first : @plan.user)))%>
-    <%= f.select(:phase,options_for_select(@phase,(@plan.phase.nil? ? @phase.first.first : @plan.phase)) )%>
-    <%= f.select(:deliver,options_for_select(@delivers,(@plan.deliver.nil? ? @delivers.first.first : @plan.deliver)) )%>
-    <%= f.select(:status,options_for_select([["open","open"],["close","close"]],(@plan.status.nil? ? "open" : @plan.status)) )%>
-  </div>
-
-  <div class="field">
- <%= f.text_field :priority, :input_html => { :value => 100 }  %>
+    <%= f.select(:user,options_for_select(@plan_users,(@plan.user.nil? ? @plan_users.first.first : @plan.user)),{},:class => "input-small")%>
+    <%= f.select(:phase,options_for_select(@phase,(@plan.phase.nil? ? @phase.first.first : @plan.phase)),{},:class => "input-medium" )%>
+    <%= f.select(:deliver,options_for_select(@delivers,(@plan.deliver.nil? ? @delivers.first.first : @plan.deliver)),{},:class => "input-medium" )%>
+    <%= f.select(:status,options_for_select([["open","open"],["close","close"]],(@plan.status.nil? ? "open" : @plan.status)),{},:class => "input-small" )%>
+    <%= f.text_field :priority, :input_html => { :value => 100 },:class=>"input-small"  %>
   <span class="help_inline">输入一个数字，百类，千类，万类优先级设置（低中高)</span>
     
   </div>
+
 <%=render "edit_navi"%>
 <%if params[:content]=="plan"%>
   <div class="field">
