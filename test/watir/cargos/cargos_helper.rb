@@ -1,9 +1,9 @@
 #coding:utf-8
 
-require 'pathname'
-pn = Pathname.new(File.dirname(__FILE__))
-project_root=pn.parent.parent.parent #do we have one line solution?
-require File.join(project_root,"test","watir","w090_test_common.rb")
+#require 'pathname'
+#pn = Pathname.new(File.dirname(__FILE__))
+#project_root=pn.parent.parent.parent #do we have one line solution?
+#require File.join(project_root,"test","watir","init_test.rb")
 
 def create_stock_cargo(browser,site_root)
   browser.select_list(:id, "stockcargo_big_category").set("大件货物")
@@ -27,6 +27,6 @@ def create_cargo(browser,from_province,from_city,to_province,to_city,weight,bulk
   browser.select_list(:id,"cargo_send_date").set(day)
   browser.select_list(:id,"cargo_cargo_zuhuo").set(zuhuo)
   browser.button(:name,"commit").click;sleep 0.6
-  ["货物","出发","到达","继续发布货源",].each { |text| assert $browser.text.include?(text),"#{text} 不存在 !!"}
+  ["货物","出发","到达","继续发布货源",].each { |text| assert browser.text.include?(text),"#{text} 不存在 !!"}
   return true
 end

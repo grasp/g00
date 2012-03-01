@@ -9,9 +9,9 @@ require File.join(project_root,"test","watir","companies","companies_helper.rb")
 
 class W090NewCompanyTest < ActiveSupport::TestCase
   def setup
+    #create new user at first
    prepare_watir     
-  define_user_1
-    
+   define_user_1    
     @browser.goto("#{@site_root}")
     user_logout(@browser);sleep 1  
     user_fill_register_form(@browser,@site_root,@user_name1,@user_email1,"1234567",@mobile_phone1)  
@@ -21,6 +21,7 @@ class W090NewCompanyTest < ActiveSupport::TestCase
   test "new company" do
      @browser.goto("#{@site_root}/companies/yellowpage")
       user_logout(@browser)   #make sure user is logout
+      
      @browser.goto("#{@site_root}/companies/new");sleep 2     
      user_login(@browser,@site_root,@user_name1,'1234567')
      @browser.goto("#{@site_root}/companies/new");sleep 2  #stupid ,should go to company new
