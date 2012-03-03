@@ -31,7 +31,7 @@
 <%if params[:content]=="plan"%>
   <div class="field">
     <%#= f.label :Plan %><br />
-    <%= f.text_area :plan,:id => "kindeditor_id",:class => 'input-xxlarge', :input_html => { :value => "Default value" }  %>
+    <%= f.text_area :plan,:id => "kindeditor_id",:class => 'input-planedit', :input_html => { :value => "Default value" }  %>
   </div>
 <br></br>
   <div class="actions">
@@ -50,7 +50,7 @@
 <%elsif params[:content]=="do"%>
   <div class="field">
     <%#= f.label :procedure %><br />
-    <%= f.text_area :procedure,:id => "kindeditor_id",:class => 'input-xxlarge', :input_html => { :value => "Default value" }  %>
+    <%= f.text_area :procedure,:id => "kindeditor_id",:class => 'input-planedit', :input_html => { :value => "Default value" }  %>
   </div>
 <br></br>
   <div class="actions">
@@ -69,7 +69,7 @@
 <%elsif params[:content]=="summary"%>
   <div class="field">
     <%#= f.label :summary %><br />
-    <%= f.text_area :summary,:id => "kindeditor_id",:class => 'input-xxlarge', :input_html => { :value => "Default value" }  %>
+    <%= f.text_area :summary,:id => "kindeditor_id",:class => 'input-planedit', :input_html => { :value => "Default value" }  %>
   </div>
 <br></br>
   <div class="actions">
@@ -88,7 +88,7 @@
 <%elsif params[:content]=="comments"%>
   <div class="field">
     <%#= f.label :comments %><br />
-    <%= f.text_area :comments ,:id => "kindeditor_id",:class => 'input-xxlarge'%>
+    <%= f.text_area :comments ,:id => "kindeditor_id",:class => 'input-planedit'%>
   </div>
 <br></br>
   <div class="actions">
