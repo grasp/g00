@@ -1,0 +1,73 @@
+
+<%#coding=utf-8%>
+<div class="stock_trucklist">
+  <p style="margin-top:20px;">请点击每个车子的<b style="color:blue;">发布车源</b>来发布该车子的车源信息</p>
+  <%unless @stock_trucks.blank?%>
+    <table class="table table-striped">
+
+      <tr>   
+        <th>车子</th>
+        <th>司机</th>
+        <th>司机手机</th>
+
+
+        <th>业务员</th>
+
+
+        <th>当前位置</th>
+        <th>行驶轨迹</th>
+
+        <th>发布车源</th>
+        <th>更新联系</th>
+        <th>状态</th>
+      </tr>
+      <% @stock_trucks.each do |stock_truck| %>
+        <tr>
+
+          <td> <a class="show_float" href="/stock_trucks/show/<%=stock_truck.id%>"> <%= stock_truck.paizhao %>,<%= $truck_pinpai[stock_truck.truck_pinpai] %>/<%= stock_truck.truck_xinghao %>,<%=stock_truck.dun_wei%>吨,
+              <%= stock_truck.che_length %>米,
+              <%= $truck_shape[stock_truck.truck_shape] %></a>
+          </td>
+          <td><%= stock_truck.driver_name %></td>
+          <%if stock_truck.bind==true%>
+            <td><a class="btn btn-default" href="/dingwei/bind/<%=stock_truck.id%>">点击松绑</a></td>
+          <%else%>
+            <td><a class="btn btn-default" href="/dingwei/bind/<%=stock_truck.id%>">点击绑定</a></td>
+          <%end%>
+          <td><%= stock_truck.bis_name %></td>
+
+
+          <%if stock_truck.bind==true%>
+            <td><a class="btn btn-default" target="_blank" href="/dingwei/weizhi/<%=stock_truck.id%>">当前位置</a></td>
+            <td><a class="btn btn-default" target="_blank" href="/dingwei/guiji/<%=stock_truck.id%>">行驶轨迹</a></td>
+
+          <%else%>
+            <td></td>
+            <td></td>
+
+          <%end%>
+          <td><a class="btn btn-default" href="/trucks/new/<%=stock_truck.id%>">发布车源</a></td>
+
+          <td><a class="btn btn-default"  href="/stock_trucks/<%=stock_truck.id%>/edit">更新联系</a></td>
+          <%if stock_truck.status!="正在配货"%>
+            <td style="color:red;"><%= stock_truck.status %></td>
+          <%else%>
+            <td><%= stock_truck.status %></td>
+          <%end%>
+
+        </tr>
+      <% end %>
+    </table>
+  <%else%>
+    <p>你还没有添加任何车辆,想要管理你的车辆，请先<a class=" btn primary page_navi_link" href="/stock_trucks/new">新增车辆</a></p>
+  <%end%>
+
+<%#= will_paginate @stock_trucks ,:class=>"page_navi_link"%>
+  <br />
+
+
+  <p>
+    <a class=" btn primary page_navi_link" href="/stock_trucks/new">新增车子</a>
+  </p>
+
+</div>

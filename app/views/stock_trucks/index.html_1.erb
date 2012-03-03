@@ -1,0 +1,59 @@
+
+<%#coding=utf-8%>
+<div class="stock_trucklist">
+<p style="margin-top:20px;">请点击每个车子的<b style="color:blue;">发布车源</b>来发布该车子的车源信息</p>
+  <%unless @stock_trucks.blank?%>
+<table class="table table-striped">
+
+  <tr>
+  
+    <th>车子</th>
+    <th>司机</th>
+    <th>状态</th>
+    <th>叫车联系</th>
+    <th>叫车电话</th>
+    
+    <th>司机电话</th>
+    <th>车主</th>
+    <th>车主电话</th>
+    <th>发布车源</th>
+    <th>更新联系</th>
+  </tr>
+  <% @stock_trucks.each do |stock_truck| %>
+    <tr>
+       <td><a class="btn btn-default" href="/trucks/new/<%=stock_truck.id%>">发布车源</a></td>
+      <td> <a class="show_float" href="/stock_trucks/show/<%=stock_truck.id%>"> <%= stock_truck.paizhao %>,<%= $truck_pinpai[stock_truck.truck_pinpai] %>/<%= stock_truck.truck_xinghao %>,<%=stock_truck.dun_wei%>吨,
+        <%= stock_truck.che_length %>米,
+        <%= $truck_shape[stock_truck.truck_shape] %></a>
+      </td>
+      <%if stock_truck.status!="正在配货"%>
+      <td style="color:red;"><%= stock_truck.status %></td>
+      <%else%>
+      <td><%= stock_truck.status %></td>
+      <%end%>
+      
+      <td><%= stock_truck.bis_name %></td>
+      <td><%= stock_truck.bis_phone %></td>
+      <td><%= stock_truck.driver_name %></td>
+      <td><%= stock_truck.driver_phone %></td>
+      <td><%= stock_truck.owner_name %></td>
+      <td><%= stock_truck.owner_phone %></td>
+     
+      <td><a class="btn btn-default"  href="/stock_trucks/<%=stock_truck.id%>/edit">更新</a></td>
+    </tr>
+  <% end %>
+    </table>
+    <%else%>
+      <p>你还没有添加任何车辆,想要管理你的车辆，请先<a class=" btn primary page_navi_link" href="/stock_trucks/new">新增车辆</a></p>
+    <%end%>
+
+<%= will_paginate @stock_trucks ,:class=>"page_navi_link"%>
+<br />
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <a class=" btn primary page_navi_link" href="/stock_trucks/new">新增车子</a>
+</p>
+
+</div>

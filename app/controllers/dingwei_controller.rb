@@ -81,7 +81,8 @@ class DingweiController < ApplicationController
   end
   
   def list_all_truck
-    @stock_trucks = StockTruck.where(:user_id =>session[:user_id]).desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>20)      
+    @stock_trucks = StockTruck.where(:user_id =>session[:user_id]).desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>20)
+    
   end
   
   def post_gps
@@ -97,6 +98,11 @@ class DingweiController < ApplicationController
       #   puts   "mphone=#{@truck_location.mphone},id=#{@truck_location.truck_id},history size=#{@truck_location.history.size}"   
       @truck_location.add_to_set(:history,{"lng" =>new_location[:lng].to_f, "lat"=>new_location[:lat].to_f,"speed"=>new_location[:speed],"timetag"=>Time.now})      
       # puts   "truck_location.history size=#{@truck_location.history.size}"+ @truck_location.history.to_s
+    end
+    @poll=Hash.new
+    @poll[:bind]=@stock_truck.bind
+    respond_to do |format|
+      format.json { render :json=> @poll.to_json }
     end
   end
   

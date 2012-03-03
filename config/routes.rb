@@ -3,7 +3,7 @@ G0::Application.routes.draw do
    match '/plans/edit/:id/content/:content' =>"plans#edit" ,:as=>:plans_edit
    match '/plans/new/plansetting/:id' =>"plans#new" ,:as=>:plans_new_setting
    match '/plans/new/user/:user' =>"plans#new" ,:as=>:plans_new_user
-   match '/plans/index(/plansetting/:plansetting)(/user/:user)(/system/:system)(/branch/:branch)(/fa/:fa)(/week/:week)(/layout/:layout)(/delete/:delete)' =>"plans#index" ,:as=>:plans_index_fa  #add debug  for delete all
+   match '/plans/index(/plansetting/:plansetting)(/user/:user)(/system/:system)(/branch/:branch)(/fa/:fa)(/week/:week)(/layout/:layout)(/delete/:delete)(/sort/:sort)' =>"plans#index" ,:as=>:plans_index_fa  #add debug  for delete all
    match '/plans/:id(/layout/:layout)'  =>"plans#show" ,:as=>:plans_show,:via=>:get
   resources :plans
   

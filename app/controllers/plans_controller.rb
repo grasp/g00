@@ -14,15 +14,23 @@ class PlansController < ApplicationController
     search_critial[:plansetting]=params[:plansetting] if  params[:plansetting]
         search_critial[:branch]=params[:branch] if  params[:branch]
     search_critial[:fa]=params[:fa] if  params[:fa]
-    search_critial[:created_at.gte]=Time.now.ago(86400*params[:week].to_i) if  params[:week]   
+    search_critial[:created_at.gte]=Time.now.ago(86400*params[:week].to_i) if  params[:week] 
+     @url=request.url
+    if params[:sort]==nil
+    params[:sort]="priority" 
+    else
+      @url=@url.gsub("/sort/#{params[:sort]}","").to_s
+    end
+
+
     if search_critial.size>0      
       # puts "search critial=#{search_critial}"
       #  @plans = Plan.where(search_critial).desc(:updated_at).paginate(:page=>params[:page]||1,:per_page=>50)
-      @plans = Plan.where(search_critial).desc(:priority).paginate(:page=>params[:page]||1,:per_page=>50)
+      @plans = Plan.where(search_critial).desc(params[:sort]).paginate(:page=>params[:page]||1,:per_page=>50)
     else
       #  puts "no      search critial"
       #  @plans = Plan.all.desc(:updated_at).paginate(:page=>params[:page]||1,:per_page=>50)
-      @plans = Plan.all.desc(:priority).paginate(:page=>params[:page]||1,:per_page=>50)
+      @plans = Plan.all.desc(params[:sort]).paginate(:page=>params[:page]||1,:per_page=>50)
     end
 
     respond_to do |format|

@@ -1,5 +1,6 @@
 require 'rubygems'
 require "mechanize"
+require 'active_support'
 
 	def background_every_n_seconds(n)
 	  mechanize=Mechanize.new
@@ -18,7 +19,7 @@ require "mechanize"
         begin
       post_gps(mechanize,"12787651235",lat,lng,speed) 
         rescue
-          puts "post error!!"
+          puts "post error #{$@}!!"
         end
 	    end
 	#  end
@@ -33,7 +34,10 @@ location[:speed]=speed
   #   mechanize.get(CGI::escape("http://localhost:4500/dingwei/postgps/mphone/#{mobile_phone}/lat/#{lat}/lng/#{lng}/speed/#{speed}"))
   #mechanize.get("http://localhost:4500/dingwei/postgps/mphone/#{mobile_phone}/lat/#{lat}/lng/#{lng}")
   
-     mechanize.post("http://localhost:4500/dingwei/post_gps",:location=>location)
+  result= mechanize.post("http://localhost:4500/dingwei/post_gps",:location=>location)
+# puts  eval(result.body).to_hash
+ parsed_json = ActiveSupport::JSON.decode(result.body)
+ puts parsed_json["bind"]
   end
 
 	background_every_n_seconds(2*5) { puts 'Get back to work!' ;}

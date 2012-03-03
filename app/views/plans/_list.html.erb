@@ -2,12 +2,12 @@
 
 <table class="table table-striped">
   <tr>
-    <th>User</th>
-    <th>fa</th>
+    <th><a href="<%=@url+"/sort/user"%>">User</a></th>
+   <th><a href="<%=@url+"/sort/fa"%>">FA</a></th>
     <th>Title</th>
     <th>浮动查看</th>
     <th>SystemB</th>
-    <th>Priority</th>
+    <th><a href="<%=@url+"/sort/priority"%>">Priority</a></th>
     <th>Size</th>
     <th>Plan</th>
     <th>Do</th> 
@@ -15,15 +15,16 @@
     <th>Comments</th>
     <th>Deliver</th>
 
-    <th>Status</th>
-    <th>更新于</th>
+    <th><a href="<%=@url+"/sort/status"%>">Status</a></th>
+        <th><a href="<%=@url+"/sort/updated_at"%>">更新于</a></th>
+
     <!-- <th>Review</th>
      <th>Check</th>-->
 
     <th></th>
     <th></th>
   </tr>
-
+<%total_size=0%>
   <% @plans.each do |plan| %>
     <tr>
       <td><a href="/plans/index/user/<%=plan.user%>"><%= plan.user %></a></td>
@@ -32,7 +33,9 @@
          <td><%= link_to '查看', plan,:class =>"plan_show"  %></td>
       <td><a href="/plans/index/system/<%=plan.system%>"><%= plan.system %></a>-<a href="/plans/index/system/<%=plan.system%>/branch/<%=plan.branch%>"><%= plan.branch %></a></td>
       <td><%= plan.priority %></td></td>
-      <td><%= (plan.plan||"").size+(plan.procedure||"").size+(plan.summary||"").size+(plan.comments||"").size %></td></td>
+      <%plan_size=(plan.plan||"").size+(plan.procedure||"").size+(plan.summary||"").size+(plan.comments||"").size %>
+      <%total_size+=plan_size%>
+      <td><%= plan_size%></td></td>
       <td>
         <a href="/plans/edit/<%=plan.id%>/content/plan" >Plan</a>
       </td>
@@ -45,7 +48,15 @@
       <td><%= plan.deliver %></td>
       <td><%= plan.status %></td>
       <%day=((Time.now-plan.updated_at)/86400).to_i%>
-      <%if day <3 %>
+      
+      <%if day==0%>
+      <%hour=((Time.now-plan.updated_at)/3600).to_i%>
+      <%if hour==0%>
+       <td <%="style=background:#fae5c9;" %>>更新于<%=((Time.now-plan.updated_at)/60).to_i%>分钟前</td>
+      <%else%>
+         <td <%="style=background:#fae5c9;" %>>更新于<%=hour%>小时前</td>
+         <%end%>
+      <%elsif day <3 %>
         <td <%="style=background:#fae5c9;" %>>更新于<%=day%>天前</td>
       <%elsif (day>3 && day<15) %>
         <td <%="style=background:#fbc276;" %>>更新于<%=day%>天前</td>
@@ -64,4 +75,6 @@
     </tr>
   <% end %>
 </table>
+<p>Total Plan size=<%=total_size%></p>
+
 <%= will_paginate @plans ,:previous_label=>"上一页",:next_label=>"下一页"%>
