@@ -10,46 +10,7 @@ Forever.run do
   #before :all do
   #  puts "All jobs will will wait me for 1 second"; sleep 1
   #end
-if false
-  every 2.minutes do
-    hour=Time.now.hour
-    if hour>5 and hour<23
-      begin
-        parse_56qq
-        get_tf56_grasps
-      rescue
-        puts $@
-      end 
-    end
-  end
-    
-  every 3.minutes do
-    hour=Time.now.hour
-    if hour>5 and hour<23
-      begin
-       # parse_56135
-      rescue
-        puts $@
-      end
-  
-      begin
-        get_quzhou_grasps
-      rescue
-        puts $@
-      end
-      system("wget --spider http://w090.com/admin/dev_expire") #to expire city navi bar
-      system("wget --spider http://w090.com/cargos/allcity") #to regenerate city navi  cache
-      system("wget --spider http://w090.com/trucks/allcity") #to regenerate city navi  cache
 
-    end
-  end
-  every 20.minutes do
-    hour=Time.now.hour
-    if hour>5 and hour<23          
-      parse_haoyun56    
-    end
-  end
-end
   every 2.day, :at => ['2:30'] do
     scan_move
   end
