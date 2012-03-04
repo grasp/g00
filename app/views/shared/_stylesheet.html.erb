@@ -1,5 +1,10 @@
 
  <%= favicon_link_tag("/assets/truckicon.jpg") %>
+<%if mobile_device?%>
+
+  <%#=stylesheet_link_tag "application" ,:media=>"screen and (min-width: 601px) and (max-width: 960px)"%>
   <%=stylesheet_link_tag    "application" %>
-  <%#=stylesheet_link_tag    "gmaps4rails" %>
+<%else%>
+  <%=stylesheet_link_tag    "application" %>
+<%end%>
  <%= yield :head %> 

@@ -1,8 +1,10 @@
  # coding: utf-8
 class ApplicationController < ActionController::Base
-
+   before_filter :prepare_for_mobile
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
+     helper_method :mobile_device?
+
 
    def get_line(from_code,to_code)     
     if from_code<to_code
@@ -76,4 +78,24 @@ class ApplicationController < ActionController::Base
      return  #allowed cookie login
      end
   end
+  
+
+
+#private
+
+def mobile_device?
+  if session[:mobile_param]
+    session[:mobile_param] == "1"
+  else
+    request.user_agent =~ /Mobile|webOS|iPhone/ 
+  end  
+end
+
+def prepare_for_mobile
+  session[:mobile_param] = params[:mobile] if params[:mobile]  
+ # request.format=:mobile  if mobile_device?
+ # request.format=[:mobile,:html] if mobile_device?
+# self.formats[:mobile,:html]
+# request.formats.unshift(Mime::MOBILE) if mobile_device?
+end
 end

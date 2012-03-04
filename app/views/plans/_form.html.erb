@@ -106,6 +106,14 @@
 <%=raw(@plan.summary)%>
 <%else%>
 <br></br>
+<h2>Plan</h2>  
+<%=raw(@plan.plan)%>
+<h2>Do</h2>  
+<%=raw(@plan.procedure)%>
+<h2>Summary</h2>
+<%=raw(@plan.summary)%>
+<h2>Comments</h2>
+<%=raw(@plan.comments)%>
   <div class="actions">
     <%= f.submit :class=>"btn btn-info"%>
   </div>
