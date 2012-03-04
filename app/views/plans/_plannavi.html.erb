@@ -1,0 +1,18 @@
+<%user=User.find(session[:user_id]) unless session[:user_id].nil?%>
+<ul>
+    <li><a  href="/admin/">网站管理</a></li>
+
+    <h4>W090-最近一月</h4> 
+    <%Plan.where(:system=>"W090").where(:created_at.gte=>Time.now.ago(86400*30)).desc(:updated_at).each do |plan|%>
+    <li > <a style="margin:0px;padding: 0px;" href="/plans/index/system/<%=plan.system%>/fa/<%=plan.fa%>"><strong><%=plan.fa%></a></strong><a style="width: 350px;display:inline-block;" href="/plans/edit/<%=plan.id%>"><%=plan.title.slice(0,19)%></a><li>
+    <%end%>
+      
+   <h4>Android-最近一月</h4> 
+    <%Plan.where(:system=>"Android").where(:created_at.gte=>Time.now.ago(86400*30)).desc(:updated_at).each do |plan|%>
+    <li ><a style="margin:0px;padding: 0px;" href="/plans/index/system/<%=plan.system%>/fa/<%=plan.fa%>"><strong><%=plan.fa%></a></strong><a style="width: 350px;display:inline-block;" href="/plans/edit/<%=plan.id%>"><%=plan.title.slice(0,19)%></a><li>
+    <%end%>
+    <h4>开发管理</h4>
+    <li><a href="/plan_settings">新建计划</a><li>
+     <li><a href="/plans">全部计划</a><li>
+</ul>
+

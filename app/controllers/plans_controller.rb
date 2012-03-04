@@ -5,14 +5,14 @@ class PlansController < ApplicationController
   include PlansHelper
   include_kindeditor :only => [:new, :edit]
   before_filter:admin_authorize
-  layout "admin"
+  layout "plan"
   def index
     init_plan
     search_critial= Hash.new
     search_critial[:user]=params[:user] if  params[:user]
     search_critial[:system]=params[:system] if  params[:system]
     search_critial[:plansetting]=params[:plansetting] if  params[:plansetting]
-        search_critial[:branch]=params[:branch] if  params[:branch]
+    search_critial[:branch]=params[:branch] if  params[:branch]
     search_critial[:fa]=params[:fa] if  params[:fa]
     search_critial[:created_at.gte]=Time.now.ago(86400*params[:week].to_i) if  params[:week] 
      @url=request.url

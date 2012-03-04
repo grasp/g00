@@ -1,7 +1,7 @@
 class PlanSettingsController < ApplicationController
   # GET /plan_settings
   # GET /plan_settings.json
-  layout "admin"
+  layout "plan"
   before_filter:admin_authorize
   include PlanSettingsHelper
   def index
