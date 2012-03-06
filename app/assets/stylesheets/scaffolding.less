@@ -3,8 +3,8 @@
 // -------------------------------------------------------------------------------------------
 
 
-// STRUCTURAL LAYOUT
-// -----------------
+// Body reset
+// ----------
 
 body {
   margin: 0;
@@ -12,11 +12,11 @@ body {
   font-size: @baseFontSize;
   line-height: @baseLineHeight;
   color: @textColor;
-  background-color: @white;
+  background-color: @bodyBackground;
 }
 
 
-// LINKS
+// Links
 // -----
 
 a {
@@ -28,9 +28,7 @@ a:hover {
   text-decoration: underline;
 }
 
-//*** import from original
-
-
+//from original
 // Container (centered, fixed-width layouts)
 .container {
   .fixed-container();
@@ -61,7 +59,7 @@ margin-left:0px;
 margin-top:2px;
 height:20px;
 li {
-display:inline;
+display:inline-block;
 a{
 display:inline-block;
 padding-top:3px;
@@ -71,6 +69,7 @@ width:100px;
 }
 }
 }
+
 .fluid-sidebar-left   { float: left;}
 .fluid-sidebar-right  { float: right; }
 // The main content area
@@ -82,4 +81,3 @@ width:100px;
   margin-left: 0;
   margin-right: 280px;
 }
-

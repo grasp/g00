@@ -126,9 +126,22 @@ dd {
 }
 dt {
   font-weight: bold;
+  line-height: @baseLineHeight - 1; // fix jank Helvetica Neue font bug
 }
 dd {
   margin-left: @baseLineHeight / 2;
+}
+// Horizontal layout (like forms)
+.dl-horizontal {
+  dt {
+    float: left;
+    clear: left;
+    width: 120px;
+    text-align: right;
+  }
+  dd {
+    margin-left: 130px;
+  }
 }
 
 // MISC
@@ -154,11 +167,13 @@ em {
 }
 
 // Abbreviations and acronyms
-abbr {
-  font-size: 90%;
-  text-transform: uppercase;
+abbr[title] {
   border-bottom: 1px dotted #ddd;
   cursor: help;
+}
+abbr.initialism {
+  font-size: 90%;
+  text-transform: uppercase;
 }
 
 // Blockquotes
