@@ -6,13 +6,16 @@
 // -------------
 
 .navbar {
+  
   overflow: visible;
   margin-bottom: @baseLineHeight;
+  width:100%;
 }
 
 
 .navbar-inner {
-  //height:@navbarHeight;
+  width:100%;
+  height:@navbarHeight;
   background-color: @navbarBackground;
   #gradient > .vertical(@navbarBackgroundstart, @navbarBackgroundend);
   @shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
@@ -20,8 +23,12 @@
   zoom:1;//must have for IE6
 li {
 display:inline;
-a{ display:inline-block;}
+a{ display:inline-block;
+padding-top:10px;
+margin:0px;
 }
+}
+margin-bottom:20px;
 }
 
 
@@ -209,7 +216,7 @@ a{ display:inline-block;}
   float: left;
   margin: 0 10px 0 0;
 }
-.navbar .nav.pull-right {
+.navbar .nav .pull-right {
   float: right; // redeclare due to specificity
 }
 .navbar .nav >li {
@@ -217,14 +224,13 @@ a{ display:inline-block;}
    display: inline-block;
    float: left;
    list-style-type: none;
-  
  }
 
 // Links
-.navbar .nav > li > a {
-  float: none;
+.navbar .nav > ul> li > a {
+  //float: none;
   padding: 10px 10px 11px;
-  line-height: 19px;
+ line-height: 19px;
   color: @navbarLinkColor;
   text-decoration: none;
   text-shadow: 0 -1px 0 rgba(0,0,0,.25);

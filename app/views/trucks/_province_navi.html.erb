@@ -5,12 +5,16 @@
   <%(0.upto($sequnced_province.size)).select{|x| x % 2==0}.each do |i|%>
     <%province1=$sequnced_province[i]%>
   <%if  province1%>
-    <ul class="menu-tree1">
-      <a  class="span4" href="/trucks/city/<%=province1%>"> <%=$city_code_name[province1.to_s]%>(<%=get_province_truck_from_count(province1)%>-<%=get_province_cargo_to_count(province1)%>)</a>
+    <ul>
+      <li>
+      <a  class="<%="p#{province1}"%>" href="/trucks/city/<%=province1%>"> <%=$city_code_name[province1.to_s]%></a>(<%=get_province_truck_from_count(province1)%><span class="hidden-phone">-<%=get_province_cargo_to_count(province1)%></span>)
+    </li>
+    <li>
       <%if i!=$sequnced_province.size && !$sequnced_province[i+1].blank?%>
         <%province2=$sequnced_province[i+1]%>
-        <a  class="span4" href="/trucks/city/<%=province2%>"> <%=$city_code_name[province2.to_s]%>(<%=get_province_truck_from_count(province2)%>-<%=get_province_cargo_to_count(province2)%>)</a>
+        <a  class="<%="p#{province2}"%>" href="/trucks/city/<%=province2%>"> <%=$city_code_name[province2.to_s]%></a>(<%=get_province_truck_from_count(province2)%><span class="hidden-phone">-<%=get_province_cargo_to_count(province2)%></span>)
       <%end%>
+        </li>
     </ul>
 <%end%>
   <%end%>

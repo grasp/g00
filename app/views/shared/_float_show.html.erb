@@ -5,13 +5,18 @@
 
   <%if ietyte.include?("MSIE 6.0")||ietyte.include?("MSIE 7.0") %>
     <div class="float_close" style="position: absolute;right: 5px;text-align: right;margin:0 5px 20px 5px;">
-      <a id="close1" class="btn btn-success">OK</a>        
+
+         <input  type="button" value="OK" id="close1" class="btn btn-success"  ></input>  
+      
     </div>
   <br></br>
   <%else%>
-    <div class="pull-left" style="display:inline-block;">
-      <a  style="display:inline-block;" id="close1" class="btn btn-success">OK</a>          
+ 
+    <div class="pull-left" style="display:inline-block;margin-left: 5px;">
+
+       <input  type="button" value="OK" id="close1" class="btn btn-success"  ></input>  
     </div> 
+
   <%end%>
 
  <div id="float_load"></div>
@@ -22,13 +27,14 @@
 <div id="float_show2" style="display:none;">
 
   <%if ietyte.include?("MSIE 6.0")||ietyte.include?("MSIE 7.0") %>
-    <div style="position: absolute;right: 5px;text-align: right;">
-      <a  style="display: inline;" id="close2" class="btn btn-success"   >确定</a>          
+  
+    <div style="position: absolute;right: 5px;text-align: right;"><a  id="close2" class="btn btn-success"   >OK</a>     
+      
     </div>
   <%else%>
-    <div class="pull-left">
-      <a  id="close2" class="btn btn-success"   >确定</a>          
-    </div> 
+ <div class="pull-left" >
+      <input  type="button" value="OK" id="close2" class="btn btn-success"  ></input>          
+ </div> 
   <%end%>       
 
 

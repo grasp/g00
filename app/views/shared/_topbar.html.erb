@@ -1,9 +1,8 @@
 
 <div class="navbar">
-  <div class="navbar-inner">
-    <div class="row-fluid">          
+  <div class="navbar-inner">        
       <a class="brand" href="#">物流零距离</a>
-      <ul class="nav nav-tabs">
+      <ul style="display:inline-block"class="nav-tabs">
         <li > <a  href="/cargos/allcity">货源</a></li>
         <li > <a  href="/trucks/allcity">车源</a></li>
         <li ><a   href="/companies/yellowpage">黄页</a></li>
@@ -15,8 +14,9 @@
          <%else%>
             <li><a   href="/dingwei/userannounce">定位</a></li> 
          <%end%>      
-</ul>
-      <p class="pull-right">
+      </ul>
+     
+      <li class="pull-right">
         <a  href="/" >首页</a>
         <%cookie_login_helper%>
         <%if session[:user_id].blank?%>
@@ -35,8 +35,8 @@
           | <a style="color:black;" class="btn btn-small " href="/wmails/invite_new">邀请朋友</a>
         <%else%>
         <%end%> 
-      </p>
+      </li>
 
-    </div>
+
   </div>
 </div>

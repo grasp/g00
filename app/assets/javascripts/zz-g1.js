@@ -274,7 +274,7 @@ function float_load_layer1(){
     /* 显示报价 或者询价 子页面 not for form submit ajax*/
     $('a.baojia,a.cargo_fabu,a.truck_fabu,a.show_float').live("click",function(){
 
-   var start=$("#from_data_load").offset();
+       var start=$("#from_data_load").offset();
         var corordiate= $(this).offset();
         var cord_left=corordiate.left;
         var cord_top=corordiate.top;
@@ -283,7 +283,7 @@ function float_load_layer1(){
         var select_parent=$(this).parent().parent();
         var parent_coordiate=select_parent.offset();
         $('tr').css("background-color","white");
-        $('#float_load').empty();
+       // $('#float_load').empty();
         $('#float_load').load(this.href,function(){
             // stock_cargo_new_validation();
             inquery_new_validation();
