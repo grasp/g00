@@ -3924,8 +3924,7 @@ button.btn.btn-small, input[type="submit"].btn.btn-small {
   margin-bottom: 18px;
 }
 .navbar-inner {
-  padding-left: 20px;
-  padding-right: 20px;
+  background-color: #875e40;
   background-color: #554438;
   background-image: -moz-linear-gradient(top, #333333, #875e40);
   background-image: -ms-linear-gradient(top, #333333, #875e40);
@@ -3944,18 +3943,19 @@ button.btn.btn-small, input[type="submit"].btn.btn-small {
   background-image: linear-gradient(top, #333333, #875e40);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#875e40', GradientType=0);
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  zoom: 1;
+}
+.navbar-inner li {
+  display: inline;
+}
+.navbar-inner li a {
+  display: inline-block;
 }
 .navbar .container {
   width: auto;
@@ -5778,12 +5778,13 @@ a.thumbnail:hover {
   }
   .lineselector a {
     display: inline-block;
-    margin-right: 2px;
-    margin-top: 2px;
+    padding: 0px;
+    margin-right: 1px;
+    margin-top: 1px;
     padding: 1px;
   }
   .lineselector .cargo_search, .lineselector .truck_search {
-    margin-right: 5px;
+    margin-right: 2px;
   }
   
   .city_navi a, .region_navi a {

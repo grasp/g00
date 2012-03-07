@@ -5,13 +5,12 @@
   <input  class="fcitycode" type="hidden" name="cargo[fcitycode]"></input>
   <input class="fcityname"  type="hidden" name="cargo[fcityname]"></input>
 
-
   <a  id="to_data_load"  href="/cities/to/<%=@search.tcity_code||"100000000000"%>" ><%=$city_code_name[@search.tcity_code] ||"到达地选择"%></a>
   <input  class="tcitycode" type="hidden" name="cargo[tcitycode]"></input>
   <input class="tcityname" type="hidden" name="cargo[tcityname]"></input>
   <input value="货源查询" style="width:80px;"class="btn btn-default cargo_search" type="submit" name="asss" ></input>
 
-  <a    href="/cargos/baojiacargo/all">待报价货源(<%=Cargo.where(:from_site=>"local").count%>)</a>
+  <a   href="/cargos/baojiacargo/all">待报价(<%=Cargo.where(:from_site=>"local").count%>)</a>
 
   <%if params[:city_id]%>
     <a  href="/cargos/cityfrom/<%=params[:city_id]%>"><%=$city_code_name[params[:city_id]] ||"全国"%>出发</a>

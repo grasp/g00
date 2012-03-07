@@ -1,7 +1,7 @@
 
 <div class="navbar">
   <div class="navbar-inner">
-    <div class="row">          
+    <div class="row-fluid">          
       <a class="brand" href="#">物流零距离</a>
       <ul class="nav nav-tabs">
         <li > <a  href="/cargos/allcity">货源</a></li>
@@ -14,9 +14,8 @@
          <li><a   href="/dingwei/index">定位</a></li> 
          <%else%>
             <li><a   href="/dingwei/userannounce">定位</a></li> 
-         <%end%>
-      </ul>
-
+         <%end%>      
+</ul>
       <p class="pull-right">
         <a  href="/" >首页</a>
         <%cookie_login_helper%>
@@ -31,9 +30,9 @@
         <%time=Time.now%>
         <span>今天是<%=time.year%>年<%=time.month%>月<%=time.day%>日,星期<%=$week_day[time.wday.to_i]%></span>
         <%if session[:user_name]=="admin"%>
-          | <a style="color:black;" class="btn btn-default " href="/admin">网站管理</a>
+          | <a style="color:black;" class="btn btn-small " href="/admin">网站管理</a>
         <%elsif session[:user_name]!=nil%>
-          | <a style="color:black;" class="btn btn-default " href="/wmails/invite_new">邀请朋友</a>
+          | <a style="color:black;" class="btn btn-small " href="/wmails/invite_new">邀请朋友</a>
         <%else%>
         <%end%> 
       </p>

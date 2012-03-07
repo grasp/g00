@@ -7,7 +7,7 @@
        <input class="tcitycode" type="hidden" name="cargo[tcitycode]"></input>
       <input  class="tcityname" type="hidden" name="cargo[tcityname]"></input>
    <input value="车源查询" style="width:80px;" class=" btn default truck_search" type="submit" name="asss"></input>
-<a  href="/trucks/baojiatruck/all">待报价车源(<%=Truck.where(:from_site=>"local").count%>)</a>
+<a  href="/trucks/baojiatruck/all">待报价(<%=Truck.where(:from_site=>"local").count%>)</a>
 <%if params[:city_id]%>
 <a  href="/trucks/cityfrom/<%=params[:city_id]%>"><%=$city_code_name[params[:city_id]] ||"全国"%>出发</a>
 <a  href="/trucks/cityto/<%=params[:city_id]%>"><%=$city_code_name[params[:city_id]] ||"全国"%>到达</a>

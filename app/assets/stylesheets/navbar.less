@@ -10,15 +10,20 @@
   margin-bottom: @baseLineHeight;
 }
 
-// Gradient is applied to it's own element because overflow visible is not honored by IE when filter is present
+
 .navbar-inner {
-  padding-left:  20px;
-  padding-right: 20px;
-  #gradient > .vertical(@navbarBackgroundHighlight, @navbarBackground);
-  .border-radius(4px);
+  //height:@navbarHeight;
+  background-color: @navbarBackground;
+  #gradient > .vertical(@navbarBackgroundstart, @navbarBackgroundend);
   @shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
   .box-shadow(@shadow);
+  zoom:1;//must have for IE6
+li {
+display:inline;
+a{ display:inline-block;}
 }
+}
+
 
 // Set width to auto for default container
 // We then reset it for fixed navbars in the #gridSystem mixin
