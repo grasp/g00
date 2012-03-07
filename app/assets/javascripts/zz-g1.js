@@ -274,7 +274,7 @@ function float_load_layer1(){
     /* 显示报价 或者询价 子页面 not for form submit ajax*/
     $('a.baojia,a.cargo_fabu,a.truck_fabu,a.show_float').live("click",function(){
 
-  
+   var start=$("#from_data_load").offset();
         var corordiate= $(this).offset();
         var cord_left=corordiate.left;
         var cord_top=corordiate.top;
@@ -337,7 +337,8 @@ function float_load_layer1(){
         else
         {
             selected.css("top",corordiate.top+$(this).height()-30);
-            selected.css("left",corordiate.left);
+           selected.css("left",start.left);
+          // selected.css("left",10);
                 
         }
         
