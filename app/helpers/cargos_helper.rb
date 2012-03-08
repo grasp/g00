@@ -156,11 +156,11 @@ module CargosHelper
   def cargo_show_helper
     unless @error
       @cargo = Cargo.find(params[:id])  
-    #  @contact=  @cargo.comments  if @cargo[:from_site]=="haoyun56"
-    #  @contact=  @cargo.comments  if @cargo[:from_site]=="56135"
-    #  @contact=  @cargo.comments+"联系电话:"+@cargo.contact  if @cargo[:from_site]=="56qq"
-    #  @contact=  @cargo.comments  if @cargo[:from_site]=="tf56"
-    #  @contact=  @cargo.contact_phone if @cargo[:from_site]=="quzhou"
+      #  @contact=  @cargo.comments  if @cargo[:from_site]=="haoyun56"
+      #  @contact=  @cargo.comments  if @cargo[:from_site]=="56135"
+      #  @contact=  @cargo.comments+"联系电话:"+@cargo.contact  if @cargo[:from_site]=="56qq"
+      #  @contact=  @cargo.comments  if @cargo[:from_site]=="tf56"
+      #  @contact=  @cargo.contact_phone if @cargo[:from_site]=="quzhou"
       @jubao_counter=Jubao.where(:belongid=>@cargo.id).count
       if @cargo[:from_site]=="local"
         @stock_cargo=StockCargo.find(@cargo.stock_cargo_id)
@@ -178,7 +178,7 @@ module CargosHelper
   def     cargo_allcity_helper
     @search=Search.new;    @search.fcity_code="100000000000";    @search.tcity_code="100000000000"
     @cargos=Cargo.where(:status=>"正在配车") .desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
- # @cargos=Cargo.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
+    # @cargos=Cargo.all.desc(:created_at).paginate(:page=>params[:page]||1,:per_page=>25)
   end
  
   def cargo_city_helper
@@ -227,7 +227,7 @@ module CargosHelper
   end
  
   def notify
-     log=Logger.new("notify.log")
+    log=Logger.new("notify.log")
     if self #this is under local database mode
       cargo=self 
     else
@@ -250,20 +250,20 @@ module CargosHelper
     end
 
     get_parent_line(cargo.line).each do |eachline|    #need consider parent line concern
-    #puts "try update line #{eachline}"
+      #puts "try update line #{eachline}"
       concernline=Concernlinec.where(:line=>eachline).first         
       email_list=email_list.concat(concernline.emaillist|| Array.new)  unless concernline.blank?
-     # sms_list=sms_list.concat(concernline.smslist || Array.new) unless concernline.blank?
+      # sms_list=sms_list.concat(concernline.smslist || Array.new) unless concernline.blank?
     end
 
     concernuser=Concernuserc.where(:userid=>cargo.user_id).first    
     email_list=email_list.concat(concernuser.emaillist || Array.new ) unless concernuser.blank?
-   # sms_list=sms_list.concat(concernuser.smslist || Array.new ) unless concernuser.blank?
+    # sms_list=sms_list.concat(concernuser.smslist || Array.new ) unless concernuser.blank?
     
 
     concernphone1=Concernphonec.where(:mobilephone=>cargo.mobilephone).first    
     email_list=email_list.concat(concernphone1.emaillist || Array.new) unless concernphone1.blank?
-   # sms_list=sms_list.concat(concernphone1.smslist || Array.new) unless concernphone1.blank?
+    # sms_list=sms_list.concat(concernphone1.smslist || Array.new) unless concernphone1.blank?
     concernphone2=Concernphonec.where(:fixphone=>cargo.fixphone).first 
     
     if concernphone2
@@ -273,7 +273,7 @@ module CargosHelper
     
     #update only do once 
     begin
-    update_notify_list(email_list,sms_list,cargo)
+      update_notify_list(email_list,sms_list,cargo)
     rescue
       puts $@
     end
@@ -284,30 +284,30 @@ module CargosHelper
     # Emaillistc.destroy_all
     email_list.uniq!
     puts "need update list size=#{email_list.size}"
-   # sms_list.uniq!
+    # sms_list.uniq!
     email_list.each do |email|
-     #  puts " hanle #{email} in email list"
+      #  puts " hanle #{email} in email list"
       emailsubscribe=Emaillistc.where(:email=>email).first      
       user=User.where(:email=>email).first 
       ustatistic=Ustatistic.where(:user_email=>email).first
-    #  puts "notify #{user.name},todaymail=#{ustatistic.todaymail}" if user
-    #  puts "ustatistic.todaymail=#{ustatistic.todaymail}"
-     #  puts "ustatistic.totalmail=#{ustatistic.totalmail}"
-       ustatistic.todaymail=0 if ustatistic.todaymail.blank?
+      #  puts "notify #{user.name},todaymail=#{ustatistic.todaymail}" if user
+      #  puts "ustatistic.todaymail=#{ustatistic.todaymail}"
+      #  puts "ustatistic.totalmail=#{ustatistic.totalmail}"
+      ustatistic.todaymail=0 if ustatistic.todaymail.blank?
       if ustatistic.todaymail < 20 || email=="hunter.wxhu@gmail.com"
         unless user.id.to_s==cargo.user_id.to_s
           unless emailsubscribe.blank?
             #  new_cargolist=Array.new
             new_cargolist=emailsubscribe.cargolist||Array.new
-           # puts "original cargo list=#{emailsubscribe.cargolist},size=#{new_cargolist.size}"
+            # puts "original cargo list=#{emailsubscribe.cargolist},size=#{new_cargolist.size}"
             new_cargolist<<cargo.id.to_s
-          #   puts "new cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
+            #   puts "new cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
             new_cargolist.uniq!
-           #   puts "uniq cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
+            #   puts "uniq cargo list=#{ new_cargolist},size=#{new_cargolist.size}"
             emailsubscribe.update_attributes(:cargolist=>new_cargolist,:csize=>new_cargolist.size)
           
           else
-        #   puts"create emaillist for new user"
+            #   puts"create emaillist for new user"
             emailsubscribe= Emaillistc.new
             emailsubscribe.email=email
             emailsubscribe.cargolist=[cargo.id.to_s]
@@ -336,4 +336,69 @@ module CargosHelper
 
     end
   end
+  def fabu_helper
+    check=false
+    @quickfabu=Hash.new
+    @quickfabu[:from]=params[:from]
+    @quickfabu[:to]=params[:to]
+    @quickfabu[:contact]=params[:contact]
+    @quickfabu[:cargoname]=params[:cargoname]
+    @quickfabu[:chelength]=params[:chelength]
+    @quickfabu[:weight]=params[:weight]
+    @quickfabu[:send_date]=params[:send_date]
+     @quickfabu[:zuhuo]=params[:zuhuo]
+    @quickfabu[:comments]=params[:comments]
+    flash[:from]=@quickfabu[:from]
+    flash[:to]=@quickfabu[:to]
+    flash[:contact]=@quickfabu[:contact]
+    flash[:cargoname]=@quickfabu[:cargoname]
+    flash[:chelength]=@quickfabu[:chelength]
+    flash[:comments]=@quickfabu[:comments]
+    flash[:weight]=@quickfabu[:weight]
+    flash[:send_date]=@quickfabu[:send_date]
+    flash[:zuhuo]=@quickfabu[:zuhuo]
+    
+    mphone=@quickfabu[:contact].match(/(^|\D)\d\d\d\d\d\d\d\d\d\d\d($|\D)/)
+    mphone=mphone.to_s.match(/\d\d\d\d\d\d\d\d\d\d\d/) if mphone
+    fixphone=@quickfabu[:contact].match(/(^|\D)\d\d\d(-)\d\d\d\d\d\d\d(\d)($|\D)/)
+    fixphone=fixphone.to_s.match(/\d\d\d(\d)(-|-)\d\d\d\d\d\d\d(\d)/) if fixphone
+    fcity_code=CityTree.get_code_from_name(params[:from])
+    tcity_code=CityTree.get_code_from_name(params[:to])
+    if @quickfabu[:from].size==0 || @quickfabu[:to].size==0
+      flash[:notice]="发布失败了，你不能发布一个空的省市"
+    elsif @quickfabu[:contact].size==0 
+      flash[:notice]="发布失败了，联系人没有填写"
+    elsif (not(@quickfabu[:contact].match(/(^|\D)\d\d\d\d\d\d\d\d\d\d\d($|\D)/)||@quickfabu[:contact].match(/(^|\D)\d\d\d(-)\d\d\d\d\d\d\d(\d)($|\D)/)) )
+      flash[:notice]="发布失败了，联系人电话没有写或者格式不对"
+    elsif @quickfabu[:from].size>20 || @quickfabu[:to].size>20
+      flash[:notice]="发布失败了，省市数据太长了"
+    elsif @quickfabu[:cargoname].size>20 || @quickfabu[:chelength].size>10
+      flash[:notice]="发布失败了，货物名字或者车长太长"
+    elsif @quickfabu[:contact].size>30 || @quickfabu[:comments].size>100
+      flash[:notice]="发布失败了，联系或者备注太长"
+    elsif fcity_code.nil?
+      flash[:notice]="发布失败了，不能识别出发的省市,试试完整的路径如浙江省杭州市西湖区"
+    elsif tcity_code.nil?
+      flash[:notice]="发布失败了，不能识别到达的省市,试试完整的路径如江苏省苏州市常熟市"
+    else
+      check=true
+    end
+    
+    #now save to cargo
+    if check
+    begin
+    @cargo=Cargo.create!(:fcity_code=>fcity_code,:tcity_code=>tcity_code,:fcity_name=>params[:from],:tcity_name=>params[:to],
+      :cargo_weight=>params[:weight],:send_date=>params[:send_date], :comments=>params[:comments] +"求"+params[:chelength]+"米车",
+    :cate_name=>params[:cargoname],:status=>"正在配车",:user_id=>session[:user_id]||"4dc7338c7516fd590b000001",:line=>fcity_code+"#"+tcity_code,
+     :mobilephone=>mphone,:fixphone=>fixphone,:from_site=>"local");
+    flash[:notice]="发布成功了！，祝你生意兴隆！"
+    rescue
+       flash[:notice]="发布失败了，可能是重复发布了"
+       puts $@
+    end
+    
+    end
+  end 
+  
+
 end

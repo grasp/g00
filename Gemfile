@@ -33,7 +33,7 @@ gem 'mongo', '1.5.2'
 gem "mongoid", "~>2.4.5"
 #gem 'memcache-client'
 #gem 'unicorn'
-gem "webrobots", "~> 0.0.10", :git => 'http://github.com/knu/webrobots.git'
+gem "webrobots", "~> 0.0.10"#, :git => 'http://github.com/knu/webrobots.git'
 #gem "webrobots","0.0.11"
 
 platform=Object::RUBY_PLATFORM

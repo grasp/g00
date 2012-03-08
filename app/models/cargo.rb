@@ -78,8 +78,10 @@ class  Cargo
   def check_unique
    # repeated=Cargo.where(:cate_name=>self.cate_name,:line=>self.line,:user_id=>self.user_id,:status=>"正在配车",
    #   :contact=>self.contact,:comments=>self.comments,:from_site=>self.from_site ).count 
+
         repeated=Cargo.where(:cate_name=>self.cate_name,:line=>self.line,:user_id=>self.user_id,:status=>"正在配车",
-     :contact=>self.contact,:from_site=>self.from_site ).count 
+     :contact=>self.contact,:from_site=>self.from_site ,:mobilephone=>self.mobilephone,:fixphone=>self.fixphone).count 
+      puts "repeated=#{repeated}"
   if  repeated > 0
       return false
   end

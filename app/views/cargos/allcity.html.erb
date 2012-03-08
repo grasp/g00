@@ -1,8 +1,8 @@
 
-
-
-
-<%if params[:page]==1||params[:page]==nil%>
+<div>
+<%=render "/cargos/formq"%>
+</div>
+<%if params[:page]==1|| params[:page]==nil%>
   <%cache "cargos_allcity_1" do %>
   <%cargo_allcity_helper%>
     <%=render '/cargos/cargolist'%>

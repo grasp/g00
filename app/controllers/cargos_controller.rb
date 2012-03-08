@@ -22,6 +22,17 @@ class CargosController < ApplicationController
     return "usercenter" if action_name=="new"
     return 'cargo'
   end
+  
+  def quickfabu
+    fabu_helper    
+    respond_to do |format|
+      format.html {render :flash=>{:notice=>flash[:notice],:from=>flash[:from],
+          :to=>flash[:to],:contact=>flash[:contact],:cargoname=>flash[:cargoname],:chelength=>flash[:chelength],:comments=>flash[:comments],
+          :send_date=>flash[:send_date],:weight=>flash[:weight],:zuhuo=>flash[:zuhuo]}}
+      #   format.xml  { render :xml => @cargo }
+    end
+    
+  end
   def public
     #if this is all    
     if params[:city_from].nil?
@@ -126,37 +137,37 @@ class CargosController < ApplicationController
   # GET /cargos/1
   # GET /cargos/1.xml
   def show
-     @error=false
+    @error=false
     begin
-    @cargo=Cargo.find(params[:id])
+      @cargo=Cargo.find(params[:id])
     rescue
       @error=true
     end
     if not @error
-    #for jubao purpose
-    @user=User.find(session[:user_id]) if session[:user_id]
-    #update site statistic here
-    Sitedatum.first.inc(:cargoshow,1)
+      #for jubao purpose
+      @user=User.find(session[:user_id]) if session[:user_id]
+      #update site statistic here
+      Sitedatum.first.inc(:cargoshow,1)
      
-    @jubao=Jubao.new
-    @jubaotype="cargo"
-    @fromip=request.remote_ip
-    @belongid=params[:id]
-    @username=@user.name if  @user     
-    @wmail=Wmail.new
+      @jubao=Jubao.new
+      @jubaotype="cargo"
+      @fromip=request.remote_ip
+      @belongid=params[:id]
+      @username=@user.name if  @user     
+      @wmail=Wmail.new
  
-    @wmail.subject="物流零距离货源信息-#{@cargo.fcity_name}-#{@cargo.tcity_name}-#{@cargo.created_at.to_s.slice(0,19)}"
-    @wmail.mailtype="cargo_myself"
+      @wmail.subject="物流零距离货源信息-#{@cargo.fcity_name}-#{@cargo.tcity_name}-#{@cargo.created_at.to_s.slice(0,19)}"
+      @wmail.mailtype="cargo_myself"
     
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @cargo }
-    end
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @cargo }
+      end
     else
-          respond_to do |format|
-      format.html { render "cargos/showerror"} # show.html.erb
-      format.xml  { render :xml => @cargo }
-    end
+      respond_to do |format|
+        format.html { render "cargos/showerror"} # show.html.erb
+        format.xml  { render :xml => @cargo }
+      end
     end
   end
 
@@ -172,19 +183,19 @@ class CargosController < ApplicationController
     @cargo.user_id=@user.id
     @cargo.status="正在配车"
     @cargo.stock_cargo_id=@stock_cargo.id
-if false
-    if @user.user_contact_id.blank?
-      flash[:notice]="填写更多的联系信息，可以增加成交机会"
-    end
-    if @user.company_id.blank?
-      if flash[:notice].blank?
-        flash[:notice]="填写公司信息能够增加成交机会"
-      else
-        flash[:notice]<<";填写公司信息能够增加成交机会"
+    if false
+      if @user.user_contact_id.blank?
+        flash[:notice]="填写更多的联系信息，可以增加成交机会"
       end
+      if @user.company_id.blank?
+        if flash[:notice].blank?
+          flash[:notice]="填写公司信息能够增加成交机会"
+        else
+          flash[:notice]<<";填写公司信息能够增加成交机会"
+        end
 
+      end
     end
-end
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @cargo }
@@ -210,15 +221,15 @@ end
     params[:cargo][:priority]=100
 
     params[:cargo][:stock_cargo_id]=BSON::ObjectId(params[:cargo][:stock_cargo_id])
-   @user=User.find(session[:user_id])
+    @user=User.find(session[:user_id])
    
     #update cargo phone information for concerncargo
     params[:cargo][:mobilephone]=@user.mobilephone        
     user_contact=UserContact.find(@user.user_contact_id) unless @user.user_contact_id .nil?
     
-   unless user_contact.blank?
-     params[:cargo][:user_contact_id]= user_contact.id 
-     params[:cargo][:fixphone]=user_contact.quhao+"-"+user_contact.fixphone
+    unless user_contact.blank?
+      params[:cargo][:user_contact_id]= user_contact.id 
+      params[:cargo][:fixphone]=user_contact.quhao+"-"+user_contact.fixphone
     end
     
     @cargo=Cargo.new(params[:cargo])
@@ -365,15 +376,15 @@ end
 
   def allcity
 
-  if params[:from]=="mail"
-    Sitedatum.first.inc(:from_mail,1)
-    redirect_to(root_path)
-  end
+    if params[:from]=="mail"
+      Sitedatum.first.inc(:from_mail,1)
+      redirect_to(root_path)
+    end
   
-   # respond_to do |format|
-  #    format.html # index.html.erb
-  #    format.mobile
-  #  end
+    # respond_to do |format|
+    #    format.html # index.html.erb
+    #    format.mobile
+    #  end
 
   end
   
@@ -385,12 +396,12 @@ end
       next_province=cityid.to_i+10000000000
       @cargos=Cargo.where(:status=>"正在配车",:fcity_code.gte=>cityid.to_s,:fcity_code.lt=> next_province.to_s)
       .desc(:created_at).asc(:priority).paginate(:page=>params[:page]||1,:per_page=>25)
-   elsif cityid.match(/\d\d\d\d00000000$/)  and (not cityid.match(/\d\d0000000000$/))  # is a region
+    elsif cityid.match(/\d\d\d\d00000000$/)  and (not cityid.match(/\d\d0000000000$/))  # is a region
       next_region=cityid.to_i+100000000
       @cargos=Cargo.where(:status=>"正在配车",:fcity_code.gte=>cityid.to_s,:fcity_code.lt=> next_region.to_s)
       .desc(:created_at).asc(:priority).paginate(:page=>params[:page]||1,:per_page=>25)
-  else
-     @cargos=Cargo.where(:status=>"正在配车",:fcity_code=>cityid.to_s)
+    else
+      @cargos=Cargo.where(:status=>"正在配车",:fcity_code=>cityid.to_s)
       .desc(:created_at).asc(:priority).paginate(:page=>params[:page]||1,:per_page=>25)
     end
     
@@ -409,7 +420,7 @@ end
       @cargos=Cargo.where(:status=>"正在配车",:tcity_code.gte=>cityid.to_s,:tcity_code.lt=> next_region.to_s)
       .desc(:created_at).asc(:priority).paginate(:page=>params[:page]||1,:per_page=>25)
     else
-            @cargos=Cargo.where(:status=>"正在配车",:tcity_code=>cityid.to_s)
+      @cargos=Cargo.where(:status=>"正在配车",:tcity_code=>cityid.to_s)
       .desc(:created_at).asc(:priority).paginate(:page=>params[:page]||1,:per_page=>25)
     end
     
@@ -421,8 +432,8 @@ end
   
   def send_cargo_myself
     #not allow user send too much email in one day
-          @user=User.find(session[:user_id])
-     @today_total=Wmail.where(:from=>@user.email,:created_at.gte=>Time.now.at_beginning_of_day).count
+    @user=User.find(session[:user_id])
+    @today_total=Wmail.where(:from=>@user.email,:created_at.gte=>Time.now.at_beginning_of_day).count
     if ((session[:user_id] && @today_total<=10) || @user.email=="mark.xiansheng@gmail.com" )
       @wmail=Wmail.new
 
@@ -448,19 +459,19 @@ end
   end
   
   def cargo_to_friend
-   #not allow user send too much email in one day
-     @user=User.find(session[:user_id])
-     @today_total=Wmail.where(:from=>@user.email,:created_at.gte=>Time.now.at_beginning_of_day).count
+    #not allow user send too much email in one day
+    @user=User.find(session[:user_id])
+    @today_total=Wmail.where(:from=>@user.email,:created_at.gte=>Time.now.at_beginning_of_day).count
     if ((session[:user_id] && @today_total<=10) || @user.email=="mark.xiansheng@gmail.com" )
       @wmail=Wmail.new
-     params[:id]=params[:wmail][:cargo_id]
+      params[:id]=params[:wmail][:cargo_id]
       cargo_show_helper
       @wmail.from=@user.email
       @wmail.to=params[:wmail][:to] #need verify the email valid
       @wmail.subject="物流零距离货源信息-#{@cargo.fcity_name}-#{@cargo.tcity_name}-#{@cargo.created_at.to_s.slice(0,19)}"
       @wmail.mailtype="cargo_friend"
       begin
-      Notifier.send_cargo_friend(@user,@cargo,@contact,params[:wmail][:to].split(";")).deliver!
+        Notifier.send_cargo_friend(@user,@cargo,@contact,params[:wmail][:to].split(";")).deliver!
         @result="成功发送,今日已发送#{@today_total+1}/10"
         @wmail.save
       rescue
@@ -473,15 +484,15 @@ end
   end
   
   def post_cargo
-     logger.info "params[:cargo]="+params[:cargo]
+    logger.info "params[:cargo]="+params[:cargo]
     new_cargo= eval(params[:cargo]).to_hash  
        
-      @cargo=Cargo.new( new_cargo)
-      begin
-       @cargo.save!
-      rescue
-        logger.info "repeated cargo!"
-      end
+    @cargo=Cargo.new( new_cargo)
+    begin
+      @cargo.save!
+    rescue
+      logger.info "repeated cargo!"
+    end
   end
 
 end

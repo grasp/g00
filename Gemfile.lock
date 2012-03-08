@@ -1,9 +1,3 @@
-GIT
-  remote: http://github.com/knu/webrobots.git
-  revision: 14afdfaf5d9c5a2cc9093a6aabe7da9304569cc7
-  specs:
-    webrobots (0.0.13)
-
 GEM
   remote: http://ruby.taobao.org/
   specs:
@@ -36,6 +30,8 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.0)
     bson (1.5.2)
+    bson_ext (1.5.2)
+      bson (= 1.5.2)
     builder (3.0.0)
     carrierwave (0.5.8)
       activesupport (~> 3.0)
@@ -52,20 +48,23 @@ GEM
     coffee-script-source (1.2.0)
     commonwatir (2.0.4)
       user-choices
+    daemons (1.1.8)
     domain_name (0.5.2)
       unf (~> 0.0.3)
     erubis (2.7.0)
+    eventmachine (0.12.10)
     execjs (1.3.0)
       multi_json (~> 1.0)
     ffi (1.0.9)
-    ffi (1.0.9-x86-mingw32)
+    firewatir (1.9.4)
+      commonwatir (>= 1.9.2)
     foreverb (0.3.0)
       thor (~> 0.14.6)
     geocoder (1.1.0)
     gmaps4rails (1.4.5)
       json
     hike (1.2.1)
-    hoe (2.14.0)
+    hoe (2.16.0)
       rake (~> 0.8)
     i18n (0.6.0)
     journey (1.0.1)
@@ -75,13 +74,13 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mechanize (2.2.1)
-      domain_name (~> 0.5, >= 0.5.1)
-      mime-types (~> 1.17, >= 1.17.2)
-      net-http-digest_auth (~> 1.1, >= 1.1.1)
-      net-http-persistent (~> 2.5, >= 2.5.2)
+      domain_name (>= 0.5.1, ~> 0.5)
+      mime-types (>= 1.17.2, ~> 1.17)
+      net-http-digest_auth (>= 1.1.1, ~> 1.1)
+      net-http-persistent (>= 2.5.2, ~> 2.5)
       nokogiri (~> 1.4)
-      ntlm-http (~> 0.1, >= 0.1.1)
-      webrobots (~> 0.0, >= 0.0.9)
+      ntlm-http (>= 0.1.1, ~> 0.1)
+      webrobots (>= 0.0.9, ~> 0.0)
     mime-types (1.17.2)
     mongo (1.5.2)
       bson (= 1.5.2)
@@ -96,7 +95,6 @@ GEM
     net-http-digest_auth (1.2)
     net-http-persistent (2.5.2)
     nokogiri (1.5.0)
-    nokogiri (1.5.0-x86-mingw32)
     ntlm-http (0.1.1)
     polyglot (0.3.3)
     rack (1.4.1)
@@ -124,7 +122,6 @@ GEM
       rdoc (~> 3.4)
       thor (~> 0.14.6)
     rake (0.9.2.2)
-    rautomation (0.6.3)
     rdoc (3.12)
       json (~> 1.4)
     redis (2.2.1)
@@ -141,7 +138,11 @@ GEM
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
-      tilt (~> 1.1, != 1.3.0)
+      tilt (!= 1.3.0, ~> 1.1)
+    thin (1.3.1)
+      daemons (>= 1.0.9)
+      eventmachine (>= 0.12.6)
+      rack (>= 1.0.0)
     thor (0.14.6)
     tilt (1.3.3)
     treetop (1.4.10)
@@ -154,42 +155,29 @@ GEM
     unf (0.0.4)
       unf_ext
     unf_ext (0.0.4)
-    unf_ext (0.0.4-x86-mingw32)
     user-choices (1.1.6.1)
       builder (>= 2.1.2)
       s4t-utils (>= 1.0.3)
       xml-simple (>= 1.0.11)
-    watir (2.0.4)
-      commonwatir (= 2.0.4)
-      ffi (~> 1.0)
-      nokogiri
-      rautomation (~> 0.6.3)
-      win32-process (>= 0.5.5)
-      windows-pr (>= 0.6.6)
+    webrobots (0.0.12)
+      nokogiri (>= 1.4.4)
     will_paginate (3.0.3)
-    win32-api (1.4.8)
-    win32-api (1.4.8-x86-mingw32)
-    win32-process (0.6.5)
-      windows-pr (>= 1.1.2)
-    windows-api (0.4.1)
-      win32-api (>= 1.4.5)
-    windows-pr (1.2.1)
-      win32-api (>= 1.4.5)
-      windows-api (>= 0.3.0)
     xml-simple (1.1.1)
 
 PLATFORMS
   ruby
-  x86-mingw32
 
 DEPENDENCIES
   bson (~> 1.5.2)
+  bson_ext (~> 1.2)
   builder (= 3.0.0)
   carrierwave
   carrierwave-mongoid
   closure-compiler
   coffee-rails (~> 3.2.1)
+  eventmachine (= 0.12.10)
   ffi (= 1.0.9)
+  firewatir
   foreverb
   geocoder
   gmaps4rails
@@ -204,7 +192,7 @@ DEPENDENCIES
   redis-store (~> 1.0.0.rc1)
   request-log-analyzer
   sass-rails (= 3.2.3)
+  thin
   uglifier (= 1.0.4)
-  watir
-  webrobots (~> 0.0.10)!
+  webrobots (~> 0.0.10)
   will_paginate (~> 3.0.pre4)

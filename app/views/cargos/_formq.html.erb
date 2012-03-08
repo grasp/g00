@@ -1,0 +1,36 @@
+<span>
+<form  action="/cargos/quickfabu"  enctype="mutltipart/form-data" method="post">
+  
+  <input type="text" name="from"  value="<%=flash[:from].nil? ? "": flash[:from]%>"class="input-medium"></input>
+  (必含省市)<Strong>到</Strong><input type="text" name="to" value="<%=flash[:to].nil? ? "": flash[:to]%>" class="input-medium"></input>
+  有货物 <input type="text" name="cargoname" value="<%=flash[:cargoname].nil? ? "": flash[:cargoname]%>"  class="input-mini"></input>
+    <input type="text" name="weight" value="<%=flash[:weight].nil? ? "": flash[:weight]%>"  class="input-mini"></input>吨/方
+  求<input type="text" name="chelength" value="<%=flash[:chelength].nil? ? "": flash[:chelength]%>"  class="input-mini"></input> 米车 ，
+  联系人及电话<input type="text" name="contact" value="<%=flash[:contact].nil? ? "": flash[:contact]%>"  class="input-medium"></input>
+    有效,
+<select name="send_date" class="input-small">
+<option <%="selected" if flash[:send_date]=="1"%> value="1">一天</option>
+<option <%="selected" if flash[:send_date]=="2"%> value="2">二天</option>
+<option <%="selected" if flash[:send_date]=="3"%> selected value="3">三天</option>
+<option <%="selected" if flash[:send_date]=="15"%> value="15">15天</option>
+<option <%="selected" if flash[:send_date]=="30"%> value="30">一个月</option>
+<option <%="selected" if flash[:send_date]=="90"%> value="90">三个月</option>
+</select>
+  
+  
+
+  <select name="zuhuo" class="input-small">
+  <option <%="selected" if flash[:send_date]=="001"%> value="001">零整不限</option>
+<option <%="selected" if flash[:send_date]=="002"%>  value="002">整车</option>
+<option <%="selected" if flash[:send_date]=="003"%> value="003">零担</option>
+<option <%="selected" if flash[:send_date]=="004"%>  value="004">包裹</option>
+<option <%="selected" if flash[:send_date]=="005"%>  value="005">集装箱</option>
+<option <%="selected" if flash[:send_date]=="006"%>  value="006">整船</option>
+<option <%="selected" if flash[:send_date]=="007"%>  value="007">整舱</option>
+<option <%="selected" if flash[:send_date]=="008"%>  value="008">拚货</option></select>
+</select>
+  备注:
+  <input type="text" name="comments" value="<%=flash[:comments].nil? ? "": flash[:comments]%>" class="input-medium"></input> 
+   <input  type="submit" class="btn btn-small"  value="<%=flash[:from].nil? ? "直接发布": "重新发布"%>" name="commit"></input>
+ </form>
+  </span>
