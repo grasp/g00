@@ -10,11 +10,12 @@ class CargosController < ApplicationController
   # before_filter:authorize_public, :only => [:search]
   # caches_page :search,:show
   caches_page :controller => "cargos_controller", :action => "city"
-  protect_from_forgery :except => [:tip,:login,:post_cargo]
+  protect_from_forgery :except => [:tip,:login,:post_cargo,:quickfabu]
   # layout 'cargo' ,:except => [:show,:search]
   #layout 'cargo' ,:except => [:show]
   #
   layout :choose_layout   
+  
   def choose_layout
     return nil  if action_name =='post_cargo'     
     return 'usercenter'  if action_name =='index'      
