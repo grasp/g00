@@ -3,25 +3,35 @@
     <%cache "cargoshow"+params[:id] do%>
       <%cargo_show_helper%>
       <%unless @show_other_cargo%>
-  <ul>
-            <li> 组货方式:<%= $cargo_option[@cargo.cargo_zuhuo]%>  </li> 
-            <li> 货物大类:<%=$cargo_big_category[@stock_cargo.big_category]%> </li> 
-            <li> 货物包装:<%=@stock_cargo.package_name%> </li> 
-            <%@user=User.find(@cargo.user_id)%>
-            <li>  联系人:<%= @user.name %>  </li> 
-            <li>  联系方式: <%if @user.user_contact_id%>
-                <%usercontact=UserContact.find(@user.user_contact_id)%>
-                <%= usercontact.mobilephone %>
-                <%= usercontact.quhao+"-"+usercontact.fixphone %>
-              <%else%>
-                <%=@user.mobilephone%>
-              <%end%>
-            </li>
-       
-       </ul>
+  <%if @stock_cargo %>
+        <ul>
+          <li> 组货方式:<%= $cargo_option[@cargo.cargo_zuhuo]%>  </li> 
+          <li> 货物大类:<%=$cargo_big_category[@stock_cargo.big_category]%> </li> 
+          <li> 货物包装:<%=@stock_cargo.package_name%> </li> 
+          <%@user=User.find(@cargo.user_id)%>
+          <li>  联系人:<%= @user.name %>  </li> 
+          <li>  联系方式: <%if @user.user_contact_id%>
+              <%usercontact=UserContact.find(@user.user_contact_id)%>
+              <%= usercontact.mobilephone %>
+              <%= usercontact.quhao+"-"+usercontact.fixphone %>
+            <%else%>
+              <%=@user.mobilephone%>
+            <%end%>
+          </li>       
+        </ul>
         <p> 
           备注:<%=@cargo.comments  %>
         </p>
+        <%else%>
+                <ul>
+                   <li>从<%=@cargo.fcity_name%>到<%=@cargo.tcity_name%>,</li>
+           <li> 有货物<%= @cargo.cate_name+" "+@cargo.cargo_weight+"吨"%> , </li>     
+           <li>有效期<%=@cargo.send_date%>天,</li>
+          <li> 组货方式:<%= $cargo_option[@cargo.cargo_zuhuo]%> , </li> 
+          <li> 联系<%=@cargo.contact%> </li> ,
+          <li> 备注<%=@cargo.comments%> </li> 
+        </ul>
+        <%end%>
       <%else%>
         <div>
           <%=@show_other_cargo%>
@@ -36,16 +46,16 @@
         <a class="btn btn-default cargo_myself" href="/cargos/send_cargo_myself/<%=@cargo.id%>"> 把该货源信息发送到自己邮箱</a>
         <span class="help_inline" style="display:none">请稍等5秒</span>
       </div>
-    <%=render "cargos/new_send_cargo_friend"%>
-     <span class="help_inline mail_result" style="display:none">请稍等5秒</span>
+      <%=render "cargos/new_send_cargo_friend"%>
+      <span class="help_inline mail_result" style="display:none">请稍等5秒</span>
     <%end%>
   <%else%>
-   <div class="span4">
+    <div class="span4">
       <p>登录后可见联系方式.</p>
       <p>
-      <span><a class="btn btn-primary" href="/users/login">登录</a> 
-       <a  style="margin-left:30px;"class="btn btn-primary " href="/users/new">注册</a></span>          
-       </p>
+        <span><a class="btn btn-primary" href="/users/login">登录</a> 
+          <a  style="margin-left:30px;"class="btn btn-primary " href="/users/new">注册</a></span>          
+      </p>
     </div>
   </div>
 <%end%>

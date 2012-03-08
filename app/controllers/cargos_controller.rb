@@ -27,9 +27,10 @@ class CargosController < ApplicationController
   def quickfabu
     fabu_helper    
     respond_to do |format|
-      format.html {render :flash=>{:notice=>flash[:notice],:from=>flash[:from],
-          :to=>flash[:to],:contact=>flash[:contact],:cargoname=>flash[:cargoname],:chelength=>flash[:chelength],:comments=>flash[:comments],
-          :send_date=>flash[:send_date],:weight=>flash[:weight],:zuhuo=>flash[:zuhuo]}}
+       format.html {render :flash=>{:notice=>flash[:notice]}}
+    #  format.html {render :flash=>{:notice=>flash[:notice],:from=>flash[:from],
+   #       :to=>flash[:to],:contact=>flash[:contact],:cargoname=>flash[:cargoname],:chelength=>flash[:chelength],:comments=>flash[:comments],
+    #      :send_date=>flash[:send_date],:weight=>flash[:weight],:zuhuo=>flash[:zuhuo]}}
       #   format.xml  { render :xml => @cargo }
     end
     
@@ -376,7 +377,7 @@ class CargosController < ApplicationController
 
 
   def allcity
-
+@quickfabu=Hash.new if @quickfabu.nil?
     if params[:from]=="mail"
       Sitedatum.first.inc(:from_mail,1)
       redirect_to(root_path)

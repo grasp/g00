@@ -163,8 +163,11 @@ module CargosHelper
       #  @contact=  @cargo.contact_phone if @cargo[:from_site]=="quzhou"
       @jubao_counter=Jubao.where(:belongid=>@cargo.id).count
       if @cargo[:from_site]=="local"
+        if @cargo.stock_cargo_id
         @stock_cargo=StockCargo.find(@cargo.stock_cargo_id)
         @user=User.find(@cargo.user_id)
+              
+        end
       else
         @show_other_cargo=(@cargo.contact||"")+"  "+(@cargo.comments||"")+"  "+(@cargo.timetag||"")+""
       end
@@ -348,6 +351,7 @@ module CargosHelper
     @quickfabu[:send_date]=params[:send_date]
      @quickfabu[:zuhuo]=params[:zuhuo]
     @quickfabu[:comments]=params[:comments]
+   if false
     flash[:from]=@quickfabu[:from]
     flash[:to]=@quickfabu[:to]
     flash[:contact]=@quickfabu[:contact]
@@ -357,7 +361,7 @@ module CargosHelper
     flash[:weight]=@quickfabu[:weight]
     flash[:send_date]=@quickfabu[:send_date]
     flash[:zuhuo]=@quickfabu[:zuhuo]
-    
+   end
     mphone=@quickfabu[:contact].match(/(^|\D)\d\d\d\d\d\d\d\d\d\d\d($|\D)/)
     mphone=mphone.to_s.match(/\d\d\d\d\d\d\d\d\d\d\d/) if mphone
     fixphone=@quickfabu[:contact].match(/(^|\D)\d\d\d(-)\d\d\d\d\d\d\d(\d)($|\D)/)
@@ -390,7 +394,7 @@ module CargosHelper
     @cargo=Cargo.create!(:fcity_code=>fcity_code,:tcity_code=>tcity_code,:fcity_name=>params[:from],:tcity_name=>params[:to],
       :cargo_weight=>params[:weight],:send_date=>params[:send_date], :comments=>params[:comments] +"求"+params[:chelength]+"米车",
     :cate_name=>params[:cargoname],:status=>"正在配车",:user_id=>session[:user_id]||"4dc7338c7516fd590b000001",:line=>fcity_code+"#"+tcity_code,
-     :mobilephone=>mphone,:fixphone=>fixphone,:from_site=>"local");
+     :mobilephone=>mphone,:fixphone=>fixphone,:from_site=>"local",:contact=>params[:contact],:cargo_zuhuo=>params[:zuhuo]);
     flash[:notice]="发布成功了！，祝你生意兴隆！"
     rescue
        flash[:notice]="发布失败了，可能是重复发布了"
