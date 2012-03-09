@@ -7,10 +7,10 @@ class TrucksController < ApplicationController
   include CargosHelper
   # before_filter:authorize, :except => [:search,:show,:baojiatruck]
   before_filter:authorize, :only => [:new,:create,:update,:destroy,:edit,:quoteinquery,:request_chenjiao]
-  protect_from_forgery :except => [:tip,:login,:post_truck]
+  protect_from_forgery :except => [:tip,:login,:post_truck,:quickfabu]
   # layout "public"
   # caches_page :search,:show
-  #  caches_page :show
+   caches_page :show
   # layout 'public' ,:except => [:show,:search]
    
   layout :choose_layout  
@@ -20,6 +20,17 @@ class TrucksController < ApplicationController
     return  nil if  action_name=="show"
     return "usercenter" if action_name=="new"
     return 'truck'
+  end
+  
+  def quickfabu
+
+    quickfabu_helper
+      respond_to do |format|
+      format.html {render :flash=>{:notice=>flash[:notice]}}
+       #   :to=>flash[:to],:contact=>flash[:contact],:cargoname=>flash[:cargoname],:chelength=>flash[:chelength],:comments=>flash[:comments],
+     #     :send_date=>flash[:send_date],:weight=>flash[:weight],:zuhuo=>flash[:zuhuo]}}
+      #   format.xml  { render :xml => @cargo }
+    end
   end
    
   def public
@@ -363,7 +374,7 @@ class TrucksController < ApplicationController
   
   
   def allcity
-
+    @quickfabu=Hash.new
   end
   
   def cityfrom
@@ -408,10 +419,10 @@ class TrucksController < ApplicationController
   
   def post_truck
     logger.info  "get post truck request"
-        new_truck= eval(params[:truck]).to_hash  
+    new_truck= eval(params[:truck]).to_hash  
     
     begin
-    Truck.new(new_truck).save!
+      Truck.new(new_truck).save!
     rescue
       logger.info  "truck save excetion !!!!!"
     end

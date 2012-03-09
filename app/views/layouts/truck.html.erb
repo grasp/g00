@@ -28,6 +28,7 @@
       </div>
 
       <div class="fluid-content">
+           <%if flash[:notice]%> <div>   <p class="alert alert-info"><%=flash[:notice]%></p></div> <%end%>
         <%= yield %> 
         <%=render "shared/float_show"%>
       </div>

@@ -1,0 +1,23 @@
+<span>
+<form  action="/trucks/quickfabu"  enctype="mutltipart/form-data" method="post">
+  <%= text_field_tag(:from,@quickfabu[:from]||"",:class=>"input-medium2") %>(必含省市)到
+  <%= text_field_tag(:to,@quickfabu[:to]||"",:class=>"input-medium2") %>车牌号为
+  <%= text_field_tag(:chepai,@quickfabu[:chepai]||"",:class=>"input-mini2") %>
+  吨位
+  <%= text_field_tag(:dunwei,@quickfabu[:dunwei]||"",:class=>"input-mini3") %>吨,
+  车长
+  <%= text_field_tag(:chelength,@quickfabu[:chelength]||"",:class=>"input-mini3") %>米,
+  车型
+  <%=select_tag(:truck_shape,options_for_select($truck_shape_reverse.to_a,@quickfabu[:truck_shape]),{:class =>"input-mini2"})%>
+  用途
+  <%=select_tag(:truck_usage,options_for_select($truck_usage_reverse.to_a,@quickfabu[:truck_usage]),{:class =>"input-mini2"} )%>
+  有效
+  <%= select_tag(:send_date,options_for_select([["一天","1"],["二天","2"],["三天","3"],["15天","15"],["30天","30"],["90天","90"]],@quickfabu[:send_date]),{:class =>"input-mini2"}) %>
+  <%=select_tag(:huicheng,options_for_select($truck_huicheng_reverse.to_a,@quickfabu[:huicheng]),{:class =>"input-mini2"})%>
+  联系人及电话
+  <%= text_field_tag(:contact,@quickfabu[:contact]||"",:class=>"input-small") %>
+  备注
+  <%= text_field_tag(:comments,@quickfabu[:comments]||"",:class=>"input-small") %>
+  <input  type="submit" class="btn btn-small"  value="<%=@quickfabu[:from].nil? ? "直接发布": "重新发布"%>" name="commit"></input>
+</form>
+  </span>

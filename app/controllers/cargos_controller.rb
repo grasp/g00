@@ -27,9 +27,7 @@ class CargosController < ApplicationController
   def quickfabu
     fabu_helper    
     respond_to do |format|
-      format.html {render :flash=>{:notice=>flash[:notice],:from=>flash[:from],
-          :to=>flash[:to],:contact=>flash[:contact],:cargoname=>flash[:cargoname],:chelength=>flash[:chelength],:comments=>flash[:comments],
-          :send_date=>flash[:send_date],:weight=>flash[:weight],:zuhuo=>flash[:zuhuo]}}
+      format.html {render :flash=>{:notice=>flash[:notice]}}
       #   format.xml  { render :xml => @cargo }
     end
     

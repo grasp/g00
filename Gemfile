@@ -21,7 +21,7 @@ gem "mechanize"
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'will_paginate',:git => 'http://github.com/mislav/will_paginate.git',:branch=>'rails3'
-gem "will_paginate", "~> 3.0.pre4"
+gem "will_paginate", "~> 3.0.3"
 #gem "will_paginate_mongoid"
 #gem 'kaminari'
 

@@ -5,6 +5,7 @@
   <%if not @error%>
     <div id="truck_show">
       <%unless @other_truck_show%>
+      <%if @truck.stock_truck_id%>
         <table class="table table-striped">
           <tr>
             <th>回程车</th>
@@ -21,6 +22,16 @@
         </table>
       <p>  备注: <%=@truck.comments%></p>
       </div>
+  <%else%>
+  <ul class="unstyled">
+    <li><%=@truck.paizhao%>  </li>
+     <li><%=@truck.fcity_name%>  到<%=@truck.tcity_name%></li>
+     <li>吨位:<%=@truck.dunwei%>吨，车长:<%=@truck.length%>米</li>           
+     <li>车箱:<%=$truck_shape[@truck.shape]%>，用途:<%=$truck_usage[@truck.usage]%></li>
+           <li>联系:<%=@truck.contact%></li>
+            <li>备注:<%=@truck.comments%>,<%=$truck_huicheng[@truck.huicheng]%></li>
+  </ul>
+  <%end%>
 
     <%else%>
       <div>
