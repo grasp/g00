@@ -164,14 +164,8 @@ module CargosHelper
       @jubao_counter=Jubao.where(:belongid=>@cargo.id).count
       if @cargo[:from_site]=="local"
         if @cargo.stock_cargo_id
-<<<<<<< HEAD
           @stock_cargo=StockCargo.find(@cargo.stock_cargo_id)
           @user=User.find(@cargo.user_id)
-=======
-        @stock_cargo=StockCargo.find(@cargo.stock_cargo_id)
-        @user=User.find(@cargo.user_id)
-              
->>>>>>> 538261dd9734c40961cb2b2166bdea9f618fbf9b
         end
       else
         @show_other_cargo=(@cargo.contact||"")+"  "+(@cargo.comments||"")+"  "+(@cargo.timetag||"")+""
@@ -356,21 +350,7 @@ module CargosHelper
     @quickfabu[:send_date]=params[:send_date]
     @quickfabu[:zuhuo]=params[:zuhuo]
     @quickfabu[:comments]=params[:comments]
-<<<<<<< HEAD
-    
-=======
-   if false
-    flash[:from]=@quickfabu[:from]
-    flash[:to]=@quickfabu[:to]
-    flash[:contact]=@quickfabu[:contact]
-    flash[:cargoname]=@quickfabu[:cargoname]
-    flash[:chelength]=@quickfabu[:chelength]
-    flash[:comments]=@quickfabu[:comments]
-    flash[:weight]=@quickfabu[:weight]
-    flash[:send_date]=@quickfabu[:send_date]
-    flash[:zuhuo]=@quickfabu[:zuhuo]
-   end
->>>>>>> 538261dd9734c40961cb2b2166bdea9f618fbf9b
+
     mphone=@quickfabu[:contact].match(/(^|\D)\d\d\d\d\d\d\d\d\d\d\d($|\D)/)
     mphone=mphone.to_s.match(/\d\d\d\d\d\d\d\d\d\d\d/) if mphone
     fixphone=@quickfabu[:contact].match(/(^|\D)\d\d\d(-)\d\d\d\d\d\d\d(\d)($|\D)/)
