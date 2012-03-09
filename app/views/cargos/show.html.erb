@@ -4,7 +4,9 @@
       <%cargo_show_helper%>
       <%unless @show_other_cargo%>
   <%if @stock_cargo %>
+
         <ul class="unstyled">
+
           <li> 组货方式:<%= $cargo_option[@cargo.cargo_zuhuo]%>  </li> 
           <li> 货物大类:<%=$cargo_big_category[@stock_cargo.big_category]%> </li> 
           <li> 货物包装:<%=@stock_cargo.package_name%> </li> 
@@ -23,6 +25,7 @@
           备注:<%=@cargo.comments  %>
         </p>
         <%else%>
+
                 <ul class="unstyled">
                    <li>从<%=@cargo.fcity_name%>到<%=@cargo.tcity_name%>,</li>
            <li> 有货物:<%= @cargo.cate_name+" "+@cargo.cargo_weight+"吨"%> , </li>     
@@ -30,6 +33,7 @@
           <li> 组货方式:<%= $cargo_option[@cargo.cargo_zuhuo]%> , </li> 
           <li> 联系:<%=@cargo.contact%> </li> ,
           <li> 备注:<%=@cargo.comments%> </li> 
+
         </ul>
         <%end%>
       <%else%>

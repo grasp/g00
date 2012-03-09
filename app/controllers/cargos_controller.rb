@@ -28,9 +28,7 @@ class CargosController < ApplicationController
     fabu_helper    
     respond_to do |format|
       format.html {render :flash=>{:notice=>flash[:notice]}}
-      #   format.xml  { render :xml => @cargo }
-    end
-    
+    end    
   end
   def public
     #if this is all    
@@ -374,7 +372,7 @@ class CargosController < ApplicationController
 
 
   def allcity
-
+@quickfabu=Hash.new if @quickfabu.nil?
     if params[:from]=="mail"
       Sitedatum.first.inc(:from_mail,1)
       redirect_to(root_path)
