@@ -34,13 +34,14 @@ location[:speed]=speed
   #   mechanize.get(CGI::escape("http://localhost:4500/dingwei/postgps/mphone/#{mobile_phone}/lat/#{lat}/lng/#{lng}/speed/#{speed}"))
   #mechanize.get("http://localhost:4500/dingwei/postgps/mphone/#{mobile_phone}/lat/#{lat}/lng/#{lng}")
   
-  result= mechanize.post("http://localhost:4500/dingwei/post_gps",:location=>location)
+  result= mechanize.post("http://10.159.209.126:4500/dingwei/post_gps",:location=>location)
+  puts result.body
 # puts  eval(result.body).to_hash
- parsed_json = ActiveSupport::JSON.decode(result.body)
- puts parsed_json["bind"]
+ #parsed_json = ActiveSupport::JSON.decode(result.body)
+ #puts parsed_json["bind"]
   end
 
-	background_every_n_seconds(2*5) { puts 'Get back to work!' ;}
+	background_every_n_seconds(1*5) { puts 'Get back to work!' ;}
 
 
 
