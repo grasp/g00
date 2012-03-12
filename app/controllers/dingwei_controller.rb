@@ -86,7 +86,9 @@ class DingweiController < ApplicationController
   end
   
   def post_gps
+    if params[:location]
     @new_location= eval(params[:location]).to_hash  
+    end
     if false
     if @new_location[:mphone]
       @stock_truck=StockTruck.where(:driver_phone=> @new_location[:mphone]).first
@@ -107,6 +109,7 @@ class DingweiController < ApplicationController
       format.json { render :json=> @poll.to_json }
     end
      end
+     
   end
   
    def neartruck
